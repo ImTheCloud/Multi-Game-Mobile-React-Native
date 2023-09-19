@@ -6,11 +6,11 @@ export default function HomeScreen({ navigation }) {
     <View style={styles.container}>
       <View style={styles.content}>
         <Image
-source={require('../assets/logoGuessNumber.png')}
+source={require('../assets/background.png')}
           style={styles.logo}
         />
-        <Text style={styles.title}>Welcome to the Number Guessing Game</Text>
-        <Text style={styles.description}>Can you guess the secret number?</Text>
+        <Text style={styles.title}>Welcome to the Multi Game Mobile</Text>
+        <Text style={styles.description}>Are you ready to play ?</Text>
       </View>
       <TouchableOpacity
   style={styles.button}
@@ -24,19 +24,10 @@ source={require('../assets/logoGuessNumber.png')}
 <TouchableOpacity
   style={styles.button}
   onPress={() => {
-    navigation.navigate('Game1'); // Ajoutez cette ligne pour accéder à Game1
+    navigation.navigate('TicTacToe'); // Ajoutez cette ligne pour accéder à Game1
   }}
 >
-  <Text style={styles.buttonText}>Game 1</Text>
-</TouchableOpacity>
-
-<TouchableOpacity
-  style={styles.button}
-  onPress={() => {
-    navigation.navigate('Game2'); // Ajoutez cette ligne pour accéder à Game2
-  }}
->
-  <Text style={styles.buttonText}>Game 2</Text>
+  <Text style={styles.buttonText}>Tic Tac Toe</Text>
 </TouchableOpacity>
 
     </View>
@@ -81,3 +72,4 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
 });
+
