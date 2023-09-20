@@ -4,6 +4,9 @@ import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 export default function TicTacToe() {
   const [board, setBoard] = useState(Array(9).fill(null));
   const [xIsNext, setXIsNext] = useState(true);
+  const [xWins, setXWins] = useState(0);
+  const [oWins, setOWins] = useState(0);
+  const [draws, setDraws] = useState(0);
   const winner = calculateWinner(board);
 
   const handleClick = (index) => {
@@ -16,6 +19,28 @@ export default function TicTacToe() {
     setXIsNext(!xIsNext);
   };
 
+  const resetGame = () => {
+    setBoard(Array(9).fill(null));
+    setXIsNext(true);
+  };
+
+  const checkGameStatus = () => {
+    if (winner) {
+      if (winner === 'X') {
+        setXWins(xWins + 1);
+      } else if (winner === 'O') {
+        setOWins(oWins + 1);
+      }
+    } else if (board.every((square) => square)) {
+      setDraws(draws + 1);
+    }
+  };
+
+  // Appeler checkGameStatus à chaque clic
+  React.useEffect(() => {
+    checkGameStatus();
+  }, [board]);
+
   const renderSquare = (index) => (
     <TouchableOpacity
       style={styles.square}
@@ -27,6 +52,8 @@ export default function TicTacToe() {
 
   const status = winner
     ? `Winner: ${winner}`
+    : board.every((square) => square)
+    ? 'Match nul'
     : `Next player: ${xIsNext ? 'X' : 'O'}`;
 
   return (
@@ -50,6 +77,15 @@ export default function TicTacToe() {
           {renderSquare(8)}
         </View>
       </View>
+      <Text style={styles.score}>
+        Scores: X - {xWins}, O - {oWins}, Draws - {draws}
+      </Text>
+      <TouchableOpacity
+        style={styles.resetButton}
+        onPress={resetGame}
+      >
+        <Text style={styles.resetButtonText}>Réinitialiser le jeu</Text>
+      </TouchableOpacity>
     </View>
   );
 }
@@ -85,6 +121,22 @@ const styles = StyleSheet.create({
   },
   squareText: {
     fontSize: 24,
+    fontWeight: 'bold',
+  },
+  score: {
+    fontSize: 18,
+    marginBottom: 10,
+  },
+  resetButton: {
+    backgroundColor: 'red',
+    padding: 10,
+    borderRadius: 5,
+    marginTop: 20,
+    alignItems: 'center',
+  },
+  resetButtonText: {
+    color: 'white',
+    fontSize: 18,
     fontWeight: 'bold',
   },
 });
