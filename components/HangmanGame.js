@@ -2,8 +2,14 @@ import React, { useState, useEffect } from 'react';
 import { View, Text, TextInput, Button, StyleSheet, Alert } from 'react-native';
 
 export default function HangmanGame({ navigation }) {
-  const [displayWord, setDisplayWord] = useState('_____'); // Le mot affiché avec des tirets
-  const [attempts, setAttempts] = useState(6); // Nombre d'essais restants
+  const words = [
+    'IOS',
+    'ANDROID',
+    'JAVA',
+    'REACT',
+    'NATIVE',
+    'JAVASCRIPT',
+    'DATABASE',
     'COMPUTER',
     'PROGRAMMING',
     'DEVELOPER',
