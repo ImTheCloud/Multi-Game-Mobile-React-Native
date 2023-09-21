@@ -84,7 +84,7 @@ export default function TicTacToe() {
         style={styles.resetButton}
         onPress={resetGame}
       >
-        <Text style={styles.resetButtonText}>Réinitialiser le jeu</Text>
+        <Text style={styles.resetButtonText}>Restart</Text>
       </TouchableOpacity>
     </View>
   );
