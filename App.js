@@ -6,6 +6,7 @@ import NumberGuessGame from './components/NumberGuessGame';
 import TicTacToe from './components/TicTacToe';
 import DrawingGame from './components/DrawingGame';
 import RockPaperScissorsGame from './components/RockPaperScissorsGame';
+import HangmanGame from './components/HangmanGame';
 
 const Stack = createStackNavigator();
 
@@ -18,6 +19,7 @@ export default function App() {
         <Stack.Screen name="TicTacToe" component={TicTacToe} />
         <Stack.Screen name="DrawingGame" component={DrawingGame} />
         <Stack.Screen name="RockPaperScissorsGame" component={RockPaperScissorsGame} />
+        <Stack.Screen name="HangmanGame" component={HangmanGame} />
       </Stack.Navigator>
     </NavigationContainer>
   );

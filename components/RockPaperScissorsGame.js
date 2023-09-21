@@ -14,7 +14,7 @@ export default function RockPaperScissorsGame() {
   ];
 
   const generateComputerChoice = () => {
-    const randomIndex = Math.floor(Math.random() * 4);
+    const randomIndex = Math.floor(Math.random() * 3);
     return randomIndex;
   };
 
@@ -61,7 +61,7 @@ export default function RockPaperScissorsGame() {
             You chose: {choices[userChoice].text}
           </Text>
           <Text style={styles.resultText}>
-            Computer chose: {choices[computerChoice].text}
+            IA chose: {choices[computerChoice].text}
           </Text>
           <Text style={styles.resultText}>{result}</Text>
         </View>

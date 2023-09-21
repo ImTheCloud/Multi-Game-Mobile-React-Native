@@ -18,11 +18,15 @@ const games = [
     screenName: 'TicTacToe',
     image: require('../assets/tic-tac-toe.png'),
   },
-  // Ajoutez le jeu de pierre-papier-ciseaux ici
   {
     title: 'Rock Paper Scissors',
     screenName: 'RockPaperScissorsGame',
     image: require('../assets/rockPaperScissors.png'),
+  },
+  {
+    title: 'Hangman Game',
+    screenName: 'HangmanGame', 
+    image: require('../assets/hangman.png'), 
   },
 ];
 
