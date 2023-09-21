@@ -18,7 +18,9 @@
     "react-dom": "18.2.0",
     "react-native": "0.72.4",
     "react-native-sound": "^0.11.2",
-    "react-native-web": "~0.19.6"
+    "react-native-svg": "13.9.0",
+    "react-native-web": "~0.19.6",
+    "react-svg": "^16.1.25"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0"

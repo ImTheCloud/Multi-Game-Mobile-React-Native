@@ -6,14 +6,24 @@ const games = [
   {
     title: 'Number Guess Game',
     screenName: 'NumberGuessGame',
-    image: require('../assets/logoGuessNumber.png'), // Chemin de l'image pour Number Guess Game
+    image: require('../assets/logoGuessNumber.png'), 
+  },
+  {
+    title: 'Drawing Game',
+    screenName: 'DrawingGame',
+    image: require('../assets/drawingGame.png'), 
   },
   {
     title: 'Tic Tac Toe',
     screenName: 'TicTacToe',
-    image: require('../assets/tic-tac-toe.png'), // Chemin de l'image pour Tic Tac Toe
-  }
-  // Ajoutez d'autres jeux ici
+    image: require('../assets/tic-tac-toe.png'),
+  },
+  // Ajoutez le jeu de pierre-papier-ciseaux ici
+  {
+    title: 'Rock Paper Scissors',
+    screenName: 'RockPaperScissorsGame',
+    image: require('../assets/rockPaperScissors.png'),
+  },
 ];
 
 export default function HomeScreen({ navigation }) {

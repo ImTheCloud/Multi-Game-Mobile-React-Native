@@ -19,7 +19,7 @@ export default function NumberGuessGame() {
 
     if (timer > 0 && gameStarted) {
       interval = setInterval(() => {
-        setTimer(timer - 1);
+        setTimer(timer - 1);  
       }, 1000);
     } else if (timer === 0 && gameStarted) {
       handleTimeout();
