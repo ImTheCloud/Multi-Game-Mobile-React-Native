@@ -23,7 +23,7 @@ export default function HangmanGame({ navigation }) {
     'MOBILE',
     'APPLICATION',
     'INTERNET',
-  ]; // Liste de mots possibles
+  ];
 
   const maxAttempts = 5;
 
@@ -37,6 +37,7 @@ export default function HangmanGame({ navigation }) {
   const [attempts, setAttempts] = useState(maxAttempts);
   const [inputLetter, setInputLetter] = useState('');
   const [hangmanTries, setHangmanTries] = useState(0);
+  const [incorrectLetters, setIncorrectLetters] = useState([]);
 
   useEffect(() => {
     const newWord = chooseRandomWord();
@@ -44,6 +45,7 @@ export default function HangmanGame({ navigation }) {
     setDisplayWord('_'.repeat(newWord.length));
     setAttempts(maxAttempts);
     setHangmanTries(0);
+    setIncorrectLetters([]);
   }, []);
 
   useEffect(() => {
@@ -81,7 +83,8 @@ export default function HangmanGame({ navigation }) {
         }
       } else {
         setAttempts(attempts - 1);
-        setHangmanTries(hangmanTries + 1); // Augmentez le nombre d'essais du bonhomme pendu
+        setHangmanTries(hangmanTries + 1);
+        setIncorrectLetters([...incorrectLetters, letter]);
         if (attempts - 1 === 0) {
           Alert.alert(
             'You lost!',
@@ -100,33 +103,27 @@ export default function HangmanGame({ navigation }) {
     setDisplayWord('_'.repeat(newWord.length));
     setAttempts(maxAttempts);
     setHangmanTries(0);
-  };
-
-  const renderHangman = () => {
-    const hangmanParts = [
-      '  O  ', // tête
-      '  |  ', // cou
-      ' /|\\ ', // bras
-      '  |  ', // corps
-      ' / \\ ', // jambes
-    ];
-
-    const hangman = [];
-
-    for (let i = 0; i < hangmanTries; i++) {
-      hangman.push(hangmanParts[i]);
-    }
-
-    return hangman.map((part, index) => (
-      <Text key={index} style={styles.hangmanPart}>
-        {part}
-      </Text>
-    ));
+    setIncorrectLetters([]);
   };
 
   return (
     <View style={styles.container}>
-      <View style={styles.hangmanContainer}>{renderHangman()}</View>
+      <View style={styles.hangmanContainer}>
+        <Text style={styles.incorrectLetters}>
+          Incorrect Letters:{' '}
+          {incorrectLetters.map((letter, index) => (
+            <Text
+              key={index}
+              style={{
+                textDecorationLine: 'line-through',
+                color: 'black',
+              }}
+            >
+              {letter}
+            </Text>
+          ))}
+        </Text>
+      </View>
       <Text style={styles.displayWord}>{displayWord}</Text>
       <Text style={styles.attempts}>Attempts left: {attempts}</Text>
       <TextInput
@@ -151,11 +148,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     backgroundColor: '#f5f5f5',
   },
-  title: {
-    fontSize: 32,
-    fontWeight: 'bold',
-    marginBottom: 20,
-  },
   displayWord: {
     fontSize: 48,
     marginBottom: 20,
@@ -175,7 +167,7 @@ const styles = StyleSheet.create({
   },
   buttonContainer: {
     flexDirection: 'row',
-    justifyContent: 'center', // Centrer le bouton Guess
+    justifyContent: 'center',
     marginBottom: 20,
   },
   hangmanContainer: {
@@ -185,5 +177,9 @@ const styles = StyleSheet.create({
   hangmanPart: {
     fontSize: 24,
     fontFamily: 'monospace',
+  },
+  incorrectLetters: {
+    fontSize: 24,
+    marginBottom: 20,
   },
 });
