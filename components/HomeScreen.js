@@ -28,6 +28,11 @@ const games = [
     screenName: 'HangmanGame', 
     image: require('../assets/hangman.png'), 
   },
+  {
+    title: 'Sudoku Game',
+    screenName: 'SudokuGame', 
+    image: require('../assets/sudoku.png'), 
+  },
 ];
 
 export default function HomeScreen({ navigation }) {
