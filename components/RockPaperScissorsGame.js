@@ -110,10 +110,9 @@ export default function RockPaperScissorsGame() {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Rock Paper Scissors Game</Text>
       <View style={styles.modeButtons}>
         <TouchableOpacity
-          style={styles.modeButton}
+          style={[styles.modeButton, { marginRight: 10 }]} // Ajout de marginRight pour l'espace
           onPress={startGameAgainstAI}
         >
           <Text style={styles.modeButtonText}>Play against AI</Text>
@@ -128,7 +127,9 @@ export default function RockPaperScissorsGame() {
       {gameMode && (
         <View>
           {gameMode === 'player' && (
-            <Text>{userChoice === null ? 'Player 1, select your choice:' : 'Player 2, select your choice:'}</Text>
+            <Text style={styles.instructionText}>
+              {userChoice === null ? 'Player 1, select your choice:' : 'Player 2, select your choice:'}
+            </Text>
           )}
           <View style={styles.choices}>
             {choices.map((choice, index) => (
@@ -181,7 +182,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   title: {
-    fontSize: 24,
+    fontSize: 28,
     fontWeight: 'bold',
     marginBottom: 20,
   },
@@ -192,12 +193,17 @@ const styles = StyleSheet.create({
   },
   modeButton: {
     backgroundColor: '#007bff',
-    padding: 10,
-    borderRadius: 5,
+    padding: 15,
+    borderRadius: 10,
   },
   modeButtonText: {
     color: 'white',
     fontWeight: 'bold',
+    fontSize: 16,
+  },
+  instructionText: {
+    fontSize: 18,
+    marginBottom: 10,
   },
   choices: {
     flexDirection: 'row',
@@ -208,17 +214,20 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   choiceImage: {
-    width: 95,
+    width: 100,
     height: 100,
   },
   choiceText: {
-    fontSize: 18,
+    fontSize: 16,
+    marginTop: 5,
   },
   result: {
     alignItems: 'center',
+    marginTop: 20,
   },
   resultText: {
-    fontSize: 20,
-    marginTop: 10,
+    fontSize: 24,
+    marginTop: 15,
+    fontWeight: 'bold',
   },
 });
