@@ -1,11 +1,13 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useState, useEffect } from 'react';
 import { Text, View } from 'react-native';
+import { Text, View, Image } from 'react-native';
 import { GameEngine } from 'react-native-game-engine';
 import entities from '../components/FlappybirdComponents/entities';
 import Physics from '../components/FlappybirdComponents/physics';
 import { TouchableOpacity } from 'react-native';
 
+const birdImage = require('../assets/flappybird.png');
 
 function FlappyBird() {
   const [running, setRunning] = useState(false);
@@ -26,7 +28,7 @@ function FlappyBird() {
           setGameEngine(ref);
         }}
         systems={[Physics]}
-        entities={entities()}
+        entities={entities(birdImage)} // Pass the bird image as a prop
         running={running}
         onEvent={(e) => {
           switch (e.type) {
@@ -51,7 +53,7 @@ function FlappyBird() {
             onPress={() => {
               setCurrentPoints(0);
               setRunning(true);
-              gameEngine.swap(entities());
+              gameEngine.swap(entities(birdImage)); // Pass the bird image as a prop
             }}
           >
             <Text style={{ fontWeight: 'bold', color: 'white', fontSize: 30 }}>
