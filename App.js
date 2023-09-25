@@ -7,7 +7,7 @@ import TicTacToe from './components/TicTacToe';
 import RockPaperScissorsGame from './components/RockPaperScissorsGame';
 import HangmanGame from './components/HangmanGame';
 import SudokuGame from './components/SudokuGame';
-import FlappyBird from './components/FlappyBird';
+import FlappyBird from './FlappyBird';
 
 
 
