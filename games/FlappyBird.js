@@ -1,6 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useState, useEffect } from 'react';
-import { Text, View } from 'react-native';
 import { Text, View, Image } from 'react-native';
 import { GameEngine } from 'react-native-game-engine';
 import entities from '../components/FlappybirdComponents/entities';
