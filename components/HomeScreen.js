@@ -4,14 +4,16 @@ import GameList from './GameList';
 
 const games = [
   {
+    
+    title: 'Flappy Bird',
+    screenName: 'FlappyBird',
+    image: require('../assets/flappybird.png'), 
+  },
+  {
+    
     title: 'Number Guess Game',
     screenName: 'NumberGuessGame',
     image: require('../assets/logoGuessNumber.png'), 
-  },
-  {
-    title: 'Drawing Game',
-    screenName: 'DrawingGame',
-    image: require('../assets/drawingGame.png'), 
   },
   {
     title: 'Tic Tac Toe',
