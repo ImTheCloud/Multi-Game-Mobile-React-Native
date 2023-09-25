@@ -1,7 +1,7 @@
 import Matter from "matter-js"
-import Bird from "../components/Bird";
-import Floor from "../components/Floor";
-import Obstacle from "../components/Obstacle";
+import Bird from "../Bird";
+import Floor from "../Floor";
+import Obstacle from "../Obstacle";
 
 import { Dimensions } from 'react-native'
 import { getPipeSizePosPair } from "../utils/random";

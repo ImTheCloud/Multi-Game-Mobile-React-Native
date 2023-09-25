@@ -2,14 +2,12 @@ import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import HomeScreen from './components/HomeScreen';
-import NumberGuessGame from './components/NumberGuessGame';
-import TicTacToe from './components/TicTacToe';
-import RockPaperScissorsGame from './components/RockPaperScissorsGame';
-import HangmanGame from './components/HangmanGame';
-import SudokuGame from './components/SudokuGame';
-import FlappyBird from './FlappyBird';
-
-
+import NumberGuessGame from './games/NumberGuessGame';
+import TicTacToe from './games/TicTacToe';
+import RockPaperScissorsGame from './games/RockPaperScissorsGame';
+import HangmanGame from './games/HangmanGame';
+import SudokuGame from './games/SudokuGame';
+import FlappyBird from './games/FlappyBird';
 
 const Stack = createStackNavigator();
 

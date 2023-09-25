@@ -2,8 +2,8 @@ import { StatusBar } from 'expo-status-bar';
 import React, { useState, useEffect } from 'react';
 import { Text, View } from 'react-native';
 import { GameEngine } from 'react-native-game-engine';
-import entities from './entities';
-import Physics from './physics';
+import entities from '../components/FlappybirdComponents/entities';
+import Physics from '../components/FlappybirdComponents/physics';
 import { TouchableOpacity } from 'react-native';
 
 
