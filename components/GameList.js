@@ -1,20 +1,22 @@
 import React from 'react';
-import { View, Text, ScrollView, TouchableOpacity, StyleSheet, Image } from 'react-native';
+import {ScrollView, TouchableOpacity, StyleSheet, Image } from 'react-native';
 
-export default function GameList({ games, onSelectGame }) {
-  return (
+export default function GameList({ games, onSelectGame }) { 
+  // le composant GameList reçoit deux props  games et onSelectGame
+  // games : Un tableau d'objets représentant les jeux à afficher
+  // onSelectGame : Une fonction qui sera appelée lorsqu'un jeu est sélectionné (homescreen)
+  return ( //rend une scrollView
     <ScrollView
-      horizontal
-      showsHorizontalScrollIndicator={false}
-      contentContainerStyle={styles.gameList}
+      horizontal // mets la liste en horizontal
+      contentContainerStyle={styles.gameList} // css de la liste voir en bas
     >
-      {games.map((game, index) => (
-        <TouchableOpacity
+      {games.map((game, index) => ( // map pour parcourir games
+        <TouchableOpacity //bouton cliquable
           key={index}
           style={styles.gameItem}
-          onPress={() => onSelectGame(game)}
+          onPress={() => onSelectGame(game)} // apelle la fonction de homescreen pour la navigation
         >
-          <Image source={game.image} style={styles.gameImage} />
+          <Image source={game.image} style={styles.gameImage} /> 
         </TouchableOpacity>
       ))}
     </ScrollView>
@@ -34,8 +36,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   gameImage: {
-    width: 80, // Ajustez la largeur de l'image selon vos besoins
-    height: 80, // Ajustez la hauteur de l'image selon vos besoins
-    borderRadius: 8, // Ajoutez un bord arrondi à l'image si nécessaire
+    width: 80, // Ajustez la largeur de l'image 
+    height: 80, // Ajustez la hauteur de l'image 
   },
 });

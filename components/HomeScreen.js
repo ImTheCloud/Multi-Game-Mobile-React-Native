@@ -1,10 +1,10 @@
 import React from 'react';
 import { View, Text, Image, StyleSheet } from 'react-native';
-import GameList from './GameList';
+import GameList from './GameList'; // import
 
-const games = [
+const games = [ // tableau
+    // chaque élément est un objet contenant ces propriétés.
   {
-    
     title: 'Flappy Bird',
     screenName: 'FlappyBird',
     image: require('../assets/flappybird.png'), 
@@ -30,32 +30,30 @@ const games = [
     screenName: 'HangmanGame', 
     image: require('../assets/hangman.png'), 
   },
-  {
-    title: 'Sudoku Game',
-    screenName: 'SudokuGame', 
-    image: require('../assets/sudoku.png'), 
-  },
 ];
 
-export default function HomeScreen({ navigation }) {
+export default function HomeScreen({ navigation }) { // composant par defaut avec objet en parametre
   React.useLayoutEffect(() => {
     navigation.setOptions({
-      headerShown: false, // Masquer l'en-tête sur cette page
+      headerShown: false, // masquer l'en-tête sur cette page
     });
   }, [navigation]);
 
-  return (
+  return ( // rendu du composant  renvoie l'interface utilisateur la view
     <View style={styles.container}>
       <Image
         source={require('../assets/background.png')}
         style={styles.backgroundImage}
       />
+
       <View style={styles.content}>
         <Text style={styles.title}>Multi Game Mobile</Text>
       </View>
-      <GameList
+
+      <GameList // composant
         games={games}
-        onSelectGame={(game) => {
+        onSelectGame={(game) => { 
+        // fonction onSelect passe comme prop, fonction appele lorsque on clique sur un jeux pour la redirection
           navigation.navigate(game.screenName);
         }}
       />
