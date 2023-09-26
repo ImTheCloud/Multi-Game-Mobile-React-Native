@@ -7,7 +7,7 @@ import Physics from '../components/FlappybirdComponents/physics';
 import { TouchableOpacity } from 'react-native';
 
 const birdImage = require('../assets/flappybird.png');
-const backgroundImage = require('../assets/background.png');
+const backgroundImage = require('../assets/backgroundFlappyBird.png');
 
 function FlappyBird() {
   const [running, setRunning] = useState(false);
