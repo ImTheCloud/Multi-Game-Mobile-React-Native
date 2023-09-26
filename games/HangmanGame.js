@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, TextInput, Button, StyleSheet, Alert } from 'react-native';
 
-export default function HangmanGame({ navigation }) {
+export default function HangmanGame() {
   const words = [
     'IOS',
     'ANDROID',

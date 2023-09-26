@@ -24,12 +24,6 @@ const games = [ // tableau
     screenName: 'RockPaperScissorsGame',
     image: require('../assets/rockPaperScissors.png'),
   },
-  {
-    title: 'Number Guess Game',
-    screenName: 'NumberGuessGame',
-    image: require('../assets/logoGuessNumber.png'), 
-  },
-  
 ];
 
 export default function HomeScreen({ navigation }) { // composant par defaut avec objet en parametre
