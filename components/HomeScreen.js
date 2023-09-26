@@ -10,15 +10,14 @@ const games = [ // tableau
     image: require('../assets/flappybird.png'), 
   },
   {
-    
-    title: 'Number Guess Game',
-    screenName: 'NumberGuessGame',
-    image: require('../assets/logoGuessNumber.png'), 
-  },
-  {
     title: 'Tic Tac Toe',
     screenName: 'TicTacToe',
     image: require('../assets/tic-tac-toe.png'),
+  },
+  {
+    title: 'Hangman Game',
+    screenName: 'HangmanGame', 
+    image: require('../assets/hangman.png'), 
   },
   {
     title: 'Rock Paper Scissors',
@@ -26,10 +25,11 @@ const games = [ // tableau
     image: require('../assets/rockPaperScissors.png'),
   },
   {
-    title: 'Hangman Game',
-    screenName: 'HangmanGame', 
-    image: require('../assets/hangman.png'), 
+    title: 'Number Guess Game',
+    screenName: 'NumberGuessGame',
+    image: require('../assets/logoGuessNumber.png'), 
   },
+  
 ];
 
 export default function HomeScreen({ navigation }) { // composant par defaut avec objet en parametre

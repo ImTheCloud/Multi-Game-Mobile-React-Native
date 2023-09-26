@@ -8,7 +8,6 @@ export default function NumberGuessGame() {
   const [randomNumber, setRandomNumber] = useState(generateRandomNumber(minNumber, maxNumber));
   const [guess, setGuess] = useState('');
   const [message, setMessage] = useState('');
-  const [backgroundColor, setBackgroundColor] = useState('#F2EFEF');
   const [attempts, setAttempts] = useState(0);
   const [timer, setTimer] = useState(30);
   const [currentLevel, setCurrentLevel] = useState(1);

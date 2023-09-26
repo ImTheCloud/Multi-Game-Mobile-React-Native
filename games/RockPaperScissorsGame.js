@@ -183,7 +183,9 @@ export default function RockPaperScissorsGame() {
               )}
               {/* Affichage du résultat du tour */}
               <Text style={styles.resultText}>{result}</Text>
-              <Button title="Replay" onPress={replayGame} />
+              <Button title="Replay" onPress={replayGame}
+                        color="#3F88C5"
+ />
             </View>
           )}
         </View>
@@ -209,7 +211,7 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   modeButton: {
-    backgroundColor: '#007bff',
+    backgroundColor: '#3F88C5',
     padding: 15,
     borderRadius: 10,
   },

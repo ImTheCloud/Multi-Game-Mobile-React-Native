@@ -135,7 +135,8 @@ export default function HangmanGame({ navigation }) {
         keyboardType="default"
       />
       <View style={styles.buttonContainer}>
-        <Button title="Guess" onPress={handleGuess} />
+        <Button title="Guess" onPress={handleGuess}
+                color="#3F88C5"/>
       </View>
     </View>
   );

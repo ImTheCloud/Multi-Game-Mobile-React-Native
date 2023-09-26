@@ -105,17 +105,17 @@ export default function TicTacToe() {
         {/* vue score */}
       </View> 
       <View style={styles.scoreContainer}>
-        <Text style={styles.scoreText}>Scores:</Text>
+        <Text style={styles.scoreText}>Scores :</Text>
         <View style={styles.scoreRow}>
-          <Text style={styles.scoreLabel}>X:</Text>
+          <Text style={styles.scoreLabel}>X -{'>'}</Text>
           <Text style={styles.scoreValue}>{xWins}</Text>
         </View>
         <View style={styles.scoreRow}>
-          <Text style={styles.scoreLabel}>O:</Text>
+          <Text style={styles.scoreLabel}>O -{'>'}</Text>
           <Text style={styles.scoreValue}>{oWins}</Text>
         </View>
         <View style={styles.scoreRow}>
-          <Text style={styles.scoreLabel}>Draws:</Text>
+          <Text style={styles.scoreLabel}>Draws -{'>'}</Text>
           <Text style={styles.scoreValue}>{draws}</Text>
         </View>
       </View>
@@ -184,7 +184,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   resetButton: {
-    backgroundColor: 'red',
+    backgroundColor: '#3F88C5',
     padding: 10,
     borderRadius: 5,
     marginTop: 20,
@@ -192,7 +192,6 @@ const styles = StyleSheet.create({
   },
   resetButtonText: {
     color: 'white',
-    fontSize: 18,
-    fontWeight: 'bold',
+    fontSize: 15,
   },
 });
