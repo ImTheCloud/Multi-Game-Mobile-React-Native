@@ -31,26 +31,26 @@ export default function HangmanGame() {
   useEffect(() => {
     const newWord = chooseRandomWord();
     setWord(newWord);
-    setDisplayWord('_'.repeat(newWord.length));
+    setDisplayWord('_ '.repeat(newWord.length));
     setAttempts(maxAttempts);
     setHangmanTries(0);
     setIncorrectLetters([]);
   }, []);
 
-
-
+  // Fonction appelée lorsqu'une lettre est devinée
   const handleGuess = () => {
-    if (inputLetter && inputLetter.length === 1) {
-      const letter = inputLetter.toUpperCase();
-      if (word.includes(letter)) {
-        const newDisplayWord = displayWord.split('');
-        for (let i = 0; i < word.length; i++) {
+    if (inputLetter && inputLetter.length === 1) { // verifie que une lettre a ete ajouter
+      const letter = inputLetter.toUpperCase(); // majuscule
+      if (word.includes(letter)) {  // lettre dans le mots ?
+        const newDisplayWord = displayWord.split('');  // Crée un tableau de la version actuelle de displayWord
+        for (let i = 0; i < word.length; i++) { // Parcourt chaque lettre du mot à deviner    
           if (word[i] === letter) {
             newDisplayWord[i] = letter;
           }
         }
-        setDisplayWord(newDisplayWord.join(''));
-
+  
+        setDisplayWord(newDisplayWord.join('')); // Maj displayWord avec le nouveau tableau ->split a join
+  
         if (newDisplayWord.join('') === word) {
           Alert.alert('You won!', 'Congratulations! You guessed the word.', [
             { text: 'OK', onPress: restartGame },
@@ -59,8 +59,11 @@ export default function HangmanGame() {
       } else {
         setAttempts(attempts - 1);
         setHangmanTries(hangmanTries + 1);
-        setIncorrectLetters([...incorrectLetters, letter]);
+        setIncorrectLetters([...incorrectLetters, letter]); // cree une copie (...)
+  
+        // Vérifie si le joueur a épuisé toutes les tentatives
         if (attempts - 1 === 0) {
+          // Affiche une alerte de défaite avec le mot correct
           Alert.alert(
             'You lost!',
             `The word was ${word}. Better luck next time.`,
@@ -68,13 +71,16 @@ export default function HangmanGame() {
           );
         }
       }
+  
+      // Réinitialise la lettre saisie pour la prochaine devinette
       setInputLetter('');
     }
   };
+  
 
   const restartGame = () => {
     const newWord = chooseRandomWord();
-    const newDisplayWord = '_'.repeat(newWord.length); // Initialize with underscores
+    const newDisplayWord = '_ '.repeat(newWord.length); // Initialize with underscores
     setWord(newWord);
     setDisplayWord(newDisplayWord);
     setAttempts(maxAttempts);
@@ -103,22 +109,23 @@ export default function HangmanGame() {
       </View>
       <Text style={styles.displayWord}>{displayWord}</Text>
       <Text style={styles.attempts}>Attempts left: {attempts}</Text>
-      <TextInput
-        style={styles.input}
-        onChangeText={(text) => setInputLetter(text)}
-        value={inputLetter}
-        maxLength={1}
-        autoCapitalize="none"
-        keyboardType="default"
-      />
-      <View style={styles.buttonContainer}>
-        <Button title="Guess" onPress={handleGuess}
-                color="#3F88C5"/>
+      <View style={styles.inputContainer}>
+        <TextInput
+          style={styles.input}
+          onChangeText={(text) => setInputLetter(text)}
+          value={inputLetter}
+          maxLength={1}
+          autoCapitalize="none"
+          keyboardType="default"
+        />
+        <View style={styles.buttonContainer}>
+          <Button title="Guess" onPress={handleGuess} color="#3F88C5" />
+        </View>
       </View>
     </View>
   );
-}
-
+  }
+  
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -135,22 +142,26 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   input: {
-    width: 40,
-    height: 40,
+    width: 35,
+    height: 35,  
     borderColor: 'gray',
     borderWidth: 1,
     fontSize: 24,
     textAlign: 'center',
-    marginBottom: 20,
+    marginBottom: 0, 
+    marginRight: 10, 
   },
   buttonContainer: {
-    flexDirection: 'row',
-    justifyContent: 'center',
-    marginBottom: 20,
+    height: 40, 
   },
   hangmanContainer: {
     flexDirection: 'column',
     alignItems: 'center',
+  },
+  inputContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 20,
   },
   hangmanPart: {
     fontSize: 24,

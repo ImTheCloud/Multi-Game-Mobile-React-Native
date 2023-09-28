@@ -35,10 +35,6 @@ export default function HomeScreen({ navigation }) { // composant par defaut ave
 
   return ( // rendu du composant  renvoie l'interface utilisateur la view
     <View style={styles.container}>
-      <Image
-        source={require('../assets/background.png')}
-        style={styles.backgroundImage}
-      />
 
       <View style={styles.content}>
         <Text style={styles.title}>Multi Game Mobile</Text>
@@ -60,13 +56,8 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-  },
-  backgroundImage: {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    width: '100%',
-    height: '100%',
+    backgroundColor: '#F0EADD', // Add background color
+
   },
   content: {
     flex: 1,

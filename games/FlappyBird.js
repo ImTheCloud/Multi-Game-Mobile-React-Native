@@ -1,13 +1,12 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useState, useEffect } from 'react';
-import { Text, View, Image, ImageBackground } from 'react-native';
+import { Text, View, ImageBackground } from 'react-native';
 import { GameEngine } from 'react-native-game-engine';
 import entities from '../components/FlappybirdComponents/entities';
 import Physics from '../components/FlappybirdComponents/physics';
 import { TouchableOpacity } from 'react-native';
 
 const birdImage = require('../assets/flappybird.png');
-const backgroundImage = require('../assets/backgroundFlappyBird.png');
 
 function FlappyBird() {
   const [running, setRunning] = useState(false);
@@ -20,9 +19,9 @@ function FlappyBird() {
 
   return (
     <View style={{ flex: 1 }}>
-      <ImageBackground // Utilisez ImageBackground pour définir l'image de fond
-        source={backgroundImage}
-        style={{ flex: 1 }}
+      <ImageBackground // Use ImageBackground to set the background image
+        source={{}} // Add your sky blue background image source here, or use a color
+        style={{ flex: 1, backgroundColor: '#87CEEB' }} // Use backgroundColor to set the color
       >
         <Text style={{ textAlign: 'center', fontSize: 40, fontWeight: 'bold', margin: 20 }}>
           {currentPoints}
