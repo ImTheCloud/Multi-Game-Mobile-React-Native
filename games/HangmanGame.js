@@ -3,35 +3,23 @@ import { View, Text, TextInput, Button, StyleSheet, Alert } from 'react-native';
 
 export default function HangmanGame() {
   const words = [
-    'IOS',
-    'ANDROID',
-    'JAVA',
-    'REACT',
-    'NATIVE',
-    'JAVASCRIPT',
-    'DATABASE',
-    'COMPUTER',
-    'PROGRAMMING',
-    'DEVELOPER',
-    'ALGORITHM',
-    'SOFTWARE',
-    'INTERFACE',
-    'NETWORK',
-    'SECURITY',
-    'FRAMEWORK',
-    'DEBUGGING',
-    'MOBILE',
-    'APPLICATION',
-    'INTERNET',
+    'IOS', 'ANDROID', 'JAVA', 'REACT', 'NATIVE', 'JAVASCRIPT', 'DATABASE', 'COMPUTER', 'PROGRAMMING', 'DEVELOPER', 
+    'ALGORITHM', 'SOFTWARE', 'INTERFACE', 'NETWORK', 'SECURITY', 'FRAMEWORK', 'DEBUGGING', 'MOBILE', 'APPLICATION', 
+    'INTERNET', 'PYTHON', 'HTML', 'CSS', 'LINUX', 'WINDOWS', 'DATABASE', 'SERVER', 'BROWSER', 'ROUTER', 'CLOUD',
+    'DATABASE', 'ALGORITHM', 'COMPILER', 'CONNECTION', 'ETHERNET', 'JAVA', 'VSCODE', 'API', 'REFACTORING',
+    'WEB', 'PERFORMANCE', 'RESPONSIVE', 'JAVAFX', 'DEBUG', 'TERMINAL', 'PROBLEM', 'RIGGIO'
   ];
+  
 
-  const maxAttempts = 5;
+  const maxAttempts = 7;
 
+    // Fonction pour choisir un mot au hasard parmi la liste
   const chooseRandomWord = () => {
     const randomIndex = Math.floor(Math.random() * words.length);
     return words[randomIndex];
   };
 
+  //etat
   const [word, setWord] = useState('');
   const [displayWord, setDisplayWord] = useState('');
   const [attempts, setAttempts] = useState(maxAttempts);
@@ -39,6 +27,7 @@ export default function HangmanGame() {
   const [hangmanTries, setHangmanTries] = useState(0);
   const [incorrectLetters, setIncorrectLetters] = useState([]);
 
+  // Effet au chargement pour initialiser le jeu
   useEffect(() => {
     const newWord = chooseRandomWord();
     setWord(newWord);
@@ -48,21 +37,7 @@ export default function HangmanGame() {
     setIncorrectLetters([]);
   }, []);
 
-  useEffect(() => {
-    const updateDisplayWord = () => {
-      let newDisplayWord = '';
-      for (let i = 0; i < word.length; i++) {
-        if (word[i] === displayWord[i]) {
-          newDisplayWord += word[i];
-        } else {
-          newDisplayWord += '_';
-        }
-      }
-      setDisplayWord(newDisplayWord);
-    };
 
-    updateDisplayWord();
-  }, [word, displayWord]);
 
   const handleGuess = () => {
     if (inputLetter && inputLetter.length === 1) {
@@ -99,12 +74,14 @@ export default function HangmanGame() {
 
   const restartGame = () => {
     const newWord = chooseRandomWord();
+    const newDisplayWord = '_'.repeat(newWord.length); // Initialize with underscores
     setWord(newWord);
-    setDisplayWord('_'.repeat(newWord.length));
+    setDisplayWord(newDisplayWord);
     setAttempts(maxAttempts);
     setHangmanTries(0);
     setIncorrectLetters([]);
   };
+  
 
   return (
     <View style={styles.container}>
