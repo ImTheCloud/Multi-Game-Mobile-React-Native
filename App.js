@@ -8,7 +8,6 @@ import RockPaperScissorsGame from './games/RockPaperScissorsGame';
 import HangmanGame from './games/HangmanGame';
 import FlappyBird from './games/FlappyBird';
 import LoginScreen from './screens/LoginScreen';
-import HHomeScreen from './screens/HomeScreen';
 
 const Stack = createStackNavigator(); //gere la navigation
 
@@ -16,13 +15,12 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Home">
-        {/* <Stack.Screen name="Home" component={HomeScreen} /> */}
+        <Stack.Screen name="Home" component={HomeScreen} />
         <Stack.Screen name="TicTacToe" component={TicTacToe} />
         <Stack.Screen name="RockPaperScissorsGame" component={RockPaperScissorsGame} />
         <Stack.Screen name="HangmanGame" component={HangmanGame} />
         <Stack.Screen name="FlappyBird" component={FlappyBird} />
         <Stack.Screen options={{ headerShown: false }} name="Login" component={LoginScreen} />
-        <Stack.Screen name="Home" component={HHomeScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
