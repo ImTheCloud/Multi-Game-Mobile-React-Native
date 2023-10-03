@@ -19,9 +19,8 @@ function FlappyBird() {
 
   return (
     <View style={{ flex: 1 }}>
-      <ImageBackground // Use ImageBackground to set the background image
-        source={{}} // Add your sky blue background image source here, or use a color
-        style={{ flex: 1, backgroundColor: '#87CEEB' }} // Use backgroundColor to set the color
+      <ImageBackground
+        style={{ flex: 1, backgroundColor: '#87CEEB' }}
       >
         <Text style={{ textAlign: 'center', fontSize: 40, fontWeight: 'bold', margin: 20 }}>
           {currentPoints}
@@ -31,7 +30,7 @@ function FlappyBird() {
             setGameEngine(ref);
           }}
           systems={[Physics]}
-          entities={entities(birdImage)} // Pass the bird image as a prop
+          entities={entities(birdImage, currentPoints)}
           running={running}
           onEvent={(e) => {
             switch (e.type) {
@@ -41,6 +40,7 @@ function FlappyBird() {
                 break;
               case 'new_point':
                 setCurrentPoints(currentPoints + 1);
+              
                 break;
             }
           }}
@@ -56,7 +56,7 @@ function FlappyBird() {
               onPress={() => {
                 setCurrentPoints(0);
                 setRunning(true);
-                gameEngine.swap(entities(birdImage)); // Pass the bird image as a prop
+                gameEngine.swap(entities(birdImage, 0));
               }}
             >
               <Text style={{ fontWeight: 'bold', color: 'white', fontSize: 30 }}>
