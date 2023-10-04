@@ -1,6 +1,6 @@
 // RegisterScreen.js
-import React, { useState, useEffect } from 'react';
-import { KeyboardAvoidingView, Image, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import React, { useState } from 'react';
+import { KeyboardAvoidingView, Image, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import { useNavigation } from '@react-navigation/core';
 import { auth } from '../firebase';
 
@@ -20,51 +20,69 @@ const RegisterScreen = () => {
       .catch(error => alert(error.message));
   };
 
-  return (
-    <KeyboardAvoidingView
-      style={styles.container}
-      behavior="padding"
-    >
-      <Image
-        source={require('../assets/Logo.png')}
-        style={{ width: 320, height: 150, marginBottom: 20 }}
-      />
-      <View style={styles.inputContainer}>
-        <TextInput
-          placeholder="Email"
-          value={email}
-          onChangeText={text => setEmail(text)}
-          style={styles.input}
-        />
-        <TextInput
-          placeholder="Password"
-          value={password}
-          onChangeText={text => setPassword(text)}
-          style={styles.input}
-          secureTextEntry
-        />
-      </View>
+  const goToLogin = () => {
+    navigation.navigate('Login');
+  };
 
-      <View style={styles.buttonContainer}>
-        <TouchableOpacity
-          onPress={handleSignUp}
-          style={[styles.button, styles.buttonOutline]}
-        >
-          <Text style={styles.buttonOutlineText}>Register</Text>
-        </TouchableOpacity>
-      </View>
-    </KeyboardAvoidingView>
+  return (
+    <ScrollView contentContainerStyle={styles.scrollViewContent}>
+      <KeyboardAvoidingView
+        style={styles.container}
+        behavior="padding"
+      >
+         <Image
+            source={require('../assets/Logo.png')}
+            style={{ width: 200, height: 100, resizeMode: 'contain', marginBottom: 20 }}
+            />
+
+        <View style={styles.inputContainer}>
+          <TextInput
+            placeholder="Email"
+            value={email}
+            onChangeText={text => setEmail(text)}
+            style={[styles.input, { width: '100%' }]}
+          />
+          <TextInput
+            placeholder="Password"
+            value={password}
+            onChangeText={text => setPassword(text)}
+            style={[styles.input, { width: '100%' }]}
+            secureTextEntry
+          />
+        </View>
+
+        <View style={styles.buttonContainer}>
+          <TouchableOpacity
+            onPress={handleSignUp}
+            style={[styles.button, styles.buttonOutline]}
+          >
+            <Text style={styles.buttonOutlineText}>Register</Text>
+          </TouchableOpacity>
+          <View style={styles.loginLinkContainer}>
+            <Text style={styles.loginLinkText}>Already have an account?</Text>
+            <TouchableOpacity onPress={goToLogin}>
+              <Text style={[styles.loginLinkText, { color: '#0782F9', marginLeft: 5 }]}>Login</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+      </KeyboardAvoidingView>
+    </ScrollView>
   );
 };
 
 const styles = StyleSheet.create({
+  scrollViewContent: {
+    flexGrow: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
   container: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
   },
   inputContainer: {
-    width: '80%',
+    width: 300,
   },
   input: {
     backgroundColor: 'white',
@@ -72,9 +90,10 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
     borderRadius: 10,
     marginTop: 5,
+    width: '100%',
   },
   buttonContainer: {
-    width: '60%',
+    width: 220,
     justifyContent: 'center',
     alignItems: 'center',
     marginTop: 40,
@@ -92,6 +111,14 @@ const styles = StyleSheet.create({
   buttonOutlineText: {
     color: '#0782F9',
     fontWeight: '700',
+    fontSize: 16,
+  },
+  loginLinkContainer: {
+    flexDirection: 'row',
+    marginTop: 15,
+  },
+  loginLinkText: {
+    color: '#333',
     fontSize: 16,
   },
 });
