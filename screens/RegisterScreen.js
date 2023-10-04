@@ -1,31 +1,21 @@
-// LoginScreen.js
+// RegisterScreen.js
 import React, { useState, useEffect } from 'react';
 import { KeyboardAvoidingView, Image, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import { useNavigation } from '@react-navigation/core';
 import { auth } from '../firebase';
 
-const LoginScreen = () => {
+const RegisterScreen = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   const navigation = useNavigation();
 
-  useEffect(() => {
-    const unsubscribe = auth.onAuthStateChanged(user => {
-      if (user) {
-        navigation.replace('Home');
-      }
-    });
-
-    return unsubscribe;
-  }, []);
-
-  const handleLogin = () => {
+  const handleSignUp = () => {
     auth
-      .signInWithEmailAndPassword(email, password)
+      .createUserWithEmailAndPassword(email, password)
       .then(userCredentials => {
         const user = userCredentials.user;
-        console.log('Logged in with:', user.email);
+        console.log('Registered with:', user.email);
       })
       .catch(error => alert(error.message));
   };
@@ -57,16 +47,10 @@ const LoginScreen = () => {
 
       <View style={styles.buttonContainer}>
         <TouchableOpacity
-          onPress={handleLogin}
-          style={styles.button}
-        >
-          <Text style={styles.buttonText}>Login</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          onPress={() => navigation.navigate('Register')}
+          onPress={handleSignUp}
           style={[styles.button, styles.buttonOutline]}
         >
-          <Text style={styles.buttonOutlineText}>Create Account</Text>
+          <Text style={styles.buttonOutlineText}>Register</Text>
         </TouchableOpacity>
       </View>
     </KeyboardAvoidingView>
@@ -96,22 +80,14 @@ const styles = StyleSheet.create({
     marginTop: 40,
   },
   button: {
-    backgroundColor: '#0782F9',
+    backgroundColor: 'white',
+    borderColor: '#0782F9',
+    borderWidth: 2,
     width: '100%',
     padding: 15,
     borderRadius: 10,
     alignItems: 'center',
     marginTop: 10,
-  },
-  buttonOutline: {
-    backgroundColor: 'white',
-    borderColor: '#0782F9',
-    borderWidth: 2,
-  },
-  buttonText: {
-    color: 'white',
-    fontWeight: '700',
-    fontSize: 16,
   },
   buttonOutlineText: {
     color: '#0782F9',
@@ -120,4 +96,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default LoginScreen;
+export default RegisterScreen;

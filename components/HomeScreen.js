@@ -49,9 +49,10 @@ export default function HomeScreen() { // composant par defaut avec objet en par
   return ( // rendu du composant  renvoie l'interface utilisateur la view
     <View style={styles.container}>
 
-      <View style={styles.content}>
-        <Text style={styles.title}>Multi Game Mobile</Text>
-      </View>
+        <Image
+          source={require('../assets/Logo.png')}
+          style={{ width: 320, height: 150, marginBottom: 20 }}
+        />
 
       <GameList // composant
         games={games}
@@ -80,7 +81,6 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#F0EADD', // Add background color
   },
   content: {
     flex: 1,
