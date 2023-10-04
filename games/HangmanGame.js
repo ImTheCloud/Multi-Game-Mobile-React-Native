@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, TextInput, Button, StyleSheet, Alert } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+import { Ionicons } from '@expo/vector-icons'; 
+import { TouchableOpacity } from 'react-native'; 
 
 export default function HangmanGame() {
   const words = [
@@ -20,6 +23,7 @@ export default function HangmanGame() {
   };
 
   //etat
+  const navigation = useNavigation();
   const [word, setWord] = useState('');
   const [displayWord, setDisplayWord] = useState('');
   const [attempts, setAttempts] = useState(maxAttempts);
@@ -91,6 +95,12 @@ export default function HangmanGame() {
 
   return (
     <View style={styles.container}>
+        <TouchableOpacity
+        style={styles.navigationButtonContainer}
+        onPress={() => navigation.navigate('GameScreen')}
+      >
+        <Ionicons name="ios-arrow-back" size={24} color="black" />
+      </TouchableOpacity>
       <View style={styles.hangmanContainer}>
         <Text style={styles.incorrectLetters}>
           Incorrect Letters:{' '}
@@ -127,6 +137,12 @@ export default function HangmanGame() {
   }
   
 const styles = StyleSheet.create({
+  navigationButtonContainer: {
+    position: 'absolute',
+    top: 50,
+    left: 10,
+    zIndex: 1,
+    },
   container: {
     flex: 1,
     alignItems: 'center',
