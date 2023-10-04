@@ -19,9 +19,6 @@ function FlappyBird() {
 
   return (
     <View style={{ flex: 1 }}>
-      <ImageBackground
-        style={{ flex: 1, backgroundColor: '#87CEEB' }}
-      >
         <Text style={{ textAlign: 'center', fontSize: 40, fontWeight: 'bold', margin: 20 }}>
           {currentPoints}
         </Text>
@@ -65,7 +62,6 @@ function FlappyBird() {
             </TouchableOpacity>
           </View>
         ) : null}
-      </ImageBackground>
     </View>
   );
 }
