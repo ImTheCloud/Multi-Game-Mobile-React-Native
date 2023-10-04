@@ -1,11 +1,11 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import HomeScreen from './components/HomeScreen';
+import HomeScreen from './screens/HomeScreen';
 import TicTacToe from './games/TicTacToe';
 import RockPaperScissorsGame from './games/RockPaperScissorsGame';
 import HangmanGame from './games/HangmanGame';
-import FlappyBird from './games/FlappyBird';
+import FlappyBird from './games/Flappybird/FlappyBird';
 import LoginScreen from './screens/LoginScreen';
 import RegisterScreen from './screens/RegisterScreen';
 

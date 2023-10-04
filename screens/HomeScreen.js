@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/core';
-import GameList from './GameList'; // import
+import GameList from '../components/GameList'; // import
 import { auth } from '../firebase';
 
 const games = [ // tableau

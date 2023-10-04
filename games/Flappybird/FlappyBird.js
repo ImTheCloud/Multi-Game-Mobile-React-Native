@@ -2,11 +2,11 @@ import { StatusBar } from 'expo-status-bar';
 import React, { useState, useEffect } from 'react';
 import { Text, View, ImageBackground } from 'react-native';
 import { GameEngine } from 'react-native-game-engine';
-import entities from '../components/FlappybirdComponents/entities';
-import Physics from '../components/FlappybirdComponents/physics';
+import entities from './entities';
+import Physics from './physics';
 import { TouchableOpacity } from 'react-native';
 
-const birdImage = require('../assets/flappybird.png');
+const birdImage = require('../../assets/flappybird.png');
 
 function FlappyBird() {
   const [running, setRunning] = useState(false);
