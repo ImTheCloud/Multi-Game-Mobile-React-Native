@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, Image, StyleSheet, Button } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+import { Ionicons } from '@expo/vector-icons'; 
 
 export default function RockPaperScissorsGame() {
   //etats
+  const navigation = useNavigation();
   const [userChoice, setUserChoice] = useState(null); // use state utiliser pour gerer les etats null/false 
   const [otherPlayerChoice, setOtherPlayerChoice] = useState(null);
   const [computerChoice, setComputerChoice] = useState(null);
@@ -40,13 +43,13 @@ export default function RockPaperScissorsGame() {
       if (gameMode === 'ai') {
         return 'IA won!';
       } else {
-        return 'Player 2 won!';
+        return 'Player 1 won!';
       }
     } else {
       if (gameMode === 'ai') {
         return 'You won!';
       } else {
-        return 'Player 1 won!';
+        return 'Player 2 won!';
       }
     }
   };
@@ -118,6 +121,12 @@ export default function RockPaperScissorsGame() {
 
   return (
     <View style={styles.container}>
+     <TouchableOpacity
+        style={styles.navigationButtonContainer}
+        onPress={() => navigation.navigate('GameScreen')}
+      >
+        <Ionicons name="ios-arrow-back" size={24} color="black" />
+      </TouchableOpacity>
     {/* mode des bouton en style */}
       <View style={styles.modeButtons}>
         <TouchableOpacity
@@ -195,6 +204,12 @@ export default function RockPaperScissorsGame() {
 }
 
 const styles = StyleSheet.create({
+  navigationButtonContainer: {
+    position: 'absolute',
+    top: 50,
+    left: 10,
+    zIndex: 1,
+    },
   container: {
     flex: 1,
     alignItems: 'center',

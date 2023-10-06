@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, Alert } from 'react-native';
+import { Ionicons } from '@expo/vector-icons'; 
+import { useNavigation } from '@react-navigation/native';
 
 export default function TicTacToe() {
+  const navigation = useNavigation();
   const [board, setBoard] = useState(Array(9).fill(null));   // gérer l'état du tableau de jeu 9 cases
   const [xIsNext, setXIsNext] = useState(true);   // État pour suivre le tour actuel, X ou O
 // États pour suivre les scores de X, O et les matchs nuls
@@ -84,6 +87,12 @@ export default function TicTacToe() {
   return ( 
     // vue tic tac toe
     <View style={styles.container}>
+     <TouchableOpacity
+        style={styles.navigationButtonContainer}
+        onPress={() => navigation.navigate('GameScreen')}
+      >
+        <Ionicons name="ios-arrow-back" size={24} color="black" />
+      </TouchableOpacity>
       <Text style={styles.title}>Tic-Tac-Toe</Text>
       <Text style={styles.status}>{status}</Text>
       <View style={styles.board}>
@@ -130,6 +139,12 @@ export default function TicTacToe() {
 }
 
 const styles = StyleSheet.create({
+  navigationButtonContainer: {
+    position: 'absolute',
+    top: 50,
+    left: 10,
+    zIndex: 1,
+    },
   container: {
     flex: 1,
     justifyContent: 'center',

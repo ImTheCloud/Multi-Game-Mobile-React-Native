@@ -8,9 +8,11 @@ import { TouchableOpacity } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 
+
 const birdImage = require('../../assets/flappybird.png');
 
 function FlappyBird() {
+  const navigation = useNavigation();
   const [running, setRunning] = useState(false);
   const [gameEngine, setGameEngine] = useState(null);
   const [currentPoints, setCurrentPoints] = useState(0);
