@@ -63,33 +63,33 @@ const App = () => {
     <NavigationContainer>
       {user ? (
         <Tab.Navigator screenOptions={screenOptions}>
-          <Tab.Screen
-            name="Rank"
-            component={RankingScreen}
-            options={{
-              tabBarIcon: ({ focused }) => (
-                <View style={{ alignItems: 'center', justifyContent: 'center' }}>
-                  <FontAwesome5 name="hackerrank" size={24} color="black" />
-                  <Text style={{ fontSize: 12, color: '#16247d' }}>RANKING</Text>
-                </View>
-              ),
-            }}
-          />
-       <Tab.Screen 
-       name="Rules" 
-       component={RulesScreen} 
-       options={{
-         tabBarIcon: ({focused})=>{
-           return (
-             <View style={{alignItems: "center", justifyContent: "center"}}> 
-               <AntDesign name="infocirlce" size={24} color="black" />
-               <Text style={{fontSize: 12, color: "#16247d"}}>RULES</Text>
-         </View>
-           )
-         }
-       }}
-       />
-       <Tab.Screen 
+        <Tab.Screen
+        name="Rank"
+        component={RankingScreen}
+        options={{
+          tabBarIcon: ({ focused }) => (
+            <View style={{ alignItems: 'center', justifyContent: 'center' }}>
+              <FontAwesome5 name="hackerrank" size={24} color={focused ? "#16247d" : "black"} />
+              <Text style={{ fontSize: 12, color: focused ? "#16247d" : "#111" }}>RANKING</Text>
+            </View>
+          ),
+        }}
+      />
+
+      <Tab.Screen 
+        name="Rules" 
+        component={RulesScreen} 
+        options={{
+          tabBarIcon: ({ focused }) => (
+            <View style={{ alignItems: "center", justifyContent: "center" }}>
+              <AntDesign name="infocirlce" size={24} color={focused ? "#16247d" : "black"} />
+              <Text style={{ fontSize: 12, color: focused ? "#16247d" : "#111" }}>RULES</Text>
+            </View>
+          ),
+        }}
+      />
+
+    <Tab.Screen 
        name="Game"
        component={GameStackScreen} 
         options={{
@@ -99,7 +99,7 @@ const App = () => {
               style={{
                alignItems: "center",
                justifyContent: "center",
-               backgroundColor: "#16247d",
+               backgroundColor: focused ? "#16247d" : "black",
                width: Platform.OS == "ios" ? 50 : 60,
                height: Platform.OS == "ios" ? 50 : 60,
                top: Platform.OS == "ios" ? -10 : -20,
@@ -112,7 +112,6 @@ const App = () => {
          }
         }}
        />
-      
        <Tab.Screen 
        name="Settings" 
        component={SettingsScreen} 
@@ -127,20 +126,20 @@ const App = () => {
          }
        }}
        />
-         <Tab.Screen 
-       name="Profil" 
-       component={ProfilScreen} 
-       options={{
-         tabBarIcon: ({focused})=>{
-           return (
-             <View style={{alignItems: "center", justifyContent: "center"}}> 
-              <FontAwesome name="user" size={24} color="black" />
-               <Text style={{fontSize: 12, color: "#16247d"}}>PROFIL</Text>
-         </View>
-           )
-         }
-       }}
-       />
+        <Tab.Screen 
+          name="Profil" 
+          component={ProfilScreen} 
+          options={{
+            tabBarIcon: ({focused})=>{
+              return (
+                <View style={{alignItems: "center", justifyContent: "center"}}> 
+                  <FontAwesome name="user" size={24} color={focused ? "#16247d" : "black"} />
+                  <Text style={{fontSize: 12, color: focused ? "#16247d" : "#111"}}>PROFIL</Text>
+                </View>
+              )
+            }
+          }}
+        />
         </Tab.Navigator>
       ) : (
         <Stack.Navigator initialRouteName="Login">
