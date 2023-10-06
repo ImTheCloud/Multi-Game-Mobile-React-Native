@@ -1,22 +1,19 @@
 import React from 'react';
-import {ScrollView, TouchableOpacity, StyleSheet, Image } from 'react-native';
+import { ScrollView, TouchableOpacity, StyleSheet, Image, Text, View } from 'react-native';
 
-export default function GameList({ games, onSelectGame }) { 
-  // le composant GameList reçoit deux props  games et onSelectGame
-  // games : Un tableau d'objets représentant les jeux à afficher
-  // onSelectGame : Une fonction qui sera appelée lorsqu'un jeu est sélectionné (homescreen)
-  return ( //rend une scrollView
+export default function GameList({ games, onSelectGame }) {
+  return (
     <ScrollView
-      horizontal // mets la liste en horizontal
-      contentContainerStyle={styles.gameList} // css de la liste voir en bas
+      contentContainerStyle={styles.gameListContainer}
     >
-      {games.map((game, index) => ( // map pour parcourir games
-        <TouchableOpacity //bouton cliquable
+      {games.map((game, index) => (
+        <TouchableOpacity
           key={index}
           style={styles.gameItem}
-          onPress={() => onSelectGame(game)} // apelle la fonction de homescreen pour la navigation
+          onPress={() => onSelectGame(game)}
         >
-          <Image source={game.image} style={styles.gameImage} /> 
+          <Image source={game.image} style={styles.gameImage} />
+          <Text style={styles.gameTitle}>{game.title}</Text>
         </TouchableOpacity>
       ))}
     </ScrollView>
@@ -24,19 +21,38 @@ export default function GameList({ games, onSelectGame }) {
 }
 
 const styles = StyleSheet.create({
-  gameList: {
-    alignItems: 'center',
+  gameListContainer: {
+    flexDirection: 'row', // Afficher les éléments en ligne
+    flexWrap: 'wrap', // Permettre le retour à la ligne
+    justifyContent: 'space-between', // Espace égal entre les éléments
+    alignItems: 'flex-start', // Aligner les éléments en haut
     paddingHorizontal: 16,
   },
   gameItem: {
-    width: 100, // Largeur carrée du bouton
-    height: 100, // Hauteur carrée du bouton
-    marginHorizontal: 8,
+    width: 140,
+    height: 170,
+    marginVertical: 8,
     justifyContent: 'center',
     alignItems: 'center',
+    backgroundColor: '#fff',
+    borderRadius: 10,
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5,
   },
   gameImage: {
-    width: 80, // Ajustez la largeur de l'image 
-    height: 80, // Ajustez la hauteur de l'image 
+    width: 110,
+    height: 110,
+    marginBottom: 8,
+  },
+  gameTitle: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    textAlign: 'center',
   },
 });
