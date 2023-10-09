@@ -146,7 +146,7 @@ export default function HangmanGame() {
       </View>
       <Text style={styles.displayWord}>{displayWord}</Text>
       <Text style={styles.attempts}>Attempts left: {attempts}</Text>
-      <Text style={styles.score}>Score: {score}</Text>
+      {/* <Text style={styles.score}>Score: {score}</Text> */}
       <View style={styles.inputContainer}>
         <TextInput
           style={styles.input}

@@ -1,27 +1,27 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { View, Text, TouchableOpacity, Image, StyleSheet, Button } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import { Ionicons } from '@expo/vector-icons'; 
+import { Ionicons } from '@expo/vector-icons';
+import { auth, firestore } from '../firebase';
 
 export default function RockPaperScissorsGame() {
-  //etats
   const navigation = useNavigation();
-  const [userChoice, setUserChoice] = useState(null); // use state utiliser pour gerer les etats null/false 
+  const [userChoice, setUserChoice] = useState(null);
   const [otherPlayerChoice, setOtherPlayerChoice] = useState(null);
   const [computerChoice, setComputerChoice] = useState(null);
   const [result, setResult] = useState('');
   const [gameMode, setGameMode] = useState(null);
   const [gameOver, setGameOver] = useState(false);
   const [showResult, setShowResult] = useState(false);
+  const [scoresRPS, setScoresRPS] = useState(0);
 
-  const choices = [ //tab des choix possible
+  const choices = [
     { image: require('../assets/rock.png'), text: 'Rock' },
     { image: require('../assets/paper.png'), text: 'Paper' },
     { image: require('../assets/scissors.png'), text: 'Scissors' },
   ];
 
   const determineWinner = (userChoice, otherPlayerChoice, gameMode) => {
-    // fonction
     if (userChoice === otherPlayerChoice) {
       return "It's a tie!";
     }
@@ -59,35 +59,36 @@ export default function RockPaperScissorsGame() {
     return randomIndex;
   };
 
-    // Fonction appelée lorsqu'un joueur fait un choix
   const handleChoice = (index) => {
     if (!gameOver) {
       if (gameMode === 'player') {
         if (userChoice === null) {
-          // si le joueur 1 n'a pas encore jouer (null)
-          // maj choix du joueur  1
           setUserChoice(index);
         } else {
-          // maj choix du joueur 2 cette fois
           setOtherPlayerChoice(index);
-          const result = determineWinner(userChoice, index, gameMode); // calcul le resultat
+          const result = determineWinner(userChoice, index, gameMode);
           setResult(result);
           setShowResult(true);
           setGameOver(true);
+
+          // Update user's score in Firestore
+          updateScoreInFirestore(result);
         }
       } else {
         const computerIndex = generateComputerChoice();
         setComputerChoice(computerIndex);
-        const result = determineWinner(index, computerIndex, gameMode); // calcul le resultat
+        const result = determineWinner(index, computerIndex, gameMode);
         setResult(result);
         setShowResult(true);
         setGameOver(true);
+
+        // Update user's score in Firestore
+        updateScoreInFirestore(result);
       }
     }
   };
 
-  const startGameAgainstAI = () => { 
-    // tout vider
+  const startGameAgainstAI = () => {
     setGameMode('ai');
     setUserChoice(null);
     setOtherPlayerChoice(null);
@@ -95,13 +96,11 @@ export default function RockPaperScissorsGame() {
     setShowResult(false);
     setGameOver(false);
 
-    // Générer le choix de l'IA au début du jeu
     const computerIndex = generateComputerChoice();
     setComputerChoice(computerIndex);
   };
 
   const startGameAgainstPlayer = () => {
-    // tout vider
     setGameMode('player');
     setUserChoice(null);
     setOtherPlayerChoice(null);
@@ -119,19 +118,56 @@ export default function RockPaperScissorsGame() {
     setGameOver(false);
   };
 
+  const updateScoreInFirestore = async (result) => {
+    try {
+      const userId = auth.currentUser.uid;
+      const userRef = firestore.collection('profiles').doc(userId);
+      let updatedScore = scoresRPS;
+
+      if (result === 'You won!') {
+        updatedScore += 2;
+      } else if (result === 'IA won!') {
+        updatedScore -= 1;
+      }
+
+      await userRef.update({
+        scoresRPS: updatedScore,
+      });
+      setScoresRPS(updatedScore);
+    } catch (error) {
+      console.error('Error updating user score:', error);
+    }
+  };
+
+  useEffect(() => {
+    const fetchScore = async () => {
+      try {
+        const userId = auth.currentUser.uid;
+        const userRef = firestore.collection('profiles').doc(userId);
+        const userDoc = await userRef.get();
+        const userScore = userDoc.data()?.scoresRPS || 0;
+        setScoresRPS(userScore);
+      } catch (error) {
+        console.error('Error fetching user score:', error);
+      }
+    };
+
+    fetchScore();
+  }, []);
+
   return (
     <View style={styles.container}>
-     <TouchableOpacity
+      <TouchableOpacity
         style={styles.navigationButtonContainer}
         onPress={() => navigation.navigate('GameScreen')}
       >
         <Ionicons name="ios-arrow-back" size={24} color="black" />
       </TouchableOpacity>
-    {/* mode des bouton en style */}
+
       <View style={styles.modeButtons}>
         <TouchableOpacity
-          style={[styles.modeButton, { marginRight: 10 }]} // Ajout de marginRight pour l'espace
-          onPress={startGameAgainstAI} 
+          style={[styles.modeButton, { marginRight: 10 }]}
+          onPress={startGameAgainstAI}
         >
           <Text style={styles.modeButtonText}>Play against AI</Text>
         </TouchableOpacity>
@@ -145,13 +181,12 @@ export default function RockPaperScissorsGame() {
 
       {gameMode && (
         <View>
-         {/* Affichage du texte d'instruction en fonction du mode de jeu */}
           {gameMode === 'player' && (
             <Text style={styles.instructionText}>
               {userChoice === null ? 'Player 1, select your choice:' : 'Player 2, select your choice:'}
             </Text>
           )}
-            {/* Affichage des boutons de choix (pierre, papier, ciseaux) */}
+
           <View style={styles.choices}>
             {choices.map((choice, index) => (
               <TouchableOpacity
@@ -169,32 +204,30 @@ export default function RockPaperScissorsGame() {
               </TouchableOpacity>
             ))}
           </View>
-          {/* Affichage du résultat du tour si showResult est true */}
+
           {showResult && (
             <View style={styles.result}>
-              {/* Affichage du choix du joueur 1 s'il a choisi */}
               {userChoice !== null && (
                 <Text style={styles.resultText}>
                   Player 1 chose: {choices[userChoice].text}
                 </Text>
               )}
-              {/* Affichage du choix du joueur 2 s'il a choisi ds le mode joueur */}
               {gameMode === 'player' && otherPlayerChoice !== null && (
                 <Text style={styles.resultText}>
                   Player 2 chose: {choices[otherPlayerChoice].text}
                 </Text>
               )}
-                {/* Affichage du choix de l'IA s'il a choisi en mode ia */}
               {gameMode === 'ai' && computerChoice !== null && (
                 <Text style={styles.resultText}>
                   AI chose: {choices[computerChoice].text}
                 </Text>
               )}
-              {/* Affichage du résultat du tour */}
               <Text style={styles.resultText}>{result}</Text>
-              <Button title="Replay" onPress={replayGame}
-                        color="#3F88C5"
- />
+              <Button
+                title="Replay"
+                onPress={replayGame}
+                color="#3F88C5"
+              />
             </View>
           )}
         </View>
