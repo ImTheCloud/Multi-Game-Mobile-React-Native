@@ -22,7 +22,7 @@ export default function ProfilScreen() {
           // If the document doesn't exist, initialize it with the user's ID
           await userRef.set({
             nom: '', // Set other default values as needed
-            pointsFP: 0,
+            pointsFlappyBird: 0,
             pointsHM: 0,
             pointsOxo: 0,
             pointsPPS: 0,
@@ -91,7 +91,7 @@ export default function ProfilScreen() {
         <View style={{ marginBottom: 20, width: '100%' }}>
           <Text>Email: {auth.currentUser.email}</Text>
           <Text>Nom: {userProfile?.nom || 'Non défini'}</Text>
-          <Text>Points FP: {userProfile?.pointsFP || 0}</Text>
+          <Text>High Score Flappy Bird: {userProfile?.pointsFlappyBird || 0}</Text>
           <Text>Points HM: {userProfile?.pointsHM || 0}</Text>
           <Text>Points Oxo: {userProfile?.pointsOxo || 0}</Text>
           <Text>Points PPS: {userProfile?.pointsPPS || 0}</Text>

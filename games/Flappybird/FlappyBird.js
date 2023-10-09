@@ -1,3 +1,5 @@
+// ... Other imports
+
 import { StatusBar } from 'expo-status-bar';
 import React, { useState, useEffect } from 'react';
 import { Text, View, ImageBackground } from 'react-native';
@@ -7,7 +9,7 @@ import Physics from './physics';
 import { TouchableOpacity } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
-import { firestore } from '../../firebase'; 
+import { auth, firestore } from '../../firebase'; 
 
 const birdImage = require('../../assets/flappybird.png');
 
@@ -17,6 +19,8 @@ function FlappyBird() {
   const [gameEngine, setGameEngine] = useState(null);
   const [currentPoints, setCurrentPoints] = useState(0);
   const [highScore, setHighScore] = useState(0);
+  const userId = auth.currentUser.uid;
+  const userRef = firestore.collection('profiles').doc(userId);
 
   useEffect(() => {
     setRunning(false);
@@ -24,11 +28,11 @@ function FlappyBird() {
     // Retrieve high score from Firebase Firestore
     const fetchHighScore = async () => {
       try {
-        const highScoreDoc = await firestore.collection('highscores').doc('flappybird').get();
-        if (highScoreDoc.exists) {
-          const fetchedHighScore = highScoreDoc.data().score;
-          setHighScore(fetchedHighScore);
-        }
+        const userDoc = await userRef.get(); // Fetch the user document
+        const userHighScore = userDoc.data()?.highScore || 0; // Use the user's high score if available
+
+        // Set the high score in the state
+        setHighScore(userHighScore);
       } catch (error) {
         console.error('Error fetching high score:', error);
       }
@@ -40,8 +44,8 @@ function FlappyBird() {
   // Function to update high score in Firebase Firestore
   const updateHighScore = async (newHighScore) => {
     try {
-      await firestore.collection('highscores').doc('flappybird').set({
-        score: newHighScore,
+      await userRef.update({
+        highScore: newHighScore,
       });
     } catch (error) {
       console.error('Error updating high score:', error);
@@ -56,6 +60,11 @@ function FlappyBird() {
       >
         <Ionicons name="ios-arrow-back" size={24} color="black" />
       </TouchableOpacity>
+
+      {/* Display user's current score */}
+      <Text style={{ textAlign: 'center', fontSize: 20, margin: 10, color: 'blue' }}>
+        Your Score: {currentPoints}
+      </Text>
 
       <Text style={{ textAlign: 'center', fontSize: 40, fontWeight: 'bold', margin: 20 }}>
         {currentPoints}

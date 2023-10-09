@@ -2,6 +2,7 @@
 import firebase from "firebase/compat/app";
 import "firebase/compat/auth";
 import 'firebase/compat/firestore'; // Include Firestore module
+import 'firebase/compat/database'; // Include Realtime Database module
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -25,7 +26,8 @@ if (firebase.apps.length === 0) {
 }
 
 const auth = firebase.auth()
+const database = firebase.database(); // Use Realtime Database module
 const firestore = firebase.firestore(); // Make sure to include this line
 
 
-export { auth,firestore };
+export { database,auth,firestore };
