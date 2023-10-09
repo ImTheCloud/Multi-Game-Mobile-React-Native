@@ -1,5 +1,3 @@
-// ... Other imports
-
 import { StatusBar } from 'expo-status-bar';
 import React, { useState, useEffect } from 'react';
 import { Text, View, ImageBackground } from 'react-native';
