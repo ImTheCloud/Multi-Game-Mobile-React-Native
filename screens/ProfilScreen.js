@@ -93,7 +93,7 @@ export default function ProfilScreen() {
             <Text>Points Hang Man: {userProfile?.pointsHangman || 0}</Text>
             <Text>Points Rock Paper Scissors: {userProfile?.pointsRPS || 0}</Text>
 
-            <Text style={styles.totalPoints}>All Points: {userProfile?.highScore + userProfile?.pointsHangman + userProfile?.pointsRPS || 0}</Text>
+            <Text style={styles.totalPoints}>All Points: {userProfile?.pointsHangman + userProfile?.pointsRPS || 0}</Text>
 
             <TextInput
               style={styles.input}
