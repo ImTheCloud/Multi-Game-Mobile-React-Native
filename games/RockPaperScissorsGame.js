@@ -13,7 +13,7 @@ export default function RockPaperScissorsGame() {
   const [gameMode, setGameMode] = useState(null);
   const [gameOver, setGameOver] = useState(false);
   const [showResult, setShowResult] = useState(false);
-  const [scoresRPS, setScoresRPS] = useState(0);
+  const [pointsRPS, setpointsRPS] = useState(0);
 
   const choices = [
     { image: require('../assets/rock.png'), text: 'Rock' },
@@ -122,7 +122,7 @@ export default function RockPaperScissorsGame() {
     try {
       const userId = auth.currentUser.uid;
       const userRef = firestore.collection('profiles').doc(userId);
-      let updatedScore = scoresRPS;
+      let updatedScore = pointsRPS;
 
       if (result === 'You won!') {
         updatedScore += 2;
@@ -131,9 +131,9 @@ export default function RockPaperScissorsGame() {
       }
 
       await userRef.update({
-        scoresRPS: updatedScore,
+        pointsRPS: updatedScore,
       });
-      setScoresRPS(updatedScore);
+      setpointsRPS(updatedScore);
     } catch (error) {
       console.error('Error updating user score:', error);
     }
@@ -145,8 +145,8 @@ export default function RockPaperScissorsGame() {
         const userId = auth.currentUser.uid;
         const userRef = firestore.collection('profiles').doc(userId);
         const userDoc = await userRef.get();
-        const userScore = userDoc.data()?.scoresRPS || 0;
-        setScoresRPS(userScore);
+        const userScore = userDoc.data()?.pointsRPS || 0;
+        setpointsRPS(userScore);
       } catch (error) {
         console.error('Error fetching user score:', error);
       }

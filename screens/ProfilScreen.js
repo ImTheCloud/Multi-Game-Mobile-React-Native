@@ -7,13 +7,14 @@ export default function ProfilScreen() {
   const navigation = useNavigation();
   const [nouveauNom, setNouveauNom] = useState('');
   const [userProfile, setUserProfile] = useState(null);
+  
 
   useEffect(() => {
     // Fetch user profile data when the component mounts
+    const userId = auth.currentUser.uid;
+    const userRef = firestore.collection('profiles').doc(userId);
+  
     const fetchUserProfile = async () => {
-      const userId = auth.currentUser.uid;
-      const userRef = firestore.collection('profiles').doc(userId);
-
       try {
         const doc = await userRef.get();
         if (doc.exists) {
@@ -24,10 +25,9 @@ export default function ProfilScreen() {
             nom: '', // Set other default values as needed
             highScore: 0,
             pointsHangman: 0,
-            scoresRPS: 0,
-            pointsTotaux: 0,
+            pointsRPS: 0,
           });
-
+  
           // Fetch the updated user profile
           const updatedDoc = await userRef.get();
           setUserProfile(updatedDoc.data());
@@ -36,9 +36,18 @@ export default function ProfilScreen() {
         console.error('Error fetching user profile:', error.message);
       }
     };
-
+  
+    const unsubscribe = userRef.onSnapshot((doc) => {
+      // This callback will be triggered whenever the document changes
+      setUserProfile(doc.data());
+    });
+  
     fetchUserProfile();
+  
+    // Cleanup the listener when the component unmounts
+    return () => unsubscribe();
   }, []);
+  
 
   const handleSignOut = () => {
     auth
@@ -92,8 +101,10 @@ export default function ProfilScreen() {
           <Text>Nom: {userProfile?.nom || 'Non défini'}</Text>
           <Text>High Score Flappy Bird: {userProfile?.highScore || 0}</Text>
           <Text>Points Hang Man: {userProfile?.pointsHangman || 0}</Text>
-          <Text>Points Rock Paper Scissors: {userProfile?.scoresRPS || 0}</Text>
-          <Text>Points Totaux: {userProfile?.pointsTotaux || 0}</Text>
+          <Text>Points Rock Paper Scissors: {userProfile?.pointsRPS || 0}</Text>
+
+          {/* Calculate total points from all games */}
+          <Text>All Points: {userProfile?.highScore + userProfile?.pointsHangman + userProfile?.pointsRPS || 0}</Text>
 
           <TextInput
             style={{ height: 40, borderColor: 'gray', borderWidth: 1, marginBottom: 10, paddingHorizontal: 10, width: '100%' }}
