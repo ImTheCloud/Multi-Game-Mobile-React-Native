@@ -18,16 +18,16 @@ const GameScreen = () => {
       screenName: 'TicTacToe',
       image: require('../assets/tic-tac-toe.png'),
     },
-    // {
-    //   title: 'Hangman Game',
-    //   screenName: 'HangmanGame',
-    //   image: require('../assets/hangman.png'),
-    // },
-    // {
-    //   title: 'Rock Paper Scissors',
-    //   screenName: 'RockPaperScissorsGame',
-    //   image: require('../assets/rockPaperScissors.png'),
-    // },
+    {
+      title: 'Hangman Game',
+      screenName: 'HangmanGame',
+      image: require('../assets/hangman.png'),
+    },
+    {
+      title: 'Rock Paper Scissors',
+      screenName: 'RockPaperScissorsGame',
+      image: require('../assets/rockPaperScissors.png'),
+    },
   ];
 
   // Filtrer les jeux en fonction du terme de recherche

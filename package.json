@@ -16,6 +16,7 @@
     "@react-navigation/native-stack": "^6.9.14",
     "@react-navigation/stack": "^6.3.18",
     "expo": "~49.0.11",
+    "expo-image-picker": "~14.3.2",
     "expo-status-bar": "~1.6.0",
     "firebase": "^10.4.0",
     "matter-js": "^0.19.0",
@@ -31,8 +32,7 @@
     "react-native-svg": "13.9.0",
     "react-native-vector-icons": "^10.0.0",
     "react-native-web": "~0.19.6",
-    "react-svg": "^16.1.25",
-    "expo-image-picker": "~14.3.2"
+    "react-svg": "^16.1.25"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0"

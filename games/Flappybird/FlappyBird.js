@@ -7,7 +7,7 @@ import Physics from './physics';
 import { TouchableOpacity } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
-
+import { firestore } from '../../firebase'; 
 
 const birdImage = require('../../assets/flappybird.png');
 
@@ -16,23 +16,52 @@ function FlappyBird() {
   const [running, setRunning] = useState(false);
   const [gameEngine, setGameEngine] = useState(null);
   const [currentPoints, setCurrentPoints] = useState(0);
+  const [highScore, setHighScore] = useState(0);
 
   useEffect(() => {
     setRunning(false);
+
+    // Retrieve high score from Firebase Firestore
+    const fetchHighScore = async () => {
+      try {
+        const highScoreDoc = await firestore.collection('highscores').doc('flappybird').get();
+        if (highScoreDoc.exists) {
+          const fetchedHighScore = highScoreDoc.data().score;
+          setHighScore(fetchedHighScore);
+        }
+      } catch (error) {
+        console.error('Error fetching high score:', error);
+      }
+    };
+
+    fetchHighScore();
   }, []);
+
+  // Function to update high score in Firebase Firestore
+  const updateHighScore = async (newHighScore) => {
+    try {
+      await firestore.collection('highscores').doc('flappybird').set({
+        score: newHighScore,
+      });
+    } catch (error) {
+      console.error('Error updating high score:', error);
+    }
+  };
 
   return (
     <View style={{ flex: 1 }}>
       <TouchableOpacity
         style={{ position: 'absolute', top: 20, left: 20, zIndex: 1 }}
         onPress={() => navigation.navigate('GameScreen')}
-
       >
         <Ionicons name="ios-arrow-back" size={24} color="black" />
       </TouchableOpacity>
 
       <Text style={{ textAlign: 'center', fontSize: 40, fontWeight: 'bold', margin: 20 }}>
         {currentPoints}
+      </Text>
+      <Text style={{ textAlign: 'center', fontSize: 20, fontWeight: 'bold', margin: 10, color: 'green' }}>
+        High Score: {highScore}
       </Text>
       <GameEngine
         ref={(ref) => {
@@ -46,6 +75,12 @@ function FlappyBird() {
             case 'game_over':
               setRunning(false);
               gameEngine.stop();
+
+              // Update high score if needed
+              if (currentPoints > highScore) {
+                setHighScore(currentPoints);
+                updateHighScore(currentPoints);
+              }
               break;
             case 'new_point':
               setCurrentPoints(currentPoints + 1);
