@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, TouchableOpacity, TextInput, ScrollView } from 'react-native';
+import { View, Text, TouchableOpacity, TextInput, ScrollView, StyleSheet } from 'react-native';
 import { useNavigation } from '@react-navigation/core';
 import { auth, firestore } from '../firebase';
 
@@ -7,28 +7,24 @@ export default function ProfilScreen() {
   const navigation = useNavigation();
   const [nouveauNom, setNouveauNom] = useState('');
   const [userProfile, setUserProfile] = useState(null);
-  
 
   useEffect(() => {
-    // Fetch user profile data when the component mounts
     const userId = auth.currentUser.uid;
     const userRef = firestore.collection('profiles').doc(userId);
-  
+
     const fetchUserProfile = async () => {
       try {
         const doc = await userRef.get();
         if (doc.exists) {
           setUserProfile(doc.data());
         } else {
-          // If the document doesn't exist, initialize it with the user's ID
           await userRef.set({
-            nom: '', // Set other default values as needed
+            nom: '',
             highScore: 0,
             pointsHangman: 0,
             pointsRPS: 0,
           });
-  
-          // Fetch the updated user profile
+
           const updatedDoc = await userRef.get();
           setUserProfile(updatedDoc.data());
         }
@@ -36,18 +32,15 @@ export default function ProfilScreen() {
         console.error('Error fetching user profile:', error.message);
       }
     };
-  
+
     const unsubscribe = userRef.onSnapshot((doc) => {
-      // This callback will be triggered whenever the document changes
       setUserProfile(doc.data());
     });
-  
+
     fetchUserProfile();
-  
-    // Cleanup the listener when the component unmounts
+
     return () => unsubscribe();
   }, []);
-  
 
   const handleSignOut = () => {
     auth
@@ -63,23 +56,19 @@ export default function ProfilScreen() {
     const userRef = firestore.collection('profiles').doc(userId);
 
     try {
-      // Ensure userProfile is available before attempting to update
       if (!userProfile) {
-        console.log('User profile not found, trying to fetch again');
         const updatedDoc = await userRef.get();
         if (updatedDoc.exists) {
           setUserProfile(updatedDoc.data());
         } else {
-          console.log('User profile still not found');
           return;
         }
       }
 
       await userRef.update({
-        nom: nouveauNom || userProfile.nom, // Keep the existing name if the new one is empty
+        nom: nouveauNom || userProfile.nom,
       });
 
-      // Update the local state to reflect the changes
       setUserProfile(prevState => ({
         ...prevState,
         nom: nouveauNom || userProfile.nom,
@@ -92,35 +81,94 @@ export default function ProfilScreen() {
   };
 
   return (
-    <ScrollView contentContainerStyle={{ flexGrow: 1, justifyContent: 'center', alignItems: 'center', padding: 20 }}>
-      <Text style={{ fontSize: 24, fontWeight: 'bold', marginBottom: 20 }}>Profil</Text>
+    <ScrollView contentContainerStyle={styles.container}>
+      <Text style={styles.title}>Profil</Text>
 
       {auth.currentUser && (
-        <View style={{ marginBottom: 20, width: '100%' }}>
-          <Text>Email: {auth.currentUser.email}</Text>
-          <Text>Nom: {userProfile?.nom || 'Non défini'}</Text>
-          <Text>High Score Flappy Bird: {userProfile?.highScore || 0}</Text>
-          <Text>Points Hang Man: {userProfile?.pointsHangman || 0}</Text>
-          <Text>Points Rock Paper Scissors: {userProfile?.pointsRPS || 0}</Text>
+        <View style={styles.profileContainer}>
+          <View style={styles.profileInfo}>
+            <Text>Email: {auth.currentUser.email}</Text>
+            <Text style={styles.name}>Nom: {userProfile?.nom || 'Non défini'}</Text>
+            <Text>High Score Flappy Bird: {userProfile?.highScore || 0}</Text>
+            <Text>Points Hang Man: {userProfile?.pointsHangman || 0}</Text>
+            <Text>Points Rock Paper Scissors: {userProfile?.pointsRPS || 0}</Text>
 
-          {/* Calculate total points from all games */}
-          <Text>All Points: {userProfile?.highScore + userProfile?.pointsHangman + userProfile?.pointsRPS || 0}</Text>
+            <Text style={styles.totalPoints}>All Points: {userProfile?.highScore + userProfile?.pointsHangman + userProfile?.pointsRPS || 0}</Text>
 
-          <TextInput
-            style={{ height: 40, borderColor: 'gray', borderWidth: 1, marginBottom: 10, paddingHorizontal: 10, width: '100%' }}
-            placeholder="Nouveau Nom"
-            onChangeText={text => setNouveauNom(text)}
-            value={nouveauNom}
-          />
-          <TouchableOpacity onPress={handleModification} style={{ backgroundColor: 'blue', padding: 10, borderRadius: 5, width: '100%' }}>
-            <Text style={{ color: 'white', textAlign: 'center' }}>Modifier le Profil</Text>
+            <TextInput
+              style={styles.input}
+              placeholder="Nouveau Nom"
+              onChangeText={text => setNouveauNom(text)}
+              value={nouveauNom}
+            />
+          </View>
+          <TouchableOpacity onPress={handleModification} style={styles.button}>
+            <Text style={styles.buttonText}>Modifier le Profil</Text>
           </TouchableOpacity>
         </View>
       )}
 
-      <TouchableOpacity onPress={handleSignOut} style={{ backgroundColor: 'red', padding: 10, borderRadius: 5, width: '100%' }}>
-        <Text style={{ color: 'white', textAlign: 'center' }}>Se déconnecter</Text>
+      <TouchableOpacity onPress={handleSignOut} style={[styles.button, { backgroundColor: 'red' }]}>
+        <Text style={styles.buttonText}>Se déconnecter</Text>
       </TouchableOpacity>
     </ScrollView>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flexGrow: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: 20,
+  },
+  title: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    marginBottom: 20,
+  },
+  profileContainer: {
+    marginBottom: 20,
+    width: '90%',
+    backgroundColor: '#fff',
+    borderRadius: 10,
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5,
+    padding: 20,
+  },
+  profileInfo: {
+    marginBottom: 20,
+  },
+  name: {
+    fontWeight: 'bold',
+  },
+  totalPoints: {
+    fontWeight: 'bold',
+    marginTop: 10,
+  },
+  input: {
+    height: 40,
+    borderColor: 'gray',
+    borderWidth: 1,
+    marginBottom: 10,
+    paddingHorizontal: 10,
+    width: '100%',
+  },
+  button: {
+    backgroundColor: 'blue',
+    padding: 10,
+    borderRadius: 5,
+    width: '100%',
+    marginTop: 10,
+  },
+  buttonText: {
+    color: 'white',
+    textAlign: 'center',
+  },
+});
