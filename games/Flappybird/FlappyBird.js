@@ -61,11 +61,6 @@ function FlappyBird() {
         <Ionicons name="ios-arrow-back" size={24} color="black" />
       </TouchableOpacity>
 
-      {/* Display user's current score */}
-      <Text style={{ textAlign: 'center', fontSize: 20, margin: 10, color: 'blue' }}>
-        Your Score: {currentPoints}
-      </Text>
-
       <Text style={{ textAlign: 'center', fontSize: 40, fontWeight: 'bold', margin: 20 }}>
         {currentPoints}
       </Text>
