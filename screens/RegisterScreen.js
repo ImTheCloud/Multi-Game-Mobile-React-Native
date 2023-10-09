@@ -1,23 +1,44 @@
 // RegisterScreen.js
 import React, { useState } from 'react';
-import { KeyboardAvoidingView, Image, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import {
+  KeyboardAvoidingView,
+  Image,
+  ScrollView,
+  StyleSheet,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 import { useNavigation } from '@react-navigation/core';
-import { auth } from '../firebase';
+import { auth, firestore } from '../firebase'; // Assuming you have a reference to firestore in your firebase.js file
 
 const RegisterScreen = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [nom, setNom] = useState(''); // Add state for the "nom" field
 
   const navigation = useNavigation();
 
   const handleSignUp = () => {
     auth
       .createUserWithEmailAndPassword(email, password)
-      .then(userCredentials => {
+      .then(async (userCredentials) => {
         const user = userCredentials.user;
+
+        // Add user data to Firestore
+        await firestore.collection('profiles').doc(user.uid).set({
+          nom,
+          pointsFP: 0,
+          pointsHM: 0,
+          pointsOxo: 0,
+          pointsPPS: 0,
+          pointsTotaux: 0,
+        });
+
         console.log('Registered with:', user.email);
       })
-      .catch(error => alert(error.message));
+      .catch((error) => alert(error.message));
   };
 
   const goToLogin = () => {
@@ -26,28 +47,31 @@ const RegisterScreen = () => {
 
   return (
     <ScrollView contentContainerStyle={styles.scrollViewContent}>
-      <KeyboardAvoidingView
-        style={styles.container}
-        behavior="padding"
-      >
-         <Image
-            source={require('../assets/Logo.png')}
-            style={{ width: 200, height: 100, resizeMode: 'contain', marginBottom: 20 }}
-            />
+      <KeyboardAvoidingView style={styles.container} behavior="padding">
+        <Image
+          source={require('../assets/Logo.png')}
+          style={{ width: 200, height: 100, resizeMode: 'contain', marginBottom: 20 }}
+        />
 
         <View style={styles.inputContainer}>
           <TextInput
             placeholder="Email"
             value={email}
-            onChangeText={text => setEmail(text)}
+            onChangeText={(text) => setEmail(text)}
             style={[styles.input, { width: '100%' }]}
           />
           <TextInput
             placeholder="Password"
             value={password}
-            onChangeText={text => setPassword(text)}
+            onChangeText={(text) => setPassword(text)}
             style={[styles.input, { width: '100%' }]}
             secureTextEntry
+          />
+          <TextInput
+            placeholder="Nom"
+            value={nom}
+            onChangeText={(text) => setNom(text)}
+            style={[styles.input, { width: '100%' }]}
           />
         </View>
 
@@ -61,7 +85,9 @@ const RegisterScreen = () => {
           <View style={styles.loginLinkContainer}>
             <Text style={styles.loginLinkText}>Already have an account?</Text>
             <TouchableOpacity onPress={goToLogin}>
-              <Text style={[styles.loginLinkText, { color: '#0782F9', marginLeft: 5 }]}>Login</Text>
+              <Text style={[styles.loginLinkText, { color: '#0782F9', marginLeft: 5 }]}>
+                Login
+              </Text>
             </TouchableOpacity>
           </View>
         </View>

@@ -179,10 +179,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginBottom: 20,
   },
-  hangmanPart: {
-    fontSize: 24,
-    fontFamily: 'monospace',
-  },
   incorrectLetters: {
     fontSize: 24,
     marginBottom: 20,
