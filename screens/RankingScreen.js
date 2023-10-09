@@ -1,16 +1,22 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, Modal, Button,FlatList  } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, Modal, Button, FlatList, TextInput } from 'react-native';
 import { firestore } from '../firebase';
 
 export default function RankingScreen() {
   const [users, setUsers] = useState([]);
   const [selectedUser, setSelectedUser] = useState(null);
+  const [searchInput, setSearchInput] = useState('');
+  const [unsubscribe, setUnsubscribe] = useState(null);
 
   const fetchUsers = async () => {
     try {
-      const usersCollection = await firestore.collection('profiles').get();
-      const usersData = usersCollection.docs.map(doc => doc.data());
-      setUsers(usersData);
+      const usersCollection = await firestore.collection('profiles');
+      const unsub = usersCollection.onSnapshot((snapshot) => {
+        const usersData = snapshot.docs.map((doc) => doc.data());
+        setUsers(usersData);
+      });
+
+      setUnsubscribe(() => unsub); // Save the unsubscribe function
     } catch (error) {
       console.error('Error fetching users:', error.message);
     }
@@ -24,9 +30,25 @@ export default function RankingScreen() {
     setSelectedUser(null);
   };
 
+  const handleSearch = (text) => {
+    setSearchInput(text);
+  };
+
+  const filteredUsers = users.filter((user) =>
+  user.nom && user.nom.toLowerCase().includes(searchInput.toLowerCase())
+);
+
+
   // Fetch users on component mount
   useEffect(() => {
     fetchUsers();
+
+    return () => {
+      // Unsubscribe when component unmounts
+      if (unsubscribe) {
+        unsubscribe();
+      }
+    };
   }, []);
 
   const renderItem = ({ item }) => (
@@ -40,24 +62,24 @@ export default function RankingScreen() {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Ranking</Text>
-      <FlatList
-        data={users}
-        keyExtractor={(item, index) => `${item.nom}-${index}`}
-        renderItem={renderItem}
+
+      {/* Search input */}
+      <TextInput
+        style={styles.searchInput}
+        placeholder="Search by name"
+        value={searchInput}
+        onChangeText={handleSearch}
       />
 
+      <FlatList data={filteredUsers} keyExtractor={(item, index) => `${item.nom}-${index}`} renderItem={renderItem} />
+
       {/* Modal to display user details */}
-      <Modal
-        visible={!!selectedUser}
-        animationType="slide"
-        transparent={true}
-        onRequestClose={handleCloseModal}
-      >
+      <Modal visible={!!selectedUser} animationType="slide" transparent={true} onRequestClose={handleCloseModal}>
         <View style={styles.modalContainer}>
           <View style={styles.modalContent}>
             <Text style={styles.modalTitle}>Points</Text>
             <Text>Name: {selectedUser?.nom || 'Non défini'}</Text>
-            <Text>High Score: {selectedUser?.highScore || 0}</Text>
+            <Text>High Score Flappy Bird: {selectedUser?.highScore || 0}</Text>
             <Text>Points Hang Man: {selectedUser?.pointsHangman || 0}</Text>
             <Text>Points Rock Paper Scissors: {selectedUser?.pointsRPS || 0}</Text>
             <Button title="Close" onPress={handleCloseModal} />
@@ -69,6 +91,25 @@ export default function RankingScreen() {
 }
 
 const styles = StyleSheet.create({
+  searchInput: {
+    height: 40,
+    borderColor: '#16247d',
+    borderWidth: 1,
+    paddingHorizontal: 10,
+    marginBottom: 10,
+    width: '90%',
+    marginTop: 20,
+    backgroundColor: '#fff',
+    borderRadius: 10,
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5,
+  },
   modalContainer: {
     flex: 1,
     justifyContent: 'center',
@@ -107,21 +148,24 @@ const styles = StyleSheet.create({
   },
   userContainer: {
     marginBottom: 20,
-    width: '90%',
-    backgroundColor: '#fff',
+    width: '100%',
+    backgroundColor: '#16247d', // Couleur principale
     borderRadius: 10,
     shadowColor: '#000',
     shadowOffset: {
       width: 0,
       height: 2,
     },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.84,
+    shadowOpacity: 0.3,
+    shadowRadius: 3,
     elevation: 5,
     padding: 20,
+    justifyContent: 'center', // Center vertically
+    alignItems: 'center', // Center horizontally
   },
   userName: {
     fontWeight: 'bold',
     fontSize: 18,
+    color: '#fff',
   },
 });

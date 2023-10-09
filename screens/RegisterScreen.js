@@ -29,11 +29,9 @@ const RegisterScreen = () => {
         // Add user data to Firestore
         await firestore.collection('profiles').doc(user.uid).set({
           nom,
-          pointsFP: 0,
-          pointsHM: 0,
-          pointsOxo: 0,
-          pointsPPS: 0,
-          pointsTotaux: 0,
+          highScore: 0,
+          pointsHangman: 0,
+          pointsRPS: 0,
         });
 
         console.log('Registered with:', user.email);
@@ -68,7 +66,7 @@ const RegisterScreen = () => {
             secureTextEntry
           />
           <TextInput
-            placeholder="Nom"
+            placeholder="Name"
             value={nom}
             onChangeText={(text) => setNom(text)}
             style={[styles.input, { width: '100%' }]}

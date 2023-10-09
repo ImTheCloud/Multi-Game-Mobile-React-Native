@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, TextInput, StyleSheet, Modal, Text, TouchableOpacity } from 'react-native';
+import { View, TextInput, StyleSheet, Modal, Text, TouchableOpacity, Image } from 'react-native';
 import GameList from '../components/GameList';
 
 export default function RulesScreen() {
@@ -9,22 +9,22 @@ export default function RulesScreen() {
   const games = [
     {
       title: 'Flappy Bird',
-      rules: 'Flappy Bird : High Score only',
-      image: require('../assets/flappybird.png'),  
+      rules: 'Flappy Bird: High Score only',
+      image: require('../assets/flappybird.png'),
     },
     {
       title: 'Tic Tac Toe',
-      rules: 'Tic Tac Toe : Multi Player',
+      rules: 'Tic Tac Toe: Multi Player',
       image: require('../assets/tic-tac-toe.png'),
     },
     {
       title: 'Hangman Game',
-      rules: 'Hangman Game : +5 points if you win and -3 points if you lose',
+      rules: 'Hangman Game: +5 points if you win and -3 points if you lose',
       image: require('../assets/hangman.png'),
     },
     {
       title: 'Rock Paper Scissors',
-      rules: 'Rock Paper : +2 points if you win vs IA and if you lose it is -2 points',
+      rules: 'Rock Paper: +2 points if you win vs IA and if you lose it is -2 points',
       image: require('../assets/rockPaperScissors.png'),
     },
   ];
@@ -35,6 +35,9 @@ export default function RulesScreen() {
 
   return (
     <View style={styles.container}>
+       <View style={styles.titleContainer}>
+        <Text style={styles.titleText}>Rules</Text>
+      </View>
       <TextInput
         style={styles.searchInput}
         placeholder="Find a game"
@@ -57,6 +60,7 @@ export default function RulesScreen() {
       >
         <View style={styles.modalContainer}>
           <View style={styles.modalContent}>
+            <Image style={styles.gameImage} source={selectedGame?.image} />
             <Text style={styles.modalTitle}>{selectedGame?.title} Rules</Text>
             <Text style={styles.modalText}>{selectedGame?.rules}</Text>
             <TouchableOpacity style={styles.closeButton} onPress={() => setSelectedGame(null)}>
@@ -70,6 +74,12 @@ export default function RulesScreen() {
 }
 
 const styles = StyleSheet.create({
+
+  titleText: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    marginTop:50,
+  },
   container: {
     flex: 1,
     alignItems: 'center',
@@ -77,7 +87,7 @@ const styles = StyleSheet.create({
   },
   searchInput: {
     height: 40,
-    borderColor: '#ccc',
+    borderColor: '#16247d',
     borderWidth: 1,
     paddingHorizontal: 10,
     marginBottom: 10,
@@ -105,6 +115,7 @@ const styles = StyleSheet.create({
     padding: 20,
     borderRadius: 10,
     width: '80%',
+    alignItems: 'center',
     shadowColor: '#000',
     shadowOffset: {
       width: 0,
@@ -114,17 +125,24 @@ const styles = StyleSheet.create({
     shadowRadius: 3.84,
     elevation: 5,
   },
+  gameImage: {
+    width: 100,
+    height: 100,
+    marginBottom: 10,
+  },
   modalTitle: {
     fontSize: 20,
     fontWeight: 'bold',
     marginBottom: 10,
     textAlign: 'center',
+    color: '#16247d',
   },
   modalText: {
     marginBottom: 20,
+    textAlign: 'center',
   },
   closeButton: {
-    backgroundColor: 'blue',
+    backgroundColor: '#16247d',
     padding: 10,
     borderRadius: 5,
     width: '100%',

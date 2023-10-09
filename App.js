@@ -30,7 +30,7 @@ const screenOptions = {
     left: 0,
     elevation: 0,
     height: 60,
-    background: '#fff',
+    backgroundColor: '#eaf5ff', 
   },
 };
 
@@ -69,8 +69,8 @@ const App = () => {
         options={{
           tabBarIcon: ({ focused }) => (
             <View style={{ alignItems: 'center', justifyContent: 'center' }}>
-              <FontAwesome5 name="hackerrank" size={24} color={focused ? "#16247d" : "black"} />
-              <Text style={{ fontSize: 12, color: focused ? "#16247d" : "#111" }}>RANKING</Text>
+              <FontAwesome5 name="hackerrank" size={24} color={focused ? "#2087d6" : "black"} />
+              <Text style={{ fontSize: 12, color: focused ? "#2087d6" : "#111" }}>RANKING</Text>
             </View>
           ),
         }}
@@ -82,8 +82,8 @@ const App = () => {
         options={{
           tabBarIcon: ({ focused }) => (
             <View style={{ alignItems: "center", justifyContent: "center" }}>
-              <AntDesign name="infocirlce" size={24} color={focused ? "#16247d" : "black"} />
-              <Text style={{ fontSize: 12, color: focused ? "#16247d" : "#111" }}>RULES</Text>
+              <AntDesign name="infocirlce" size={24} color={focused ? "#2087d6" : "black"} />
+              <Text style={{ fontSize: 12, color: focused ? "#2087d6" : "#111" }}>RULES</Text>
             </View>
           ),
         }}
@@ -99,7 +99,7 @@ const App = () => {
               style={{
                alignItems: "center",
                justifyContent: "center",
-               backgroundColor: focused ? "#16247d" : "black",
+               backgroundColor: focused ? "#2087d6" : "black",
                width: Platform.OS == "ios" ? 50 : 60,
                height: Platform.OS == "ios" ? 50 : 60,
                top: Platform.OS == "ios" ? -10 : -20,
@@ -111,21 +111,20 @@ const App = () => {
            )
          }
         }}
+        
        />
-       <Tab.Screen 
-       name="Settings" 
-       component={SettingsScreen} 
-       options={{
-         tabBarIcon: ({focused})=>{
-           return (
-             <View style={{alignItems: "center", justifyContent: "center"}}> 
-              <Ionicons name="settings" size={24}  color={focused ? "#16247d": "#111"} />
-               <Text style={{fontSize: 12, color: "#16247d"}}>SETTINGS</Text>
-         </View>
-           )
-         }
-       }}
-       />
+        <Tab.Screen 
+        name="Setting" 
+        component={SettingsScreen} 
+        options={{
+          tabBarIcon: ({ focused }) => (
+            <View style={{ alignItems: "center", justifyContent: "center" }}>
+              <Ionicons name="settings" size={24} color={focused ? "#2087d6" : "black"} />
+              <Text style={{ fontSize: 12, color: focused ? "#2087d6" : "#111" }}>SETTINGS</Text>
+            </View>
+          ),
+        }}
+      />
         <Tab.Screen 
           name="Profil" 
           component={ProfilScreen} 
@@ -133,8 +132,8 @@ const App = () => {
             tabBarIcon: ({focused})=>{
               return (
                 <View style={{alignItems: "center", justifyContent: "center"}}> 
-                  <FontAwesome name="user" size={24} color={focused ? "#16247d" : "black"} />
-                  <Text style={{fontSize: 12, color: focused ? "#16247d" : "#111"}}>PROFIL</Text>
+                  <FontAwesome name="user" size={24} color={focused ? "#2087d6" : "black"} />
+                  <Text style={{fontSize: 12, color: focused ? "#2087d6" : "#111"}}>PROFIL</Text>
                 </View>
               )
             }

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, TextInput, StyleSheet } from 'react-native';
+import { View, TextInput, StyleSheet,Image } from 'react-native';
 import GameList from '../components/GameList';
 import { useNavigation } from '@react-navigation/core';
 
@@ -37,6 +37,10 @@ const GameScreen = () => {
 
   return (
     <View style={styles.container}>
+     <Image
+          source={require('../assets/Logo.png')}
+          style={{ width: 200, height: 100, resizeMode: 'contain',  marginTop : 20, }}
+        />
       <TextInput
         style={styles.searchInput}
         placeholder="Find a game"
@@ -61,7 +65,7 @@ const styles = StyleSheet.create({
   },
   searchInput: {
     height: 40,
-    borderColor: '#ccc', 
+    borderColor: '#16247d',
     borderWidth: 1,
     paddingHorizontal: 10,
     marginBottom: 10,
@@ -77,7 +81,6 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.25,
     shadowRadius: 3.84,
     elevation: 5,
-    marginTop : 100,
   },
 });
 

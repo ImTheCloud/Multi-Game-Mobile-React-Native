@@ -1,12 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, TouchableOpacity, TextInput, ScrollView, StyleSheet } from 'react-native';
+import { View, ImageBackground, Text, TouchableOpacity, TextInput, ScrollView, StyleSheet } from 'react-native';
 import { useNavigation } from '@react-navigation/core';
 import { auth, firestore } from '../firebase';
 
-export default function ProfilScreen() {
+import cielBackground from '../assets/blueBack.jpg';
+
+export default function ProfileScreen() {
   const navigation = useNavigation();
-  const [nouveauNom, setNouveauNom] = useState('');
+  const [newName, setNewName] = useState('');
   const [userProfile, setUserProfile] = useState(null);
+  const [accountCreationTime, setAccountCreationTime] = useState(null);
 
   useEffect(() => {
     const userId = auth.currentUser.uid;
@@ -39,16 +42,16 @@ export default function ProfilScreen() {
 
     fetchUserProfile();
 
+    const creationTime = auth.currentUser.metadata.creationTime;
+    setAccountCreationTime(creationTime);
+
     return () => unsubscribe();
   }, []);
 
   const handleSignOut = () => {
-    auth
-      .signOut()
-      .then(() => {
-        navigation.replace('Login');
-      })
-      .catch(error => alert(error.message));
+    auth.signOut().then(() => {
+      navigation.replace('Login');
+    });
   };
 
   const handleModification = async () => {
@@ -66,91 +69,119 @@ export default function ProfilScreen() {
       }
 
       await userRef.update({
-        nom: nouveauNom || userProfile.nom,
+        nom: newName || userProfile.nom,
       });
 
-      setUserProfile(prevState => ({
+      setUserProfile((prevState) => ({
         ...prevState,
-        nom: nouveauNom || userProfile.nom,
+        nom: newName || userProfile.nom,
       }));
-
-      alert('Profil mis à jour avec succès!');
     } catch (error) {
-      alert(`Erreur lors de la mise à jour du profil : ${error.message}`);
+      alert(`Error updating profile: ${error.message}`);
     }
   };
 
   return (
-    <ScrollView contentContainerStyle={styles.container}>
-      <Text style={styles.title}>Profil</Text>
+    <ImageBackground source={cielBackground} style={styles.backgroundImage}>
+      <ScrollView contentContainerStyle={styles.container}>
+        {auth.currentUser && (
+          <View style={styles.profileContainer}>
+            <View style={styles.header}>
+              <Text style={styles.title}>Profile</Text>
+              <TouchableOpacity style={styles.profileImageContainer} onPress={() => console.log('Photo Clicked')}>
+                <View style={styles.profileImage} />
+              </TouchableOpacity>
+            </View>
 
-      {auth.currentUser && (
-        <View style={styles.profileContainer}>
-          <View style={styles.profileInfo}>
-            <Text>Email: {auth.currentUser.email}</Text>
-            <Text style={styles.name}>Nom: {userProfile?.nom || 'Non défini'}</Text>
-            <Text>High Score Flappy Bird: {userProfile?.highScore || 0}</Text>
-            <Text>Points Hang Man: {userProfile?.pointsHangman || 0}</Text>
-            <Text>Points Rock Paper Scissors: {userProfile?.pointsRPS || 0}</Text>
+            {accountCreationTime && (
+              <Text style={styles.creationTimeText}>
+                Account created: {new Date(accountCreationTime).toLocaleDateString()}
+              </Text>
+            )}
 
-            <Text style={styles.totalPoints}>All Points: {userProfile?.pointsHangman + userProfile?.pointsRPS || 0}</Text>
+            <View style={styles.profileInfo}>
+              <Text style={styles.label}>Email: {auth.currentUser.email}</Text>
+              <Text style={styles.label}>Name: {userProfile?.nom || 'Not defined'}</Text>
+              <Text style={styles.label}>High Score Flappy Bird: {userProfile?.highScore || 0}</Text>
+              <Text style={styles.label}>Points Hang Man: {userProfile?.pointsHangman || 0}</Text>
+              <Text style={styles.label}>Points Rock Paper Scissors: {userProfile?.pointsRPS || 0}</Text>
+              <Text style={styles.label}>All Points: {userProfile?.pointsHangman + userProfile?.pointsRPS || 0}</Text>
 
-            <TextInput
-              style={styles.input}
-              placeholder="Nouveau Nom"
-              onChangeText={text => setNouveauNom(text)}
-              value={nouveauNom}
-            />
+              <TextInput
+                style={styles.input}
+                placeholder="New Name"
+                onChangeText={(text) => setNewName(text)}
+                value={newName}
+              />
+            </View>
+
+            <TouchableOpacity onPress={handleModification} style={styles.button}>
+              <Text style={styles.buttonText}>Update Profile</Text>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={handleSignOut} style={[styles.button, { backgroundColor: '#F17272' }]}>
+              <Text style={styles.buttonText}>Log out</Text>
+            </TouchableOpacity>
           </View>
-          <TouchableOpacity onPress={handleModification} style={styles.button}>
-            <Text style={styles.buttonText}>Modifier le Profil</Text>
-          </TouchableOpacity>
-        </View>
-      )}
-
-      <TouchableOpacity onPress={handleSignOut} style={[styles.button, { backgroundColor: 'red' }]}>
-        <Text style={styles.buttonText}>Se déconnecter</Text>
-      </TouchableOpacity>
-    </ScrollView>
+        )}
+      </ScrollView>
+    </ImageBackground>
   );
 }
 
 const styles = StyleSheet.create({
+  backgroundImage: {
+    flex: 1,
+    resizeMode: 'cover',
+    justifyContent: 'center',
+  },
   container: {
     flexGrow: 1,
     justifyContent: 'center',
     alignItems: 'center',
     padding: 20,
   },
-  title: {
-    fontSize: 24,
-    fontWeight: 'bold',
+  header: {
+    alignItems: 'center',
     marginBottom: 20,
+  },
+  title: {
+    color: '#000',
+    fontSize: 32,
+    fontWeight: 'bold',
   },
   profileContainer: {
-    marginBottom: 20,
-    width: '90%',
-    backgroundColor: '#fff',
-    borderRadius: 10,
-    shadowColor: '#000',
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.84,
-    elevation: 5,
+    alignItems: 'center',
     padding: 20,
+    borderRadius: 10,
+    backgroundColor: 'rgba(255, 255, 255, 0.8)',
+  },
+  profileImageContainer: {
+    width: 120,
+    height: 120,
+    borderRadius: 60,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginBottom: 20,
+  },
+  profileImage: {
+    width: 100,
+    height: 100,
+    borderRadius: 50,
+    backgroundColor: '#ddd',
+  },
+  creationTimeText: {
+    color: '#000',
+    marginBottom: 20,
   },
   profileInfo: {
+    alignItems: 'flex-start',
     marginBottom: 20,
   },
-  name: {
+  label: {
+    color: '#000',
     fontWeight: 'bold',
-  },
-  totalPoints: {
-    fontWeight: 'bold',
-    marginTop: 10,
+    marginBottom: 5,
   },
   input: {
     height: 40,
@@ -159,16 +190,19 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     paddingHorizontal: 10,
     width: '100%',
+    backgroundColor: 'rgba(255, 255, 255, 0.9)',
+    borderRadius: 5,
   },
   button: {
-    backgroundColor: 'blue',
+    backgroundColor: '#248ad9',
     padding: 10,
     borderRadius: 5,
     width: '100%',
-    marginTop: 10,
+    marginBottom: 10,
   },
   buttonText: {
     color: 'white',
     textAlign: 'center',
+    fontWeight: 'bold',
   },
 });
