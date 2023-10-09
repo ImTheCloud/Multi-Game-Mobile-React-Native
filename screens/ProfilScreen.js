@@ -23,7 +23,7 @@ export default function ProfilScreen() {
           await userRef.set({
             nom: '', // Set other default values as needed
             highScore: 0,
-            pointsHM: 0,
+            pointsHangman: 0,
             pointsOxo: 0,
             pointsPPS: 0,
             pointsTotaux: 0,
@@ -92,7 +92,7 @@ export default function ProfilScreen() {
           <Text>Email: {auth.currentUser.email}</Text>
           <Text>Nom: {userProfile?.nom || 'Non défini'}</Text>
           <Text>High Score Flappy Bird: {userProfile?.highScore || 0}</Text>
-          <Text>Points HM: {userProfile?.pointsHM || 0}</Text>
+          <Text>Points HM: {userProfile?.pointsHangman || 0}</Text>
           <Text>Points Oxo: {userProfile?.pointsOxo || 0}</Text>
           <Text>Points PPS: {userProfile?.pointsPPS || 0}</Text>
           <Text>Points Totaux: {userProfile?.pointsTotaux || 0}</Text>
