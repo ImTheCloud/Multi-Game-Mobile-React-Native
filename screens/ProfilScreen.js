@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { View, ImageBackground, Text, TouchableOpacity, TextInput, ScrollView, StyleSheet } from 'react-native';
 import { useNavigation } from '@react-navigation/core';
 import { auth, firestore } from '../firebase';
+import Icon from 'react-native-vector-icons/FontAwesome'; // Import FontAwesome from react-native-vector-icons
 
 import cielBackground from '../assets/blueBack.jpg';
 
@@ -9,7 +10,6 @@ export default function ProfileScreen() {
   const navigation = useNavigation();
   const [newName, setNewName] = useState('');
   const [userProfile, setUserProfile] = useState(null);
-  const [accountCreationTime, setAccountCreationTime] = useState(null);
 
   useEffect(() => {
     const userId = auth.currentUser.uid;
@@ -42,17 +42,11 @@ export default function ProfileScreen() {
 
     fetchUserProfile();
 
-    const creationTime = auth.currentUser.metadata.creationTime;
-    setAccountCreationTime(creationTime);
+
 
     return () => unsubscribe();
   }, []);
 
-  const handleSignOut = () => {
-    auth.signOut().then(() => {
-      navigation.replace('Login');
-    });
-  };
 
   const handleModification = async () => {
     const userId = auth.currentUser.uid;
@@ -82,49 +76,78 @@ export default function ProfileScreen() {
   };
 
   return (
-    <ImageBackground source={cielBackground} style={styles.backgroundImage}>
-      <ScrollView contentContainerStyle={styles.container}>
-        {auth.currentUser && (
-          <View style={styles.profileContainer}>
-            <View style={styles.header}>
-              <Text style={styles.title}>Profile</Text>
-              <TouchableOpacity style={styles.profileImageContainer} onPress={() => console.log('Photo Clicked')}>
-                <View style={styles.profileImage} />
-              </TouchableOpacity>
-            </View>
+      <ImageBackground source={cielBackground} style={styles.backgroundImage}>
+        <ScrollView contentContainerStyle={styles.container}>
 
-            {accountCreationTime && (
-              <Text style={styles.creationTimeText}>
-                Account created: {new Date(accountCreationTime).toLocaleDateString()}
-              </Text>
-            )}
+          {auth.currentUser && (
+              <View>
+                <View style={styles.header}>
+                  <Text style={styles.title}>
+                    {userProfile?.nom || 'Not defined'}
+                  </Text>
+                  <TouchableOpacity style={styles.profileImageContainer} onPress={() => console.log('Photo Clicked')}>
+                  </TouchableOpacity>
+                </View>
 
-            <View style={styles.profileInfo}>
-              <Text style={styles.label}>Email: {auth.currentUser.email}</Text>
-              <Text style={styles.label}>Name: {userProfile?.nom || 'Not defined'}</Text>
-              <Text style={styles.label}>High Score Flappy Bird: {userProfile?.highScore || 0}</Text>
-              <Text style={styles.label}>Points Hang Man: {userProfile?.pointsHangman || 0}</Text>
-              <Text style={styles.label}>Points Rock Paper Scissors: {userProfile?.pointsRPS || 0}</Text>
-              <Text style={styles.label}>All Points: {userProfile?.pointsHangman + userProfile?.pointsRPS || 0}</Text>
 
-              <TextInput
-                style={styles.input}
-                placeholder="New Name"
-                onChangeText={(text) => setNewName(text)}
-                value={newName}
-              />
-            </View>
 
-            <TouchableOpacity onPress={handleModification} style={styles.button}>
-              <Text style={styles.buttonText}>Update Profile</Text>
-            </TouchableOpacity>
-            <TouchableOpacity onPress={handleSignOut} style={[styles.button, { backgroundColor: '#F17272' }]}>
-              <Text style={styles.buttonText}>Log out</Text>
-            </TouchableOpacity>
-          </View>
-        )}
-      </ScrollView>
-    </ImageBackground>
+                <View style={styles.infoRow}>
+                  <Icon name="user" size={40} color="#000" style={styles.icon} />
+                  <TextInput
+                      style={styles.input}
+                      placeholder={userProfile?.nom || 'Not defined'}
+                      onChangeText={(text) => setNewName(text)}
+                      value={newName}
+                  />
+
+                </View>
+
+
+                <View>
+                  <View style={styles.divider}></View>
+                  <View style={styles.infoRow}>
+                    <Icon name="envelope" size={27} color="#000" />
+                    <Text style={styles.label}>Email: {auth.currentUser.email}</Text>
+                  </View>
+                  <View style={styles.divider}></View>
+
+                  <View style={styles.infoRow}>
+                    <Icon name="trophy" size={27} color="#000" />
+                    <Text style={styles.label}>High Score Flappy Bird: {userProfile?.highScore || 0}</Text>
+                  </View>
+                  <View style={styles.divider}></View>
+
+                  <View style={styles.infoRow}>
+                    <Icon name="gamepad" size={27} color="#000" />
+                    <Text style={styles.label}>Points Hang Man: {userProfile?.pointsHangman || 0}</Text>
+                  </View>
+                  <View style={styles.divider}></View>
+
+                  <View style={styles.infoRow}>
+                    <Icon name="hand-rock-o" size={27} color="#000" />
+                    <Text style={styles.label}>Points Rock Paper Scissors: {userProfile?.pointsRPS || 0}</Text>
+                  </View>
+                  <View style={styles.divider}></View>
+
+                  <View style={styles.infoRow}>
+                    <Icon name="star" size={27} color="#000" />
+                    <Text style={styles.label}>All Points: {userProfile?.pointsHangman + userProfile?.pointsRPS || 0}</Text>
+                  </View>
+
+                  <View style={styles.divider}></View>
+
+
+                </View>
+
+                <View style={styles.centeredContainer}>
+                  <TouchableOpacity onPress={handleModification} style={styles.button}>
+                    <Text style={styles.buttonText}>Update Profile</Text>
+                  </TouchableOpacity>
+                </View>
+              </View>
+          )}
+        </ScrollView>
+      </ImageBackground>
   );
 }
 
@@ -139,21 +162,15 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     padding: 20,
+
   },
   header: {
     alignItems: 'center',
-    marginBottom: 20,
   },
   title: {
-    color: '#000',
-    fontSize: 32,
+    color:'#eaf5ff',
+    fontSize: 30,
     fontWeight: 'bold',
-  },
-  profileContainer: {
-    alignItems: 'center',
-    padding: 20,
-    borderRadius: 10,
-    backgroundColor: 'rgba(255, 255, 255, 0.8)',
   },
   profileImageContainer: {
     width: 120,
@@ -163,25 +180,25 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     marginBottom: 20,
+
   },
-  profileImage: {
-    width: 100,
-    height: 100,
-    borderRadius: 50,
-    backgroundColor: '#ddd',
+  infoRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingBottom: 10,
   },
-  creationTimeText: {
-    color: '#000',
-    marginBottom: 20,
-  },
-  profileInfo: {
-    alignItems: 'flex-start',
-    marginBottom: 20,
+  icon: {
+    marginRight: 20,
   },
   label: {
-    color: '#000',
     fontWeight: 'bold',
-    marginBottom: 5,
+    marginLeft: 20,
+    fontSize: 18,
+  },
+  divider: {
+    borderBottomWidth: 2,
+    marginBottom: 10,
+    width: '100%',
   },
   input: {
     height: 40,
@@ -189,20 +206,22 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     marginBottom: 10,
     paddingHorizontal: 10,
-    width: '100%',
-    backgroundColor: 'rgba(255, 255, 255, 0.9)',
-    borderRadius: 5,
+    width: '85%',
+    backgroundColor: 'transparent',
+    borderRadius: 10,
   },
   button: {
     backgroundColor: '#248ad9',
-    padding: 10,
-    borderRadius: 5,
+    padding:17, // Increase button size
+    borderRadius: 15,
     width: '100%',
     marginBottom: 10,
+    alignItems: 'center',
   },
   buttonText: {
     color: 'white',
     textAlign: 'center',
     fontWeight: 'bold',
+
   },
 });

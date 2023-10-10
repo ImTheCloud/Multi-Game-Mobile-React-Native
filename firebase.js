@@ -2,7 +2,7 @@
 import firebase from "firebase/compat/app";
 import "firebase/compat/auth";
 import 'firebase/compat/firestore'; // Include Firestore module
-import 'firebase/compat/database'; // Include Realtime Database module
+import 'firebase/compat/storage';
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -19,15 +19,14 @@ const firebaseConfig = {
 
 // Initialize Firebase
 let app;
-if (firebase.apps.length === 0) { 
+if (firebase.apps.length === 0) {
   app = firebase.initializeApp(firebaseConfig);
 } else {
-  app = firebase.app()
+  app = firebase.app();
 }
 
-const auth = firebase.auth()
-const database = firebase.database(); // Use Realtime Database module
-const firestore = firebase.firestore(); // Make sure to include this line
+const auth = firebase.auth();
+const firestore = firebase.firestore();
+const storage = firebase.storage(); // Initialize Firebase Storage module
 
-
-export { database,auth,firestore };
+export {  auth, firestore, storage };
