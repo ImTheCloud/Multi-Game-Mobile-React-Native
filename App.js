@@ -75,20 +75,6 @@ const App = () => {
           ),
         }}
       />
-
-      <Tab.Screen 
-        name="Rules" 
-        component={RulesScreen} 
-        options={{
-          tabBarIcon: ({ focused }) => (
-            <View style={{ alignItems: "center", justifyContent: "center" }}>
-              <AntDesign name="infocirlce" size={24} color={focused ? "#2087d6" : "black"} />
-              <Text style={{ fontSize: 12, color: focused ? "#2087d6" : "#111" }}>RULES</Text>
-            </View>
-          ),
-        }}
-      />
-
     <Tab.Screen 
        name="Game"
        component={GameStackScreen} 
@@ -111,20 +97,8 @@ const App = () => {
            )
          }
         }}
-        
+
        />
-        <Tab.Screen 
-        name="Setting" 
-        component={SettingsScreen} 
-        options={{
-          tabBarIcon: ({ focused }) => (
-            <View style={{ alignItems: "center", justifyContent: "center" }}>
-              <Ionicons name="settings" size={24} color={focused ? "#2087d6" : "black"} />
-              <Text style={{ fontSize: 12, color: focused ? "#2087d6" : "#111" }}>SETTINGS</Text>
-            </View>
-          ),
-        }}
-      />
         <Tab.Screen 
           name="Profil" 
           component={ProfilScreen} 

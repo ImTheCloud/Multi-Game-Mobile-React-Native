@@ -1,8 +1,8 @@
-// RegisterScreen.js
 import React, { useState } from 'react';
 import {
+  ActivityIndicator,
   KeyboardAvoidingView,
-  Image,
+  ImageBackground,
   ScrollView,
   StyleSheet,
   Text,
@@ -11,90 +11,135 @@ import {
   View,
 } from 'react-native';
 import { useNavigation } from '@react-navigation/core';
-import { auth, firestore } from '../firebase'; // Assuming you have a reference to firestore in your firebase.js file
+import { auth, firestore } from '../firebase';
+
+import cielBackground from '../assets/blueBack.jpg'; // Assuming you have a similar background image
 
 const RegisterScreen = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [nom, setNom] = useState(''); // Add state for the "nom" field
-
+  const [nom, setNom] = useState('');
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
   const navigation = useNavigation();
 
   const handleSignUp = () => {
-    auth
-      .createUserWithEmailAndPassword(email, password)
-      .then(async (userCredentials) => {
-        const user = userCredentials.user;
+    if (!nom.trim()) {
+      setError('Please provide a username.');
+      return;
+    }
 
-        // Add user data to Firestore
-        await firestore.collection('profiles').doc(user.uid).set({
-          nom,
-          highScore: 0,
-          pointsHangman: 0,
-          pointsRPS: 0,
+    setLoading(true);
+
+    auth.createUserWithEmailAndPassword(email, password)
+        .then(async (userCredentials) => {
+          const user = userCredentials.user;
+
+          // Add user data to Firestore
+          await firestore.collection('profiles').doc(user.uid).set({
+            nom,
+            highScore: 0,
+            pointsHangman: 0,
+            pointsRPS: 0,
+          });
+
+          console.log('Registered with:', user.email);
+          setLoading(false);
+          navigation.navigate('Login', { screen: 'Home' });
+        })
+        .catch((error) => {
+          let errorMessage = 'An error occurred. Please try again.';
+
+          switch (error.code) {
+            case 'auth/invalid-email':
+              errorMessage = 'The email address is not correctly formatted.';
+              break;
+            case 'auth/weak-password':
+              errorMessage = 'The password must contain at least 6 characters.';
+              break;
+            default:
+              errorMessage = error.message || errorMessage;
+          }
+
+          setError(errorMessage);
+          setLoading(false);
         });
-
-        console.log('Registered with:', user.email);
-      })
-      .catch((error) => alert(error.message));
   };
+
 
   const goToLogin = () => {
     navigation.navigate('Login');
   };
 
   return (
-    <ScrollView contentContainerStyle={styles.scrollViewContent}>
-      <KeyboardAvoidingView style={styles.container} behavior="padding">
-        <Image
-          source={require('../assets/Logo.png')}
-          style={{ width: 200, height: 100, resizeMode: 'contain', marginBottom: 20 }}
-        />
+      <ImageBackground source={cielBackground} style={styles.backgroundImage}>
+        <ScrollView contentContainerStyle={styles.scrollViewContent}>
+          <KeyboardAvoidingView style={styles.container} behavior="padding">
+            <Text style={styles.title}>Multi Game Mobile</Text>
 
-        <View style={styles.inputContainer}>
-          <TextInput
-            placeholder="Email"
-            value={email}
-            onChangeText={(text) => setEmail(text)}
-            style={[styles.input, { width: '100%' }]}
-          />
-          <TextInput
-            placeholder="Password"
-            value={password}
-            onChangeText={(text) => setPassword(text)}
-            style={[styles.input, { width: '100%' }]}
-            secureTextEntry
-          />
-          <TextInput
-            placeholder="Name"
-            value={nom}
-            onChangeText={(text) => setNom(text)}
-            style={[styles.input, { width: '100%' }]}
-          />
-        </View>
 
-        <View style={styles.buttonContainer}>
-          <TouchableOpacity
-            onPress={handleSignUp}
-            style={[styles.button, styles.buttonOutline]}
-          >
-            <Text style={styles.buttonOutlineText}>Register</Text>
-          </TouchableOpacity>
-          <View style={styles.loginLinkContainer}>
-            <Text style={styles.loginLinkText}>Already have an account?</Text>
-            <TouchableOpacity onPress={goToLogin}>
-              <Text style={[styles.loginLinkText, { color: '#0782F9', marginLeft: 5 }]}>
-                Login
-              </Text>
-            </TouchableOpacity>
-          </View>
-        </View>
-      </KeyboardAvoidingView>
-    </ScrollView>
+            <View style={styles.inputContainer}>
+              <Text style={styles.inputLabel}>Email</Text>
+              <TextInput
+                  placeholder="Type your email"
+                  value={email}
+                  onChangeText={(text) => setEmail(text)}
+                  style={styles.input}
+              />
+              <Text style={styles.inputLabel}>Password</Text>
+              <TextInput
+                  placeholder="Type your Password"
+                  value={password}
+                  onChangeText={(text) => setPassword(text)}
+                  style={styles.input}
+                  secureTextEntry
+              />
+              <Text style={styles.inputLabel}>Username</Text>
+              <TextInput
+                  placeholder="Type your Username"
+                  value={nom}
+                  onChangeText={(text) => setNom(text.slice(0, 9))}  // Limiter à 8 caractères
+
+                  style={styles.input}
+              />
+            </View>
+
+            {error ? <Text style={styles.errorText}>{error}</Text> : null}
+
+            <View style={styles.buttonContainer}>
+              <TouchableOpacity
+                  onPress={handleSignUp}
+                  style={[styles.button, styles.buttonOutline]}
+                  disabled={loading}
+              >
+                {loading ? (
+                    <ActivityIndicator size="small" color="white" />
+                ) : (
+                    <Text style={styles.buttonOutlineText}>Register</Text>
+                )}
+              </TouchableOpacity>
+              <View style={styles.loginLinkContainer}>
+                <Text style={styles.loginLinkText}>Already have an account? </Text>
+                <TouchableOpacity onPress={goToLogin}>
+                  <Text style={[styles.loginLinkText, styles.loginLink]}>
+                    Login
+                  </Text>
+                </TouchableOpacity>
+              </View>
+            </View>
+          </KeyboardAvoidingView>
+        </ScrollView>
+      </ImageBackground>
   );
 };
 
 const styles = StyleSheet.create({
+
+  backgroundImage: {
+    flex: 1,
+    resizeMode: 'cover',
+    justifyContent: 'center',
+  },
   scrollViewContent: {
     flexGrow: 1,
     justifyContent: 'center',
@@ -105,16 +150,35 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
+  title: {
+    fontSize: 32,
+    fontWeight: 'bold',
+    color: 'white',
+    marginBottom: 20,
+  },
   inputContainer: {
     width: 300,
+    alignItems: 'flex-start', // Alignez les éléments à gauche
+  },
+  inputLabel: {
+    marginLeft: 5, // Ajoutez une marge à gauche pour déplacer le inputContainer vers la droite
+    paddingTop: 10,
+    color: 'white',
+    fontSize: 17,
+    marginBottom: 5,
   },
   input: {
-    backgroundColor: 'white',
+
+    backgroundColor: '#fff',
     paddingHorizontal: 15,
     paddingVertical: 10,
-    borderRadius: 10,
+    borderRadius: 15,
     marginTop: 5,
+    borderWidth: 1,
+    borderColor: '#ccc',
     width: '100%',
+
+
   },
   buttonContainer: {
     width: 220,
@@ -123,26 +187,44 @@ const styles = StyleSheet.create({
     marginTop: 40,
   },
   button: {
-    backgroundColor: 'white',
-    borderColor: '#0782F9',
-    borderWidth: 2,
+    backgroundColor: '#248ad9',
     width: '100%',
     padding: 15,
-    borderRadius: 10,
+    borderRadius: 30,
     alignItems: 'center',
+    marginTop: 20,
+  },
+  buttonOutline: {
+    backgroundColor: '#fff',
+    borderColor: '#248ad9',
+    borderWidth: 2,
+    borderRadius: 20,
     marginTop: 10,
   },
-  buttonOutlineText: {
-    color: '#0782F9',
+  buttonText: {
+    color: 'white',
     fontWeight: '700',
     fontSize: 16,
+  },
+  buttonOutlineText: {
+    color: '#248ad9',
+    fontWeight: '700',
+    fontSize: 16,
+  },
+  errorText: {
+    color: 'red',
+    marginTop: 10,
   },
   loginLinkContainer: {
     flexDirection: 'row',
     marginTop: 15,
+
   },
   loginLinkText: {
     color: '#333',
+    fontSize: 16,
+  },loginLink: {
+    color: '#248ad9',
     fontSize: 16,
   },
 });

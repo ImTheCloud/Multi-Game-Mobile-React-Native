@@ -1,81 +1,97 @@
-// LoginScreen.js
-import React, { useState, useEffect } from 'react';
-import { KeyboardAvoidingView, Image, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import React, { useEffect, useState } from 'react';
+import {
+  ActivityIndicator,
+  ImageBackground,
+  KeyboardAvoidingView,
+  Platform,
+  ScrollView,
+  StyleSheet,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 import { useNavigation } from '@react-navigation/core';
 import { auth } from '../firebase';
-
+import cielBackground from '../assets/blueBack.jpg';
 const LoginScreen = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-
+  const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false);
   const navigation = useNavigation();
 
   useEffect(() => {
-    const unsubscribe = auth.onAuthStateChanged(user => {
+    return auth.onAuthStateChanged(user => {
       if (user) {
         navigation.navigate('Login', { screen: 'Home' });
       }
     });
-
-    return unsubscribe;
   }, []);
 
   const handleLogin = () => {
-    auth
-      .signInWithEmailAndPassword(email, password)
-      .then(userCredentials => {
-        const user = userCredentials.user;
-        console.log('Logged in with:', user.email);
-      })
-      .catch(error => alert(error.message));
+    setLoading(true);
+    auth.signInWithEmailAndPassword(email, password)
+        .then(userCredentials => {
+          const user = userCredentials.user;
+          setLoading(false);
+          navigation.navigate('Login', { screen: 'Home' });
+        })
+        .catch(error => {
+          setError("E-mail address or password not correct");
+          setLoading(false);
+        });
   };
 
   return (
-    <ScrollView contentContainerStyle={styles.scrollViewContent}>
-      <KeyboardAvoidingView
-        style={styles.container}
-        behavior="padding"
-      >
-        <Image
-          source={require('../assets/Logo.png')}
-          style={{ width: 200, height: 100, resizeMode: 'contain', marginBottom: 20 }}
-        />
-        <View style={styles.inputContainer}>
-          <TextInput
-            placeholder="Email"
-            value={email}
-            onChangeText={text => setEmail(text)}
-            style={styles.input}
-          />
-          <TextInput
-            placeholder="Password"
-            value={password}
-            onChangeText={text => setPassword(text)}
-            style={styles.input}
-            secureTextEntry
-          />
-        </View>
+      <ImageBackground source={cielBackground} style={styles.backgroundImage}>
+        <ScrollView contentContainerStyle={styles.scrollViewContent}>
+          <KeyboardAvoidingView style={styles.container} behavior="padding" keyboardVerticalOffset={Platform.OS === 'ios' ? 40 : 0}>
+            {/* Ajouter un titre */}
+            <Text style={styles.title}>Multi Game Mobile</Text>
 
-        <View style={styles.buttonContainer}>
-          <TouchableOpacity
-            onPress={handleLogin}
-            style={styles.button}
-          >
-            <Text style={styles.buttonText}>Login</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            onPress={() => navigation.navigate('Register')}
-            style={[styles.button, styles.buttonOutline]}
-          >
-            <Text style={styles.buttonOutlineText}>Create Account</Text>
-          </TouchableOpacity>
-        </View>
-      </KeyboardAvoidingView>
-    </ScrollView>
+            <View style={styles.inputContainer}>
+              <Text style={styles.inputLabel}>Email</Text>
+              <TextInput
+                  placeholder="Type your email"
+                  value={email}
+                  onChangeText={text => setEmail(text)}
+                  style={styles.input}
+              />
+              <Text style={styles.inputLabel}>Password</Text>
+              <TextInput
+                  placeholder="Type your Password"
+                  value={password}
+                  onChangeText={text => setPassword(text)}
+                  style={styles.input}
+                  secureTextEntry
+              />
+            </View>
+
+            {/* Afficher les erreurs */}
+            {error ? <Text style={styles.errorText}>{error}</Text> : null}
+
+            <View style={styles.buttonContainer}>
+              <TouchableOpacity onPress={handleLogin} style={styles.button} disabled={loading}>
+                {loading ? <ActivityIndicator size="small" color="white" /> : <Text style={styles.buttonText}>Login</Text>}
+              </TouchableOpacity>
+              <TouchableOpacity onPress={() => navigation.navigate('Register')} style={[styles.button, styles.buttonOutline]}>
+                <Text style={styles.buttonOutlineText}>Create Account</Text>
+              </TouchableOpacity>
+            </View>
+          </KeyboardAvoidingView>
+        </ScrollView>
+      </ImageBackground>
   );
 };
 
 const styles = StyleSheet.create({
+
+  backgroundImage: {
+    flex: 1,
+    resizeMode: 'cover',
+    justifyContent: 'center',
+  },
   scrollViewContent: {
     flexGrow: 1,
     justifyContent: 'center',
@@ -86,15 +102,35 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
+  title: {
+    fontSize: 32,
+    fontWeight: 'bold',
+    color: 'white',
+    marginBottom: 20,
+  },
   inputContainer: {
     width: 300,
+    alignItems: 'flex-start', // Alignez les éléments à gauche
+  },
+  inputLabel: {
+    marginLeft: 5, // Ajoutez une marge à gauche pour déplacer le inputContainer vers la droite
+    paddingTop: 10,
+    color: 'white',
+    fontSize: 17,
+    marginBottom: 5,
   },
   input: {
-    backgroundColor: 'white',
+
+    backgroundColor: '#fff',
     paddingHorizontal: 15,
     paddingVertical: 10,
-    borderRadius: 10,
+    borderRadius: 15,
     marginTop: 5,
+    borderWidth: 1,
+    borderColor: '#ccc',
+    width: '100%',
+
+
   },
   buttonContainer: {
     width: 220,
@@ -103,17 +139,19 @@ const styles = StyleSheet.create({
     marginTop: 40,
   },
   button: {
-    backgroundColor: '#0782F9',
+    backgroundColor: '#248ad9',
     width: '100%',
     padding: 15,
-    borderRadius: 10,
+    borderRadius: 20,
     alignItems: 'center',
-    marginTop: 10,
+    marginTop: 20,
   },
   buttonOutline: {
-    backgroundColor: 'white',
-    borderColor: '#0782F9',
+    backgroundColor: '#fff',
+    borderColor: '#248ad9',
     borderWidth: 2,
+    borderRadius: 20,
+    marginTop: 10,
   },
   buttonText: {
     color: 'white',
@@ -121,9 +159,13 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
   buttonOutlineText: {
-    color: '#0782F9',
+    color: '#248ad9',
     fontWeight: '700',
     fontSize: 16,
+  },
+  errorText: {
+    color: 'red',
+    marginTop: 10,
   },
 });
 
