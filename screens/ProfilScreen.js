@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { View, ImageBackground,Image, Text, TouchableOpacity, TextInput, ScrollView, StyleSheet } from 'react-native';
 import { useNavigation } from '@react-navigation/core';
 import { auth, firestore,storage } from '../firebase';
-import Icon from 'react-native-vector-icons/FontAwesome'; // Import FontAwesome from react-native-vector-icons
+import Icon from 'react-native-vector-icons/FontAwesome';
 import cielBackground from '../assets/blueBack.jpg';
 import * as ImagePicker from 'expo-image-picker';
 
@@ -155,17 +155,17 @@ export default function ProfileScreen() {
       console.error('Error getting user document:', error);
     }
   };
+  const handleSignOut = async () => {
+    await auth.signOut();
+  };
 
   return (
       <ImageBackground source={cielBackground} style={styles.backgroundImage}>
-        <ScrollView contentContainerStyle={styles.container}>
+        <ScrollView>
 
           {auth.currentUser && (
-              <View>
+              <View style={styles.main}>
                 <View style={styles.header}>
-                  <Text style={styles.title}>
-                    {userProfile?.nom || 'Not defined'}
-                  </Text>
                   <TouchableOpacity
                       style={styles.profileImageContainer}
                       onPress={pickImage}
@@ -174,24 +174,30 @@ export default function ProfileScreen() {
                         source={image ? { uri: image } : require('../assets/user.png')}
                         style={{ width: 120, height: 120, borderRadius: 60 }}
                     />
+                    <View style={styles.textContainer}>
+                      <Text style={styles.textAboveCircle} numberOfLines={1}>
+                        {userProfile?.nom || 'Not defined'}
+                      </Text>
+                    </View>
                   </TouchableOpacity>
+
                 </View>
 
 
+                <View style={{ marginVertical: 20 }}></View>
+
+                <View style={styles.containerPadding}>
 
                 <View style={styles.infoRow}>
                   <Icon name="user" size={40} color="#000" style={styles.icon} />
                   <TextInput
                       style={styles.input}
                       placeholder={userProfile?.nom || 'Not defined'}
-                      onChangeText={(text) => setNewName(text)}
+                      onChangeText={(text) => setNewName(text.slice(0, 9))}  // Limiter à 8 caractères
                       value={newName}
                   />
 
                 </View>
-
-
-                <View>
                   <View style={styles.divider}></View>
                   <View style={styles.infoRow}>
                     <Icon name="envelope" size={27} color="#000" />
@@ -222,14 +228,14 @@ export default function ProfileScreen() {
                     <Text style={styles.label}>All Points: {userProfile?.pointsHangman + userProfile?.pointsRPS || 0}</Text>
                   </View>
 
-                  <View style={styles.divider}></View>
+                  <View style={styles.divider}>
 
-
-                </View>
-
-                <View style={styles.centeredContainer}>
+                  </View>
                   <TouchableOpacity onPress={handleModification} style={styles.button}>
                     <Text style={styles.buttonText}>Update Profile</Text>
+                  </TouchableOpacity>
+                  <TouchableOpacity onPress={handleSignOut} style={[styles.button, { backgroundColor: '#F17272' }]}>
+                    <Text style={styles.buttonText}>Log out</Text>
                   </TouchableOpacity>
                 </View>
               </View>
@@ -240,6 +246,9 @@ export default function ProfileScreen() {
 }
 
 const styles = StyleSheet.create({
+  containerPadding: {
+    padding:20,
+  },
   backgroundImage: {
     flex: 1,
     resizeMode: 'cover',
@@ -252,12 +261,29 @@ const styles = StyleSheet.create({
     padding: 20,
 
   },
-  header: {
-    alignItems: 'center',
+  main: {
+    height: '100%',
   },
-  title: {
+  header: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    height: '20%',
+    width: '100%',
+    marginBottom: 10,
+    backgroundColor:'rgba(36,138,217,0.77)',
+    borderBottomStartRadius: 3000,
+    borderBottomEndRadius: 3000,
+  },
+
+  textContainer: {
+    position: 'absolute',
+    top: -40,
+    backgroundColor: 'transparent',
+
+  },
+  textAboveCircle: {
     color:'#eaf5ff',
-    fontSize: 30,
+    fontSize: 25,
     fontWeight: 'bold',
   },
   profileImageContainer: {
@@ -267,8 +293,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
-    marginBottom: 20,
-
+    marginTop: 140,
   },
   infoRow: {
     flexDirection: 'row',
@@ -284,7 +309,7 @@ const styles = StyleSheet.create({
     fontSize: 18,
   },
   divider: {
-    borderBottomWidth: 2,
+    borderBottomWidth: 1,
     marginBottom: 10,
     width: '100%',
   },
@@ -300,7 +325,7 @@ const styles = StyleSheet.create({
   },
   button: {
     backgroundColor: '#248ad9',
-    padding:17, // Increase button size
+    padding:15, // Increase button size
     borderRadius: 15,
     width: '100%',
     marginBottom: 10,
@@ -312,4 +337,5 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
 
   },
+
 });

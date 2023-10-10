@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
-import { Audio } from 'expo-av';
-import { auth } from '../firebase';
-import { useNavigation } from '@react-navigation/native';
+import React, {useEffect, useState} from 'react';
+import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {Audio} from 'expo-av';
+import {auth} from '../firebase';
+import {useNavigation} from '@react-navigation/native';
 
 export default function SettingsScreen() {
     const navigation = useNavigation(); // Use the useNavigation hook to get the navigation prop
