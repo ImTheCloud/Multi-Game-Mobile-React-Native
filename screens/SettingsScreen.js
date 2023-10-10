@@ -39,15 +39,8 @@ export default function SettingsScreen() {
         }
     };
 
-    const handleSignOut = () => {
-        auth
-            .signOut()
-            .then(() => {
-                navigation.replace('Login');
-            })
-            .catch((error) => {
-                console.error('Error during sign-out:', error);
-            });
+    const handleSignOut = async () => {
+        await auth.signOut();
     };
 
 
