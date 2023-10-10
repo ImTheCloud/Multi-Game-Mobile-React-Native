@@ -1,14 +1,13 @@
-// SettingsScreen.js
 import React, { useState, useEffect } from 'react';
-import { View, Text, TouchableOpacity, Image, StyleSheet } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import { Audio } from 'expo-av';
-import { auth, firestore, storage } from '../firebase';
-import * as ImagePicker from 'expo-image-picker';
+import { auth } from '../firebase';
+import { useNavigation } from '@react-navigation/native';
 
-export default function SettingsScreen({ navigation }) {
+export default function SettingsScreen() {
+    const navigation = useNavigation(); // Use the useNavigation hook to get the navigation prop
     const [sound, setSound] = useState();
     const [isPlaying, setIsPlaying] = useState(false);
-    const [image, setImage] = useState(null);
 
     useEffect(() => {
         async function loadSound() {
@@ -27,6 +26,8 @@ export default function SettingsScreen({ navigation }) {
         };
     }, []);
 
+
+
     const toggleSound = async () => {
         if (sound) {
             if (isPlaying) {
@@ -39,67 +40,19 @@ export default function SettingsScreen({ navigation }) {
     };
 
     const handleSignOut = () => {
-        auth.signOut().then(() => {
-            navigation.replace('Login');
-        });
-    };
-
-    const pickImage = async () => {
-        try {
-            const user = auth.currentUser;
-
-            if (!user) {
-                console.error('No user is currently authenticated.');
-                return;
-            }
-
-            let result = await ImagePicker.launchImageLibraryAsync({
-                mediaTypes: ImagePicker.MediaTypeOptions.All,
-                allowsEditing: true,
-                aspect: [4, 3],
-                quality: 1,
+        auth
+            .signOut()
+            .then(() => {
+                navigation.replace('Login');
+            })
+            .catch((error) => {
+                console.error('Error during sign-out:', error);
             });
-
-            if (!result.canceled && result.assets && result.assets.length > 0) {
-                const storageRef = storage.ref();
-                const imageName = `profile_images/${user.uid}/${Date.now()}`;
-                const imageRef = storageRef.child(imageName);
-                const response = await fetch(result.assets[0].uri);
-                const blob = await response.blob();
-
-                await imageRef.put(blob);
-
-                const downloadURL = await imageRef.getDownloadURL();
-
-                const userDocRef = firestore.collection('users').doc(user.uid);
-
-                try {
-                    const userDoc = await userDocRef.get();
-
-                    if (userDoc.exists) {
-                        await userDocRef.update({
-                            profileImage: downloadURL,
-                        });
-
-                        setImage(downloadURL);
-                    } else {
-                        await userDocRef.set({
-                            profileImage: downloadURL,
-                        });
-                        setImage(downloadURL);
-                    }
-                } catch (error) {
-                    console.error('Error getting or updating user document:', error);
-                }
-            }
-        } catch (error) {
-            console.error('Error picking image:', error);
-        }
     };
+
 
     return (
         <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-            <Text>Settings</Text>
             <TouchableOpacity onPress={toggleSound}>
                 <Text>{isPlaying ? 'Stop Music' : 'Play Music'}</Text>
             </TouchableOpacity>
@@ -109,29 +62,13 @@ export default function SettingsScreen({ navigation }) {
             >
                 <Text style={styles.buttonText}>Log out</Text>
             </TouchableOpacity>
-            <TouchableOpacity
-                style={styles.profileImageContainer}
-                onPress={pickImage}
-            >
-                <Image
-                    source={image ? { uri: image } : require('../assets/user.png')}
-                    style={{ width: 120, height: 120, borderRadius: 60 }}
-                />
-            </TouchableOpacity>
+
         </View>
     );
 }
 
 const styles = StyleSheet.create({
-    profileImageContainer: {
-        width: 120,
-        height: 120,
-        borderRadius: 60,
-        backgroundColor: '#fff',
-        alignItems: 'center',
-        justifyContent: 'center',
-        marginBottom: 20,
-    },
+
     button: {
         backgroundColor: '#248ad9',
         padding: 10,

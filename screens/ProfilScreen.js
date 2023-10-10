@@ -1,15 +1,16 @@
 import React, { useState, useEffect } from 'react';
-import { View, ImageBackground, Text, TouchableOpacity, TextInput, ScrollView, StyleSheet } from 'react-native';
+import { View, ImageBackground,Image, Text, TouchableOpacity, TextInput, ScrollView, StyleSheet } from 'react-native';
 import { useNavigation } from '@react-navigation/core';
-import { auth, firestore } from '../firebase';
+import { auth, firestore,storage } from '../firebase';
 import Icon from 'react-native-vector-icons/FontAwesome'; // Import FontAwesome from react-native-vector-icons
-
 import cielBackground from '../assets/blueBack.jpg';
+import * as ImagePicker from 'expo-image-picker';
 
 export default function ProfileScreen() {
   const navigation = useNavigation();
   const [newName, setNewName] = useState('');
   const [userProfile, setUserProfile] = useState(null);
+  const [image, setImage] = useState(null);
 
   useEffect(() => {
     const userId = auth.currentUser.uid;
@@ -47,6 +48,11 @@ export default function ProfileScreen() {
     return () => unsubscribe();
   }, []);
 
+  useEffect(() => {
+    // Fetch user profile image when the component mounts
+    fetchUserProfileImage();
+  }, []);
+
 
   const handleModification = async () => {
     const userId = auth.currentUser.uid;
@@ -75,6 +81,81 @@ export default function ProfileScreen() {
     }
   };
 
+  const pickImage = async () => {
+    try {
+      const user = auth.currentUser;
+
+      if (!user) {
+        console.error('No user is currently authenticated.');
+        return;
+      }
+
+      let result = await ImagePicker.launchImageLibraryAsync({
+        mediaTypes: ImagePicker.MediaTypeOptions.All,
+        allowsEditing: true,
+        aspect: [4, 3],
+        quality: 1,
+      });
+
+      if (!result.canceled && result.assets && result.assets.length > 0) {
+        const storageRef = storage.ref();
+        const imageName = `profile_images/${user.uid}/profileImage.jpg`; // Fixed path
+        const imageRef = storageRef.child(imageName);
+        const response = await fetch(result.assets[0].uri);
+        const blob = await response.blob();
+
+        await imageRef.put(blob);
+
+        const downloadURL = await imageRef.getDownloadURL();
+
+        const userDocRef = firestore.collection('users').doc(user.uid);
+
+        try {
+          const userDoc = await userDocRef.get();
+
+          if (userDoc.exists) {
+            await userDocRef.update({
+              profileImage: downloadURL,
+            });
+
+            setImage(downloadURL);
+          } else {
+            await userDocRef.set({
+              profileImage: downloadURL,
+            });
+            setImage(downloadURL);
+          }
+        } catch (error) {
+          console.error('Error getting or updating user document:', error);
+        }
+      }
+    } catch (error) {
+      console.error('Error picking image:', error);
+    }
+  };
+
+  const fetchUserProfileImage = async () => {
+    const user = auth.currentUser;
+
+    if (!user) {
+      console.error('No user is currently authenticated.');
+      return;
+    }
+
+    const userDocRef = firestore.collection('users').doc(user.uid);
+
+    try {
+      const userDoc = await userDocRef.get();
+
+      if (userDoc.exists) {
+        const userProfileImage = userDoc.data().profileImage;
+        setImage(userProfileImage);
+      }
+    } catch (error) {
+      console.error('Error getting user document:', error);
+    }
+  };
+
   return (
       <ImageBackground source={cielBackground} style={styles.backgroundImage}>
         <ScrollView contentContainerStyle={styles.container}>
@@ -85,7 +166,14 @@ export default function ProfileScreen() {
                   <Text style={styles.title}>
                     {userProfile?.nom || 'Not defined'}
                   </Text>
-                  <TouchableOpacity style={styles.profileImageContainer} onPress={() => console.log('Photo Clicked')}>
+                  <TouchableOpacity
+                      style={styles.profileImageContainer}
+                      onPress={pickImage}
+                  >
+                    <Image
+                        source={image ? { uri: image } : require('../assets/user.png')}
+                        style={{ width: 120, height: 120, borderRadius: 60 }}
+                    />
                   </TouchableOpacity>
                 </View>
 
