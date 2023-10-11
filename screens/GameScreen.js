@@ -15,11 +15,6 @@ const GameScreen = () => {
       image: require('../assets/flappybird.png'),  
     },
     {
-      title: 'Tic Tac Toe',
-      screenName: 'TicTacToe',
-      image: require('../assets/tic-tac-toe.png'),
-    },
-    {
       title: 'Hangman Game',
       screenName: 'HangmanGame',
       image: require('../assets/hangman.png'),
@@ -28,6 +23,16 @@ const GameScreen = () => {
       title: 'Rock Paper Scissors',
       screenName: 'RockPaperScissorsGame',
       image: require('../assets/rockPaperScissors.png'),
+    },
+    {
+      title: 'Tic Tac Toe',
+      screenName: 'TicTacToe',
+      image: require('../assets/tic-tac-toe.png'),
+    },
+    {
+      title: 'Connect Four',
+      screenName: 'ConnectFour',
+      image: require('../assets/connectFour.png'),
     },
   ];
 

@@ -13,6 +13,7 @@ import ProfilScreen from './screens/ProfilScreen';
 import TicTacToe from './games/TicTacToe';
 import RockPaperScissorsGame from './games/RockPaperScissorsGame';
 import HangmanGame from './games/HangmanGame';
+import ConnectFour from './games/ConnectFour';
 import FlappyBird from './games/Flappybird/FlappyBird';
 import SettingsScreen from './screens/SettingsScreen';
 import { auth } from './firebase';
@@ -43,7 +44,8 @@ const GameStackScreen = () => (
     <GameStack.Screen name="TicTacToe" component={TicTacToe} />
     <GameStack.Screen name="RockPaperScissorsGame" component={RockPaperScissorsGame} />
     <GameStack.Screen name="HangmanGame" component={HangmanGame} />
-    <GameStack.Screen name="FlappyBird" component={FlappyBird} />
+    <GameStack.Screen name="ConnectFour" component={ConnectFour} />
+
   </GameStack.Navigator>
 );
 

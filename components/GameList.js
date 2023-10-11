@@ -27,6 +27,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between', // Espace égal entre les éléments
     alignItems: 'flex-start', // Aligner les éléments en haut
     paddingHorizontal: 16,
+    paddingBottom: 100, // Ajouter un espacement en bas
   },
   gameItem: {
     width: 140,
