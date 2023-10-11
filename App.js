@@ -69,8 +69,8 @@ const App = () => {
         options={{
           tabBarIcon: ({ focused }) => (
             <View style={{ alignItems: 'center', justifyContent: 'center' }}>
-              <FontAwesome5 name="hackerrank" size={24} color={focused ? "#2087d6" : "black"} />
-              <Text style={{ fontSize: 12, color: focused ? "#2087d6" : "#111" }}>RANKING</Text>
+              <FontAwesome5 name="hackerrank" size={24} color={focused ? "#16247d" : "black"} />
+              <Text style={{ fontSize: 12, color: focused ? "#16247d" : "#111" }}>RANKING</Text>
             </View>
           ),
         }}
@@ -85,7 +85,7 @@ const App = () => {
               style={{
                alignItems: "center",
                justifyContent: "center",
-               backgroundColor: focused ? "#2087d6" : "black",
+               backgroundColor: focused ? "#16247d" : "black",
                width: Platform.OS == "ios" ? 50 : 60,
                height: Platform.OS == "ios" ? 50 : 60,
                top: Platform.OS == "ios" ? -10 : -20,
@@ -106,8 +106,8 @@ const App = () => {
             tabBarIcon: ({focused})=>{
               return (
                 <View style={{alignItems: "center", justifyContent: "center"}}> 
-                  <FontAwesome name="user" size={24} color={focused ? "#2087d6" : "black"} />
-                  <Text style={{fontSize: 12, color: focused ? "#2087d6" : "#111"}}>PROFIL</Text>
+                  <FontAwesome name="user" size={24} color={focused ? "#16247d" : "black"} />
+                  <Text style={{fontSize: 12, color: focused ? "#16247d" : "#111"}}>PROFIL</Text>
                 </View>
               )
             }
