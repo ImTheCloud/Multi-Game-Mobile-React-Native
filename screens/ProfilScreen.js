@@ -189,7 +189,7 @@ export default function ProfileScreen() {
                 <View style={styles.containerPadding}>
 
                 <View style={styles.infoRow}>
-                  <Icon name="user" size={40} color="#000" style={styles.icon} />
+                  <Icon name="user" size={35} color="#000" style={styles.icon} />
                   <TextInput
                       style={styles.input}
                       placeholder={userProfile?.nom || 'Not defined'}

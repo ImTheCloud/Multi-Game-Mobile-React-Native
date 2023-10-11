@@ -11,11 +11,13 @@ import {
   View,
 } from 'react-native';
 import { useNavigation } from '@react-navigation/core';
+import Icon from 'react-native-vector-icons/FontAwesome'; // or any other icon library
 import { auth, firestore } from '../firebase';
 
 import cielBackground from '../assets/blueBack.jpg'; // Assuming you have a similar background image
 
 const RegisterScreen = () => {
+  const [showPassword, setShowPassword] = useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [nom, setNom] = useState('');
@@ -77,7 +79,6 @@ const RegisterScreen = () => {
           <KeyboardAvoidingView style={styles.container} behavior="padding">
             <Text style={styles.title}>Multi Game Mobile</Text>
 
-
             <View style={styles.inputContainer}>
               <Text style={styles.inputLabel}>Email</Text>
               <TextInput
@@ -86,20 +87,29 @@ const RegisterScreen = () => {
                   onChangeText={(text) => setEmail(text)}
                   style={styles.input}
               />
+
               <Text style={styles.inputLabel}>Password</Text>
-              <TextInput
-                  placeholder="Type your Password"
-                  value={password}
-                  onChangeText={(text) => setPassword(text)}
-                  style={styles.input}
-                  secureTextEntry
-              />
+              <View style={styles.passwordInputContainer}>
+                <TextInput
+                    placeholder="Type your Password"
+                    value={password}
+                    onChangeText={(text) => setPassword(text)}
+                    style={[styles.input, styles.passwordInput]}
+                    secureTextEntry={!showPassword}
+                />
+                <TouchableOpacity
+                    style={styles.toggleIconContainer}
+                    onPress={() => setShowPassword(!showPassword)}
+                >
+                  <Icon name={showPassword ? 'eye-slash' : 'eye'} size={20} color="grey" />
+                </TouchableOpacity>
+              </View>
+
               <Text style={styles.inputLabel}>Username</Text>
               <TextInput
                   placeholder="Type your Username"
                   value={nom}
-                  onChangeText={(text) => setNom(text.slice(0, 9))}  // Limiter à 8 caractères
-
+                  onChangeText={(text) => setNom(text.slice(0, 9))}
                   style={styles.input}
               />
             </View>
@@ -134,7 +144,18 @@ const RegisterScreen = () => {
 };
 
 const styles = StyleSheet.create({
-
+  passwordInputContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    position: 'relative', // Added for proper positioning of the eye icon
+  },
+  passwordInput: {
+    flex: 1,
+  },
+  toggleIconContainer: {
+    position: 'absolute',
+    right: 10, // Adjust the value based on your preference
+  },
   backgroundImage: {
     flex: 1,
     resizeMode: 'cover',

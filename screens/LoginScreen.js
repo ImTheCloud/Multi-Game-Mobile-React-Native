@@ -12,21 +12,39 @@ import {
   View,
 } from 'react-native';
 import { useNavigation } from '@react-navigation/core';
+import Icon from 'react-native-vector-icons/FontAwesome'; // or any other icon library
 import { auth } from '../firebase';
 import cielBackground from '../assets/blueBack.jpg';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
+
 const LoginScreen = () => {
+  const [showPassword, setShowPassword] = useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
+  const [rememberMe, setRememberMe] = useState(false);
   const navigation = useNavigation();
 
   useEffect(() => {
-    return auth.onAuthStateChanged(user => {
-      if (user) {
-        navigation.navigate('Login', { screen: 'Home' });
+    // Check AsyncStorage for stored credentials and set them in state
+    const retrieveCredentials = async () => {
+      try {
+        const storedEmail = await AsyncStorage.getItem('rememberedEmail');
+        const storedPassword = await AsyncStorage.getItem('rememberedPassword');
+
+        if (storedEmail && storedPassword) {
+          setEmail(storedEmail);
+          setPassword(storedPassword);
+          setRememberMe(true);
+        }
+      } catch (error) {
+        console.error('Error retrieving credentials from AsyncStorage:', error);
       }
-    });
+    };
+
+    retrieveCredentials();
   }, []);
 
   const handleLogin = () => {
@@ -35,10 +53,21 @@ const LoginScreen = () => {
         .then(userCredentials => {
           const user = userCredentials.user;
           setLoading(false);
-          navigation.navigate('Login', { screen: 'Home' });
+
+          // Store credentials if "Remember Me" is checked
+          if (rememberMe) {
+            AsyncStorage.setItem('rememberedEmail', email);
+            AsyncStorage.setItem('rememberedPassword', password);
+          } else {
+            // Clear credentials if "Remember Me" is unchecked
+            AsyncStorage.removeItem('rememberedEmail');
+            AsyncStorage.removeItem('rememberedPassword');
+          }
+
+          navigation.navigate('Login', {screen: 'Home'});
         })
         .catch(error => {
-          setError("E-mail address or password not correct");
+          setError('E-mail address or password not correct');
           setLoading(false);
         });
   };
@@ -46,8 +75,11 @@ const LoginScreen = () => {
   return (
       <ImageBackground source={cielBackground} style={styles.backgroundImage}>
         <ScrollView contentContainerStyle={styles.scrollViewContent}>
-          <KeyboardAvoidingView style={styles.container} behavior="padding" keyboardVerticalOffset={Platform.OS === 'ios' ? 40 : 0}>
-            {/* Ajouter un titre */}
+          <KeyboardAvoidingView
+              style={styles.container}
+              behavior="padding"
+              keyboardVerticalOffset={Platform.OS === 'ios' ? 40 : 0}
+          >
             <Text style={styles.title}>Multi Game Mobile</Text>
 
             <View style={styles.inputContainer}>
@@ -55,27 +87,51 @@ const LoginScreen = () => {
               <TextInput
                   placeholder="Type your email"
                   value={email}
-                  onChangeText={text => setEmail(text)}
+                  onChangeText={(text) => setEmail(text)}
                   style={styles.input}
               />
+
               <Text style={styles.inputLabel}>Password</Text>
-              <TextInput
-                  placeholder="Type your Password"
-                  value={password}
-                  onChangeText={text => setPassword(text)}
-                  style={styles.input}
-                  secureTextEntry
-              />
+              <View style={styles.passwordInputContainer}>
+                <TextInput
+                    placeholder="Type your Password"
+                    value={password}
+                    onChangeText={(text) => setPassword(text)}
+                    style={[styles.input, styles.passwordInput]}
+                    secureTextEntry={!showPassword}
+                />
+                <TouchableOpacity
+                    style={styles.toggleIconContainer}
+                    onPress={() => setShowPassword(!showPassword)}
+                >
+                  <Icon name={showPassword ? 'eye-slash' : 'eye'} size={20} color="grey" />
+                </TouchableOpacity>
+              </View>
+
+              <Text style={[styles.inputLabel, { marginLeft: 10 }]}>
+                <TouchableOpacity onPress={() => setRememberMe(!rememberMe)}>
+                  <View style={styles.checkboxContainer}>
+                    {rememberMe && <View style={styles.checkbox} />}
+                  </View>
+                </TouchableOpacity>
+                {' '} Remember Me
+              </Text>
             </View>
 
-            {/* Afficher les erreurs */}
             {error ? <Text style={styles.errorText}>{error}</Text> : null}
 
             <View style={styles.buttonContainer}>
               <TouchableOpacity onPress={handleLogin} style={styles.button} disabled={loading}>
-                {loading ? <ActivityIndicator size="small" color="white" /> : <Text style={styles.buttonText}>Login</Text>}
+                {loading ? (
+                    <ActivityIndicator size="small" color="white" />
+                ) : (
+                    <Text style={styles.buttonText}>Login</Text>
+                )}
               </TouchableOpacity>
-              <TouchableOpacity onPress={() => navigation.navigate('Register')} style={[styles.button, styles.buttonOutline]}>
+              <TouchableOpacity
+                  onPress={() => navigation.navigate('Register')}
+                  style={[styles.button, styles.buttonOutline]}
+              >
                 <Text style={styles.buttonOutlineText}>Create Account</Text>
               </TouchableOpacity>
             </View>
@@ -86,7 +142,33 @@ const LoginScreen = () => {
 };
 
 const styles = StyleSheet.create({
-
+  passwordInputContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    position: 'relative', // Added for proper positioning of the eye icon
+  },
+  passwordInput: {
+    flex: 1,
+  },
+  toggleIconContainer: {
+    position: 'absolute',
+    right: 10, // Adjust the value based on your preference
+  },
+  checkboxContainer: {
+    width: 17,
+    height: 17,
+    borderWidth: 1,
+    borderColor: 'white',
+    borderRadius: 3,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  checkbox: {
+    width: 8,
+    height: 8,
+    backgroundColor: 'white',
+    borderRadius: 2,
+  },
   backgroundImage: {
     flex: 1,
     resizeMode: 'cover',
@@ -120,7 +202,6 @@ const styles = StyleSheet.create({
     marginBottom: 5,
   },
   input: {
-
     backgroundColor: '#fff',
     paddingHorizontal: 15,
     paddingVertical: 10,
