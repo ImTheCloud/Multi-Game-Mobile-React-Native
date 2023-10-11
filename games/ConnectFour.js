@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, Alert } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
 const ROWS = 6;
@@ -12,19 +12,22 @@ const createEmptyBoard = () => {
 export default function ConnectFour({ navigation }) {
     const [board, setBoard] = useState(createEmptyBoard());
     const [isRedTurn, setIsRedTurn] = useState(true);
+    const [gameOver, setGameOver] = useState(false);
 
     useEffect(() => {
         checkWinner();
     }, [board]);
 
     const dropPiece = (col) => {
-        const newBoard = [...board.map(row => [...row])];
-        for (let row = ROWS - 1; row >= 0; row--) {
-            if (!newBoard[row][col]) {
-                newBoard[row][col] = isRedTurn ? 'R' : 'Y';
-                setBoard(newBoard);
-                setIsRedTurn(!isRedTurn);
-                return;
+        if (!gameOver) {
+            const newBoard = [...board.map(row => [...row])];
+            for (let row = ROWS - 1; row >= 0; row--) {
+                if (!newBoard[row][col]) {
+                    newBoard[row][col] = isRedTurn ? 'R' : 'Y';
+                    setBoard(newBoard);
+                    setIsRedTurn(!isRedTurn);
+                    return;
+                }
             }
         }
     };
@@ -39,7 +42,7 @@ export default function ConnectFour({ navigation }) {
                         checkDiagonalUp(row, col) ||
                         checkDiagonalDown(row, col)
                     ) {
-                        Alert.alert('Winner', `${isRedTurn ? 'Yellow' : 'Red'} wins!`, [{ text: 'OK', onPress: resetGame }]);
+                        setGameOver(true);
                     }
                 }
             }
@@ -105,6 +108,7 @@ export default function ConnectFour({ navigation }) {
     const resetGame = () => {
         setBoard(createEmptyBoard());
         setIsRedTurn(true);
+        setGameOver(false);
     };
 
     const renderSquare = (row, col) => (

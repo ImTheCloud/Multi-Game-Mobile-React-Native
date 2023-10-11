@@ -1,44 +1,63 @@
 import React, { useState } from 'react';
-import {View, TextInput, StyleSheet, Image, ImageBackground, Text} from 'react-native';
+import { View, TextInput, StyleSheet, ImageBackground, Text } from 'react-native';
 import GameList from '../components/GameList';
 import { useNavigation } from '@react-navigation/core';
 import cielBackground from "../assets/blueBack.jpg";
+import { Picker } from '@react-native-picker/picker';
 
 const GameScreen = () => {
   const navigation = useNavigation();
   const [searchTerm, setSearchTerm] = useState('');
+  const [gameFilter, setGameFilter] = useState('all');
 
   const games = [
     {
       title: 'Flappy Bird',
       screenName: 'FlappyBird',
-      image: require('../assets/flappybird.png'),  
+      image: require('../assets/flappybird.png'),
+      isMultiplayer: false,
+      isSingleplayer: true,
+
     },
     {
       title: 'Hangman Game',
       screenName: 'HangmanGame',
       image: require('../assets/hangman.png'),
+      isMultiplayer: false,
+      isSingleplayer: true,
+
     },
     {
       title: 'Rock Paper Scissors',
       screenName: 'RockPaperScissorsGame',
       image: require('../assets/rockPaperScissors.png'),
+      isMultiplayer: true,
+      isSingleplayer: true,
+
     },
     {
       title: 'Tic Tac Toe',
       screenName: 'TicTacToe',
       image: require('../assets/tic-tac-toe.png'),
+      isMultiplayer: true,
+      isSingleplayer: false,
+
     },
     {
       title: 'Connect Four',
       screenName: 'ConnectFour',
       image: require('../assets/connectFour.png'),
+      isMultiplayer: true,
+      isSingleplayer: false,
+
     },
+
   ];
 
-  // Filtrer les jeux en fonction du terme de recherche
   const filteredGames = games.filter((game) =>
-    game.title.toLowerCase().includes(searchTerm.toLowerCase())
+      game.title.toLowerCase().includes(searchTerm.toLowerCase()) &&
+      (gameFilter === 'all' || (gameFilter === 'multiplayer' && game.isMultiplayer) || (gameFilter === 'singleplayer' && game.isSingleplayer))
+
   );
 
   return (
@@ -51,6 +70,17 @@ const GameScreen = () => {
               onChangeText={(text) => setSearchTerm(text)}
               value={searchTerm}
           />
+          <View style={styles.filterSection}>
+            <Picker
+                style={styles.picker}
+                selectedValue={gameFilter}
+                onValueChange={(itemValue) => setGameFilter(itemValue)}
+            >
+              <Picker.Item label="All" value="all" />
+              <Picker.Item label="Multiplayer" value="multiplayer" />
+              <Picker.Item label="Single Player" value="singleplayer" />
+            </Picker>
+          </View>
           <GameList
               games={filteredGames}
               onSelectGame={(game) => {
@@ -64,14 +94,14 @@ const GameScreen = () => {
 
 const styles = StyleSheet.create({
   title: {
-    fontSize: 36, // Augmentez la taille du texte
+    fontSize: 36,
     fontWeight: 'bold',
     marginBottom: 20,
-    color: '#fff', // Couleur du texte
+    color: '#fff',
     textShadowColor: '#000',
     textShadowOffset: { width: 2, height: 2 },
     textShadowRadius: 5,
-    marginTop:70,
+    marginTop: 70,
   },
   backgroundImage: {
     flex: 1,
@@ -100,6 +130,21 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.25,
     shadowRadius: 3.84,
     elevation: 5,
+  },
+  filterSection: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 10,
+  },
+  filterText: {
+    fontSize: 25,
+    marginRight: 10,
+    color: '#fff',
+  },
+  picker: {
+    width: '90%',
+    color: '#fff',
+    backgroundColor: 'rgb(22,36,125)',
   },
 });
 

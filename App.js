@@ -14,6 +14,7 @@ import TicTacToe from './games/TicTacToe';
 import RockPaperScissorsGame from './games/RockPaperScissorsGame';
 import HangmanGame from './games/HangmanGame';
 import ConnectFour from './games/ConnectFour';
+
 import FlappyBird from './games/Flappybird/FlappyBird';
 import SettingsScreen from './screens/SettingsScreen';
 import { auth } from './firebase';
@@ -41,11 +42,11 @@ const GameStack = createStackNavigator();
 const GameStackScreen = () => (
   <GameStack.Navigator screenOptions={{ headerShown: false }}>
     <GameStack.Screen name="GameScreen" component={GameScreen}  />
+    <GameStack.Screen name="FlappyBird" component={FlappyBird}  />
     <GameStack.Screen name="TicTacToe" component={TicTacToe} />
     <GameStack.Screen name="RockPaperScissorsGame" component={RockPaperScissorsGame} />
     <GameStack.Screen name="HangmanGame" component={HangmanGame} />
     <GameStack.Screen name="ConnectFour" component={ConnectFour} />
-
   </GameStack.Navigator>
 );
 

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, Alert, Image } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, Image } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 
@@ -23,17 +23,6 @@ export default function TicTacToe() {
     setXIsNext(true);
   };
 
-  const checkGameStatus = () => {
-    if (winner) {
-      Alert.alert('Winner', `${winner} wins!`, [{ text: 'OK', onPress: resetGame }]);
-    } else if (board.every(row => row.every(square => square))) {
-      Alert.alert('Draw', 'The game is a draw!', [{ text: 'OK', onPress: resetGame }]);
-    }
-  };
-
-  useEffect(() => {
-    checkGameStatus();
-  }, [board]);
 
   const renderSquare = (row, col) => (
       <TouchableOpacity style={styles.square} onPress={() => handleClick(row, col)}>

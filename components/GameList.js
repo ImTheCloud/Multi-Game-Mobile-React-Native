@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
     paddingBottom: 100, // Ajouter un espacement en bas
   },
   gameItem: {
-    width: 140,
+    width: '48%',
     height: 170,
     marginVertical: 8,
     justifyContent: 'center',
