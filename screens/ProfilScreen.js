@@ -282,9 +282,13 @@ const styles = StyleSheet.create({
 
   },
   textAboveCircle: {
-    color:'#eaf5ff',
-    fontSize: 25,
+    fontSize: 25, // Augmentez la taille du texte
     fontWeight: 'bold',
+    marginBottom: 20,
+    color: '#fff', // Couleur du texte
+    textShadowColor: '#000',
+    textShadowOffset: { width: 2, height: 2 },
+    textShadowRadius: 5,
   },
   profileImageContainer: {
     width: 120,

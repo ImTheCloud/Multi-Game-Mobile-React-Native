@@ -185,10 +185,14 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   title: {
-    fontSize: 32,
+    fontSize: 36, // Augmentez la taille du texte
     fontWeight: 'bold',
-    color: 'white',
     marginBottom: 20,
+    color: '#fff', // Couleur du texte
+    textShadowColor: '#000',
+    textShadowOffset: { width: 2, height: 2 },
+    textShadowRadius: 5,
+    marginTop:70,
   },
   inputContainer: {
     width: 300,

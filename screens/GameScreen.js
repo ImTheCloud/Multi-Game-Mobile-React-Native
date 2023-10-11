@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import {View, TextInput, StyleSheet, Image, ImageBackground} from 'react-native';
+import {View, TextInput, StyleSheet, Image, ImageBackground, Text} from 'react-native';
 import GameList from '../components/GameList';
 import { useNavigation } from '@react-navigation/core';
 import cielBackground from "../assets/blueBack.jpg";
@@ -38,27 +38,36 @@ const GameScreen = () => {
 
   return (
       <ImageBackground source={cielBackground} style={styles.backgroundImage}>
-
-      <View style={styles.container}>
-      <TextInput
-        style={styles.searchInput}
-        placeholder="Find a game"
-        onChangeText={(text) => setSearchTerm(text)}
-        value={searchTerm}
-      />
-      <GameList
-        games={filteredGames}
-        onSelectGame={(game) => {
-          navigation.navigate(game.screenName);
-        }}
-      />
-    </View>
+        <View style={styles.container}>
+          <Text style={styles.title}>Games</Text>
+          <TextInput
+              style={styles.searchInput}
+              placeholder="Find a game"
+              onChangeText={(text) => setSearchTerm(text)}
+              value={searchTerm}
+          />
+          <GameList
+              games={filteredGames}
+              onSelectGame={(game) => {
+                navigation.navigate(game.screenName);
+              }}
+          />
+        </View>
       </ImageBackground>
-
   );
 };
 
 const styles = StyleSheet.create({
+  title: {
+    fontSize: 36, // Augmentez la taille du texte
+    fontWeight: 'bold',
+    marginBottom: 20,
+    color: '#fff', // Couleur du texte
+    textShadowColor: '#000',
+    textShadowOffset: { width: 2, height: 2 },
+    textShadowRadius: 5,
+    marginTop:70,
+  },
   backgroundImage: {
     flex: 1,
     resizeMode: 'cover',
@@ -76,7 +85,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     marginBottom: 10,
     width: '90%',
-    marginTop: 150,
     backgroundColor: '#fff',
     borderRadius: 10,
     shadowColor: '#000',

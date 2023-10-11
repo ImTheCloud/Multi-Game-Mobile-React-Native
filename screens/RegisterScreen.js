@@ -80,6 +80,14 @@ const RegisterScreen = () => {
             <Text style={styles.title}>Multi Game Mobile</Text>
 
             <View style={styles.inputContainer}>
+              <Text style={styles.inputLabel}>Username</Text>
+              <TextInput
+                  placeholder="Type your Username"
+                  value={nom}
+                  onChangeText={(text) => setNom(text.slice(0, 9))}
+                  style={styles.input}
+              />
+
               <Text style={styles.inputLabel}>Email</Text>
               <TextInput
                   placeholder="Type your email"
@@ -105,13 +113,7 @@ const RegisterScreen = () => {
                 </TouchableOpacity>
               </View>
 
-              <Text style={styles.inputLabel}>Username</Text>
-              <TextInput
-                  placeholder="Type your Username"
-                  value={nom}
-                  onChangeText={(text) => setNom(text.slice(0, 9))}
-                  style={styles.input}
-              />
+
             </View>
 
             {error ? <Text style={styles.errorText}>{error}</Text> : null}
@@ -172,10 +174,14 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   title: {
-    fontSize: 32,
+    fontSize: 36, // Augmentez la taille du texte
     fontWeight: 'bold',
-    color: 'white',
     marginBottom: 20,
+    color: '#fff', // Couleur du texte
+    textShadowColor: '#000',
+    textShadowOffset: { width: 2, height: 2 },
+    textShadowRadius: 5,
+    marginTop:70,
   },
   inputContainer: {
     width: 300,
