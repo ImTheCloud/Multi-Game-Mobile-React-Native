@@ -1,6 +1,17 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, Modal, Button, FlatList, TextInput } from 'react-native';
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  StyleSheet,
+  Modal,
+  Button,
+  FlatList,
+  TextInput,
+  ImageBackground
+} from 'react-native';
 import { firestore } from '../firebase';
+import cielBackground from "../assets/blueBack.jpg";
 
 export default function RankingScreen() {
   const [users, setUsers] = useState([]);
@@ -60,7 +71,8 @@ export default function RankingScreen() {
   );
 
   return (
-    <View style={styles.container}>
+      <ImageBackground source={cielBackground} style={styles.backgroundImage}>
+      <View style={styles.container}>
       <Text style={styles.title}>Ranking</Text>
 
       {/* Search input */}
@@ -87,10 +99,17 @@ export default function RankingScreen() {
         </View>
       </Modal>
     </View>
-  );
+</ImageBackground>
+
+);
 }
 
 const styles = StyleSheet.create({
+  backgroundImage: {
+    flex: 1,
+    resizeMode: 'cover',
+    justifyContent: 'center',
+  },
   searchInput: {
     height: 40,
     borderColor: '#16247d',

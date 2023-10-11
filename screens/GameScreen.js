@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { View, TextInput, StyleSheet,Image } from 'react-native';
+import {View, TextInput, StyleSheet, Image, ImageBackground} from 'react-native';
 import GameList from '../components/GameList';
 import { useNavigation } from '@react-navigation/core';
+import cielBackground from "../assets/blueBack.jpg";
 
 const GameScreen = () => {
   const navigation = useNavigation();
@@ -36,11 +37,9 @@ const GameScreen = () => {
   );
 
   return (
-    <View style={styles.container}>
-     <Image
-          source={require('../assets/Logo.png')}
-          style={{ width: 200, height: 100, resizeMode: 'contain',  marginTop : 20, }}
-        />
+      <ImageBackground source={cielBackground} style={styles.backgroundImage}>
+
+      <View style={styles.container}>
       <TextInput
         style={styles.searchInput}
         placeholder="Find a game"
@@ -54,10 +53,17 @@ const GameScreen = () => {
         }}
       />
     </View>
+      </ImageBackground>
+
   );
 };
 
 const styles = StyleSheet.create({
+  backgroundImage: {
+    flex: 1,
+    resizeMode: 'cover',
+    justifyContent: 'center',
+  },
   container: {
     flex: 1,
     alignItems: 'center',
@@ -70,7 +76,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     marginBottom: 10,
     width: '90%',
-    marginTop: 20,
+    marginTop: 150,
     backgroundColor: '#fff',
     borderRadius: 10,
     shadowColor: '#000',

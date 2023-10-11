@@ -12,7 +12,7 @@ import {
   View,
 } from 'react-native';
 import { useNavigation } from '@react-navigation/core';
-import Icon from 'react-native-vector-icons/FontAwesome'; // or any other icon library
+import Icon from 'react-native-vector-icons/FontAwesome';
 import { auth } from '../firebase';
 import cielBackground from '../assets/blueBack.jpg';
 import AsyncStorage from '@react-native-async-storage/async-storage';
