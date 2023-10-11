@@ -188,16 +188,16 @@ export default function ProfileScreen() {
 
                 <View style={styles.containerPadding}>
 
-                <View style={styles.infoRow}>
-                  <Icon name="user" size={35} color="#000" style={styles.icon} />
-                  <TextInput
-                      style={styles.input}
-                      placeholder={userProfile?.nom || 'Not defined'}
-                      onChangeText={(text) => setNewName(text.slice(0, 9))}  // Limiter à 8 caractères
-                      value={newName}
-                  />
+                  <View style={styles.infoRow}>
+                    <Icon name="user" size={35} color="#000" style={styles.icon} />
+                    <TextInput
+                        style={styles.input}
+                        placeholder={userProfile?.nom || 'Not defined'}
+                        onChangeText={(text) => setNewName(text.slice(0, 9))}  // Limiter à 8 caractères
+                        value={newName}
+                    />
 
-                </View>
+                  </View>
                   <View style={styles.divider}></View>
                   <View style={styles.infoRow}>
                     <Icon name="envelope" size={27} color="#000" />
