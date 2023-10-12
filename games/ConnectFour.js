@@ -136,9 +136,6 @@ export default function ConnectFour({ navigation }) {
 
     return (
         <View style={styles.container}>
-            <TouchableOpacity style={styles.navigationButtonContainer} onPress={() => navigation.navigate('GameScreen')}>
-                <Ionicons name="ios-arrow-back" size={24} color="black" />
-            </TouchableOpacity>
             <Text style={styles.title}>Connect Four</Text>
             {renderBoard()}
             <View style={styles.buttonContainer}>
@@ -174,8 +171,8 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
     },
     square: {
-        width: 45,
-        height: 45,
+        width: 50,
+        height: 50  ,
         justifyContent: 'center',
         alignItems: 'center',
         borderWidth: 1,
@@ -195,7 +192,7 @@ const styles = StyleSheet.create({
     },
     navigationButtonContainer: {
         position: 'absolute',
-        top: 50,
+        top: 30,
         left: 10,
         zIndex: 1,
     },

@@ -38,9 +38,6 @@ export default function TicTacToe() {
 
   return (
       <View style={styles.container}>
-        <TouchableOpacity style={styles.navigationButtonContainer} onPress={() => navigation.navigate('GameScreen')}>
-          <Ionicons name="ios-arrow-back" size={24} color="black" />
-        </TouchableOpacity>
         <Text style={styles.title}>Tic-Tac-Toe</Text>
         <View style={styles.board}>
           {board.map((row, rowIndex) => (

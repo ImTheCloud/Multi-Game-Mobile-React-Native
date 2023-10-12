@@ -39,8 +39,12 @@ const screenOptions = {
 const GameStack = createStackNavigator();
 
 const GameStackScreen = () => (
-  <GameStack.Navigator screenOptions={{ headerShown: false }}>
-    <GameStack.Screen name="GameScreen" component={GameScreen}  />
+  <GameStack.Navigator screenOptions={{ headerTitle: '' }}>
+    <GameStack.Screen
+        name="GameScreen"
+        component={GameScreen}
+        options={{ headerShown: false }}
+    />
     <GameStack.Screen name="FlappyBird" component={FlappyBird}  />
     <GameStack.Screen name="TicTacToe" component={TicTacToe} />
     <GameStack.Screen name="HangmanGame" component={HangmanGame} />

@@ -52,13 +52,6 @@ function FlappyBird() {
 
   return (
     <View style={{ flex: 1 }}>
-      <TouchableOpacity
-        style={{ position: 'absolute', top: 20, left: 20, zIndex: 1 }}
-        onPress={() => navigation.navigate('GameScreen')}
-      >
-        <Ionicons name="ios-arrow-back" size={24} color="black" />
-      </TouchableOpacity>
-
       <Text style={{ textAlign: 'center', fontSize: 40, fontWeight: 'bold', margin: 20 }}>
         {currentPoints}
       </Text>

@@ -122,12 +122,6 @@ export default function HangmanGame() {
 
   return (
     <View style={styles.container}>
-      <TouchableOpacity
-        style={styles.navigationButtonContainer}
-        onPress={() => navigation.navigate('GameScreen')}
-      >
-        <Ionicons name="ios-arrow-back" size={24} color="black" />
-      </TouchableOpacity>
       <View style={styles.hangmanContainer}>
         <Text style={styles.incorrectLetters}>
           Incorrect Letters:{' '}
