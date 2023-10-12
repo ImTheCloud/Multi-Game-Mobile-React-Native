@@ -107,6 +107,21 @@ const App = () => {
         }}
 
        />
+            <Tab.Screen
+                name="Settings"
+                component={SettingsScreen}
+                options={{
+                  tabBarIcon: ({focused})=>{
+                    return (
+                        <View style={{alignItems: "center", justifyContent: "center"}}>
+                          <Ionicons name="settings" size={24} color={focused ? "#16247d" : "black"} />
+                          <Text style={{fontSize: 12, color: focused ? "#16247d" : "#111"}}>SETTINGS</Text>
+                        </View>
+                    )
+                  }
+                }}
+            />
+
         <Tab.Screen 
           name="Profil" 
           component={ProfilScreen} 

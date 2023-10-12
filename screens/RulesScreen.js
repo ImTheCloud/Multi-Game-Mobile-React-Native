@@ -22,11 +22,6 @@ export default function RulesScreen() {
       rules: 'Hangman Game: +5 points if you win and -3 points if you lose',
       image: require('../assets/hangman.png'),
     },
-    {
-      title: 'Rock Paper Scissors',
-      rules: 'Rock Paper: +2 points if you win vs IA and if you lose it is -2 points',
-      image: require('../assets/rockPaperScissors.png'),
-    },
   ];
 
   const filteredGames = games.filter((game) =>
