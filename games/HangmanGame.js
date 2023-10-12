@@ -1,8 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, TextInput, Button, StyleSheet, Alert } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
-import { Ionicons } from '@expo/vector-icons';
-import { TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, Alert } from 'react-native';
 import { auth, firestore } from '../firebase';
 
 export default function HangmanGame() {
@@ -14,14 +11,18 @@ export default function HangmanGame() {
     'WEB', 'PERFORMANCE', 'RESPONSIVE', 'JAVAFX', 'DEBUG', 'TERMINAL', 'PROBLEM', 'RIGGIO'
   ];
 
+  const handleRestart = () => {
+    restartGame();
+  };
   const maxAttempts = 7;
 
   const chooseRandomWord = () => {
     const randomIndex = Math.floor(Math.random() * words.length);
     return words[randomIndex];
   };
-
-  const navigation = useNavigation();
+  const ALPHABET = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ.';
+  const userId = auth.currentUser.uid;
+  const userRef = firestore.collection('profiles').doc(userId);
   const [word, setWord] = useState('');
   const [displayWord, setDisplayWord] = useState('');
   const [attempts, setAttempts] = useState(maxAttempts);
@@ -29,8 +30,7 @@ export default function HangmanGame() {
   const [hangmanTries, setHangmanTries] = useState(0);
   const [incorrectLetters, setIncorrectLetters] = useState([]);
   const [score, setScore] = useState(0);
-  const userId = auth.currentUser.uid; // Get the current user's ID
-  const userRef = firestore.collection('profiles').doc(userId);
+  const [clickedLetters, setClickedLetters] = useState([]);
 
   useEffect(() => {
     const newWord = chooseRandomWord();
@@ -57,7 +57,7 @@ export default function HangmanGame() {
         setDisplayWord(newDisplayWord.join(' '));
 
         if (newDisplayWord.join('') === word) {
-          handleWordGuessed(); // Updated to handleWordGuessed
+          handleWordGuessed();
         }
       } else {
         setAttempts(attempts - 1);
@@ -74,11 +74,11 @@ export default function HangmanGame() {
   };
 
   const handleWordGuessed = async () => {
-    const updatedScore = score + 5; // Calculate the updated score
-    setScore(updatedScore); // Update the score state
+    const updatedScore = score + 5;
+    setScore(updatedScore);
 
-    // Update user's score in Firestore
     try {
+      // Update user's score in Firestore
       await userRef.update({
         pointsHangman: updatedScore,
       });
@@ -90,12 +90,11 @@ export default function HangmanGame() {
   };
 
   const handleGameLost = async () => {
-    // Deduct 3 points from the score
     const updatedScore = Math.max(0, score - 3);
     setScore(updatedScore);
 
-    // Update user's score in Firestore
     try {
+      // Update user's score in Firestore
       await userRef.update({
         pointsHangman: updatedScore,
       });
@@ -104,13 +103,42 @@ export default function HangmanGame() {
     }
 
     Alert.alert(
-      'You lost!',
-      `The word was ${word}. Better luck next time.`,
-      [{ text: 'OK', onPress: restartGame }]
+        'You lost!',
+        `The word was ${word}. Better luck next time.`,
+        [{ text: 'OK', onPress: restartGame }]
     );
   };
 
+  const handleAlphabetClick = (letter) => {
+    if (!word.includes(letter)) {
+      setAttempts(attempts - 1);
+      setHangmanTries(hangmanTries + 1);
+      setIncorrectLetters([...incorrectLetters, letter]);
+
+      if (attempts - 1 === 0) {
+        handleGameLost();
+      }
+    } else {
+      const newDisplayWord = displayWord.split(' ');
+
+      for (let i = 0; i < word.length; i++) {
+        if (word[i] === letter) {
+          newDisplayWord[i] = letter;
+        }
+      }
+
+      setDisplayWord(newDisplayWord.join(' '));
+
+      if (newDisplayWord.join('') === word) {
+        handleWordGuessed();
+      }
+    }
+
+    setClickedLetters([...clickedLetters, letter]);
+  };
+
   const restartGame = () => {
+    setClickedLetters([]);
     const newWord = chooseRandomWord();
     const newDisplayWord = '_ '.repeat(newWord.length);
     setWord(newWord);
@@ -120,45 +148,92 @@ export default function HangmanGame() {
     setIncorrectLetters([]);
   };
 
+  // Add a style prop to change the background color based on whether the letter is clicked
+  const getAlphabetButtonStyle = (letter) => ({
+    backgroundColor: clickedLetters.includes(letter) ? 'gray' : '#16247d',
+    padding: 10,
+    margin: 5,
+    width: 33,
+    alignItems: 'center',
+    borderRadius: 5,
+  });
+
   return (
-    <View style={styles.container}>
-      <View style={styles.hangmanContainer}>
-        <Text style={styles.incorrectLetters}>
-          Incorrect Letters:{' '}
-          {incorrectLetters.map((letter, index) => (
-            <Text
-              key={index}
-              style={{
-                textDecorationLine: 'line-through',
-                color: 'black',
-              }}
-            >
-              {letter}
-            </Text>
-          ))}
-        </Text>
-      </View>
-      <Text style={styles.displayWord}>{displayWord}</Text>
-      <Text style={styles.attempts}>Attempts left: {attempts}</Text>
-      {/* <Text style={styles.score}>Score: {score}</Text> */}
-      <View style={styles.inputContainer}>
-        <TextInput
-          style={styles.input}
-          onChangeText={(text) => setInputLetter(text)}
-          value={inputLetter}
-          maxLength={1}
-          autoCapitalize="none"
-          keyboardType="default"
-        />
-        <View style={styles.buttonContainer}>
-          <Button title="Guess" onPress={handleGuess} color="#3F88C5" />
+      <View style={styles.container}>
+        <Text style={styles.title}>Hangman</Text>
+        <View style={styles.hangmanContainer}>
+          <Text style={styles.incorrectLetters}>
+            Incorrect Letters:{' '}
+            {incorrectLetters.map((letter, index) => (
+                <Text
+                    key={index}
+                    style={{
+                      textDecorationLine: 'line-through',
+                      color: 'black',
+                    }}
+                >
+                  {letter}
+                </Text>
+            ))}
+          </Text>
         </View>
+        <Text style={styles.displayWord}>{displayWord}</Text>
+        <Text style={styles.attempts}>Attempts left: {attempts}</Text>
+
+        <View style={styles.alphabetContainer}>
+          {ALPHABET.split('').map((letter) => (
+              <TouchableOpacity
+                  key={letter}
+                  style={getAlphabetButtonStyle(letter)}
+                  onPress={() => handleAlphabetClick(letter)}
+                  disabled={incorrectLetters.includes(letter)}
+              >
+                <Text style={styles.alphabetButtonText}>{letter}</Text>
+              </TouchableOpacity>
+          ))}
+        </View>
+        <TouchableOpacity style={styles.restartButton} onPress={handleRestart}>
+          <Text style={styles.restartButtonText}>Restart</Text>
+        </TouchableOpacity>
       </View>
-    </View>
   );
 }
-
 const styles = StyleSheet.create({
+  alphabetContainer: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+
+  },
+
+  alphabetButton: {
+    backgroundColor: '#16247d',
+    padding: 10,
+    margin: 5,
+    width: 33,
+    alignItems: 'center',
+    borderRadius: 5,
+  },
+
+  alphabetButtonText: {
+    color: 'white',
+    fontSize: 16,
+  },
+  restartButton: {
+    backgroundColor: '#16247d',
+    padding: 15,
+    borderRadius: 10,
+    marginBottom:100,
+
+    alignItems: 'center',
+    width: '95%', // Take the full width of the screen
+    elevation: 3,
+
+  },
+  restartButtonText: {
+    color: 'white',
+    fontSize: 18,
+    fontWeight: 'bold',
+  },
   score: {
     fontSize: 24,
     marginBottom: 20,
@@ -169,11 +244,21 @@ const styles = StyleSheet.create({
     left: 10,
     zIndex: 1,
   },
+  title: {
+    fontSize: 36,
+    fontWeight: 'bold',
+    marginBottom: 20,
+    color: '#fff',
+    textShadowColor: '#000',
+    textShadowOffset: { width: 2, height: 2 },
+    textShadowRadius: 5,
+    marginTop: 70,
+  },
   container: {
-    flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: '#f5f5f5',
+
   },
   displayWord: {
     fontSize: 48,
@@ -183,28 +268,13 @@ const styles = StyleSheet.create({
     fontSize: 24,
     marginBottom: 20,
   },
-  input: {
-    width: 35,
-    height: 35,
-    borderColor: 'gray',
-    borderWidth: 1,
-    fontSize: 24,
-    textAlign: 'center',
-    marginBottom: 0,
-    marginRight: 10,
-  },
-  buttonContainer: {
-    height: 40,
-  },
   hangmanContainer: {
+    marginBottom: 30,
+
     flexDirection: 'column',
     alignItems: 'center',
   },
-  inputContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    marginBottom: 20,
-  },
+
   incorrectLetters: {
     fontSize: 24,
     marginBottom: 20,
