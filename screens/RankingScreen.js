@@ -10,6 +10,7 @@ import {
   TextInput,
   ImageBackground
 } from 'react-native';
+import { Feather } from '@expo/vector-icons'; // Importez l'icône Feather
 import { firestore } from '../firebase';
 import cielBackground from "../assets/blueBack.jpg";
 
@@ -45,10 +46,13 @@ export default function RankingScreen() {
     setSearchInput(text);
   };
 
-  const filteredUsers = users.filter((user) =>
-  user.nom && user.nom.toLowerCase().includes(searchInput.toLowerCase())
-);
+  const clearSearch = () => {
+    setSearchInput('');
+  };
 
+  const filteredUsers = users.filter((user) =>
+      user.nom && user.nom.toLowerCase().includes(searchInput.toLowerCase())
+  );
 
   // Fetch users on component mount
   useEffect(() => {
@@ -73,16 +77,28 @@ export default function RankingScreen() {
   return (
       <ImageBackground source={cielBackground} style={styles.backgroundImage}>
         <View style={styles.container}>
-          {/* Déplacez le titre ici */}
           <Text style={styles.title}>Ranking</Text>
 
-          {/* Search input */}
-          <TextInput
-              style={styles.searchInput}
-              placeholder="Find player"
-              value={searchInput}
-              onChangeText={handleSearch}
-          />
+          {/* Search input avec icône de loupe */}
+          <View style={styles.searchInputContainer}>
+            <Feather name="search" size={20} color="#16247d" style={styles.searchIcon} />
+            <TextInput
+                style={styles.searchInput}
+                placeholder="Find player"
+                value={searchInput}
+                onChangeText={handleSearch}
+            />
+
+            {/* Icône pour effacer le champ de recherche */}
+            {searchInput.trim() !== '' && (
+                <TouchableOpacity
+                    onPress={clearSearch}
+                    style={styles.clearIcon}
+                >
+                  <Feather name="x" size={20} color="#16247d" />
+                </TouchableOpacity>
+            )}
+          </View>
 
           {/* Conditionally render FlatList based on search input */}
           {searchInput.trim() !== '' ? (
@@ -93,7 +109,7 @@ export default function RankingScreen() {
               />
           ) : null}
 
-          {/* Modal to display user details */}
+          {/* Modal pour afficher les détails de l'utilisateur */}
           <Modal
               visible={!!selectedUser}
               animationType="slide"
@@ -107,7 +123,7 @@ export default function RankingScreen() {
                 <Text>High Score Flappy Bird: {selectedUser?.highScore || 0}</Text>
                 <Text>High Level Number Guess: {selectedUser?.HighLevelNumberGuess || 0}</Text>
                 <Text>Points Hang Man: {selectedUser?.pointsHangman || 0}</Text>
-                <Button title="Close" onPress={handleCloseModal}  />
+                <Button title="Close" onPress={handleCloseModal} />
               </View>
             </View>
           </Modal>
@@ -122,23 +138,28 @@ const styles = StyleSheet.create({
     resizeMode: 'cover',
     justifyContent: 'center',
   },
-  searchInput: {
+  searchInputContainer: {
     height: 50,
-    borderColor: '#16247d',
+    flexDirection: 'row',
+    alignItems: 'center',
     borderWidth: 1,
+    backgroundColor: 'rgb(255,255,255)',
+    borderColor: '#16247d',
     paddingHorizontal: 10,
     marginTop: 20,
-    width: '100%',
-    backgroundColor: '#fff',
-    shadowColor: '#000',
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.84,
-    elevation: 5,
-    marginBottom:20,
+    marginBottom: 20,
+  },
+  searchIcon: {
+    marginRight: 10,
+  },
+  searchInput: {
+    flex: 1,
+    height: 40,
+    color: '#16247d',
+  },
+  clearIcon: {
+    marginLeft: 10,
+    padding: 8,
   },
   modalContainer: {
     flex: 1,
@@ -151,6 +172,7 @@ const styles = StyleSheet.create({
     padding: 20,
     borderRadius: 10,
     width: '80%',
+    alignItems: 'center',
     shadowColor: '#000',
     shadowOffset: {
       width: 0,
@@ -161,29 +183,35 @@ const styles = StyleSheet.create({
     elevation: 5,
   },
   modalTitle: {
-    fontSize: 18,
+    fontSize: 20,
     fontWeight: 'bold',
     marginBottom: 10,
+    textAlign: 'center',
+    color: '#16247d',
+  },
+  modalText: {
+    marginBottom: 20,
+    textAlign: 'center',
   },
   container: {
     flex: 1,
-    justifyContent: 'flex-start',  // Alignez les éléments en haut
+    justifyContent: 'flex-start',
     alignItems: 'center',
     padding: 20,
   },
   title: {
-    fontSize: 36, // Augmentez la taille du texte
+    fontSize: 36,
     fontWeight: 'bold',
-    color: '#fff', // Couleur du texte
+    color: '#fff',
     textShadowColor: '#000',
     textShadowOffset: { width: 2, height: 2 },
     textShadowRadius: 5,
-    marginTop:20,
+    marginTop: 20,
   },
   userContainer: {
     marginBottom: 20,
     width: '100%',
-    backgroundColor: '#16247d', // Couleur principale
+    backgroundColor: '#16247d',
     borderRadius: 10,
     shadowColor: '#000',
     shadowOffset: {
@@ -194,8 +222,8 @@ const styles = StyleSheet.create({
     shadowRadius: 3,
     elevation: 5,
     padding: 20,
-    justifyContent: 'center', // Center vertically
-    alignItems: 'center', // Center horizontally
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   userName: {
     fontWeight: 'bold',

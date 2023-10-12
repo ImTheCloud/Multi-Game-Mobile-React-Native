@@ -7,7 +7,7 @@ import { Entypo, Ionicons, FontAwesome, FontAwesome5, AntDesign } from '@expo/ve
 import GameScreen from './screens/GameScreen';
 import LoginScreen from './screens/LoginScreen';
 import RegisterScreen from './screens/RegisterScreen';
-import RulesScreen from './screens/RulesScreen';
+import InfoScreen from './screens/InfoScreen';
 import RankingScreen from './screens/RankingScreen';
 import ProfilScreen from './screens/ProfilScreen';
 import TicTacToe from './games/TicTacToe';
@@ -83,6 +83,21 @@ const App = () => {
           ),
         }}
       />
+
+            <Tab.Screen
+                name="Rule"
+                component={InfoScreen}
+                options={{
+                  tabBarIcon: ({focused})=>{
+                    return (
+                        <View style={{alignItems: "center", justifyContent: "center"}}>
+                          <Entypo name="info-with-circle" size={24} color={focused ? "#16247d" : "black"} />
+                          <Text style={{fontSize: 12, color: focused ? "#16247d" : "#111"}}>INFO</Text>
+                        </View>
+                    )
+                  }
+                }}
+            />
     <Tab.Screen 
        name="Game"
        component={GameStackScreen} 
