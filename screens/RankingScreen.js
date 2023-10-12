@@ -93,7 +93,6 @@ export default function RankingScreen() {
             <Text>Name: {selectedUser?.nom || 'Non défini'}</Text>
             <Text>High Score Flappy Bird: {selectedUser?.highScore || 0}</Text>
             <Text>Points Hang Man: {selectedUser?.pointsHangman || 0}</Text>
-            <Text>Points Rock Paper Scissors: {selectedUser?.pointsRPS || 0}</Text>
             <Button title="Close" onPress={handleCloseModal} />
           </View>
         </View>

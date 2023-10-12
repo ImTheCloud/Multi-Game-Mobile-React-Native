@@ -26,7 +26,6 @@ export default function ProfileScreen() {
             nom: '',
             highScore: 0,
             pointsHangman: 0,
-            pointsRPS: 0,
           });
 
           const updatedDoc = await userRef.get();
@@ -218,14 +217,8 @@ export default function ProfileScreen() {
                   <View style={styles.divider}></View>
 
                   <View style={styles.infoRow}>
-                    <Icon name="hand-rock-o" size={27} color="#000" />
-                    <Text style={styles.label}>Points Rock Paper Scissors: {userProfile?.pointsRPS || 0}</Text>
-                  </View>
-                  <View style={styles.divider}></View>
-
-                  <View style={styles.infoRow}>
                     <Icon name="star" size={27} color="#000" />
-                    <Text style={styles.label}>All Points: {userProfile?.pointsHangman + userProfile?.pointsRPS || 0}</Text>
+                    <Text style={styles.label}>All Points: {userProfile?.pointsHangman + userProfile?.highScore || 0}</Text>
                   </View>
 
                   <View style={styles.divider}>

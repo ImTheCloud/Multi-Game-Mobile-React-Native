@@ -28,14 +28,6 @@ const GameScreen = () => {
 
     },
     {
-      title: 'Rock Paper Scissors',
-      screenName: 'RockPaperScissorsGame',
-      image: require('../assets/rockPaperScissors.png'),
-      isMultiplayer: true,
-      isSingleplayer: true,
-
-    },
-    {
       title: 'Tic Tac Toe',
       screenName: 'TicTacToe',
       image: require('../assets/tic-tac-toe.png'),
@@ -114,14 +106,13 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   searchInput: {
-    height: 40,
+    height: 50,
     borderColor: '#16247d',
     borderWidth: 1,
     paddingHorizontal: 10,
     marginBottom: 10,
     width: '90%',
     backgroundColor: '#fff',
-    borderRadius: 10,
     shadowColor: '#000',
     shadowOffset: {
       width: 0,

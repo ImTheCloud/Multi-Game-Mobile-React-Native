@@ -11,7 +11,6 @@ import RulesScreen from './screens/RulesScreen';
 import RankingScreen from './screens/RankingScreen';
 import ProfilScreen from './screens/ProfilScreen';
 import TicTacToe from './games/TicTacToe';
-import RockPaperScissorsGame from './games/RockPaperScissorsGame';
 import HangmanGame from './games/HangmanGame';
 import ConnectFour from './games/ConnectFour';
 
@@ -44,7 +43,6 @@ const GameStackScreen = () => (
     <GameStack.Screen name="GameScreen" component={GameScreen}  />
     <GameStack.Screen name="FlappyBird" component={FlappyBird}  />
     <GameStack.Screen name="TicTacToe" component={TicTacToe} />
-    <GameStack.Screen name="RockPaperScissorsGame" component={RockPaperScissorsGame} />
     <GameStack.Screen name="HangmanGame" component={HangmanGame} />
     <GameStack.Screen name="ConnectFour" component={ConnectFour} />
   </GameStack.Navigator>

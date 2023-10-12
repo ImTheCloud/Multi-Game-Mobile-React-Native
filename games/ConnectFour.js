@@ -154,6 +154,8 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         margin: 20,
+        marginBottom:170,
+
     },
     title: {
         fontSize: 36,
@@ -198,6 +200,7 @@ const styles = StyleSheet.create({
         zIndex: 1,
     },
     restartButton: {
+
         backgroundColor: '#16247d',
         padding: 15,
         borderRadius: 10,
