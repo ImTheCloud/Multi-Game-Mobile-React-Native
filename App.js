@@ -13,6 +13,8 @@ import ProfilScreen from './screens/ProfilScreen';
 import TicTacToe from './games/TicTacToe';
 import HangmanGame from './games/HangmanGame';
 import ConnectFour from './games/ConnectFour';
+import NumberGuess from './games/NumberGuess';
+
 
 import FlappyBird from './games/Flappybird/FlappyBird';
 import SettingsScreen from './screens/SettingsScreen';
@@ -45,8 +47,9 @@ const GameStackScreen = () => (
         component={GameScreen}
         options={{ headerShown: false }}
     />
-    <GameStack.Screen name="FlappyBird" component={FlappyBird}  />
-    <GameStack.Screen name="TicTacToe" component={TicTacToe} />
+    <GameStack.Screen name="NumberGuess" component={NumberGuess}  />
+      <GameStack.Screen name="FlappyBird" component={FlappyBird}  />
+      <GameStack.Screen name="TicTacToe" component={TicTacToe} />
     <GameStack.Screen name="HangmanGame" component={HangmanGame} />
     <GameStack.Screen name="ConnectFour" component={ConnectFour} />
   </GameStack.Navigator>

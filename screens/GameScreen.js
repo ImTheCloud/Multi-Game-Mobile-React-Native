@@ -20,6 +20,14 @@ const GameScreen = () => {
 
     },
     {
+      title: 'Number Guess',
+      screenName: 'NumberGuess',
+      image: require('../assets/guessNumber.png'),
+      isMultiplayer: false,
+      isSingleplayer: true,
+
+    },
+    {
       title: 'Hangman Game',
       screenName: 'HangmanGame',
       image: require('../assets/hangman.png'),
