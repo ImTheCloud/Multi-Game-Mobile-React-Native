@@ -227,7 +227,7 @@ export default function ProfileScreen() {
                   <TouchableOpacity onPress={handleModification} style={styles.button}>
                     <Text style={styles.buttonText}>Update Profile</Text>
                   </TouchableOpacity>
-                  <TouchableOpacity onPress={handleSignOut} style={[styles.button, { backgroundColor: '#F17272' }]}>
+                  <TouchableOpacity onPress={handleSignOut} style={[styles.button, { backgroundColor: 'rgba(180,0,0,0.8)' }]}>
                     <Text style={styles.buttonText}>Log out</Text>
                   </TouchableOpacity>
                 </View>
@@ -321,7 +321,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
   },
   button: {
-    backgroundColor: '#248ad9',
+    backgroundColor: '#16247d',
     padding:15, // Increase button size
     borderRadius: 15,
     width: '100%',

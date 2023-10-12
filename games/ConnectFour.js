@@ -176,7 +176,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         borderWidth: 1,
-        borderColor: '#000',
+        borderColor: '#16247d',
     },
     redPiece: {
         width: 35,

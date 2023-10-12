@@ -93,7 +93,7 @@ const styles = StyleSheet.create({
     textShadowColor: '#000',
     textShadowOffset: { width: 2, height: 2 },
     textShadowRadius: 5,
-    marginTop: 70,
+    marginTop: 30,
   },
   backgroundImage: {
     flex: 1,
