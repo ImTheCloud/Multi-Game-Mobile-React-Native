@@ -42,12 +42,6 @@ export default function SettingsScreen() {
         }
     };
 
-    const toggleNotifications = () => {
-        setNotificationsEnabled(!notificationsEnabled);
-        setNotificationsText(notificationsEnabled ? 'Disable Notifications' : 'Enable Notifications');
-        // Implement your logic to enable or disable notifications
-    };
-
     return (
         <ImageBackground source={require('../assets/blueBack.jpg')} style={styles.backgroundImage}>
             <View style={styles.container}>
@@ -62,17 +56,6 @@ export default function SettingsScreen() {
                         thumbColor={isPlaying ? '#767577' : '#16247d'}
                     />
                 </TouchableOpacity>
-
-
-                <View style={styles.option}>
-                    <Text style={styles.optionText}>{notificationsText}</Text>
-                    <Switch
-                        value={notificationsEnabled}
-                        onValueChange={toggleNotifications}
-                        trackColor={{ false: '#767577', true: '#16247d' }}
-                        thumbColor={notificationsEnabled ? '#767577' : '#16247d'}
-                    />
-                </View>
             </View>
         </ImageBackground>
     );
@@ -87,7 +70,7 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        marginBottom: 380, // Espace en haut de la page
+        marginBottom: 480, // Espace en haut de la page
 
     },
     title: {
