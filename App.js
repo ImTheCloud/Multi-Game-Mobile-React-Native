@@ -14,6 +14,7 @@ import TicTacToe from './games/TicTacToe';
 import HangmanGame from './games/HangmanGame';
 import ConnectFour from './games/ConnectFour';
 import NumberGuess from './games/NumberGuess';
+import Quizz from './games/Quizz';
 
 
 import FlappyBird from './games/Flappybird/FlappyBird';
@@ -52,6 +53,8 @@ const GameStackScreen = () => (
       <GameStack.Screen name="TicTacToe" component={TicTacToe} />
     <GameStack.Screen name="HangmanGame" component={HangmanGame} />
     <GameStack.Screen name="ConnectFour" component={ConnectFour} />
+    <GameStack.Screen name="Quizz" component={Quizz} />
+
   </GameStack.Navigator>
 );
 

@@ -20,6 +20,13 @@ const GameScreen = () => {
       isSingleplayer: true,
     },
     {
+      title: 'Quizz',
+      screenName: 'Quizz',
+      image: require('../assets/quizz.png'),
+      isMultiplayer: false,
+      isSingleplayer: true,
+    },
+    {
       title: 'Number Guess',
       screenName: 'NumberGuess',
       image: require('../assets/guessNumber.png'),

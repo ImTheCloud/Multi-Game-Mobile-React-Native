@@ -1,0 +1,2105 @@
+{
+  "quiz": {
+    "q1": {
+      "question": "What does CPU stand for?",
+      "options": [
+        "Central Processing Unit",
+        "Computer Personal Unit",
+        "Central Processor Unit",
+        "Central Personal Unit"
+      ],
+      "answer": "Central Processing Unit"
+    },
+    "q2": {
+      "question": "In programming, what does API stand for?",
+      "options": [
+        "Application Programming Interface",
+        "Advanced Program Integration",
+        "Application Process Interface",
+        "Automated Program Interaction"
+      ],
+      "answer": "Application Programming Interface"
+    },
+    "q3": {
+      "question": "Which programming language is known for its speed and performance?",
+      "options": [
+        "Python",
+        "Java",
+        "C++",
+        "Ruby"
+      ],
+      "answer": "C++"
+    },
+    "q4": {
+      "question": "What is the purpose of the 'grep' command in Unix/Linux?",
+      "options": [
+        "To search for text patterns in files",
+        "To list all files in a directory",
+        "To rename files",
+        "To create a new directory"
+      ],
+      "answer": "To search for text patterns in files"
+    },
+    "q5": {
+      "question": "What does the acronym SQL stand for?",
+      "options": [
+        "Structured Question Language",
+        "Sequential Query Language",
+        "Structured Query Language",
+        "Sequential Question Language"
+      ],
+      "answer": "Structured Query Language"
+    },
+    "q6": {
+      "question": "Which programming paradigm does JavaScript primarily follow?",
+      "options": [
+        "Procedural Programming",
+        "Object-Oriented Programming",
+        "Functional Programming",
+        "Logical Programming"
+      ],
+      "answer": "Object-Oriented Programming"
+    },
+    "q7": {
+      "question": "What is the purpose of the 'npm' command in Node.js?",
+      "options": [
+        "To install Node.js modules",
+        "To create a new Node.js application",
+        "To run Node.js scripts",
+        "To uninstall Node.js"
+      ],
+      "answer": "To install Node.js modules"
+    },
+    "q8": {
+      "question": "In networking, what does IP stand for?",
+      "options": [
+        "Internet Protocol",
+        "Information Protocol",
+        "Integrated Protocol",
+        "Interface Protocol"
+      ],
+      "answer": "Internet Protocol"
+    },
+    "q9": {
+      "question": "What is the purpose of the 'try...catch' block in programming?",
+      "options": [
+        "To define a function",
+        "To handle exceptions or errors",
+        "To create a loop",
+        "To declare variables"
+      ],
+      "answer": "To handle exceptions or errors"
+    },
+    "q10": {
+      "question": "Which database management system is known for its document-oriented approach?",
+      "options": [
+        "MySQL",
+        "MongoDB",
+        "SQLite",
+        "PostgreSQL"
+      ],
+      "answer": "MongoDB"
+    },
+    "q11": {
+      "question": "What is the purpose of the 'git push' command in Git?",
+      "options": [
+        "To pull changes from a remote repository",
+        "To push changes to a remote repository",
+        "To switch branches",
+        "To undo the last commit"
+      ],
+      "answer": "To push changes to a remote repository"
+    },
+    "q12": {
+      "question": "Which programming language is commonly used for data science and machine learning?",
+      "options": [
+        "Java",
+        "Python",
+        "C#",
+        "R"
+      ],
+      "answer": "Python"
+    },
+    "q13": {
+      "question": "What is the purpose of the 'docker run' command in Docker?",
+      "options": [
+        "To build Docker images",
+        "To start a new Docker container",
+        "To stop a Docker container",
+        "To remove a Docker container"
+      ],
+      "answer": "To start a new Docker container"
+    },
+    "q14": {
+      "question": "Which HTTP status code indicates a successful response?",
+      "options": [
+        "200 OK",
+        "404 Not Found",
+        "500 Internal Server Error",
+        "302 Found"
+      ],
+      "answer": "200 OK"
+    },
+    "q15": {
+      "question": "Which data structure follows the Last In, First Out (LIFO) principle?",
+      "options": [
+        "Queue",
+        "Stack",
+        "Linked List",
+        "Tree"
+      ],
+      "answer": "Stack"
+    },
+    "q16": {
+      "question": "What is the purpose of the 'chmod' command in Unix/Linux?",
+      "options": [
+        "To change the modification time of a file",
+        "To change file permissions",
+        "To concatenate files",
+        "To create a symbolic link"
+      ],
+      "answer": "To change file permissions"
+    },
+    "q17": {
+      "question": "Which encryption algorithm is commonly used for secure communication on the web?",
+      "options": [
+        "AES",
+        "DES",
+        "RSA",
+        "SHA"
+      ],
+      "answer": "AES"
+    },
+    "q18": {
+      "question": "What is the primary purpose of the 'javac' command in Java?",
+      "options": [
+        "To execute Java code",
+        "To compile Java source code",
+        "To debug Java programs",
+        "To install Java libraries"
+      ],
+      "answer": "To compile Java source code"
+    },
+    "q19": {
+      "question": "In web development, what does CSS stand for?",
+      "options": [
+        "Computer Style Sheet",
+        "Creative Style Sheet",
+        "Cascading Style Sheet",
+        "Concise Style Sheet"
+      ],
+      "answer": "Cascading Style Sheet"
+    },
+    "q20": {
+      "question": "What does the acronym REST stand for in the context of web services?",
+      "options": [
+        "Representational State Transfer",
+        "Remote Execution Service Technology",
+        "Resource Endpoint Service Technology",
+        "Responsive Stateful Technology"
+      ],
+      "answer": "Representational State Transfer"
+    },
+    "q21": {
+      "question": "Which programming language is known for its simplicity and readability?",
+      "options": [
+        "Perl",
+        "Ruby",
+        "Java",
+        "Python"
+      ],
+      "answer": "Python"
+    },
+    "q22": {
+      "question": "What is the purpose of the 'SELECT' statement in SQL?",
+      "options": [
+        "To update records in a database",
+        "To delete records from a database",
+        "To retrieve data from a database",
+        "To insert new records into a database"
+      ],
+      "answer": "To retrieve data from a database"
+    },
+    "q23": {
+      "question": "In object-oriented programming, what is encapsulation?",
+      "options": [
+        "The process of wrapping data and methods into a single unit",
+        "The process of converting code into machine language",
+        "The process of optimizing code for performance",
+        "The process of linking multiple code files"
+      ],
+      "answer": "The process of wrapping data and methods into a single unit"
+    },
+    "q24": {
+      "question": "What is the purpose of the 'addEventListener' method in JavaScript?",
+      "options": [
+        "To add a new HTML element",
+        "To attach an event handler to an HTML element",
+        "To remove an HTML element",
+        "To modify the style of an HTML element"
+      ],
+      "answer": "To attach an event handler to an HTML element"
+    },
+    "q25": {
+      "question": "Which version control system is known for its distributed architecture?",
+      "options": [
+        "SVN (Subversion)",
+        "Git",
+        "Mercurial",
+        "Perforce"
+      ],
+      "answer": "Git"
+    },
+    "q26": {
+      "question": "What is the purpose of the 'localStorage' object in web browsers?",
+      "options": [
+        "To store session-specific data",
+        "To manipulate the document's structure",
+        "To control the browser's appearance",
+        "To store key-value pairs persistently"
+      ],
+      "answer": "To store key-value pairs persistently"
+    },
+    "q27": {
+      "question": "Which design pattern is commonly used for creating objects in JavaScript?",
+      "options": [
+        "Observer Pattern",
+        "Factory Pattern",
+        "Singleton Pattern",
+        "Decorator Pattern"
+      ],
+      "answer": "Factory Pattern"
+    },
+    "q28": {
+      "question": "What is the purpose of the 'map' function in functional programming?",
+      "options": [
+        "To iterate over elements of an array and modify them",
+        "To filter elements of an array based on a condition",
+        "To create a new array with transformed elements",
+        "To concatenate two arrays"
+      ],
+      "answer": "To create a new array with transformed elements"
+    },
+    "q29": {
+      "question": "Which HTTP method is typically used for submitting form data to a server?",
+      "options": [
+        "GET",
+        "POST",
+        "PUT",
+        "DELETE"
+      ],
+      "answer": "POST"
+    },
+    "q30": {
+      "question": "What is the purpose of the 'virtualenv' tool in Python?",
+      "options": [
+        "To create virtual reality environments",
+        "To install virtual machines",
+        "To manage Python package dependencies",
+        "To simulate network environments"
+      ],
+      "answer": "To manage Python package dependencies"
+    },
+    "q31": {
+      "question": "Which sorting algorithm has a worst-case time complexity of O(n log n)?",
+      "options": [
+        "Bubble Sort",
+        "Insertion Sort",
+        "Quick Sort",
+        "Selection Sort"
+      ],
+      "answer": "Quick Sort"
+    },
+    "q32": {
+      "question": "What is the primary purpose of the 'router' in a web application?",
+      "options": [
+        "To connect the computer to the internet",
+        "To route data between different components of the application",
+        "To create a wireless network",
+        "To control access to the server"
+      ],
+      "answer": "To route data between different components of the application"
+    },
+    "q33": {
+      "question": "What is the purpose of the 'useState' hook in React?",
+      "options": [
+        "To handle asynchronous operations",
+        "To manage state in functional components",
+        "To define global variables",
+        "To create reusable components"
+      ],
+      "answer": "To manage state in functional components"
+    },
+    "q34": {
+      "question": "In the context of databases, what is ACID?",
+      "options": [
+        "A Centralized Information Database",
+        "Atomicity, Consistency, Isolation, Durability",
+        "Advanced Computing for Integrated Databases",
+        "All Components in Database"
+      ],
+      "answer": "Atomicity, Consistency, Isolation, Durability"
+    },
+    "q35": {
+      "question": "What is the purpose of the 'fetch' API in JavaScript?",
+      "options": [
+        "To perform network requests and handle responses",
+        "To manipulate the DOM",
+        "To create animations",
+        "To define CSS styles"
+      ],
+      "answer": "To perform network requests and handle responses"
+    },
+    "q36": {
+      "question": "Which cloud computing service is known for providing virtual servers on-demand?",
+      "options": [
+        "Amazon S3",
+        "Google Cloud Storage",
+        "Amazon EC2",
+        "Microsoft Azure Blob Storage"
+      ],
+      "answer": "Amazon EC2"
+    },
+    "q37": {
+      "question": "What is the purpose of the 'for...of' loop in JavaScript?",
+      "options": [
+        "To iterate over the properties of an object",
+        "To loop over the elements of an array or iterable object",
+        "To create conditional loops",
+        "To define infinite loops"
+      ],
+      "answer": "To loop over the elements of an array or iterable object"
+    },
+    "q38": {
+      "question": "Which type of join in SQL returns all rows when there is a match in one of the tables?",
+      "options": [
+        "INNER JOIN",
+        "LEFT JOIN",
+        "RIGHT JOIN",
+        "FULL OUTER JOIN"
+      ],
+      "answer": "LEFT JOIN"
+    },
+    "q39": {
+      "question": "What is the purpose of the 'cursor' property in CSS?",
+      "options": [
+        "To change the mouse cursor's shape",
+        "To add a border around an element",
+        "To define the font style",
+        "To set the text color"
+      ],
+      "answer": "To change the mouse cursor's shape"
+    },
+    "q40": {
+      "question": "In Python, what does the term 'Pickle' refer to?",
+      "options": [
+        "A type of cucumber",
+        "A serialization module",
+        "A sorting algorithm",
+        "A data visualization library"
+      ],
+      "answer": "A serialization module"
+    },
+    "q41": {
+      "question": "What is the purpose of the 'break' statement in programming?",
+      "options": [
+        "To terminate the program",
+        "To exit a loop prematurely",
+        "To skip the next iteration of a loop",
+        "To throw an exception"
+      ],
+      "answer": "To exit a loop prematurely"
+    },
+    "q42": {
+      "question": "Which type of testing checks if the application behaves as expected with a series of inputs?",
+      "options": [
+        "Unit Testing",
+        "Integration Testing",
+        "Functional Testing",
+        "Regression Testing"
+      ],
+      "answer": "Functional Testing"
+    },
+    "q43": {
+      "question": "What is the purpose of the 'NaN' value in JavaScript?",
+      "options": [
+        "To represent an empty value",
+        "To indicate an error or undefined value",
+        "To signify a not-a-number result",
+        "To store a boolean value"
+      ],
+      "answer": "To signify a not-a-number result"
+    },
+    "q44": {
+      "question": "In the context of version control, what is a 'commit'?",
+      "options": [
+        "A software update",
+        "A snapshot of changes made to the code",
+        "A debugging process",
+        "A type of programming language"
+      ],
+      "answer": "A snapshot of changes made to the code"
+    },
+    "q45": {
+      "question": "Which CSS property is used to control the spacing between lines of text?",
+      "options": [
+        "text-align",
+        "line-height",
+        "margin",
+        "padding"
+      ],
+      "answer": "line-height"
+    },
+    "q46": {
+      "question": "What is the primary function of the 'await' keyword in asynchronous JavaScript?",
+      "options": [
+        "To define a new variable",
+        "To pause execution until a promise is resolved",
+        "To create a loop",
+        "To handle errors in try...catch blocks"
+      ],
+      "answer": "To pause execution until a promise is resolved"
+    },
+    "q47": {
+      "question": "What is the difference between 'let' and 'const' in JavaScript?",
+      "options": [
+        "They are interchangeable and can be used in the same way.",
+        "'let' is used for constant values, and 'const' is used for variables.",
+        "'const' is used for constants, and 'let' is used for variables.",
+        "There is no difference; they are both used for variables."
+      ],
+      "answer": "'let' is used for variables, and 'const' is used for constants."
+    },
+    "q48": {
+      "question": "What is the purpose of the 'reduce' function in JavaScript?",
+      "options": [
+        "To filter elements of an array based on a condition.",
+        "To iterate over the properties of an object.",
+        "To create a new array with transformed elements.",
+        "To reduce an array to a single value through a callback function."
+      ],
+      "answer": "To reduce an array to a single value through a callback function."
+    },
+    "q49": {
+      "question": "Which design pattern promotes the idea of creating objects without specifying the exact class of the object?",
+      "options": [
+        "Factory Pattern",
+        "Singleton Pattern",
+        "Builder Pattern",
+        "Prototype Pattern"
+      ],
+      "answer": "Prototype Pattern"
+    },
+    "q50": {
+      "question": "What is the purpose of the 'localStorage' and 'sessionStorage' in web browsers?",
+      "options": [
+        "To store session-specific data.",
+        "To perform network requests.",
+        "To manipulate the DOM.",
+        "To store data persistently and for the duration of a page session."
+      ],
+      "answer": "To store data persistently and for the duration of a page session."
+    },
+    "q51": {
+      "question": "In Python, what is the purpose of the 'pip' tool?",
+      "options": [
+        "To install Python packages.",
+        "To create virtual environments.",
+        "To run Python scripts.",
+        "To format Python code."
+      ],
+      "answer": "To install Python packages."
+    },
+    "q52": {
+      "question": "What is the role of the 'constructor' method in a JavaScript class?",
+      "options": [
+        "To create a new instance of the class.",
+        "To initialize the properties of an object.",
+        "To define class methods.",
+        "To destroy an object."
+      ],
+      "answer": "To initialize the properties of an object."
+    },
+    "q53": {
+      "question": "Which HTTP header is used to indicate the type of data sent in the request or response?",
+      "options": [
+        "Content-Type",
+        "Authorization",
+        "Cache-Control",
+        "User-Agent"
+      ],
+      "answer": "Content-Type"
+    },
+    "q54": {
+      "question": "What does the term 'MVC' stand for in the context of software architecture?",
+      "options": [
+        "Model-View-Controller",
+        "Most Valuable Code",
+        "Multiple View Configuration",
+        "Managed View Container"
+      ],
+      "answer": "Model-View-Controller"
+    },
+    "q55": {
+      "question": "In the context of cybersecurity, what is 'phishing'?",
+      "options": [
+        "A method of encrypting data.",
+        "A type of computer virus.",
+        "A social engineering attack that tricks people into revealing sensitive information.",
+        "A secure way of authenticating users."
+      ],
+      "answer": "A social engineering attack that tricks people into revealing sensitive information."
+    },
+    "q56": {
+      "question": "What is the purpose of the 'setTimeout' function in JavaScript?",
+      "options": [
+        "To define a time delay before executing a function.",
+        "To set the interval between function calls.",
+        "To repeat a function at a specified time.",
+        "To measure the execution time of a function."
+      ],
+      "answer": "To define a time delay before executing a function."
+    },
+    "q57": {
+      "question": "Which containerization technology competes with Docker and is known for its lightweight nature?",
+      "options": [
+        "Kubernetes",
+        "Vagrant",
+        "Ansible",
+        "Podman"
+      ],
+      "answer": "Podman"
+    },
+    "q58": {
+      "question": "What is the primary purpose of the 'addEventListener' method in JavaScript?",
+      "options": [
+        "To create a new HTML element.",
+        "To attach an event handler to an HTML element.",
+        "To remove an HTML element.",
+        "To modify the style of an HTML element."
+      ],
+      "answer": "To attach an event handler to an HTML element."
+    },
+    "q59": {
+      "question": "In software development, what is 'agile' methodology?",
+      "options": [
+        "A type of programming language.",
+        "A project management approach that emphasizes flexibility and collaboration.",
+        "A version control system.",
+        "A database management system."
+      ],
+      "answer": "A project management approach that emphasizes flexibility and collaboration."
+    },
+    "q60": {
+      "question": "What is the purpose of the 'git merge' command in Git?",
+      "options": [
+        "To create a new branch.",
+        "To undo the last commit.",
+        "To merge changes from one branch into another.",
+        "To switch branches."
+      ],
+      "answer": "To merge changes from one branch into another."
+    },
+    "q61": {
+      "question": "What is the purpose of the 'indexOf' method in JavaScript?",
+      "options": [
+        "To find the index of the first occurrence of a value in an array.",
+        "To remove an element from an array.",
+        "To reverse the order of elements in an array.",
+        "To concatenate two arrays."
+      ],
+      "answer": "To find the index of the first occurrence of a value in an array."
+    },
+    "q62": {
+      "question": "What is the significance of the '404' HTTP status code?",
+      "options": [
+        "Successful response.",
+        "Unauthorized access.",
+        "Resource not found.",
+        "Server error."
+      ],
+      "answer": "Resource not found."
+    },
+    "q63": {
+      "question": "In object-oriented programming, what is polymorphism?",
+      "options": [
+        "The ability of a function to call itself.",
+        "The ability of a class to have multiple methods with the same name but different parameters.",
+        "The process of converting data into a different format.",
+        "The ability of an object to take on multiple forms."
+      ],
+      "answer": "The ability of an object to take on multiple forms."
+    },
+    "q64": {
+      "question": "What is the purpose of the 'npm install' command in Node.js?",
+      "options": [
+        "To uninstall a Node.js module.",
+        "To install Node.js.",
+        "To run Node.js scripts.",
+        "To install Node.js modules and their dependencies."
+      ],
+      "answer": "To install Node.js modules and their dependencies."
+    },
+    "q65": {
+      "question": "Which sorting algorithm has the worst-case time complexity of O(n^2)?",
+      "options": [
+        "Quick Sort",
+        "Bubble Sort",
+        "Merge Sort",
+        "Insertion Sort"
+      ],
+      "answer": "Bubble Sort"
+    },
+    "q66": {
+      "question": "What is the purpose of the 'pop' method in JavaScript?",
+      "options": [
+        "To add an element to the beginning of an array.",
+        "To remove the last element from an array.",
+        "To concatenate two arrays.",
+        "To reverse the order of elements in an array."
+      ],
+      "answer": "To remove the last element from an array."
+    },
+    "q67": {
+      "question": "Which programming language is commonly used for developing mobile applications?",
+      "options": [
+        "Python",
+        "Java",
+        "Swift",
+        "C#"
+      ],
+      "answer": "Swift"
+    },
+    "q68": {
+      "question": "What is the purpose of the 'SQL JOIN' clause in a database query?",
+      "options": [
+        "To perform mathematical operations on columns.",
+        "To combine rows from different tables based on a related column.",
+        "To filter data based on a condition.",
+        "To order the result set in ascending or descending order."
+      ],
+      "answer": "To combine rows from different tables based on a related column."
+    },
+    "q69": {
+      "question": "In the context of web development, what is a 'cookie'?",
+      "options": [
+        "A piece of code that improves website performance.",
+        "A small piece of data stored on the client's computer.",
+        "A security protocol for web applications.",
+        "A type of server-side scripting language."
+      ],
+      "answer": "A small piece of data stored on the client's computer."
+    },
+    "q70": {
+      "question": "What is the purpose of the 'addEventListener' method in JavaScript?",
+      "options": [
+        "To create a new HTML element.",
+        "To attach an event handler to an HTML element.",
+        "To remove an HTML element.",
+        "To modify the style of an HTML element."
+      ],
+      "answer": "To attach an event handler to an HTML element."
+    },
+    "q71": {
+      "question": "What is the purpose of the 'yield' keyword in Python?",
+      "options": [
+        "To stop the execution of a function and return a value.",
+        "To define a generator function.",
+        "To create a new thread.",
+        "To import external modules."
+      ],
+      "answer": "To define a generator function."
+    },
+    "q72": {
+      "question": "In the context of databases, what does 'ACID' stand for?",
+      "options": [
+        "All Components in Database",
+        "Atomicity, Consistency, Isolation, Durability",
+        "Advanced Computing for Integrated Databases",
+        "Application for Centralized Information Database"
+      ],
+      "answer": "Atomicity, Consistency, Isolation, Durability"
+    },
+    "q73": {
+      "question": "Which data structure is used to implement a LIFO (Last In, First Out) queue?",
+      "options": [
+        "Queue",
+        "Stack",
+        "Linked List",
+        "Tree"
+      ],
+      "answer": "Stack"
+    },
+    "q74": {
+      "question": "What is the purpose of the 'DELETE' statement in SQL?",
+      "options": [
+        "To update records in a database.",
+        "To delete records from a database.",
+        "To retrieve data from a database.",
+        "To insert new records into a database."
+      ],
+      "answer": "To delete records from a database."
+    },
+    "q75": {
+      "question": "What is the primary function of the 'finally' block in a try...catch statement?",
+      "options": [
+        "To define a function.",
+        "To handle exceptions or errors.",
+        "To create a loop.",
+        "To ensure a block of code is executed, regardless of whether an exception is thrown or not."
+      ],
+      "answer": "To ensure a block of code is executed, regardless of whether an exception is thrown or not."
+    },
+    "q76": {
+      "question": "What does RAM stand for in the context of computer hardware?",
+      "options": [
+        "Random Access Memory",
+        "Read-Only Memory",
+        "Redundant Array of Memory",
+        "Remote Access Module"
+      ],
+      "answer": "Random Access Memory"
+    },
+    "q77": {
+      "question": "In computing, what is the function of the CPU (Central Processing Unit)?",
+      "options": [
+        "To store data permanently",
+        "To execute instructions and perform calculations",
+        "To connect external devices to the computer",
+        "To display graphics on the monitor"
+      ],
+      "answer": "To execute instructions and perform calculations"
+    },
+    "q78": {
+      "question": "What is the purpose of the BIOS (Basic Input/Output System) in a computer?",
+      "options": [
+        "To control the flow of data between the CPU and memory",
+        "To provide a user interface for the operating system",
+        "To manage peripheral devices like printers and scanners",
+        "To initialize and check hardware components during startup"
+      ],
+      "answer": "To initialize and check hardware components during startup"
+    },
+    "q79": {
+      "question": "What does GPU stand for in the context of computer graphics?",
+      "options": [
+        "Graphics Processing Unit",
+        "General Processing Unit",
+        "Graphical Performance Unit",
+        "General Peripheral Unit"
+      ],
+      "answer": "Graphics Processing Unit"
+    },
+    "q80": {
+      "question": "Which computer port is commonly used for connecting external hard drives and other peripheral devices?",
+      "options": [
+        "USB (Universal Serial Bus)",
+        "HDMI (High Definition Multimedia Interface)",
+        "Ethernet",
+        "VGA (Video Graphics Array)"
+      ],
+      "answer": "USB (Universal Serial Bus)"
+    },
+    "q81": {
+      "question": "What is the purpose of an operating system in a computer?",
+      "options": [
+        "To perform calculations and data processing",
+        "To manage hardware resources and provide a user interface",
+        "To connect to the internet",
+        "To create and edit documents"
+      ],
+      "answer": "To manage hardware resources and provide a user interface"
+    },
+    "q82": {
+      "question": "Which file system is commonly used in Windows operating systems?",
+      "options": [
+        "NTFS (New Technology File System)",
+        "FAT32 (File Allocation Table 32)",
+        "EXT4 (Fourth Extended Filesystem)",
+        "HFS+ (Hierarchical File System Plus)"
+      ],
+      "answer": "NTFS (New Technology File System)"
+    },
+    "q83": {
+      "question": "What is the purpose of the 'Ctrl + Alt + Delete' key combination in Windows?",
+      "options": [
+        "To open the taskbar",
+        "To restart the computer",
+        "To close the active window",
+        "To switch between open applications"
+      ],
+      "answer": "To open the taskbar"
+    },
+    "q84": {
+      "question": "What does SSD stand for in the context of computer storage?",
+      "options": [
+        "Solid State Drive",
+        "Super Storage Device",
+        "Serial Storage Disk",
+        "System Software Development"
+      ],
+      "answer": "Solid State Drive"
+    },
+    "q85": {
+      "question": "In computer networking, what is an IP address used for?",
+      "options": [
+        "To identify a specific website",
+        "To encrypt data during transmission",
+        "To uniquely identify a device on a network",
+        "To organize files on a server"
+      ],
+      "answer": "To uniquely identify a device on a network"
+    },
+    "q86": {
+      "question": "What is the purpose of the 'firewall' in computer security?",
+      "options": [
+        "To protect against viruses",
+        "To monitor internet speed",
+        "To filter and control network traffic",
+        "To create secure passwords"
+      ],
+      "answer": "To filter and control network traffic"
+    },
+    "q87": {
+      "question": "What does HTTP stand for in the context of web communication?",
+      "options": [
+        "HyperText Transfer Protocol",
+        "High-Level Transfer Protocol",
+        "HyperLink and Text Transmission Protocol",
+        "Highway Traffic Transfer Protocol"
+      ],
+      "answer": "HyperText Transfer Protocol"
+    },
+    "q88": {
+      "question": "What is the purpose of a DNS (Domain Name System) server?",
+      "options": [
+        "To store website content",
+        "To convert domain names into IP addresses",
+        "To provide secure communication",
+        "To manage email accounts"
+      ],
+      "answer": "To convert domain names into IP addresses"
+    },
+    "q89": {
+      "question": "In computer programming, what is debugging?",
+      "options": [
+        "The process of writing code",
+        "The process of fixing errors and issues in code",
+        "The process of compiling code",
+        "The process of designing user interfaces"
+      ],
+      "answer": "The process of fixing errors and issues in code"
+    },
+    "q90": {
+      "question": "What is the role of a GPU in the context of computer gaming?",
+      "options": [
+        "To store game data",
+        "To calculate game physics",
+        "To manage player profiles",
+        "To control keyboard and mouse input"
+      ],
+      "answer": "To calculate game physics"
+    },
+    "q91": {
+      "question": "What is the purpose of the 'grep' command in Unix/Linux?",
+      "options": [
+        "To list all files in a directory",
+        "To search for text patterns in files",
+        "To create a new directory",
+        "To rename files"
+      ],
+      "answer": "To search for text patterns in files"
+    },
+    "q92": {
+      "question": "In computer graphics, what does RGB stand for?",
+      "options": [
+        "Red, Green, Blue",
+        "Random Graphics Buffer",
+        "Remote Graphics Block",
+        "Read-Only Graphics Bit"
+      ],
+      "answer": "Red, Green, Blue"
+    },
+    "q93": {
+      "question": "What is the purpose of the 'chmod' command in Unix/Linux?",
+      "options": [
+        "To change file permissions",
+        "To change the modification time of a file",
+        "To concatenate files",
+        "To create a symbolic link"
+      ],
+      "answer": "To change file permissions"
+    },
+    "q94": {
+      "question": "What does RAID stand for in the context of computer storage?",
+      "options": [
+        "Random Array of Independent Disks",
+        "Redundant Array of Inexpensive Disks",
+        "Rapid Access for Information Devices",
+        "Remote Access and Integrated Data"
+      ],
+      "answer": "Redundant Array of Independent Disks"
+    },
+    "q95": {
+      "question": "Which programming language is commonly used for web development on the client side?",
+      "options": [
+        "Java",
+        "C++",
+        "Python",
+        "JavaScript"
+      ],
+      "answer": "JavaScript"
+    },
+    "q96": {
+      "question": "What is the purpose of the 'ping' command in networking?",
+      "options": [
+        "To send emails",
+        "To test the reachability of a host on an internet protocol network",
+        "To transfer files between computers",
+        "To create a network connection"
+      ],
+      "answer": "To test the reachability of a host on an internet protocol network"
+    },
+    "q97": {
+      "question": "In computer programming, what is an algorithm?",
+      "options": [
+        "A sequence of instructions for solving a problem",
+        "A type of bug in the code",
+        "A hardware component",
+        "A programming language"
+      ],
+      "answer": "A sequence of instructions for solving a problem"
+    },
+    "q98": {
+      "question": "What is the purpose of the 'traceroute' command in networking?",
+      "options": [
+        "To track the movement of a file",
+        "To measure the speed of an internet connection",
+        "To trace the route that packets take across a network",
+        "To create a secure connection"
+      ],
+      "answer": "To trace the route that packets take across a network"
+    },
+    "q99": {
+      "question": "Which protocol is commonly used for secure communication over the web?",
+      "options": [
+        "FTP",
+        "HTTP",
+        "SSH",
+        "HTTPS"
+      ],
+      "answer": "HTTPS"
+    },
+    "q100": {
+      "question": "What is the purpose of the 'ifconfig' command in Unix/Linux?",
+      "options": [
+        "To configure network interfaces",
+        "To list all installed applications",
+        "To display system configuration",
+        "To create a new user account"
+      ],
+      "answer": "To configure network interfaces"
+    },
+    "q101": {
+      "question": "In computer security, what is a 'firewall'?",
+      "options": [
+        "A physical barrier around the computer",
+        "A security camera for monitoring user activity",
+        "A software or hardware system that filters and controls network traffic",
+        "A backup system for data recovery"
+      ],
+      "answer": "A software or hardware system that filters and controls network traffic"
+    },
+    "q102": {
+      "question": "What is the purpose of the 'sudo' command in Unix/Linux?",
+      "options": [
+        "To shut down the computer",
+        "To switch user accounts",
+        "To execute a command with elevated privileges",
+        "To create a new directory"
+      ],
+      "answer": "To execute a command with elevated privileges"
+    },
+    "q103": {
+      "question": "What is the role of an Ethernet cable in computer networking?",
+      "options": [
+        "To power the computer",
+        "To connect to a wireless network",
+        "To transmit data between devices on a wired network",
+        "To display graphics on the monitor"
+      ],
+      "answer": "To transmit data between devices on a wired network"
+    },
+    "q104": {
+      "question": "What does DNS stand for in the context of computer networking?",
+      "options": [
+        "Dynamic Network System",
+        "Domain Name System",
+        "Data Network Security",
+        "Digital Network Server"
+      ],
+      "answer": "Domain Name System"
+    },
+    "q105": {
+      "question": "What is the purpose of the 'grep' command in Unix/Linux?",
+      "options": [
+        "To list all files in a directory",
+        "To search for text patterns in files",
+        "To create a new directory",
+        "To rename files"
+      ],
+      "answer": "To search for text patterns in files"
+    },
+    "q106": {
+      "question": "What is the purpose of a VPN (Virtual Private Network) in computer networking?",
+      "options": [
+        "To speed up internet connections",
+        "To create a private network over the internet",
+        "To store and manage virtual files",
+        "To enhance the graphics of online games"
+      ],
+      "answer": "To create a private network over the internet"
+    },
+    "q107": {
+      "question": "In cybersecurity, what is a 'phishing' attack?",
+      "options": [
+        "A method of fishing for information on the internet",
+        "A type of computer virus",
+        "A social engineering attack that tricks people into revealing sensitive information",
+        "A method of encrypting files"
+      ],
+      "answer": "A social engineering attack that tricks people into revealing sensitive information"
+    },
+    "q108": {
+      "question": "What is the purpose of the 'ping' command in networking?",
+      "options": [
+        "To send emails",
+        "To test the reachability of a host on an internet protocol network",
+        "To transfer files between computers",
+        "To create a network connection"
+      ],
+      "answer": "To test the reachability of a host on an internet protocol network"
+    },
+    "q109": {
+      "question": "What is the difference between HTTP and HTTPS?",
+      "options": [
+        "They are the same; there is no difference",
+        "HTTP is used for secure communication, and HTTPS is not",
+        "HTTPS is a secure version of HTTP that encrypts data during transmission",
+        "HTTP is faster than HTTPS"
+      ],
+      "answer": "HTTPS is a secure version of HTTP that encrypts data during transmission"
+    },
+    "q110": {
+      "question": "What is the purpose of the 'grep' command in Unix/Linux?",
+      "options": [
+        "To list all files in a directory",
+        "To search for text patterns in files",
+        "To create a new directory",
+        "To rename files"
+      ],
+      "answer": "To search for text patterns in files"
+    },
+    "q111": {
+      "question": "In computer programming, what is 'object-oriented programming'?",
+      "options": [
+        "A programming style focused on solving mathematical problems",
+        "A programming paradigm based on objects that encapsulate data and behavior",
+        "A method of optimizing code for faster execution",
+        "A technique for writing code without using loops"
+      ],
+      "answer": "A programming paradigm based on objects that encapsulate data and behavior"
+    },
+    "q112": {
+      "question": "What is the purpose of the 'IPv6' protocol in networking?",
+      "options": [
+        "To organize files on a server",
+        "To provide secure communication",
+        "To convert domain names into IP addresses",
+        "To address the depletion of available IPv4 addresses"
+      ],
+      "answer": "To address the depletion of available IPv4 addresses"
+    },
+    "q113": {
+      "question": "What is a 'cookie' in the context of web browsing?",
+      "options": [
+        "A piece of code that improves website performance",
+        "A small piece of data stored on the client's computer",
+        "A security protocol for web applications",
+        "A type of server-side scripting language"
+      ],
+      "answer": "A small piece of data stored on the client's computer"
+    },
+    "q114": {
+      "question": "What is the purpose of the 'sudo' command in Unix/Linux?",
+      "options": [
+        "To shut down the computer",
+        "To switch user accounts",
+        "To execute a command with elevated privileges",
+        "To create a new directory"
+      ],
+      "answer": "To execute a command with elevated privileges"
+    },
+    "q115": {
+      "question": "In database management, what is 'SQL injection'?",
+      "options": [
+        "A method for querying databases using natural language",
+        "A type of database indexing",
+        "A security vulnerability where an attacker inserts malicious SQL code into a query",
+        "A way to improve the speed of database queries"
+      ],
+      "answer": "A security vulnerability where an attacker inserts malicious SQL code into a query"
+    },
+    "q116": {
+      "question": "What is the purpose of the 'grep' command in Unix/Linux?",
+      "options": [
+        "To list all files in a directory",
+        "To search for text patterns in files",
+        "To create a new directory",
+        "To rename files"
+      ],
+      "answer": "To search for text patterns in files"
+    },
+    "q117": {
+      "question": "What is the role of a DNS (Domain Name System) server?",
+      "options": [
+        "To store website content",
+        "To convert domain names into IP addresses",
+        "To provide secure communication",
+        "To manage email accounts"
+      ],
+      "answer": "To convert domain names into IP addresses"
+    },
+    "q118": {
+      "question": "What is the purpose of the 'scp' command in Unix/Linux?",
+      "options": [
+        "To securely copy files between local and remote systems",
+        "To create a new shell script",
+        "To list all files in a directory",
+        "To rename files"
+      ],
+      "answer": "To securely copy files between local and remote systems"
+    },
+    "q119": {
+      "question": "What is a 'kernel' in the context of operating systems?",
+      "options": [
+        "A type of computer virus",
+        "The core component of an operating system that manages system resources",
+        "A graphical user interface",
+        "A piece of hardware that stores data"
+      ],
+      "answer": "The core component of an operating system that manages system resources"
+    },
+    "q120": {
+      "question": "What is the purpose of the 'traceroute' command in networking?",
+      "options": [
+        "To track the movement of a file",
+        "To measure the speed of an internet connection",
+        "To trace the route that packets take across a network",
+        "To create a secure connection"
+      ],
+      "answer": "To trace the route that packets take across a network"
+    },
+    "q136": {
+      "question": "What is Java?",
+      "options": [
+        "A type of coffee",
+        "A programming language",
+        "An operating system",
+        "A brand of computer hardware"
+      ],
+      "answer": "A programming language"
+    },
+    "q137": {
+      "question": "Who is the creator of Java programming language?",
+      "options": [
+        "Mark Zuckerberg",
+        "Bill Gates",
+        "James Gosling",
+        "Linus Torvalds"
+      ],
+      "answer": "James Gosling"
+    },
+    "q138": {
+      "question": "Which of the following statements is true about Java?",
+      "options": [
+        "Java is a purely procedural language.",
+        "Java code is compiled to machine code.",
+        "Java applications are typically compiled to bytecode that can run on any Java Virtual Machine (JVM).",
+        "Java is only used for web development."
+      ],
+      "answer": "Java applications are typically compiled to bytecode that can run on any Java Virtual Machine (JVM)."
+    },
+    "q139": {
+      "question": "What is the purpose of the 'main' method in a Java program?",
+      "options": [
+        "To define variables",
+        "To execute the program",
+        "To declare classes",
+        "To handle exceptions"
+      ],
+      "answer": "To execute the program"
+    },
+    "q140": {
+      "question": "Which keyword is used to define a constant in Java?",
+      "options": [
+        "const",
+        "final",
+        "static",
+        "let"
+      ],
+      "answer": "final"
+    },
+    "q141": {
+      "question": "What is the Java API?",
+      "options": [
+        "Java Advanced Programming Interface",
+        "Java Application Programming Interface",
+        "Java Abstract Programming Interface",
+        "Java Application Development Interface"
+      ],
+      "answer": "Java Application Programming Interface"
+    },
+    "q142": {
+      "question": "What is the purpose of the 'this' keyword in Java?",
+      "options": [
+        "To refer to the current instance of the class",
+        "To create a new object",
+        "To define a constant",
+        "To handle exceptions"
+      ],
+      "answer": "To refer to the current instance of the class"
+    },
+    "q143": {
+      "question": "What is the concept of 'inheritance' in Java?",
+      "options": [
+        "The ability of a class to inherit properties and behaviors from another class",
+        "The ability to create multiple instances of a class",
+        "The process of converting Java code to machine code",
+        "The practice of encapsulating data within a class"
+      ],
+      "answer": "The ability of a class to inherit properties and behaviors from another class"
+    },
+    "q144": {
+      "question": "Which collection class is synchronized in Java?",
+      "options": [
+        "ArrayList",
+        "HashMap",
+        "HashSet",
+        "Vector"
+      ],
+      "answer": "Vector"
+    },
+    "q145": {
+      "question": "What is the purpose of the 'super' keyword in Java?",
+      "options": [
+        "To refer to the current instance of the class",
+        "To call the superclass methods or constructors",
+        "To define a constant",
+        "To handle exceptions"
+      ],
+      "answer": "To call the superclass methods or constructors"
+    },
+    "q146": {
+      "question": "What is the Java Virtual Machine (JVM)?",
+      "options": [
+        "A physical machine where Java code is executed",
+        "A compiler that converts Java code to machine code",
+        "A runtime environment that executes Java bytecode",
+        "A debugger for Java programs"
+      ],
+      "answer": "A runtime environment that executes Java bytecode"
+    },
+    "q147": {
+      "question": "What is the purpose of the 'try...catch' block in Java?",
+      "options": [
+        "To define variables",
+        "To execute a loop",
+        "To handle exceptions or errors",
+        "To create a new class"
+      ],
+      "answer": "To handle exceptions or errors"
+    },
+    "q148": {
+      "question": "Which keyword is used to implement multi-threading in Java?",
+      "options": [
+        "sync",
+        "multithread",
+        "thread",
+        "synchronized"
+      ],
+      "answer": "synchronized"
+    },
+    "q149": {
+      "question": "What is the purpose of the 'static' keyword in Java?",
+      "options": [
+        "To declare a constant",
+        "To create an instance of a class",
+        "To define a method that belongs to the class rather than an instance",
+        "To handle exceptions"
+      ],
+      "answer": "To define a method that belongs to the class rather than an instance"
+    },
+    "q150": {
+      "question": "What is the purpose of the 'interface' in Java?",
+      "options": [
+        "To define a concrete class",
+        "To create an object",
+        "To provide a way to achieve multiple inheritance",
+        "To handle exceptions"
+      ],
+      "answer": "To provide a way to achieve multiple inheritance"
+    }
+  },
+  "q151": {
+    "question": "What is the purpose of the 'break' statement in Java?",
+    "options": [
+      "To exit a loop or switch statement",
+      "To initiate a loop",
+      "To define a constant",
+      "To handle exceptions"
+    ],
+    "answer": "To exit a loop or switch statement"
+  },
+  "q152": {
+    "question": "What is the concept of 'polymorphism' in Java?",
+    "options": [
+      "The ability of a class to inherit properties and behaviors from another class",
+      "The ability to create multiple instances of a class",
+      "The ability to define methods in the superclass",
+      "The ability of a class to take on multiple forms through method overriding"
+    ],
+    "answer": "The ability of a class to take on multiple forms through method overriding"
+  },
+  "q153": {
+    "question": "How is memory management handled in Java?",
+    "options": [
+      "Memory is managed automatically by the Java Virtual Machine (JVM) through garbage collection.",
+      "Developers manually allocate and deallocate memory using special keywords.",
+      "Java does not use memory management; it relies on the operating system.",
+      "Memory is managed by the operating system, independent of the Java program."
+    ],
+    "answer": "Memory is managed automatically by the Java Virtual Machine (JVM) through garbage collection."
+  },
+  "q154": {
+    "question": "What is the purpose of the 'implements' keyword in Java?",
+    "options": [
+      "To import external libraries",
+      "To indicate that a class is an interface",
+      "To define a constant",
+      "To specify that a class is implementing an interface"
+    ],
+    "answer": "To specify that a class is implementing an interface"
+  },
+  "q155": {
+    "question": "What is a 'constructor' in Java?",
+    "options": [
+      "A method that is called to terminate the program",
+      "A special method used to initialize objects",
+      "A keyword used to create new objects",
+      "A method that is automatically called by the Java Virtual Machine (JVM)"
+    ],
+    "answer": "A special method used to initialize objects"
+  },
+  "q156": {
+    "question": "What is the purpose of the 'finalize' method in Java?",
+    "options": [
+      "To indicate the end of a program",
+      "To perform cleanup operations before an object is garbage-collected",
+      "To terminate the execution of a thread",
+      "To define a constant"
+    ],
+    "answer": "To perform cleanup operations before an object is garbage-collected"
+  },
+  "q157": {
+    "question": "What is the 'classpath' in Java?",
+    "options": [
+      "The path where Java is installed on the system",
+      "A system variable that points to the location of Java libraries and executables",
+      "A Java class that defines paths for file operations",
+      "A keyword used to set the working directory of a Java program"
+    ],
+    "answer": "A system variable that points to the location of Java libraries and executables"
+  },
+  "q158": {
+    "question": "What is the purpose of the 'toString' method in Java?",
+    "options": [
+      "To convert an object to a string representation",
+      "To print text to the console",
+      "To perform mathematical operations",
+      "To define a constant"
+    ],
+    "answer": "To convert an object to a string representation"
+  },
+  "q159": {
+    "question": "What is the difference between '=='' and 'equals()' in Java when comparing objects?",
+    "options": [
+      "'==' compares object references, while 'equals()' compares object content.",
+      "'==' compares object content, while 'equals()' compares object references.",
+      "'==' and 'equals()' are used interchangeably for object comparison.",
+      "There is no difference between '==' and 'equals()' in Java."
+    ],
+    "answer": "'==' compares object references, while 'equals()' compares object content."
+  },
+  "q160": {
+    "question": "What is the purpose of the 'super' keyword in Java?",
+    "options": [
+      "To refer to the current instance of the class",
+      "To call the superclass methods or constructors",
+      "To define a constant",
+      "To handle exceptions"
+    ],
+    "answer": "To call the superclass methods or constructors"
+  },
+  "q161": {
+    "question": "How can you achieve runtime polymorphism in Java?",
+    "options": [
+      "By using the 'final' keyword",
+      "By using method overloading",
+      "By using method overriding",
+      "By using encapsulation"
+    ],
+    "answer": "By using method overriding"
+  },
+  "q162": {
+    "question": "What is the purpose of the 'instanceof' operator in Java?",
+    "options": [
+      "To create a new instance of a class",
+      "To check if an object is an instance of a particular class or interface",
+      "To convert a primitive type to an object",
+      "To define a constant"
+    ],
+    "answer": "To check if an object is an instance of a particular class or interface"
+  },
+  "q163": {
+    "question": "What is the 'diamond operator' introduced in Java 7?",
+    "options": [
+      "A mathematical operator",
+      "A special symbol used for bitwise operations",
+      "A syntax for creating generic types without repeating type parameters",
+      "A symbol for creating lambda expressions"
+    ],
+    "answer": "A syntax for creating generic types without repeating type parameters"
+  },
+  "q164": {
+    "question": "What is the purpose of the 'volatile' keyword in Java?",
+    "options": [
+      "To declare a constant",
+      "To indicate that a variable may be changed by multiple threads simultaneously",
+      "To define a method that cannot be overridden",
+      "To create an immutable object"
+    ],
+    "answer": "To indicate that a variable may be changed by multiple threads simultaneously"
+  },
+  "q165": {
+    "question": "What is the 'garbage collection' in Java?",
+    "options": [
+      "A process of cleaning up unused objects and freeing up memory",
+      "A mechanism for allocating memory to objects",
+      "A method for preventing memory leaks",
+      "A technique for optimizing code execution"
+    ],
+    "answer": "A process of cleaning up unused objects and freeing up memory"
+  },
+  "q166": {
+    "question": "What is JavaScript?",
+    "options": [
+      "A programming language for creating databases",
+      "A scripting language for web development",
+      "A markup language for creating static web pages",
+      "A style sheet language for web design"
+    ],
+    "answer": "A scripting language for web development"
+  },
+  "q167": {
+    "question": "Who is the creator of JavaScript?",
+    "options": [
+      "Bill Gates",
+      "Tim Berners-Lee",
+      "Brendan Eich",
+      "Mark Zuckerberg"
+    ],
+    "answer": "Brendan Eich"
+  },
+  "q168": {
+    "question": "What does the term 'DOM' stand for in JavaScript?",
+    "options": [
+      "Data Object Model",
+      "Document Object Model",
+      "Dynamic Object Model",
+      "Digital Object Model"
+    ],
+    "answer": "Document Object Model"
+  },
+  "q169": {
+    "question": "What is the purpose of 'var' in JavaScript?",
+    "options": [
+      "To declare a variable",
+      "To create a loop",
+      "To define a constant",
+      "To handle exceptions"
+    ],
+    "answer": "To declare a variable"
+  },
+  "q170": {
+    "question": "What is an 'arrow function' in JavaScript?",
+    "options": [
+      "A function with a special syntax using the '=>' operator",
+      "A function that performs mathematical operations",
+      "A function that converts text to uppercase",
+      "A function that creates an object"
+    ],
+    "answer": "A function with a special syntax using the '=>' operator"
+  },
+  "q171": {
+    "question": "What is 'hoisting' in JavaScript?",
+    "options": [
+      "A way to lift heavy objects in web development",
+      "A process of moving declarations to the top of the scope before code execution",
+      "A technique for optimizing code execution",
+      "A method for preventing memory leaks"
+    ],
+    "answer": "A process of moving declarations to the top of the scope before code execution"
+  },
+  "q172": {
+    "question": "How do you check the type of a variable in JavaScript?",
+    "options": [
+      "Using the 'checkType()' function",
+      "By checking the 'type' property of the variable",
+      "With the 'typeof' operator",
+      "By using the 'variableType()' method"
+    ],
+    "answer": "With the 'typeof' operator"
+  },
+  "q173": {
+    "question": "What is the purpose of 'let' and 'const' in JavaScript?",
+    "options": [
+      "To define a constant",
+      "To declare a variable with block scope",
+      "To create a loop",
+      "To handle exceptions"
+    ],
+    "answer": "To declare a variable with block scope"
+  },
+  "q174": {
+    "question": "What is an 'event handler' in JavaScript?",
+    "options": [
+      "A function that handles mathematical events",
+      "A method for handling exceptions",
+      "A function that manages document objects",
+      "A function that responds to user-triggered events"
+    ],
+    "answer": "A function that responds to user-triggered events"
+  },
+  "q175": {
+    "question": "What is the purpose of the 'setTimeout' function in JavaScript?",
+    "options": [
+      "To define a constant timeout value",
+      "To pause the execution of a function for a specified time",
+      "To set the timeout for AJAX requests",
+      "To handle exceptions"
+    ],
+    "answer": "To pause the execution of a function for a specified time"
+  },
+  "q176": {
+    "question": "What is the 'callback' function in JavaScript?",
+    "options": [
+      "A function that executes immediately",
+      "A function passed as an argument to another function and executed later",
+      "A function that converts text to uppercase",
+      "A function that creates an object"
+    ],
+    "answer": "A function passed as an argument to another function and executed later"
+  },
+  "q177": {
+    "question": "What is the purpose of the 'JSON' object in JavaScript?",
+    "options": [
+      "To create animations on a webpage",
+      "To manipulate the Document Object Model (DOM)",
+      "To handle JSON-formatted data",
+      "To define a constant"
+    ],
+    "answer": "To handle JSON-formatted data"
+  },
+  "q178": {
+    "question": "What is the purpose of the 'addEventListener' method in JavaScript?",
+    "options": [
+      "To add numbers together",
+      "To handle exceptions",
+      "To attach an event handler function to an HTML element",
+      "To create a loop"
+    ],
+    "answer": "To attach an event handler function to an HTML element"
+  },
+  "q179": {
+    "question": "What is 'closures' in JavaScript?",
+    "options": [
+      "A way to close and terminate functions",
+      "A technique for encapsulating variables within a function's scope",
+      "A method for handling exceptions",
+      "A syntax error in JavaScript"
+    ],
+    "answer": "A technique for encapsulating variables within a function's scope"
+  },
+  "q180": {
+    "question": "How can you prevent the default behavior of an event in JavaScript?",
+    "options": [
+      "By using the 'preventDefault()' method",
+      "By creating an 'if' statement",
+      "By using the 'stopPropagation()' method",
+      "By defining a constant"
+    ],
+    "answer": "By using the 'preventDefault()' method"
+  },
+  "q181": {
+    "question": "What is version control, and why is it important in software development?",
+    "options": [
+      "A system for tracking changes in source code, facilitating collaboration and preserving project history.",
+      "A way to version software releases for marketing purposes.",
+      "A method for controlling access to development environments.",
+      "A tool for managing customer relations during software development."
+    ],
+    "answer": "A system for tracking changes in source code, facilitating collaboration and preserving project history."
+  },
+  "q182": {
+    "question": "What is the purpose of the 'Agile' methodology in software development?",
+    "options": [
+      "To prioritize documentation over code.",
+      "To promote a flexible and iterative approach to software development.",
+      "To enforce strict deadlines for project completion.",
+      "To minimize communication among team members."
+    ],
+    "answer": "To promote a flexible and iterative approach to software development."
+  },
+  "q183": {
+    "question": "What does the term 'API-first development' mean?",
+    "options": [
+      "Developing user interfaces before implementing backend functionality.",
+      "Prioritizing the development of application programming interfaces (APIs).",
+      "Creating software without relying on external APIs.",
+      "Designing databases before writing application code."
+    ],
+    "answer": "Prioritizing the development of application programming interfaces (APIs)."
+  },
+  "q184": {
+    "question": "Why is code review important in the development process?",
+    "options": [
+      "To identify and fix bugs in the code.",
+      "To speed up the development process.",
+      "To ensure that developers work in isolation.",
+      "To replace the need for testing."
+    ],
+    "answer": "To identify and fix bugs in the code."
+  },
+  "q185": {
+    "question": "What is the purpose of continuous integration/continuous deployment (CI/CD) in software development?",
+    "options": [
+      "To manually deploy software changes.",
+      "To automate the process of testing and deploying code changes.",
+      "To prevent developers from accessing code repositories.",
+      "To document code changes for future reference."
+    ],
+    "answer": "To automate the process of testing and deploying code changes."
+  },
+  "q186": {
+    "question": "What is the role of a bug tracker in software development?",
+    "options": [
+      "To introduce bugs intentionally for testing purposes.",
+      "To track and manage issues, enhancements, and tasks throughout the development lifecycle.",
+      "To track the progress of individual developers.",
+      "To create a log of all code changes made in a project."
+    ],
+    "answer": "To track and manage issues, enhancements, and tasks throughout the development lifecycle."
+  },
+  "q187": {
+    "question": "What is the difference between frontend and backend development?",
+    "options": [
+      "Frontend focuses on server-side logic, while backend deals with user interfaces.",
+      "Frontend involves designing user interfaces, while backend involves database management.",
+      "Frontend is concerned with the presentation and user interaction, while backend deals with server-side logic and data processing.",
+      "Frontend and backend are interchangeable terms for the same development tasks."
+    ],
+    "answer": "Frontend is concerned with the presentation and user interaction, while backend deals with server-side logic and data processing."
+  },
+  "q188": {
+    "question": "What is the purpose of unit testing in software development?",
+    "options": [
+      "To test the entire application as a whole.",
+      "To verify that individual units or components of the software work as expected.",
+      "To test user interfaces exclusively.",
+      "To test the database schema and structure."
+    ],
+    "answer": "To verify that individual units or components of the software work as expected."
+  },
+  "q189": {
+    "question": "What is 'scalability' in the context of software development?",
+    "options": [
+      "The ability of a program to run on different operating systems.",
+      "The ease with which a system can be maintained.",
+      "The capacity of a system to handle a growing amount of work, or its potential to be enlarged to accommodate that growth.",
+      "The process of optimizing code for faster execution."
+    ],
+    "answer": "The capacity of a system to handle a growing amount of work, or its potential to be enlarged to accommodate that growth."
+  },
+  "q190": {
+    "question": "What is the purpose of a coding standard in software development?",
+    "options": [
+      "To limit the creativity of developers.",
+      "To ensure that code is written in a consistent and readable manner.",
+      "To prevent code from being tested.",
+      "To eliminate the need for code review."
+    ],
+    "answer": "To ensure that code is written in a consistent and readable manner."
+  },
+  "q191": {
+    "question": "What is 'DevOps' in software development?",
+    "options": [
+      "A methodology for developing mobile applications.",
+      "A set of practices that combine software development (Dev) and IT operations (Ops) aiming to shorten the development lifecycle.",
+      "A programming language for creating server-side applications.",
+      "A type of software testing methodology."
+    ],
+    "answer": "A set of practices that combine software development (Dev) and IT operations (Ops) aiming to shorten the development lifecycle."
+  },
+  "q192": {
+    "question": "What is the 'MVC' pattern in software development?",
+    "options": [
+      "A pattern for designing modern user interfaces.",
+      "A design pattern that separates an application into three main components: Model, View, and Controller.",
+      "A method for creating databases.",
+      "A process for optimizing code for faster execution."
+    ],
+    "answer": "A design pattern that separates an application into three main components: Model, View, and Controller."
+  },
+  "q193": {
+    "question": "What is 'agile testing' in software development?",
+    "options": [
+      "A testing method that involves testing only the most critical functionalities of an application.",
+      "A testing approach that follows the principles of the Agile methodology.",
+      "A type of testing that focuses exclusively on user interfaces.",
+      "A testing method that is performed only after the software is deployed."
+    ],
+    "answer": "A testing approach that follows the principles of the Agile methodology."
+  },
+  "q194": {
+    "question": "What is the purpose of 'dependency injection' in software development?",
+    "options": [
+      "To inject bugs into the code for testing purposes.",
+      "To inject external dependencies into a class rather than creating them internally.",
+      "To minimize the use of external libraries.",
+      "To inject additional features into an application dynamically."
+    ],
+    "answer": "To inject external dependencies into a class rather than creating them internally."
+  },
+  "q195": {
+    "question": "What is the 'waterfall model' in software development?",
+    "options": [
+      "A model for designing water-related applications.",
+      "A sequential development process with distinct phases, where progress is seen as flowing steadily downwards like a waterfall.",
+      "A method for testing applications in a cascading manner.",
+      "A model for handling errors in a continuous flow."
+    ],
+    "answer": "A sequential development process with distinct phases, where progress is seen as flowing steadily downwards like a waterfall."
+  },
+  "q196": {
+    "question": "What is the difference between native and hybrid mobile app development?",
+    "options": [
+      "Native apps are developed for specific platforms using platform-specific languages, while hybrid apps use web technologies and are cross-platform.",
+      "Native apps are only developed for Android, while hybrid apps are only for iOS.",
+      "Native apps use web technologies, while hybrid apps are developed in platform-specific languages.",
+      "There is no difference between native and hybrid mobile app development."
+    ],
+    "answer": "Native apps are developed for specific platforms using platform-specific languages, while hybrid apps use web technologies and are cross-platform."
+  },
+  "q197": {
+    "question": "What is the purpose of a mobile SDK (Software Development Kit)?",
+    "options": [
+      "To simulate mobile device screens on a computer.",
+      "To secure mobile applications against hacking.",
+      "To provide tools and resources for building mobile applications.",
+      "To synchronize mobile applications with cloud services."
+    ],
+    "answer": "To provide tools and resources for building mobile applications."
+  },
+  "q198": {
+    "question": "What is 'responsive design' in the context of mobile development?",
+    "options": [
+      "A design approach that adapts to various screen sizes and resolutions.",
+      "A method for responding to user interactions in mobile apps.",
+      "A strategy for quickly responding to client requests.",
+      "A technique for optimizing code execution."
+    ],
+    "answer": "A design approach that adapts to various screen sizes and resolutions."
+  },
+  "q199": {
+    "question": "What is 'Push Notification' in mobile app development?",
+    "options": [
+      "A notification that pushes the user to make in-app purchases.",
+      "A method for pushing app updates to users.",
+      "A notification sent by the server to a mobile device, even if the app is not running.",
+      "A notification to remind users to rate the app."
+    ],
+    "answer": "A notification sent by the server to a mobile device, even if the app is not running."
+  },
+  "q200": {
+    "question": "What is the purpose of 'Mobile UI/UX design'?",
+    "options": [
+      "To create complex algorithms for mobile applications.",
+      "To design user interfaces and experiences that are visually appealing and user-friendly.",
+      "To implement security features in mobile applications.",
+      "To optimize mobile app code for faster execution."
+    ],
+    "answer": "To design user interfaces and experiences that are visually appealing and user-friendly."
+  },
+  "q201": {
+    "question": "What is 'Mobile Backend as a Service' (MBaaS) in mobile development?",
+    "options": [
+      "A service that provides mobile devices with a backend internet connection.",
+      "A cloud service that simplifies mobile app development by providing backend services.",
+      "A method for securing mobile app data on the device.",
+      "A technique for optimizing code execution on mobile devices."
+    ],
+    "answer": "A cloud service that simplifies mobile app development by providing backend services."
+  },
+  "q202": {
+    "question": "What is the purpose of 'Mobile App Monetization'?",
+    "options": [
+      "To create mobile apps for financial institutions.",
+      "To track user interactions with mobile apps.",
+      "To generate revenue from mobile applications.",
+      "To encrypt data in mobile applications."
+    ],
+    "answer": "To generate revenue from mobile applications."
+  },
+  "q203": {
+    "question": "What is the significance of 'Offline Mode' in mobile applications?",
+    "options": [
+      "To disable all online features in the app.",
+      "To provide a mode for developers to work offline.",
+      "To allow users to use the app without an internet connection.",
+      "To improve the security of the app."
+    ],
+    "answer": "To allow users to use the app without an internet connection."
+  },
+  "q204": {
+    "question": "What is 'Cross-platform Development' in mobile app development?",
+    "options": [
+      "A method for developing apps that work only on one platform.",
+      "A strategy for developing apps that work on multiple platforms using a single codebase.",
+      "A technique for optimizing code execution on specific platforms.",
+      "A way to design apps with a cross-shaped user interface."
+    ],
+    "answer": "A strategy for developing apps that work on multiple platforms using a single codebase."
+  },
+  "q205": {
+    "question": "What is 'Mobile App Testing' and why is it important?",
+    "options": [
+      "Testing mobile phones for durability.",
+      "Testing the performance of mobile devices.",
+      "Testing the functionality, usability, and consistency of mobile applications.",
+      "Testing the compatibility of mobile apps with desktop computers."
+    ],
+    "answer": "Testing the functionality, usability, and consistency of mobile applications."
+  },
+  "q206": {
+    "question": "What is the purpose of 'Mobile App Analytics'?",
+    "options": [
+      "To track the physical location of mobile devices.",
+      "To analyze user interactions within mobile applications.",
+      "To test the security of mobile apps.",
+      "To optimize code execution on mobile devices."
+    ],
+    "answer": "To analyze user interactions within mobile applications."
+  },
+  "q207": {
+    "question": "What is the difference between 'Emulator' and 'Simulator' in mobile development?",
+    "options": [
+      "There is no difference; the terms are interchangeable.",
+      "An emulator replicates the actual hardware and software of a device, while a simulator mimics the behavior of a device but runs on different software.",
+      "An emulator is used for iOS development, while a simulator is used for Android development.",
+      "An emulator is faster than a simulator."
+    ],
+    "answer": "An emulator replicates the actual hardware and software of a device, while a simulator mimics the behavior of a device but runs on different software."
+  },
+  "q208": {
+    "question": "What is 'Mobile App Security' and why is it crucial?",
+    "options": [
+      "Security measures taken by mobile network providers.",
+      "Measures to protect mobile devices from physical damage.",
+      "Protecting mobile apps from unauthorized access, data breaches, and other security threats.",
+      "Securing mobile apps against crashes and performance issues."
+    ],
+    "answer": "Protecting mobile apps from unauthorized access, data breaches, and other security threats."
+  },
+  "q209": {
+    "question": "What is the purpose of 'Mobile App Performance Optimization'?",
+    "options": [
+      "To increase the weight and size of mobile apps.",
+      "To decrease the responsiveness and speed of mobile apps.",
+      "To improve the efficiency and speed of mobile applications.",
+      "To disable certain features in mobile apps."
+    ],
+    "answer": "To improve the efficiency and speed of mobile applications."
+  },
+  "q210": {
+    "question": "What is 'Mobile App Deployment' and how is it done?",
+    "options": [
+      "Deploying mobile troops for security purposes.",
+      "The process of distributing and making a mobile app available for users to download and install.",
+      "A method for encrypting mobile app data.",
+      "The process of physically placing mobile devices in specific locations."
+    ],
+    "answer": "The process of distributing and making a mobile app available for users to download and install."
+  },
+  "q211": {
+    "question": "What is React?",
+    "options": [
+      "A JavaScript framework for building mobile applications.",
+      "A server-side scripting language.",
+      "A declarative JavaScript library for building user interfaces.",
+      "A database management system."
+    ],
+    "answer": "A declarative JavaScript library for building user interfaces."
+  },
+  "q212": {
+    "question": "What is JSX in the context of React?",
+    "options": [
+      "A file format used for storing React components.",
+      "A JavaScript extension that allows mixing HTML with JavaScript.",
+      "A build tool for optimizing React applications.",
+      "A styling framework for React components."
+    ],
+    "answer": "A JavaScript extension that allows mixing HTML with JavaScript."
+  },
+  "q213": {
+    "question": "What is the purpose of 'state' in React?",
+    "options": [
+      "To store and manage data that can change over time.",
+      "To define the structure of a React component.",
+      "To handle routing in a React application.",
+      "To specify the styles of a React component."
+    ],
+    "answer": "To store and manage data that can change over time."
+  },
+  "q214": {
+    "question": "What is a 'functional component' in React?",
+    "options": [
+      "A React component that performs mathematical operations.",
+      "A component that uses class syntax.",
+      "A component that doesn't have its own state and lifecycle methods.",
+      "A component with multiple responsibilities."
+    ],
+    "answer": "A component that doesn't have its own state and lifecycle methods."
+  },
+  "q215": {
+    "question": "What is the purpose of 'props' in React?",
+    "options": [
+      "To define the structure of a React component.",
+      "To store and manage data that can change over time.",
+      "To pass data from a parent component to a child component.",
+      "To handle routing in a React application."
+    ],
+    "answer": "To pass data from a parent component to a child component."
+  },
+  "q216": {
+    "question": "What is the significance of the 'virtual DOM' in React?",
+    "options": [
+      "A conceptual representation of an actual DOM tree in a React application.",
+      "A physical representation of the DOM tree on the server side.",
+      "A separate document that contains the entire HTML structure of a React app.",
+      "A storage system for managing DOM elements in React."
+    ],
+    "answer": "A conceptual representation of an actual DOM tree in a React application."
+  },
+  "q217": {
+    "question": "What is the purpose of 'component lifecycle methods' in React?",
+    "options": [
+      "To manipulate the actual DOM directly.",
+      "To control what happens when a component is created, updated, or destroyed.",
+      "To define the structure of a React component.",
+      "To handle routing in a React application."
+    ],
+    "answer": "To control what happens when a component is created, updated, or destroyed."
+  },
+  "q218": {
+    "question": "What is the role of 'React Router'?",
+    "options": [
+      "To handle HTTP requests in a React application.",
+      "To optimize the performance of React components.",
+      "To provide a way to navigate between different views in a React application.",
+      "To manage the state of a React application."
+    ],
+    "answer": "To provide a way to navigate between different views in a React application."
+  },
+  "q219": {
+    "question": "What is 'Redux' in the context of React?",
+    "options": [
+      "A styling framework for React components.",
+      "A server-side rendering engine for React applications.",
+      "A state management library for React applications.",
+      "A build tool for optimizing React applications."
+    ],
+    "answer": "A state management library for React applications."
+  },
+  "q220": {
+    "question": "What is the purpose of 'React Hooks'?",
+    "options": [
+      "To create class components in React.",
+      "To manage state and lifecycle in functional components.",
+      "To define the structure of a React component.",
+      "To handle routing in a React application."
+    ],
+    "answer": "To manage state and lifecycle in functional components."
+  },
+  "q221": {
+    "question": "What is the significance of 'key' prop in React lists?",
+    "options": [
+      "To define the structure of a React component.",
+      "To provide a unique identifier for each element in a list.",
+      "To handle routing in a React application.",
+      "To specify the styles of a React component."
+    ],
+    "answer": "To provide a unique identifier for each element in a list."
+  },
+  "q222": {
+    "question": "What is the purpose of 'controlled components' in React forms?",
+    "options": [
+      "Components that are restricted to a specific design.",
+      "Components that are not allowed to change their state.",
+      "Components where form data is controlled by React state.",
+      "Components that don't allow user interactions."
+    ],
+    "answer": "Components where form data is controlled by React state."
+  },
+  "q223": {
+    "question": "What is 'context' in React?",
+    "options": [
+      "A built-in React component for handling context-sensitive data.",
+      "A method for handling exceptions in React applications.",
+      "A design pattern for creating user interfaces.",
+      "A way to pass data through the component tree without having to pass props down manually at every level."
+    ],
+    "answer": "A way to pass data through the component tree without having to pass props down manually at every level."
+  },
+  "q224": {
+    "question": "What is the purpose of 'Error Boundary' in React?",
+    "options": [
+      "To handle errors during the build process.",
+      "To prevent any errors from occurring in a React application.",
+      "To catch JavaScript errors anywhere in a component tree and log those errors.",
+      "To define the structure of a React component."
+    ],
+    "answer": "To catch JavaScript errors anywhere in a component tree and log those errors."
+  },
+  "q225": {
+    "question": "What are 'Higher-Order Components' (HOC) in React?",
+    "options": [
+      "Components that are positioned higher in the component tree.",
+      "Components that handle higher-order mathematical operations.",
+      "A pattern where a function takes a component and returns a new component with additional functionality.",
+      "Components that are only used in advanced React applications."
+    ],
+    "answer": "A pattern where a function takes a component and returns a new component with additional functionality."
+  }
+}
+
