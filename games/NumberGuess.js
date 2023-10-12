@@ -7,6 +7,7 @@ import {
     TextInput,
     Alert,
 } from 'react-native';
+import { auth, firestore } from '../firebase';
 
 export default function NumberGuess() {
     const generateRandomNumber = (min, max) => {
@@ -67,13 +68,32 @@ export default function NumberGuess() {
         setUserGuess('');
     };
 
-    const increaseLevel = () => {
-        setPossibilities(possibilities * 2);
+    const increaseLevel = async () => {
+        const newPossibilities = possibilities * 2;
+        setPossibilities(newPossibilities);
         setLevel((prevLevel) => prevLevel + 1);
-        setTargetNumber(generateRandomNumber(1, possibilities * 2));
+        setTargetNumber(generateRandomNumber(1, newPossibilities));
         setAttempts(1);
-        setPlaceholderText(`Your guess (1-${possibilities * 2})`);
-        setTimeLeft(10);
+        setPlaceholderText(`Your guess (1-${newPossibilities})`);
+        setTimeLeft(60);
+
+        try {
+            const userId = auth.currentUser.uid;
+            const userRef = firestore.collection('profiles').doc(userId);
+            const userSnapshot = await userRef.get();
+
+            // Check if the user has a high level already saved
+            const currentHighLevel = userSnapshot.data()?.HighLevelNumberGuess || 0;
+
+            // Update the high level if the current level is greater
+            if (level > currentHighLevel) {
+                await userRef.update({
+                    HighLevelNumberGuess: level,
+                });
+            }
+        } catch (error) {
+            console.error('Error updating high level:', error);
+        }
     };
 
     const resetGame = (levelUp = false) => {
@@ -88,8 +108,7 @@ export default function NumberGuess() {
             setPossibilities(newPossibilities);
             setTargetNumber(generateRandomNumber(1, newPossibilities));
             setPlaceholderText(`Your guess (1-${newPossibilities})`);
-            // Réinitialiser le chronomètre lors du redémarrage du jeu
-            setTimeLeft(10);
+            setTimeLeft(60);
         }
     };
 
@@ -97,8 +116,10 @@ export default function NumberGuess() {
         <View style={styles.container}>
             <Text style={styles.title}>Guess the Number</Text>
             <Text style={[styles.level, { color: 'black' }]}>Level: {level}</Text>
-            <Text style={styles.target}>Target: {targetNumber}</Text>
+            {/*<Text style={styles.target}>Target: {targetNumber}</Text>*/}
             <Text style={styles.timer}>Time left: {timeLeft} seconds</Text>
+            <Text style={[styles.message, { color: 'black' }]}>{message}</Text>
+
             <View style={styles.inputContainer}>
                 <TextInput
                     style={styles.input}
@@ -107,13 +128,10 @@ export default function NumberGuess() {
                     value={userGuess}
                     onChangeText={handleInputChange}
                 />
-                <TouchableOpacity style={styles.guessButton} onPress={handleGuess}>
-                    <Text style={styles.buttonText}>Guess</Text>
-                </TouchableOpacity>
+
             </View>
-            <Text style={[styles.message, { color: 'black' }]}>{message}</Text>
-            <TouchableOpacity style={styles.button} onPress={() => resetGame(false)}>
-                <Text style={styles.buttonText}>Restart</Text>
+            <TouchableOpacity style={styles.button} onPress={handleGuess}>
+                <Text style={styles.buttonText}>Guess</Text>
             </TouchableOpacity>
         </View>
     );
@@ -163,14 +181,6 @@ const styles = StyleSheet.create({
         marginRight: 10,
         paddingLeft: 10,
     },
-    guessButton: {
-        backgroundColor: '#16247d',
-        padding: 10,
-        borderRadius: 5,
-        alignItems: 'center',
-        justifyContent: 'center',
-        elevation: 3,
-    },
     buttonText: {
         color: 'white',
         fontSize: 16,
@@ -185,7 +195,9 @@ const styles = StyleSheet.create({
         padding: 15,
         borderRadius: 10,
         alignItems: 'center',
-        width: '100%',
+        width: '90%',
         elevation: 3,
+        marginBottom:50,
     },
+
 });

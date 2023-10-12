@@ -5,9 +5,9 @@ import { auth, firestore,storage } from '../firebase';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import cielBackground from '../assets/blueBack.jpg';
 import * as ImagePicker from 'expo-image-picker';
+import {Ionicons} from "@expo/vector-icons";
 
 export default function ProfileScreen() {
-  const navigation = useNavigation();
   const [newName, setNewName] = useState('');
   const [userProfile, setUserProfile] = useState(null);
   const [image, setImage] = useState(null);
@@ -26,6 +26,7 @@ export default function ProfileScreen() {
             nom: '',
             highScore: 0,
             pointsHangman: 0,
+            HighLevelNumberGuess:0,
           });
 
           const updatedDoc = await userRef.get();
@@ -205,20 +206,26 @@ export default function ProfileScreen() {
                   <View style={styles.divider}></View>
 
                   <View style={styles.infoRow}>
+                    <Ionicons name="podium" size={24} color="black" />
+                    <Text style={styles.label}> High Level Number Guess: {userProfile?.HighLevelNumberGuess || 0}</Text>
+                  </View>
+
+                  <View style={styles.divider}></View>
+                  <View style={styles.infoRow}>
                     <Icon name="trophy" size={27} color="#000" />
                     <Text style={styles.label}>High Score Flappy Bird: {userProfile?.highScore || 0}</Text>
                   </View>
-                  <View style={styles.divider}></View>
 
+                  <View style={styles.divider}></View>
                   <View style={styles.infoRow}>
                     <Icon name="gamepad" size={27} color="#000" />
                     <Text style={styles.label}>Points Hang Man: {userProfile?.pointsHangman || 0}</Text>
                   </View>
-                  <View style={styles.divider}></View>
 
+                  <View style={styles.divider}></View>
                   <View style={styles.infoRow}>
                     <Icon name="star" size={27} color="#000" />
-                    <Text style={styles.label}>All Points: {userProfile?.pointsHangman + userProfile?.highScore || 0}</Text>
+                    <Text style={styles.label}>All Points: {userProfile?.pointsHangman + userProfile?.highScore +userProfile?.HighLevelNumberGuess|| 0}</Text>
                   </View>
 
                   <View style={styles.divider}>
