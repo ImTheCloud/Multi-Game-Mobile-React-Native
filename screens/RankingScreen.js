@@ -4,72 +4,46 @@ import {
   Text,
   TouchableOpacity,
   StyleSheet,
-  Modal,
-  Button,
   FlatList,
-  TextInput,
-  ImageBackground
+  ImageBackground,
 } from 'react-native';
-import { Feather } from '@expo/vector-icons'; // Importez l'icône Feather
+import { Feather } from '@expo/vector-icons';
 import { firestore } from '../firebase';
 import cielBackground from "../assets/blueBack.jpg";
+import { Picker } from '@react-native-picker/picker';
 
 export default function RankingScreen() {
   const [users, setUsers] = useState([]);
-  const [selectedUser, setSelectedUser] = useState(null);
-  const [searchInput, setSearchInput] = useState('');
-  const [unsubscribe, setUnsubscribe] = useState(null);
+  const [selectedGame, setSelectedGame] = useState('HighLevelNumberGuess');
 
   const fetchUsers = async () => {
     try {
       const usersCollection = await firestore.collection('profiles');
-      const unsub = usersCollection.onSnapshot((snapshot) => {
-        const usersData = snapshot.docs.map((doc) => doc.data());
-        setUsers(usersData);
-      });
-
-      setUnsubscribe(() => unsub); // Save the unsubscribe function
+      const snapshot = await usersCollection.get();
+      const usersData = snapshot.docs.map((doc) => doc.data());
+      setUsers(usersData);
     } catch (error) {
       console.error('Error fetching users:', error.message);
     }
   };
 
-  const handleUserClick = (user) => {
-    setSelectedUser(user);
+  const sortUsersByGame = (game) => {
+    return users
+        .filter(user => game === 'HighLevelNumberGuess' || user[game] !== undefined)
+        .sort((a, b) => (b[game] || 0) - (a[game] || 0));
   };
 
-  const handleCloseModal = () => {
-    setSelectedUser(null);
-  };
-
-  const handleSearch = (text) => {
-    setSearchInput(text);
-  };
-
-  const clearSearch = () => {
-    setSearchInput('');
-  };
-
-  const filteredUsers = users.filter((user) =>
-      user.nom && user.nom.toLowerCase().includes(searchInput.toLowerCase())
-  );
-
-  // Fetch users on component mount
   useEffect(() => {
     fetchUsers();
-
-    return () => {
-      // Unsubscribe when component unmounts
-      if (unsubscribe) {
-        unsubscribe();
-      }
-    };
   }, []);
 
-  const renderItem = ({ item }) => (
-      <TouchableOpacity onPress={() => handleUserClick(item)}>
+  const renderItem = ({ item, index }) => (
+      <TouchableOpacity>
         <View style={styles.userContainer}>
-          <Text style={styles.userName}>{item.nom || 'Non défini'}</Text>
+          <Text style={styles.userName}>{`${index + 1}. ${item.nom || 'Non défini'}`}</Text>
+          <Text style={styles.userName}>
+            {selectedGame === 'HighLevelNumberGuess' ? 'Total Points' : `Points `}: {item[selectedGame] || 0}
+          </Text>
         </View>
       </TouchableOpacity>
   );
@@ -79,60 +53,46 @@ export default function RankingScreen() {
         <View style={styles.container}>
           <Text style={styles.title}>Ranking</Text>
 
-          {/* Search input avec icône de loupe */}
-          <View style={styles.searchInputContainer}>
-            <Feather name="search" size={20} color="#16247d" style={styles.searchIcon} />
-            <TextInput
-                style={styles.searchInput}
-                placeholder="Find player"
-                value={searchInput}
-                onChangeText={handleSearch}
-            />
-
-            {/* Icône pour effacer le champ de recherche */}
-            {searchInput.trim() !== '' && (
-                <TouchableOpacity
-                    onPress={clearSearch}
-                    style={styles.clearIcon}
-                >
-                  <Feather name="x" size={20} color="#16247d" />
-                </TouchableOpacity>
-            )}
+          {/* Picker pour sélectionner le jeu */}
+          <View style={styles.pickerContainer}>
+            <Picker
+                selectedValue={selectedGame}
+                onValueChange={(itemValue) => setSelectedGame(itemValue)}
+                style={styles.picker}
+            >
+              <Picker.Item label="Number Guess" value="HighLevelNumberGuess" />
+              <Picker.Item label="Flappy Bird" value="highScore" />
+              <Picker.Item label="Hangman" value="pointsHangman" />
+            </Picker>
           </View>
 
-          {/* Conditionally render FlatList based on search input */}
-          {searchInput.trim() !== '' ? (
-              <FlatList
-                  data={filteredUsers}
-                  keyExtractor={(item, index) => `${item.nom}-${index}`}
-                  renderItem={renderItem}
-              />
-          ) : null}
-
-          {/* Modal pour afficher les détails de l'utilisateur */}
-          <Modal
-              visible={!!selectedUser}
-              animationType="slide"
-              transparent={true}
-              onRequestClose={handleCloseModal}
-          >
-            <View style={styles.modalContainer}>
-              <View style={styles.modalContent}>
-                <Text style={styles.modalTitle}>Points</Text>
-                <Text>Name: {selectedUser?.nom || 'Non défini'}</Text>
-                <Text>High Score Flappy Bird: {selectedUser?.highScore || 0}</Text>
-                <Text>High Level Number Guess: {selectedUser?.HighLevelNumberGuess || 0}</Text>
-                <Text>Points Hang Man: {selectedUser?.pointsHangman || 0}</Text>
-                <Button title="Close" onPress={handleCloseModal} />
-              </View>
-            </View>
-          </Modal>
+          {/* FlatList pour afficher la liste triée */}
+          <FlatList
+              data={sortUsersByGame(selectedGame)}
+              keyExtractor={(item, index) => `${item.nom}-${index}`}
+              renderItem={renderItem}
+          />
         </View>
       </ImageBackground>
   );
 }
 
 const styles = StyleSheet.create({
+  pickerContainer: {
+    height: 50,
+    flexDirection: 'row',
+    alignItems: 'center',
+    borderWidth: 1,
+    backgroundColor: 'rgb(255,255,255)',
+    borderColor: '#16247d',
+    paddingHorizontal: 10,
+    marginTop: 10,
+    marginBottom: 10,
+  },
+  picker: {
+    flex: 1,
+    color: '#16247d',
+  },
   backgroundImage: {
     flex: 1,
     resizeMode: 'cover',

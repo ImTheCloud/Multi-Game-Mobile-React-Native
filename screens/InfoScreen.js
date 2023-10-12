@@ -84,7 +84,7 @@ export default function InfoScreen() {
             <View style={styles.modalContainer}>
               <View style={styles.modalContent}>
                 <Image style={styles.gameImage} source={selectedGame?.image} />
-                <Text style={styles.modalTitle}>{selectedGame?.title} Rules</Text>
+                <Text style={styles.modalTitle}>{selectedGame?.title} Infos</Text>
                 <Text style={styles.modalText}>{selectedGame?.infos}</Text>
                 <TouchableOpacity style={styles.closeButton} onPress={() => setSelectedGame(null)}>
                   <Text style={styles.closeButtonText}>Close</Text>

@@ -42,7 +42,7 @@ const RegisterScreen = () => {
             nom,
             highScore: 0,
             pointsHangman: 0,
-            pointsRPS: 0,
+            HighLevelNumberGuess: 0,
           });
 
           console.log('Registered with:', user.email);
