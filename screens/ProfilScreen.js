@@ -323,7 +323,6 @@ const styles = StyleSheet.create({
   button: {
     backgroundColor: '#16247d',
     padding:15, // Increase button size
-    borderRadius: 15,
     width: '100%',
     marginBottom: 10,
     alignItems: 'center',

@@ -58,7 +58,7 @@ const GameScreen = () => {
           <Text style={styles.title}>Games</Text>
           <TextInput
               style={styles.searchInput}
-              placeholder="Find a game"
+              placeholder="Find game"
               onChangeText={(text) => setSearchTerm(text)}
               value={searchTerm}
           />
@@ -93,7 +93,7 @@ const styles = StyleSheet.create({
     textShadowColor: '#000',
     textShadowOffset: { width: 2, height: 2 },
     textShadowRadius: 5,
-    marginTop: 30,
+    marginTop: 40,
   },
   backgroundImage: {
     flex: 1,

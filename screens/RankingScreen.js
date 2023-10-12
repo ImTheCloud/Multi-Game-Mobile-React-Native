@@ -63,44 +63,56 @@ export default function RankingScreen() {
   }, []);
 
   const renderItem = ({ item }) => (
-    <TouchableOpacity onPress={() => handleUserClick(item)}>
-      <View style={styles.userContainer}>
-        <Text style={styles.userName}>{item.nom || 'Non défini'}</Text>
-      </View>
-    </TouchableOpacity>
+      <TouchableOpacity onPress={() => handleUserClick(item)}>
+        <View style={styles.userContainer}>
+          <Text style={styles.userName}>{item.nom || 'Non défini'}</Text>
+        </View>
+      </TouchableOpacity>
   );
 
   return (
       <ImageBackground source={cielBackground} style={styles.backgroundImage}>
-      <View style={styles.container}>
-      <Text style={styles.title}>Ranking</Text>
+        <View style={styles.container}>
+          {/* Déplacez le titre ici */}
+          <Text style={styles.title}>Ranking</Text>
 
-      {/* Search input */}
-      <TextInput
-        style={styles.searchInput}
-        placeholder="Search by name"
-        value={searchInput}
-        onChangeText={handleSearch}
-      />
+          {/* Search input */}
+          <TextInput
+              style={styles.searchInput}
+              placeholder="Find player"
+              value={searchInput}
+              onChangeText={handleSearch}
+          />
 
-      <FlatList data={filteredUsers} keyExtractor={(item, index) => `${item.nom}-${index}`} renderItem={renderItem} />
+          {/* Conditionally render FlatList based on search input */}
+          {searchInput.trim() !== '' ? (
+              <FlatList
+                  data={filteredUsers}
+                  keyExtractor={(item, index) => `${item.nom}-${index}`}
+                  renderItem={renderItem}
+              />
+          ) : null}
 
-      {/* Modal to display user details */}
-      <Modal visible={!!selectedUser} animationType="slide" transparent={true} onRequestClose={handleCloseModal}>
-        <View style={styles.modalContainer}>
-          <View style={styles.modalContent}>
-            <Text style={styles.modalTitle}>Points</Text>
-            <Text>Name: {selectedUser?.nom || 'Non défini'}</Text>
-            <Text>High Score Flappy Bird: {selectedUser?.highScore || 0}</Text>
-            <Text>Points Hang Man: {selectedUser?.pointsHangman || 0}</Text>
-            <Button title="Close" onPress={handleCloseModal} />
-          </View>
+          {/* Modal to display user details */}
+          <Modal
+              visible={!!selectedUser}
+              animationType="slide"
+              transparent={true}
+              onRequestClose={handleCloseModal}
+          >
+            <View style={styles.modalContainer}>
+              <View style={styles.modalContent}>
+                <Text style={styles.modalTitle}>Points</Text>
+                <Text>Name: {selectedUser?.nom || 'Non défini'}</Text>
+                <Text>High Score Flappy Bird: {selectedUser?.highScore || 0}</Text>
+                <Text>Points Hang Man: {selectedUser?.pointsHangman || 0}</Text>
+                <Button title="Close" onPress={handleCloseModal}  />
+              </View>
+            </View>
+          </Modal>
         </View>
-      </Modal>
-    </View>
-</ImageBackground>
-
-);
+      </ImageBackground>
+  );
 }
 
 const styles = StyleSheet.create({
@@ -110,15 +122,13 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   searchInput: {
-    height: 40,
+    height: 50,
     borderColor: '#16247d',
     borderWidth: 1,
     paddingHorizontal: 10,
-    marginBottom: 10,
-    width: '90%',
     marginTop: 20,
+    width: '100%',
     backgroundColor: '#fff',
-    borderRadius: 10,
     shadowColor: '#000',
     shadowOffset: {
       width: 0,
@@ -127,6 +137,7 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.25,
     shadowRadius: 3.84,
     elevation: 5,
+    marginBottom:20,
   },
   modalContainer: {
     flex: 1,
@@ -155,19 +166,18 @@ const styles = StyleSheet.create({
   },
   container: {
     flex: 1,
-    justifyContent: 'center',
+    justifyContent: 'flex-start',  // Alignez les éléments en haut
     alignItems: 'center',
     padding: 20,
   },
   title: {
     fontSize: 36, // Augmentez la taille du texte
     fontWeight: 'bold',
-    marginBottom: 20,
     color: '#fff', // Couleur du texte
     textShadowColor: '#000',
     textShadowOffset: { width: 2, height: 2 },
     textShadowRadius: 5,
-    marginTop:70,
+    marginTop:20,
   },
   userContainer: {
     marginBottom: 20,

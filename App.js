@@ -67,7 +67,7 @@ const App = () => {
   return (
     <NavigationContainer>
       {user ? (
-        <Tab.Navigator screenOptions={screenOptions}>
+          <Tab.Navigator initialRouteName="Game" screenOptions={screenOptions}>
         <Tab.Screen
         name="Rank"
         component={RankingScreen}
