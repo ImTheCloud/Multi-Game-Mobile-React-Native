@@ -9,7 +9,11 @@ export default function HangmanGame() {
     'ALGORITHM', 'SOFTWARE', 'INTERFACE', 'NETWORK', 'SECURITY', 'FRAMEWORK', 'DEBUGGING', 'MOBILE', 'APPLICATION',
     'INTERNET', 'PYTHON', 'HTML', 'CSS', 'LINUX', 'WINDOWS', 'DATABASE', 'SERVER', 'BROWSER', 'ROUTER', 'CLOUD',
     'DATABASE', 'ALGORITHM', 'COMPILER', 'CONNECTION', 'ETHERNET', 'JAVA', 'VSCODE', 'API', 'REFACTORING',
-    'WEB', 'PERFORMANCE', 'RESPONSIVE', 'JAVAFX', 'DEBUG', 'TERMINAL', 'PROBLEM', 'RIGGIO'
+    'WEB', 'PERFORMANCE', 'RESPONSIVE', 'JAVAFX', 'DEBUG', 'TERMINAL', 'PROBLEM', 'RIGGIO','DATA', 'STRUCTURE',
+    'CODE', 'VERSION', 'CONTROL', 'BACKEND', 'FRONTEND', 'OPERATING', 'SYSTEM', 'DOCKER', 'CONTAINER', 'UNIT',
+    'TESTING', 'AUTOMATION', 'AGILE','POLYMORPHISM','ENCAPSULATION', 'SYNTAX', 'PARSER', 'BOOLEAN', 'ARRAY',
+    'VARIABLE', 'CONSTANT','KOTLIN', 'MACHINE', 'LEARNING','APPLE'
+      //70 words
   ];
 
   const handleRestart = () => {
@@ -197,7 +201,6 @@ export default function HangmanGame() {
         <Text style={styles.title}>Hangman</Text>
         <View style={styles.hangmanContainer}>
           <Text style={styles.incorrectLetters}>
-            Incorrect Letters:{' '}
             {incorrectLetters.map((letter, index) => (
                 <Text
                     key={index}
@@ -235,7 +238,6 @@ export default function HangmanGame() {
 }
 const styles = StyleSheet.create({
   hangmanContainer: {
-    marginBottom: 30,
     flexDirection: 'column',
     alignItems: 'center',
   },
