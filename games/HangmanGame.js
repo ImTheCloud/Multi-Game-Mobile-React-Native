@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, Alert } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity,Image, Alert } from 'react-native';
 import { auth, firestore } from '../firebase';
+import { MaterialCommunityIcons } from '@expo/vector-icons'; // Importez l'icône Expo
 
 export default function HangmanGame() {
   const words = [
@@ -20,7 +21,7 @@ export default function HangmanGame() {
     const randomIndex = Math.floor(Math.random() * words.length);
     return words[randomIndex];
   };
-  const ALPHABET = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ.';
+  const ALPHABET = 'AZERTYUIOPQSDFGHJKLMWXCVBN';
   const userId = auth.currentUser.uid;
   const userRef = firestore.collection('profiles').doc(userId);
   const [word, setWord] = useState('');
@@ -39,6 +40,7 @@ export default function HangmanGame() {
     setAttempts(maxAttempts);
     setHangmanTries(0);
     setIncorrectLetters([]);
+    setIndiceLetter(''); // Initialisez la lettre indice
   }, []);
 
   const handleGuess = () => {
@@ -146,7 +148,36 @@ export default function HangmanGame() {
     setAttempts(maxAttempts);
     setHangmanTries(0);
     setIncorrectLetters([]);
+    setIndiceLetter(''); // Réinitialisez l'indiceLetter
+
   };
+  const [indiceLetter, setIndiceLetter] = useState('');
+
+  // Créez une fonction pour générer une lettre aléatoire du mot
+  const generateIndiceLetter = () => {
+    // Filter out letters that have already been guessed
+    const remainingLetters = word.split('').filter(letter => !displayWord.includes(letter));
+
+    if (remainingLetters.length > 0) {
+      const randomIndex = Math.floor(Math.random() * remainingLetters.length);
+      const newIndiceLetter = remainingLetters[randomIndex];
+      setIndiceLetter(newIndiceLetter);
+    }
+  };
+
+  const handleIndiceButtonClick = () => {
+    // Vérifiez si l'indice a déjà été utilisé
+    if (!indiceLetter) {
+      generateIndiceLetter();
+    }
+  };
+  useEffect(() => {
+    // Faites quelque chose avec la lettre d'indice (par exemple, affichez-la dans une alerte)
+    if (indiceLetter) {
+      Alert.alert(`Indice: ${indiceLetter}`);
+    }
+  }, [indiceLetter]);
+
 
   // Add a style prop to change the background color based on whether the letter is clicked
   const getAlphabetButtonStyle = (letter) => ({
@@ -160,6 +191,9 @@ export default function HangmanGame() {
 
   return (
       <View style={styles.container}>
+        <TouchableOpacity style={styles.indiceButton} onPress={handleIndiceButtonClick}>
+          <MaterialCommunityIcons name="lightbulb-on" size={32} color="black" />
+        </TouchableOpacity>
         <Text style={styles.title}>Hangman</Text>
         <View style={styles.hangmanContainer}>
           <Text style={styles.incorrectLetters}>
@@ -177,6 +211,7 @@ export default function HangmanGame() {
             ))}
           </Text>
         </View>
+
         <Text style={styles.displayWord}>{displayWord}</Text>
         <Text style={styles.attempts}>Attempts left: {attempts}</Text>
 
@@ -199,12 +234,27 @@ export default function HangmanGame() {
   );
 }
 const styles = StyleSheet.create({
+  hangmanContainer: {
+    marginBottom: 30,
+    flexDirection: 'column',
+    alignItems: 'center',
+  },
+  // Ajoutez du style pour le bouton d'indice
+  indiceButton: {
+    position: 'absolute',
+    top: 30, // Adjust the top position as needed
+    right: 20, // Adjust the right position as needed
+  },
+
+  // Ajoutez du style pour l'icône d'indice
+  indiceIcon: {
+    width: 50,
+    height: 50,
+  },
   alphabetContainer: {
     flexDirection: 'row',
     flexWrap: 'wrap',
-
   },
-
   alphabetButton: {
     backgroundColor: '#16247d',
     padding: 10,
@@ -222,7 +272,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#16247d',
     padding: 15,
     borderRadius: 10,
-    marginBottom:100,
+    marginBottom:250,
 
     alignItems: 'center',
     width: '95%', // Take the full width of the screen
@@ -261,20 +311,13 @@ const styles = StyleSheet.create({
 
   },
   displayWord: {
-    fontSize: 48,
+    fontSize: 40,
     marginBottom: 20,
   },
   attempts: {
     fontSize: 24,
     marginBottom: 20,
   },
-  hangmanContainer: {
-    marginBottom: 30,
-
-    flexDirection: 'column',
-    alignItems: 'center',
-  },
-
   incorrectLetters: {
     fontSize: 24,
     marginBottom: 20,
