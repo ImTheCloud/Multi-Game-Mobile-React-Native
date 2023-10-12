@@ -38,14 +38,11 @@ export default function RankingScreen() {
   }, []);
 
   const renderItem = ({ item, index }) => (
-      <TouchableOpacity>
         <View style={styles.userContainer}>
-          <Text style={styles.userName}>{`${index + 1}. ${item.nom || 'Non défini'}`}</Text>
-          <Text style={styles.userName}>
-            {selectedGame === 'HighLevelNumberGuess' ? 'Total Points' : `Points `}: {item[selectedGame] || 0}
+          <Text style={styles.userName} numberOfLines={1}>
+            {`${index + 1}. ${item.nom || 'Non défini'} ${selectedGame === 'HighLevelNumberGuess' ? 'Total Points' : ''}: ${item[selectedGame] || 0}`}
           </Text>
         </View>
-      </TouchableOpacity>
   );
 
   return (
@@ -87,40 +84,18 @@ const styles = StyleSheet.create({
     borderColor: '#16247d',
     paddingHorizontal: 10,
     marginTop: 10,
-    marginBottom: 10,
+    marginBottom: 20,
   },
   picker: {
     flex: 1,
-    color: '#16247d',
+    color: '#000',
   },
   backgroundImage: {
     flex: 1,
     resizeMode: 'cover',
     justifyContent: 'center',
   },
-  searchInputContainer: {
-    height: 50,
-    flexDirection: 'row',
-    alignItems: 'center',
-    borderWidth: 1,
-    backgroundColor: 'rgb(255,255,255)',
-    borderColor: '#16247d',
-    paddingHorizontal: 10,
-    marginTop: 20,
-    marginBottom: 20,
-  },
-  searchIcon: {
-    marginRight: 10,
-  },
-  searchInput: {
-    flex: 1,
-    height: 40,
-    color: '#16247d',
-  },
-  clearIcon: {
-    marginLeft: 10,
-    padding: 8,
-  },
+
   modalContainer: {
     flex: 1,
     justifyContent: 'center',
@@ -156,10 +131,10 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'flex-start',
-    alignItems: 'center',
     padding: 20,
   },
   title: {
+    textAlign: 'center',
     fontSize: 36,
     fontWeight: 'bold',
     color: '#fff',
@@ -169,11 +144,12 @@ const styles = StyleSheet.create({
     marginTop: 20,
   },
   userContainer: {
-    marginBottom: 20,
-    width: '100%',
-    backgroundColor: '#16247d',
-    borderRadius: 10,
+    marginBottom:5,
+    backgroundColor: 'white', // Set background color to white
+    borderColor: '#16247d', // Set border color
+    borderWidth: 1, // Add border width
     shadowColor: '#000',
+    textAlign: 'center', // Add this line to center the text
     shadowOffset: {
       width: 0,
       height: 2,
@@ -182,12 +158,11 @@ const styles = StyleSheet.create({
     shadowRadius: 3,
     elevation: 5,
     padding: 20,
-    justifyContent: 'center',
     alignItems: 'center',
   },
   userName: {
     fontWeight: 'bold',
     fontSize: 18,
-    color: '#fff',
+    color: '#000',
   },
 });

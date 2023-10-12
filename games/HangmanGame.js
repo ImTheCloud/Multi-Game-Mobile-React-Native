@@ -196,7 +196,7 @@ export default function HangmanGame() {
   return (
       <View style={styles.container}>
         <TouchableOpacity style={styles.indiceButton} onPress={handleIndiceButtonClick}>
-          <MaterialCommunityIcons name="lightbulb-on" size={32} color="black" />
+          <MaterialCommunityIcons name="lightbulb-on" size={32} color="#EFC88B" />
         </TouchableOpacity>
         <Text style={styles.title}>Hangman</Text>
         <View style={styles.hangmanContainer}>

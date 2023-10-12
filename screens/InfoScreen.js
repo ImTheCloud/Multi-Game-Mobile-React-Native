@@ -108,7 +108,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     marginBottom: 20,
     color: '#fff',
-    textShadowColor: '#000',
+    textShadowColor: '#16247d',
     textShadowOffset: { width: 2, height: 2 },
     textShadowRadius: 5,
     marginTop: 40,
