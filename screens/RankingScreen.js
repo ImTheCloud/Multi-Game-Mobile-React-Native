@@ -105,6 +105,7 @@ export default function RankingScreen() {
                 <Text style={styles.modalTitle}>Points</Text>
                 <Text>Name: {selectedUser?.nom || 'Non défini'}</Text>
                 <Text>High Score Flappy Bird: {selectedUser?.highScore || 0}</Text>
+                <Text>High Level Number Guess: {selectedUser?.HighLevelNumberGuess || 0}</Text>
                 <Text>Points Hang Man: {selectedUser?.pointsHangman || 0}</Text>
                 <Button title="Close" onPress={handleCloseModal}  />
               </View>

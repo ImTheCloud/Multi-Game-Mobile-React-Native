@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import {View, Text, TouchableOpacity, StyleSheet, Alert} from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
 const ROWS = 6;
@@ -43,6 +43,8 @@ export default function ConnectFour({ navigation }) {
                         checkDiagonalDown(row, col)
                     ) {
                         setGameOver(true);
+                        const winner = board[row][col] === 'R' ? 'Red' : 'Yellow';
+                        Alert.alert('End of the game !', `${winner} wins!`, [{ text: 'OK' }]);
                     }
                 }
             }
@@ -109,6 +111,7 @@ export default function ConnectFour({ navigation }) {
         setBoard(createEmptyBoard());
         setIsRedTurn(true);
         setGameOver(false);
+
     };
 
     const renderSquare = (row, col) => (
