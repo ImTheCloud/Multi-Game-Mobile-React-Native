@@ -15,6 +15,12 @@ export default function InfoScreen() {
       infos: 'Embark on an exhilarating journey with Flappy Bird! Soar through the endless, pixelated skies as you navigate through a maze of pipes. Challenge your reflexes and coordination to defy gravity and achieve the highest score possible. Keep flapping, and let the addiction begin!',
     },
     {
+      title: 'Quizz',
+      image: require('../assets/quizz.png'),
+      infos: 'Test your knowledge with the exciting Quizz game! Answer a series of challenging questions across various categories and see how many you can get right. Compete against yourself or challenge friends to beat your high score. Get ready to exercise your brain and learn new facts in this thrilling quiz adventure!',
+
+    },
+    {
       title: 'Number Guess',
       infos: 'Welcome to the intriguing world of Number Guess! Immerse yourself in a mental challenge where you must decipher the secret number to claim victory. With each guess, you will receive valuable clues to guide you. Sharpen your analytical skills, embrace the thrill of deduction, and strive to surpass your own high score. Are you up for the challenge?',
       image: require('../assets/guessNumber.png'),

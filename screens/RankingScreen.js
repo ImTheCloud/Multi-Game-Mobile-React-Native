@@ -2,12 +2,10 @@ import React, { useState, useEffect } from 'react';
 import {
   View,
   Text,
-  TouchableOpacity,
   StyleSheet,
   FlatList,
   ImageBackground,
 } from 'react-native';
-import { Feather } from '@expo/vector-icons';
 import { firestore } from '../firebase';
 import cielBackground from "../assets/blueBack.jpg";
 import { Picker } from '@react-native-picker/picker';
@@ -40,7 +38,7 @@ export default function RankingScreen() {
   const renderItem = ({ item, index }) => (
         <View style={styles.userContainer}>
           <Text style={styles.userName} numberOfLines={1}>
-            {`${index + 1}. ${item.nom || 'Non défini'} ${selectedGame === 'HighLevelNumberGuess' ? 'Total Points' : ''}: ${item[selectedGame] || 0}`}
+            {`${index + 1}. ${item.nom || 'Non défini'} ${selectedGame === 'HighLevelNumberGuess' ? '' : ''} ${item[selectedGame] || 0}`}
           </Text>
         </View>
   );
@@ -57,9 +55,9 @@ export default function RankingScreen() {
                 onValueChange={(itemValue) => setSelectedGame(itemValue)}
                 style={styles.picker}
             >
-              <Picker.Item label="Number Guess" value="HighLevelNumberGuess" />
-              <Picker.Item label="Flappy Bird" value="highScore" />
-              <Picker.Item label="Hangman" value="pointsHangman" />
+              <Picker.Item label=" High Level Number Guess" value="HighLevelNumberGuess" />
+              <Picker.Item label="High Score Flappy Bird" value="highScore" />
+              <Picker.Item label="High Points Hangman" value="pointsHangman" />
             </Picker>
           </View>
 

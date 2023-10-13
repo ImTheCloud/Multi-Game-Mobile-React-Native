@@ -3,6 +3,7 @@ import {ImageBackground, StyleSheet, Text, TouchableOpacity, View} from 'react-n
 import {Ionicons} from '@expo/vector-icons';
 import { Alert } from 'react-native';
 import quizzData from '../quizz.json';
+import { auth, firestore } from '../firebase';
 
 
 // Ajoutez cette fonction au début de votre fichier
@@ -20,11 +21,13 @@ const Quizz = () => {
     const [score, setScore] = useState(0);
     const [showScore, setShowScore] = useState(false);
     const [selectedOption, setSelectedOption] = useState(null);
-    const [timer, setTimer] = useState(20);
+    const [timer, setTimer] = useState(30);
     const [isRunning, setIsRunning] = useState(true);
     const [lives, setLives] = useState(3); // Added state for lives
     const [shuffledQuestions, setShuffledQuestions] = useState([]);
     const [selectedQuiz, setSelectedQuiz] = useState(null);
+
+
 
     const renderBackToSelectionButton = () => {
         if (selectedQuiz !== null) {
@@ -125,7 +128,7 @@ const Quizz = () => {
     };
 
     const resetTimer = () => {
-        setTimer(20);
+        setTimer(30);
     };
 
     const handleAnswer = (option) => {
@@ -142,17 +145,34 @@ const Quizz = () => {
         setSelectedOption(option);
     };
 
-    const decrementLives = () => {
+    const decrementLives = async () => {
         setLives(lives - 1);
 
         if (lives === 1) {
+            try {
+                const userId = auth.currentUser.uid;
+                const userRef = firestore.collection('profiles').doc(userId);
+                const userSnapshot = await userRef.get();
+
+                // Check if the user has a high level already saved
+                const currentHighScore = userSnapshot.data()?.HighScoreQuizz || 0;
+
+                // Update the high level if the current level is greater
+                if (score > currentHighScore) {
+                    await userRef.update({
+                        HighScoreQuizz: score,
+                    });
+                }
+            } catch (error) {
+                console.error('Error updating high level:', error);
+            }
             Alert.alert(
                 'Game Over',
-                "You've lost all your lives!",
+                `You've lost all your lives! Your final score is ${score}`,
                 [
-                    { text: 'Restart', onPress: () => resetGame() },
+                    {text: 'Restart', onPress: () => resetGame()},
                 ],
-                { cancelable: false }
+                {cancelable: false}
             );
         }
     };

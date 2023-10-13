@@ -5,7 +5,7 @@ import {
     TouchableOpacity,
     StyleSheet,
     TextInput,
-    Alert,
+    Alert, ImageBackground,
 } from 'react-native';
 import { auth, firestore } from '../firebase';
 
@@ -61,7 +61,7 @@ export default function NumberGuess() {
                 { text: 'OK', onPress: () => resetGame(true) },
             ]);
         } else {
-            setMessage(guess < targetNumber ? 'The number is higher.' : 'The number is lower.');
+            setMessage(guess < targetNumber ? 'The number is higher' : 'The number is lower');
         }
 
         // Clear the input field after a guess
@@ -113,12 +113,17 @@ export default function NumberGuess() {
     };
 
     return (
+        <ImageBackground
+            source={require('../assets/background.jpg')}
+            style={styles.background}
+        >
         <View style={styles.container}>
-            <Text style={styles.title}>Guess the Number</Text>
-            <Text style={[styles.level, { color: 'black' }]}>Level: {level}</Text>
+            <Text style={[styles.level, { color: 'white' }]}>Level {level}</Text>
             {/*<Text style={styles.target}>Target: {targetNumber}</Text>*/}
-            <Text style={styles.timer}>Time left: {timeLeft} seconds</Text>
-            <Text style={[styles.message, { color: 'black' }]}>{message}</Text>
+            <View style={styles.timer}>
+                <Text style={styles.timerText}>{timeLeft}</Text>
+            </View>
+            <Text style={[styles.message, { color: 'rgba(255, 255, 255, 0.8)' }]}>{message}</Text>
 
             <View style={styles.inputContainer}>
                 <TextInput
@@ -134,40 +139,46 @@ export default function NumberGuess() {
                 <Text style={styles.buttonText}>Guess</Text>
             </TouchableOpacity>
         </View>
+        </ImageBackground>
+
     );
 }
 
 const styles = StyleSheet.create({
+    background: {
+        flex: 1,
+        resizeMode: 'cover',
+        justifyContent: 'center',
+    },
     container: {
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
         marginBottom: 150,
     },
-    title: {
-        fontSize: 36,
-        fontWeight: 'bold',
-        marginBottom: 20,
-        color: '#fff',
-        textShadowColor: '#000',
-        textShadowOffset: { width: 2, height: 2 },
-        textShadowRadius: 5,
-        marginTop: 70,
-    },
     level: {
         fontSize: 24,
         fontWeight: 'bold',
         marginBottom: 10,
+        color:'#fff',
     },
     target: {
         fontSize: 20,
         marginBottom: 10,
         color: 'black',
     },
+
     timer: {
-        fontSize: 18,
-        marginBottom: 10,
-        color: 'black',
+        backgroundColor: 'rgba(255, 255, 255, 0.8)',
+        borderRadius: 150, // Adjust the border-radius to half of the desired width/height
+        width: 100, // Set the width and height to create a circle
+        height: 100,
+        alignItems: 'center', // Center the timer content horizontally
+        justifyContent: 'center', // Center the timer content vertically
+    },
+    timerText: {
+        fontSize: 30,  // Increase the font size for the timer
+        fontWeight: 'bold',
     },
     inputContainer: {
         flexDirection: 'row',
@@ -176,28 +187,34 @@ const styles = StyleSheet.create({
     input: {
         width: 150,
         height: 40,
+        backgroundColor: 'rgba(255, 255, 255, 0.8)',
         borderColor: 'gray',
         borderWidth: 1,
         marginRight: 10,
         paddingLeft: 10,
     },
-    buttonText: {
-        color: 'white',
-        fontSize: 16,
-        fontWeight: 'bold',
-    },
+
     message: {
         fontSize: 20,
         marginBottom: 20,
     },
     button: {
-        backgroundColor: '#16247d',
+        marginTop: 10,
+        width: '70%',
+        backgroundColor: 'rgb(44,44,44)',
         padding: 15,
-        borderRadius: 10,
-        alignItems: 'center',
-        width: '90%',
-        elevation: 3,
-        marginBottom:50,
+        borderRadius: 8,
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 2 },
+        shadowOpacity: 0.3,
+        shadowRadius: 2,
+        elevation: 5,
+        marginBottom: 10,
+    },
+    buttonText: {
+        color: 'white',
+        textAlign: 'center',
+        fontSize: 16,
     },
 
 });

@@ -51,11 +51,11 @@ function FlappyBird() {
   };
 
   return (
-    <View style={{ flex: 1 }}>
-      <Text style={{ textAlign: 'center', fontSize: 40, fontWeight: 'bold', margin: 20 }}>
+      <View style={{ flex: 1, backgroundColor: 'rgba(136,212,236,0.76)' }}>
+      <Text style={{ textAlign: 'center', fontSize: 40, fontWeight: 'bold', margin: 20, color: '#000' }}>
         {currentPoints}
       </Text>
-      <Text style={{ textAlign: 'center', fontSize: 20, fontWeight: 'bold', margin: 10, color: 'green' }}>
+      <Text style={{ textAlign: 'center', fontSize: 20, fontWeight: 'bold', margin: 10, color: '#000' }}>
         High Score: {highScore}
       </Text>
       <GameEngine
@@ -90,7 +90,7 @@ function FlappyBird() {
       {!running ? (
         <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
           <TouchableOpacity
-            style={{ backgroundColor: 'black', paddingHorizontal: 30, paddingVertical: 10 }}
+            style={{ backgroundColor: '#16247d', paddingHorizontal: 30, paddingVertical: 10 }}
             onPress={() => {
               setCurrentPoints(0);
               setRunning(true);

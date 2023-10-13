@@ -9,7 +9,7 @@ const Obstacle = props => {
   const xBody = props.body.position.x - widthBody / 2;
   const yBody = props.body.position.y - heightBody / 2;
 
-  const color = 'green'; 
+  const color = '#16247d';
 
   return (
     <View
