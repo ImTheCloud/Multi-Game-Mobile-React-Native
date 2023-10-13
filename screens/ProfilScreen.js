@@ -5,7 +5,7 @@ import { auth, firestore,storage } from '../firebase';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import cielBackground from '../assets/blueBack.jpg';
 import * as ImagePicker from 'expo-image-picker';
-import {Ionicons} from "@expo/vector-icons";
+import {Entypo, Ionicons} from "@expo/vector-icons";
 
 export default function ProfileScreen() {
   const [newName, setNewName] = useState('');
@@ -212,9 +212,17 @@ export default function ProfileScreen() {
 
                   <View style={styles.divider}></View>
                   <View style={styles.infoRow}>
-                    <Icon name="trophy" size={27} color="#000" />
+                    <Entypo name="trophy" size={27} color="#000" />
                     <Text style={styles.label}>High Score Flappy Bird: {userProfile?.highScore || 0}</Text>
                   </View>
+
+                  <View style={styles.divider}></View>
+                  <View style={styles.infoRow}>
+                    <Icon name="trophy" size={27} color="#000" />
+                    <Text style={styles.label}>High Score Quizz: {userProfile?.HighScoreQuizz || 0}</Text>
+                  </View>
+
+
 
                   <View style={styles.divider}></View>
                   <View style={styles.infoRow}>
@@ -222,11 +230,9 @@ export default function ProfileScreen() {
                     <Text style={styles.label}>Points Hang Man: {userProfile?.pointsHangman || 0}</Text>
                   </View>
 
-                  <View style={styles.divider}></View>
-                  <View style={styles.infoRow}>
-                    <Icon name="star" size={27} color="#000" />
-                    <Text style={styles.label}>All Points: {userProfile?.pointsHangman + userProfile?.highScore +userProfile?.HighLevelNumberGuess|| 0}</Text>
-                  </View>
+
+
+
 
                   <View style={styles.divider}>
 
