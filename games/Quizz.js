@@ -1,13 +1,18 @@
 import React, {useEffect, useState} from 'react';
 import {ImageBackground, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import {Ionicons} from '@expo/vector-icons';
-import {useNavigation} from '@react-navigation/native';
 import { Alert } from 'react-native';
-
 import quizzData from '../quizz.json';
 
-function FontAwesome(props) {
-    return null;
+
+// Ajoutez cette fonction au début de votre fichier
+function shuffleArray(array) {
+    const shuffledArray = array.slice();
+    for (let i = shuffledArray.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [shuffledArray[i], shuffledArray[j]] = [shuffledArray[j], shuffledArray[i]];
+    }
+    return shuffledArray;
 }
 
 const Quizz = () => {
@@ -18,10 +23,21 @@ const Quizz = () => {
     const [timer, setTimer] = useState(20);
     const [isRunning, setIsRunning] = useState(true);
     const [lives, setLives] = useState(3); // Added state for lives
-    const navigation = useNavigation();
+    const [shuffledQuestions, setShuffledQuestions] = useState([]);
+
+
+    useEffect(() => {
+        if (quizzData.quiz) {
+            // Shuffle the questions when the component mounts
+            setShuffledQuestions(shuffleArray(Object.values(quizzData.quiz)));
+        }
+    }, []);
+
 
     useEffect(() => {
         let interval;
+
+        const getCurrentQuestion = () => shuffledQuestions[currentQuestion];
 
         if (timer > 0 && isRunning) {
             interval = setInterval(() => {
@@ -32,7 +48,8 @@ const Quizz = () => {
         }
 
         return () => clearInterval(interval);
-    }, [timer, isRunning]);
+    }, [timer, isRunning, currentQuestion, shuffledQuestions]);
+
 
     const handleTimeUp = () => {
         const correctAnswer = getCurrentQuestion().answer;
@@ -99,13 +116,16 @@ const Quizz = () => {
         }
     };
 
-    const getCurrentQuestion = () => quizzData.quiz[`q${currentQuestion + 1}`];
+    const getCurrentQuestion = () => {
+        // Assurez-vous que shuffledQuestions[currentQuestion] est défini
+        return shuffledQuestions[currentQuestion] || {};
+    };
 
-    const getTotalQuestions = () => Object.keys(quizzData.quiz).length;
+    const getTotalQuestions = () => shuffledQuestions.length;
 
     const renderOptions = () => {
-        const options = getCurrentQuestion().options;
-        const correctAnswer = getCurrentQuestion().answer;
+        const options = getCurrentQuestion().options || [];
+        const correctAnswer = getCurrentQuestion().answer || '';
 
         return options.map((option, index) => (
             <TouchableOpacity
@@ -136,7 +156,8 @@ const Quizz = () => {
 
     const renderCorrectAnswer = () => {
         if (showScore) {
-            const correctAnswer = getCurrentQuestion().answer;
+            const currentQuestion = getCurrentQuestion();
+            const correctAnswer = currentQuestion.answer || '';
             return (
                 <View>
                     <Text style={styles.correctAnswer}>
