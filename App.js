@@ -3,7 +3,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { View, Text } from 'react-native';
-import { Entypo, Ionicons, FontAwesome, FontAwesome5, AntDesign } from '@expo/vector-icons';
+import { Entypo, Ionicons, FontAwesome, FontAwesome5 } from '@expo/vector-icons';
 import GameScreen from './screens/GameScreen';
 import LoginScreen from './screens/LoginScreen';
 import RegisterScreen from './screens/RegisterScreen';
@@ -15,45 +15,22 @@ import HangmanGame from './games/HangmanGame';
 import ConnectFour from './games/ConnectFour';
 import NumberGuess from './games/NumberGuess';
 import Quizz from './games/Quizz';
-
-
 import FlappyBird from './games/Flappybird/FlappyBird';
 import SettingsScreen from './screens/SettingsScreen';
 import { auth } from './firebase';
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
-
-const screenOptions = {
-  tabBarShowLabel: false,
-  headerShown: false,
-  tabBarStyle: {
-    position: 'absolute',
-    bottom: 0,
-    right: 0,
-    left: 0,
-    elevation: 0,
-    height: 60,
-    backgroundColor: '#eaf5ff', 
-  },
-};
-
-
 const GameStack = createStackNavigator();
-
 const GameStackScreen = () => (
-  <GameStack.Navigator screenOptions={{ headerTitle: '' }}>
-    <GameStack.Screen
-        name="GameScreen"
-        component={GameScreen}
-        options={{ headerShown: false }}
-    />
-    <GameStack.Screen name="NumberGuess" component={NumberGuess}  />
-      <GameStack.Screen name="FlappyBird" component={FlappyBird}  />
-      <GameStack.Screen name="TicTacToe" component={TicTacToe} />
-    <GameStack.Screen name="HangmanGame" component={HangmanGame} />
-    <GameStack.Screen name="ConnectFour" component={ConnectFour} />
-    <GameStack.Screen name="Quizz" component={Quizz} />
+  <GameStack.Navigator screenOptions={{ headerShown: false  }}>
+    <GameStack.Screen name="GameScreen" component={GameScreen}/>
+    <GameStack.Screen name="NumberGuess" component={NumberGuess}/>
+      <GameStack.Screen name="FlappyBird" component={FlappyBird}/>
+      <GameStack.Screen name="TicTacToe" component={TicTacToe}/>
+    <GameStack.Screen name="HangmanGame" component={HangmanGame}/>
+    <GameStack.Screen name="ConnectFour" component={ConnectFour}/>
+    <GameStack.Screen name="Quizz" component={Quizz}/>
 
   </GameStack.Navigator>
 );
@@ -165,4 +142,17 @@ const App = () => {
   );
 };
 
+const screenOptions = {
+    tabBarShowLabel: false,
+    headerShown: false,
+    tabBarStyle: {
+        position: 'absolute',
+        bottom: 0,
+        right: 0,
+        left: 0,
+        elevation: 0,
+        height: 60,
+        backgroundColor: '#eaf5ff',
+    },
+};
 export default App;

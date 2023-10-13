@@ -120,6 +120,7 @@ const styles = StyleSheet.create({
     flex: 1,
     resizeMode: 'cover',
     justifyContent: 'center',
+    backgroundColor: 'red'
   },
   container: {
     flex: 1,
