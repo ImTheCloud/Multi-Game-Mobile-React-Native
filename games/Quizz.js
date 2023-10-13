@@ -24,6 +24,73 @@ const Quizz = () => {
     const [isRunning, setIsRunning] = useState(true);
     const [lives, setLives] = useState(3); // Added state for lives
     const [shuffledQuestions, setShuffledQuestions] = useState([]);
+    const [selectedQuiz, setSelectedQuiz] = useState(null);
+
+    const renderBackToSelectionButton = () => {
+        if (selectedQuiz !== null) {
+            return (
+                <TouchableOpacity style={styles.homeButton} onPress={() => backToQuizSelection()}>
+                    <Ionicons name="md-arrow-back" size={24} color="white" />
+                </TouchableOpacity>
+            );
+        }
+        return null;
+    };
+
+    const backToQuizSelection = () => {
+        // Reset the selected quiz and go back to quiz selection
+        setSelectedQuiz(null);
+        resetGame();
+    };
+    const renderQuizSelection = () => {
+        if (selectedQuiz === null) {
+            return (
+                <View style={styles.quizSelectionContainer}>
+                    <Text style={styles.quizSelectionTitle}>Choose a Quiz:</Text>
+                    <TouchableOpacity style={styles.quizButton} onPress={() => startQuiz('quizz')}>
+                        <Text style={styles.quizButtonText}>Random IT</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.quizButton} onPress={() => startQuiz('quizzComputer')}>
+                        <Text style={styles.quizButtonText}>Computer</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.quizButton} onPress={() => startQuiz('quizzJava')}>
+                        <Text style={styles.quizButtonText}>Java</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.quizButton} onPress={() => startQuiz('quizzReact')}>
+                        <Text style={styles.quizButtonText}>React</Text>
+                    </TouchableOpacity>
+                </View>
+            );
+        }
+        return null;
+    };
+
+    const startQuiz = (quizType) => {
+        // Charger les données du quiz spécifique en fonction du type de quiz
+        let quizData;
+        switch (quizType) {
+            case 'quizz':
+                quizData = require('../quizz.json');
+                break;
+            case 'quizzComputer':
+                quizData = require('../quizzComputer.json');
+                break;
+            case 'quizzJava':
+                quizData = require('../quizzJava.json');
+                break;
+            case 'quizzReact':
+                quizData = require('../quizzReact.json');
+                break;
+            default:
+                quizData = require('../quizz.json');
+        }
+
+        // Initialiser le jeu avec les données du quiz chargé
+        setSelectedQuiz(quizType);
+        resetGame();
+        setShuffledQuestions(shuffleArray(Object.values(quizData.quiz)));
+    };
+
 
 
     useEffect(() => {
@@ -191,25 +258,62 @@ const Quizz = () => {
             style={styles.background}
         >
             <View style={styles.container}>
-
-                <View style={styles.timer}>
-                    <Text style={styles.timerText}>{timer}</Text>
-                </View>
-                <Text style={styles.scoreText}>Score {score}</Text>
-                <View style={{ flexDirection: 'row', marginBottom: 10 }}>
-                    <Text style={styles.scoreText}></Text>
-                    {renderHearts()}
-                </View>
-                <Text style={styles.questionText}>{getCurrentQuestion().question}</Text>
-                {renderOptions()}
-                {renderNextButton()}
-                {renderCorrectAnswer()}
+                {renderBackToSelectionButton()}
+                {renderQuizSelection()}
+                {selectedQuiz !== null && (
+                    <>
+                        <View style={styles.timer}>
+                            <Text style={styles.timerText}>{timer}</Text>
+                        </View>
+                        <Text style={styles.scoreText}>Score {score}</Text>
+                        <View style={{ flexDirection: 'row', marginBottom: 10 }}>
+                            <Text style={styles.scoreText}></Text>
+                            {renderHearts()}
+                        </View>
+                        <Text style={styles.questionText}>{getCurrentQuestion().question}</Text>
+                        {renderOptions()}
+                        {renderNextButton()}
+                        {renderCorrectAnswer()}
+                    </>
+                )}
             </View>
         </ImageBackground>
     );
+
 };
 
 const styles = StyleSheet.create({
+
+    quizSelectionContainer: {
+        width: '120%',
+        alignItems: 'center',
+        marginTop: 50,
+    },
+    quizSelectionTitle: {
+        fontSize: 24,
+        fontWeight: 'bold',
+        marginBottom: 20,
+        color: 'white',
+    },
+    quizButton: {
+        marginTop: 10,
+        width: '70%',
+        backgroundColor: 'rgb(44,44,44)',
+        padding: 15,
+        borderRadius: 8,
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 2 },
+        shadowOpacity: 0.3,
+        shadowRadius: 2,
+        elevation: 5,
+        marginBottom: 10,
+    },
+    quizButtonText: {
+        color: 'white',
+        textAlign: 'center',
+        fontSize: 16,
+    },
+
     background: {
         flex: 1,
         resizeMode: 'cover',

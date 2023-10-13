@@ -1,0 +1,486 @@
+{
+  "quiz": {
+    "q1": {
+      "question": "What is the purpose of RAM in a computer?",
+      "options": [
+        "Random Access Memory",
+        "Read-Only Memory",
+        "Remote Access Memory"
+      ],
+      "answer": "Random Access Memory"
+    },
+    "q2": {
+      "question": "Which programming language is commonly used for artificial intelligence and machine learning?",
+      "options": [
+        "Java",
+        "Python",
+        "C#"
+      ],
+      "answer": "Python"
+    },
+    "q3": {
+      "question": "What is the function of an operating system in a computer?",
+      "options": [
+        "Manages hardware and software resources",
+        "Processes mathematical calculations",
+        "Designs graphical user interfaces"
+      ],
+      "answer": "Manages hardware and software resources"
+    },
+    "q4": {
+      "question": "What does the acronym HTML stand for?",
+      "options": [
+        "Hyperlink and Text Markup Language",
+        "Hypertext Markup Language",
+        "High-Level Text Management Language"
+      ],
+      "answer": "Hypertext Markup Language"
+    },
+    "q5": {
+      "question": "In networking, what does TCP/IP stand for?",
+      "options": [
+        "Transmission Control Protocol/Internet Protocol",
+        "Technical Communication Process/Internet Provider",
+        "Time-Critical Processing/Integrated Protocol"
+      ],
+      "answer": "Transmission Control Protocol/Internet Protocol"
+    },
+    "q6": {
+      "question": "What is the purpose of a firewall in computer security?",
+      "options": [
+        "Monitors internet speed",
+        "Blocks unauthorized access",
+        "Manages printer settings"
+      ],
+      "answer": "Blocks unauthorized access"
+    },
+    "q7": {
+      "question": "Which company developed the Java programming language?",
+      "options": [
+        "Microsoft",
+        "Sun Microsystems",
+        "IBM"
+      ],
+      "answer": "Sun Microsystems"
+    },
+    "q8": {
+      "question": "What does the acronym URL stand for?",
+      "options": [
+        "Uniform Resource Locator",
+        "Universal Reference Language",
+        "Unified Resource Link"
+      ],
+      "answer": "Uniform Resource Locator"
+    },
+    "q9": {
+      "question": "What is the purpose of a GPU in a computer?",
+      "options": [
+        "Generates random passwords",
+        "Handles graphics processing",
+        "Manages network connections"
+      ],
+      "answer": "Handles graphics processing"
+    },
+    "q10": {
+      "question": "Which file format is commonly used for compressed archives?",
+      "options": [
+        "TAR",
+        "ZIP",
+        "EXE"
+      ],
+      "answer": "ZIP"
+    },
+    "q11": {
+      "question": "What is the role of a compiler in programming?",
+      "options": [
+        "Converts source code to machine code",
+        "Executes the program",
+        "Manages database connections"
+      ],
+      "answer": "Converts source code to machine code"
+    },
+    "q12": {
+      "question": "Which protocol is used for sending emails over the Internet?",
+      "options": [
+        "FTP",
+        "SMTP",
+        "HTTP"
+      ],
+      "answer": "SMTP"
+    },
+    "q13": {
+      "question": "What is the difference between HTTP and HTTPS?",
+      "options": [
+        "Hypertext Transfer Protocol and Hypertext Transfer Protocol Secure",
+        "High Transmission Performance and High Security Protocol",
+        "Hyperlink Text Processing and Hyperlink Text Security"
+      ],
+      "answer": "Hypertext Transfer Protocol and Hypertext Transfer Protocol Secure"
+    },
+    "q14": {
+      "question": "What is the purpose of the BIOS in a computer system?",
+      "options": [
+        "Manages peripheral devices",
+        "Loads the operating system",
+        "Controls internet access"
+      ],
+      "answer": "Loads the operating system"
+    },
+    "q15": {
+      "question": "What is the primary function of DNS in networking?",
+      "options": [
+        "Determines the speed of internet connections",
+        "Translates domain names to IP addresses",
+        "Manages network security"
+      ],
+      "answer": "Translates domain names to IP addresses"
+    },
+    "q16": {
+      "question": "Which programming paradigm does Java primarily follow?",
+      "options": [
+        "Procedural",
+        "Object-oriented",
+        "Functional"
+      ],
+      "answer": "Object-oriented"
+    },
+    "q17": {
+      "question": "What is the purpose of the SQL language in databases?",
+      "options": [
+        "Securing the query language",
+        "Structured Query Language for database operations",
+        "Simplifying Quick Language"
+      ],
+      "answer": "Structured Query Language for database operations"
+    },
+    "q18": {
+      "question": "What is a DDoS attack in the context of computer networks?",
+      "options": [
+        "Distributed Denial of Service",
+        "Direct Data Overload System",
+        "Dynamic Database Operating System"
+      ],
+      "answer": "Distributed Denial of Service"
+    },
+    "q19": {
+      "question": "What is the difference between software and hardware?",
+      "options": [
+        "Software is tangible, hardware is intangible",
+        "Software refers to physical components, hardware refers to programs",
+        "Hardware is tangible, software is intangible"
+      ],
+      "answer": "Hardware is tangible, software is intangible"
+    },
+    "q20": {
+      "question": "Which type of storage device uses magnetic storage technology?",
+      "options": [
+        "SSD (Solid State Drive)",
+        "HDD (Hard Disk Drive)",
+        "USB Flash Drive"
+      ],
+      "answer": "HDD (Hard Disk Drive)"
+    },
+  "q21": {
+    "question": "What is the fundamental binary unit used in digital computing?",
+    "options": ["Bit",
+      "Nibble",
+      "Byte"],
+    "answer": "Bit"
+  },
+  "q22": {
+    "question": "What does Moore's Law state in the context of computer hardware?",
+    "options": ["The number of transistors on a microchip doubles approximately every two years", "Computing power increases linearly over time", "The speed of light determines computer processing speed"],
+    "answer": "The number of transistors on a microchip doubles approximately every two years"
+  },
+  "q23": {
+    "question": "What is the primary function of a transistor in electronic circuits?",
+    "options": ["Amplify electrical signals", "Store data", "Generate heat"],
+    "answer": "Amplify electrical signals"
+  },
+  "q24": {
+    "question": "What is the purpose of cache memory in a computer system?",
+    "options": ["Store frequently accessed data for faster retrieval", "Maintain long-term storage of files", "Manage network connections"],
+    "answer": "Store frequently accessed data for faster retrieval"
+  },
+  "q25": {
+    "question": "In the context of computer graphics, what does GPU stand for?",
+    "options": ["General Processing Unit", "Graphics Processing Unit", "Global Processing Unit"],
+    "answer": "Graphics Processing Unit"
+  },
+  "q26": {
+    "question": "What is the significance of the Turing Test in artificial intelligence?",
+    "options": ["It assesses a machine's ability to exhibit human-like intelligence", "It measures processing speed", "It evaluates network security"],
+    "answer": "It assesses a machine's ability to exhibit human-like intelligence"
+  },
+  "q27": {
+    "question": "What is quantum computing?",
+    "options": ["A type of computing that uses quantum bits (qubits)", "A method of data compression", "A type of parallel processing"],
+    "answer": "A type of computing that uses quantum bits (qubits)"
+  },
+  "q28": {
+    "question": "What is the function of a CPU cache?",
+    "options": ["Store instructions and data temporarily for the CPU", "Manage internet connections", "Control peripheral devices"],
+    "answer": "Store instructions and data temporarily for the CPU"
+  },
+  "q29": {
+    "question": "What is the role of a compiler in the execution of a program?",
+    "options": ["Converts source code to machine code", "Manages user interfaces", "Optimizes database queries"],
+    "answer": "Converts source code to machine code"
+  },
+  "q30": {
+    "question": "What is meant by the term 'clock speed' in computer hardware?",
+    "options": ["The speed at which data travels between components", "The rate at which the CPU executes instructions", "The time it takes to start up a computer"],
+    "answer": "The rate at which the CPU executes instructions"
+  },
+  "q31": {
+    "question": "What is a quantum bit (qubit) in quantum computing?",
+    "options": ["The smallest unit of information in classical computing", "A unit of data storage in hard drives", "A unit of quantum information"],
+    "answer": "A unit of quantum information"
+  },
+  "q32": {
+    "question": "What is the significance of Heisenberg's Uncertainty Principle in quantum computing?",
+    "options": ["It limits the precision with which certain pairs of properties can be known simultaneously", "It determines the speed of quantum computers", "It defines the behavior of classical bits"],
+    "answer": "It limits the precision with which certain pairs of properties can be known simultaneously"
+  },
+  "q33": {
+    "question": "What is the function of an optical disc drive in a computer?",
+    "options": ["Reads and writes data on optical discs", "Manages network protocols", "Generates electricity"],
+    "answer": "Reads and writes data on optical discs"
+  },
+  "q34": {
+    "question": "What is meant by the term 'Latency' in computer networks?",
+    "options": ["The delay between initiating an action and the occurrence of the intended result", "The speed of data transmission", "The size of data packets"],
+    "answer": "The delay between initiating an action and the occurrence of the intended result"
+  },
+  "q35": {
+    "question": "What is the primary purpose of RAID (Redundant Array of Independent Disks) in storage systems?",
+    "options": ["Improve data storage performance and reliability", "Encrypt data for security", "Connect multiple computers in a network"],
+    "answer": "Improve data storage performance and reliability"
+  },
+  "q36": {
+    "question": "What is the role of a heat sink in computer hardware?",
+    "options": ["Dissipate heat generated by electronic components", "Store large amounts of data", "Amplify electrical signals"],
+    "answer": "Dissipate heat generated by electronic components"
+  },
+  "q37": {
+    "question": "What is the significance of the von Neumann architecture in computer design?",
+    "options": ["It defines the basic structure of modern computers", "It measures network bandwidth", "It determines the speed of hard drives"],
+    "answer": "It defines the basic structure of modern computers"
+  },
+  "q38": {
+    "question": "What is the purpose of the Control Unit in a CPU?",
+    "options": ["Manages the execution of instructions", "Handles graphics processing", "Stores frequently accessed data"],
+    "answer": "Manages the execution of instructions"
+  },
+  "q39": {
+    "question": "What is the concept of virtualization in computer systems?",
+    "options": ["Creating a virtual version of a device or resource", "Increasing the clock speed of a CPU", "Improving internet speed"],
+    "answer": "Creating a virtual version of a device or resource"
+  },
+  "q40": {
+    "question": "What is the primary purpose of an EEPROM (Electrically Erasable Programmable Read-Only Memory) in computer systems?",
+    "options": ["Storing non-volatile data that can be electronically erased and reprogrammed", "Executing program instructions", "Managing network security"],
+    "answer": "Storing non-volatile data that can be electronically erased and reprogrammed"
+  },
+  "q41": {
+    "question": "What is the primary function of the Central Processing Unit (CPU) in a computer?",
+    "options": ["Manage peripheral devices", "Execute instructions and perform calculations", "Handle graphics processing"],
+    "answer": "Execute instructions and perform calculations"
+  },
+  "q42": {
+    "question": "Which component is responsible for storing data permanently in a computer?",
+    "options": ["Random Access Memory (RAM)", "Hard Disk Drive (HDD)", "Central Processing Unit (CPU)"],
+    "answer": "Hard Disk Drive (HDD)"
+  },
+  "q43": {
+    "question": "What is the purpose of Random Access Memory (RAM) in a computer?",
+    "options": ["Long-term storage of files", "Temporary storage for running programs", "Managing network connections"],
+    "answer": "Temporary storage for running programs"
+  },
+  "q44": {
+    "question": "Which component is responsible for managing the flow of data between the CPU and other devices?",
+    "options": ["Power Supply Unit (PSU)", "Motherboard", "Graphics Processing Unit (GPU)"],
+    "answer": "Motherboard"
+  },
+  "q45": {
+    "question": "What does GPU stand for in the context of a computer?",
+    "options": ["General Processing Unit", "Graphics Processing Unit", "Global Processing Unit"],
+    "answer": "Graphics Processing Unit"
+  },
+  "q46": {
+    "question": "Which component is responsible for providing power to all other components in a computer?",
+    "options": ["Central Processing Unit (CPU)", "Power Supply Unit (PSU)", "Random Access Memory (RAM)"],
+    "answer": "Power Supply Unit (PSU)"
+  },
+  "q47": {
+    "question": "What is the purpose of the motherboard in a computer?",
+    "options": ["Handle graphics processing", "Provide power to components", "Connect and communicate with all other components"],
+    "answer": "Connect and communicate with all other components"
+  },
+  "q48": {
+    "question": "Which component is crucial for displaying visuals on a computer monitor?",
+    "options": ["Central Processing Unit (CPU)", "Random Access Memory (RAM)", "Graphics Processing Unit (GPU)"],
+    "answer": "Graphics Processing Unit (GPU)"
+  },
+  "q49": {
+    "question": "What is the role of the Hard Disk Drive (HDD) in a computer system?",
+    "options": ["Temporary storage for running programs", "Long-term storage of files", "Providing power to components"],
+    "answer": "Long-term storage of files"
+  },
+  "q50": {
+    "question": "Which type of memory is non-volatile and retains data even when the power is turned off?",
+    "options": ["Random Access Memory (RAM)", "Read-Only Memory (ROM)", "Cache Memory"],
+    "answer": "Read-Only Memory (ROM)"
+  },
+  "q51": {
+    "question": "What is the purpose of the Cache Memory in a computer?",
+    "options": ["Long-term storage of files", "Temporary storage for running programs", "Store frequently accessed data for faster retrieval"],
+    "answer": "Store frequently accessed data for faster retrieval"
+  },
+  "q52": {
+    "question": "Which component is responsible for managing the input and output devices of a computer?",
+    "options": ["Central Processing Unit (CPU)", "Motherboard", "Input/Output Controller"],
+    "answer": "Input/Output Controller"
+  },
+  "q53": {
+    "question": "What is the function of the Power Supply Unit (PSU) in a computer?",
+    "options": ["Temporary storage for running programs", "Provide power to components", "Connect and communicate with all other components"],
+    "answer": "Provide power to components"
+  },
+  "q54": {
+    "question": "Which component stores the computer's BIOS or UEFI firmware?",
+    "options": ["Random Access Memory (RAM)", "Central Processing Unit (CPU)", "CMOS Battery"],
+    "answer": "CMOS Battery"
+  },
+  "q55": {
+    "question": "What is the purpose of the BIOS/UEFI in a computer?",
+    "options": ["Temporary storage for running programs", "Manage peripheral devices", "Initialize the hardware and load the operating system"],
+    "answer": "Initialize the hardware and load the operating system"
+  },
+  "q56": {
+    "question": "Which component is responsible for managing network connections in a computer?",
+    "options": ["Central Processing Unit (CPU)", "Network Interface Card (NIC)", "Motherboard"],
+    "answer": "Network Interface Card (NIC)"
+  },
+  "q57": {
+    "question": "What is the purpose of the CMOS battery in a computer?",
+    "options": ["Store frequently accessed data for faster retrieval", "Provide power to components", "Retain BIOS/UEFI settings"],
+    "answer": "Retain BIOS/UEFI settings"
+  },
+  "q58": {
+    "question": "Which component is responsible for managing the cooling system of a computer?",
+    "options": ["Central Processing Unit (CPU) Cooler", "Power Supply Unit (PSU)", "Motherboard"],
+    "answer": "Central Processing Unit (CPU) Cooler"
+  },
+  "q59": {
+    "question": "What is the purpose of the Network Interface Card (NIC) in a computer?",
+    "options": ["Connect and communicate with all other components", "Manage network connections", "Store frequently accessed data for faster retrieval"],
+    "answer": "Manage network connections"
+  },
+  "q60": {
+    "question": "Which component provides a temporary high-speed storage area between the RAM and the CPU?",
+    "options": ["Cache Memory", "Hard Disk Drive (HDD)", "Solid State Drive (SSD)"],
+    "answer": "Cache Memory"
+  },
+  "q61": {
+    "question": "What is the purpose of a Solid State Drive (SSD) in a computer?",
+    "options": ["Long-term storage of files", "Temporary storage for running programs", "Fast and reliable storage without moving parts"],
+    "answer": "Fast and reliable storage without moving parts"
+  },
+  "q62": {
+    "question": "Which component connects the CPU to the memory and other peripherals on the motherboard?",
+    "options": ["Southbridge", "Northbridge", "Heat Sink"],
+    "answer": "Northbridge"
+  },
+  "q63": {
+    "question": "What is the function of the Southbridge on a motherboard?",
+    "options": ["Manage data flow between the CPU and memory", "Handle communication with peripheral devices", "Control the system clock"],
+    "answer": "Handle communication with peripheral devices"
+  },
+  "q64": {
+    "question": "Which component is responsible for converting digital signals to analog signals and vice versa in a computer?",
+    "options": ["Central Processing Unit (CPU)", "Graphics Processing Unit (GPU)", "Modem"],
+    "answer": "Modem"
+  },
+  "q65": {
+    "question": "What does the term 'BIOS' stand for in computing?",
+    "options": ["Basic Input Output System", "Binary Input Output System", "Backup Input Output System"],
+    "answer": "Basic Input Output System"
+  },
+  "q66": {
+    "question": "Which component is crucial for providing temporary high-speed storage directly accessible by the CPU?",
+    "options": ["Hard Disk Drive (HDD)", "Random Access Memory (RAM)", "Solid State Drive (SSD)"],
+    "answer": "Random Access Memory (RAM)"
+  },
+  "q67": {
+    "question": "What is the primary function of a sound card in a computer?",
+    "options": ["Manage network connections", "Provide audio input and output", "Handle graphics processing"],
+    "answer": "Provide audio input and output"
+  },
+  "q68": {
+    "question": "Which component is responsible for managing the power supply and distribution in a computer?",
+    "options": ["Central Processing Unit (CPU)", "Motherboard", "Power Supply Unit (PSU)"],
+    "answer": "Power Supply Unit (PSU)"
+  },
+  "q69": {
+    "question": "What is the purpose of a Heat Sink in a computer?",
+    "options": ["Dissipate heat generated by electronic components", "Store frequently accessed data", "Manage network connections"],
+    "answer": "Dissipate heat generated by electronic components"
+  },
+  "q70": {
+    "question": "Which component connects the CPU to external peripheral devices such as USB ports and audio jacks?",
+    "options": ["Southbridge", "Northbridge", "Input/Output Controller"],
+    "answer": "Southbridge"
+  },
+  "q71": {
+    "question": "What is the role of the Power Supply Unit (PSU) fan in a computer?",
+    "options": ["Provide audio output", "Cool the power supply components", "Manage network connections"],
+    "answer": "Cool the power supply components"
+  },
+  "q72": {
+    "question": "Which component is responsible for managing the computer's internal clock and timekeeping functions?",
+    "options": ["Central Processing Unit (CPU)", "Motherboard", "CMOS Battery"],
+    "answer": "CMOS Battery"
+  },
+  "q73": {
+    "question": "What does RAID stand for in the context of storage systems?",
+    "options": ["Random Access Independent Disks", "Redundant Array of Independent Disks", "Rapid Array of Input/Output Devices"],
+    "answer": "Redundant Array of Independent Disks"
+  },
+  "q74": {
+    "question": "What is the function of a Network Interface Card (NIC) in a computer?",
+    "options": ["Provide power to components", "Connect and communicate with all other components", "Manage network connections"],
+    "answer": "Manage network connections"
+  },
+  "q75": {
+    "question": "Which component stores the computer's system configuration and settings even when the power is turned off?",
+    "options": ["Hard Disk Drive (HDD)", "Random Access Memory (RAM)", "CMOS Battery"],
+    "answer": "CMOS Battery"
+  },
+  "q76": {
+    "question": "What is the purpose of a CD/DVD drive in a computer?",
+    "options": ["Temporary storage for running programs", "Read and write data on optical discs", "Manage network connections"],
+    "answer": "Read and write data on optical discs"
+  },
+  "q77": {
+    "question": "Which component is responsible for managing the computer's graphics and visual output?",
+    "options": ["Central Processing Unit (CPU)", "Graphics Processing Unit (GPU)", "Motherboard"],
+    "answer": "Graphics Processing Unit (GPU)"
+  },
+  "q78": {
+    "question": "What is the purpose of a BIOS/UEFI firmware in a computer?",
+    "options": ["Temporary storage for running programs", "Initialize the hardware and load the operating system", "Manage network connections"],
+    "answer": "Initialize the hardware and load the operating system"
+  },
+  "q79": {
+    "question": "Which component is responsible for managing the communication between the CPU and storage devices?",
+    "options": ["Northbridge", "Southbridge", "Input/Output Controller"],
+    "answer": "Southbridge"
+  },
+  "q80": {
+    "question": "What is the function of a CMOS battery in a computer?",
+    "options": ["Store frequently accessed data for faster retrieval", "Provide power to components", "Retain BIOS/UEFI settings"],
+    "answer": "Retain BIOS/UEFI settings"
+  }
+}
+}
