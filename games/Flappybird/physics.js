@@ -26,8 +26,14 @@ const Physics = (entities, { touches, time, dispatch }) => {
           Matter.Body.setPosition(entities[`ObstacleBottom${index}`].body, pipeSizePos.pipeBottom.pos)
           entities[`ObstacleTop${index}`].point = false
       }
-      Matter.Body.translate(entities[`ObstacleTop${index}`].body, { x: -3, y: 0 })
-      Matter.Body.translate(entities[`ObstacleBottom${index}`].body, { x: -3, y: 0 })
+        const speed = -3 
+            //- time.delta / 10 - time.current / 100000; // Adjust the coefficient as needed
+        Matter.Body.translate(entities[`ObstacleTop${index}`].body, { x: speed, y: 0 });
+        Matter.Body.translate(entities[`ObstacleBottom${index}`].body, { x: speed, y: 0 });
+
+        // Log the speed for debugging
+        console.log(`Obstacle ${index} Speed: ${speed}`);
+
   }
   Matter.Events.on(engine, 'collisionStart', (event) => {
       dispatch({ type: 'game_over' })

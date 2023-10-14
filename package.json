@@ -21,9 +21,11 @@
     "expo": "~49.0.11",
     "expo-av": "~13.4.1",
     "expo-image-picker": "~14.3.2",
+    "expo-mail-composer": "~12.3.0",
     "expo-status-bar": "~1.6.0",
     "firebase": "^10.4.0",
     "matter-js": "^0.19.0",
+    "polished": "^4.2.2",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-native": "0.72.5",
@@ -36,8 +38,7 @@
     "react-native-svg": "13.9.0",
     "react-native-vector-icons": "^10.0.0",
     "react-native-web": "~0.19.6",
-    "react-svg": "^16.1.25",
-    "expo-mail-composer": "~12.3.0"
+    "react-svg": "^16.1.25"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0"
