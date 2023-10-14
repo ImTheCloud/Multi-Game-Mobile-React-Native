@@ -4,7 +4,7 @@ import {
   Text,
   StyleSheet,
   FlatList,
-  ImageBackground,
+  ImageBackground, ScrollView,
 } from 'react-native';
 import { firestore } from '../firebase';
 import cielBackground from "../assets/blueBack.jpg";
@@ -59,7 +59,7 @@ export default function RankingScreen() {
               <Picker.Item label="High Score Flappy Bird" value="highScore" />
               <Picker.Item label="High Points Hangman" value="pointsHangman" />
               <Picker.Item label="High Score Quizz" value="HighScoreQuizz" />
-
+              <Picker.Item label="High Score Hangman" value="highScoreHangman" />
             </Picker>
           </View>
 
@@ -68,6 +68,8 @@ export default function RankingScreen() {
               data={sortUsersByGame(selectedGame)}
               keyExtractor={(item, index) => `${item.nom}-${index}`}
               renderItem={renderItem}
+              ListHeaderComponent={() => null}  // You can replace null with your custom header component
+              ListFooterComponent={() => null}  // You can replace null with your custom footer component
           />
         </View>
       </ImageBackground>
@@ -75,6 +77,9 @@ export default function RankingScreen() {
 }
 
 const styles = StyleSheet.create({
+  scrollView: {
+    flex: 1,
+  },
   pickerContainer: {
     height: 50,
     flexDirection: 'row',

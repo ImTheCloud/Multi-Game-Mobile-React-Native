@@ -218,17 +218,19 @@ export default function ProfileScreen() {
 
                   <View style={styles.divider}></View>
                   <View style={styles.infoRow}>
+                    <Icon name="gamepad" size={27} color="#000" />
+                    <Text style={styles.label}>High Scroe Hangman: {userProfile?.highScoreHangman || 0}</Text>
+                  </View>
+
+                  <View style={styles.divider}></View>
+                  <View style={styles.infoRow}>
                     <Icon name="trophy" size={27} color="#000" />
                     <Text style={styles.label}>High Score Quizz: {userProfile?.HighScoreQuizz || 0}</Text>
                   </View>
 
 
 
-                  <View style={styles.divider}></View>
-                  <View style={styles.infoRow}>
-                    <Icon name="gamepad" size={27} color="#000" />
-                    <Text style={styles.label}>Points Hang Man: {userProfile?.pointsHangman || 0}</Text>
-                  </View>
+
 
 
 

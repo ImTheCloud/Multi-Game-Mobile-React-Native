@@ -16,13 +16,13 @@ export default function HangmanGame() {
       //70 words
   ];
 
-  const handleRestart = () => {
-    restartGame();
-  };
+
   const maxAttempts = 7;
 
   const chooseRandomWord = () => {
-    const randomIndex = Math.floor(Math.random() * words.length);
+    let randomIndex = Math.floor(Math.random() * words.length);
+    randomIndex = Math.floor(Math.random() * words.length);
+    randomIndex = Math.floor(Math.random() * words.length);
     return words[randomIndex];
   };
   const ALPHABET = 'AZERTYUIOPQSDFGHJKLMWXCVBN';
@@ -31,81 +31,74 @@ export default function HangmanGame() {
   const [word, setWord] = useState('');
   const [displayWord, setDisplayWord] = useState('');
   const [attempts, setAttempts] = useState(maxAttempts);
-  const [inputLetter, setInputLetter] = useState('');
+  const [highScoreHangman, setHighScoreHangman] = useState(0);
+  const [currentScore, setCurrentScore] = useState(0);
   const [hangmanTries, setHangmanTries] = useState(0);
   const [incorrectLetters, setIncorrectLetters] = useState([]);
   const [score, setScore] = useState(0);
   const [clickedLetters, setClickedLetters] = useState([]);
 
   useEffect(() => {
+    const fetchUserData = async () => {
+      try {
+        const userDoc = await userRef.get();
+        const userData = userDoc.data();
+        if (userData) {
+          setHighScoreHangman(userData.highScoreHangman || 0);
+        }
+      } catch (error) {
+        console.error('Error fetching user data:', error);
+      }
+    };
+
+    fetchUserData();
+
     const newWord = chooseRandomWord();
     setWord(newWord);
     setDisplayWord('_ '.repeat(newWord.length));
     setAttempts(maxAttempts);
     setHangmanTries(0);
     setIncorrectLetters([]);
-    setIndiceLetter(''); // Initialisez la lettre indice
+    setIndiceLetter('');
+    setCurrentScore(0); // Initialize current score
   }, []);
 
-  const handleGuess = () => {
-    if (inputLetter && inputLetter.length === 1) {
-      const letter = inputLetter.toUpperCase();
-
-      if (word.includes(letter)) {
-        const newDisplayWord = displayWord.split(' ');
-
-        for (let i = 0; i < word.length; i++) {
-          if (word[i] === letter) {
-            newDisplayWord[i] = letter;
-          }
-        }
-
-        setDisplayWord(newDisplayWord.join(' '));
-
-        if (newDisplayWord.join('') === word) {
-          handleWordGuessed();
-        }
-      } else {
-        setAttempts(attempts - 1);
-        setHangmanTries(hangmanTries + 1);
-        setIncorrectLetters([...incorrectLetters, letter]);
-
-        if (attempts - 1 === 0) {
-          handleGameLost();
-        }
-      }
-
-      setInputLetter('');
-    }
-  };
 
   const handleWordGuessed = async () => {
-    const updatedScore = score + 5;
-    setScore(updatedScore);
+    const updatedScore = currentScore + 5;
+    setCurrentScore(updatedScore);
 
-    try {
-      // Update user's score in Firestore
-      await userRef.update({
-        pointsHangman: updatedScore,
-      });
-    } catch (error) {
-      console.error('Error updating user score:', error);
+    // Update the high score if the current score is higher
+    if (updatedScore > highScoreHangman) {
+      setHighScoreHangman(updatedScore);
+      try {
+        // Update user's high score in Firestore
+        await userRef.update({
+          highScoreHangman: updatedScore,
+        });
+      } catch (error) {
+        console.error('Error updating user high score:', error);
+      }
     }
 
     restartGame();
   };
 
   const handleGameLost = async () => {
-    const updatedScore = Math.max(0, score - 3);
-    setScore(updatedScore);
+    const updatedScore = Math.max(0, currentScore - 3);
+    setCurrentScore(updatedScore);
 
-    try {
-      // Update user's score in Firestore
-      await userRef.update({
-        pointsHangman: updatedScore,
-      });
-    } catch (error) {
-      console.error('Error updating user score:', error);
+    // Update the high score if the current score is higher
+    if (updatedScore < highScoreHangman) {
+      setHighScoreHangman(updatedScore);
+      try {
+        // Update user's high score in Firestore
+        await userRef.update({
+          highScoreHangman: updatedScore,
+        });
+      } catch (error) {
+        console.error('Error updating user high score:', error);
+      }
     }
 
     Alert.alert(
@@ -114,6 +107,7 @@ export default function HangmanGame() {
         [{ text: 'OK', onPress: restartGame }]
     );
   };
+
 
   const handleAlphabetClick = (letter) => {
     if (!word.includes(letter)) {
@@ -198,7 +192,8 @@ export default function HangmanGame() {
         <TouchableOpacity style={styles.indiceButton} onPress={handleIndiceButtonClick}>
           <MaterialCommunityIcons name="lightbulb-on" size={32} color="#EFC88B" />
         </TouchableOpacity>
-        <Text style={styles.title}>Hangman</Text>
+        <Text style={styles.title}>Score {currentScore}</Text>
+
         <View style={styles.hangmanContainer}>
           <Text style={styles.incorrectLetters}>
             {incorrectLetters.map((letter, index) => (
@@ -230,9 +225,7 @@ export default function HangmanGame() {
               </TouchableOpacity>
           ))}
         </View>
-        <TouchableOpacity style={styles.restartButton} onPress={handleRestart}>
-          <Text style={styles.restartButtonText}>Restart</Text>
-        </TouchableOpacity>
+
       </View>
   );
 }
@@ -269,22 +262,6 @@ const styles = StyleSheet.create({
   alphabetButtonText: {
     color: 'white',
     fontSize: 16,
-  },
-  restartButton: {
-    backgroundColor: '#16247d',
-    padding: 15,
-    borderRadius: 10,
-    marginBottom:250,
-
-    alignItems: 'center',
-    width: '95%', // Take the full width of the screen
-    elevation: 3,
-
-  },
-  restartButtonText: {
-    color: 'white',
-    fontSize: 18,
-    fontWeight: 'bold',
   },
   score: {
     fontSize: 24,

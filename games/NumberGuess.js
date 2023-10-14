@@ -21,11 +21,11 @@ export default function NumberGuess() {
     const [level, setLevel] = useState(1);
     const [possibilities, setPossibilities] = useState(10);
     const [placeholderText, setPlaceholderText] = useState(`Your guess (1-${possibilities})`);
-    const [timeLeft, setTimeLeft] = useState(30); // Temps initial en secondes
+    const [timeLeft, setTimeLeft] = useState(20); // Temps initial en secondes
 
     useEffect(() => {
         // Réinitialiser le chronomètre à chaque niveau ou redémarrage du jeu
-        setTimeLeft(30);
+        setTimeLeft(20);
 
         // Définir une fonction d'intervalle pour mettre à jour le temps toutes les secondes
         const timer = setInterval(() => {
@@ -75,7 +75,7 @@ export default function NumberGuess() {
         setTargetNumber(generateRandomNumber(1, newPossibilities));
         setAttempts(1);
         setPlaceholderText(`Your guess (1-${newPossibilities})`);
-        setTimeLeft(30);
+        setTimeLeft(20);
 
         try {
             const userId = auth.currentUser.uid;
@@ -108,7 +108,7 @@ export default function NumberGuess() {
             setPossibilities(newPossibilities);
             setTargetNumber(generateRandomNumber(1, newPossibilities));
             setPlaceholderText(`Your guess (1-${newPossibilities})`);
-            setTimeLeft(30);
+            setTimeLeft(20);
         }
     };
 
@@ -209,7 +209,7 @@ const styles = StyleSheet.create({
         shadowOpacity: 0.3,
         shadowRadius: 2,
         elevation: 5,
-        marginBottom: 10,
+        marginBottom: -100,
     },
     buttonText: {
         color: 'white',
