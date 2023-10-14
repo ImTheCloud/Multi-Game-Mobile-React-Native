@@ -57,9 +57,8 @@ export default function RankingScreen() {
             >
               <Picker.Item label=" High Level Number Guess" value="HighLevelNumberGuess" />
               <Picker.Item label="High Score Flappy Bird" value="highScore" />
-              <Picker.Item label="High Points Hangman" value="pointsHangman" />
-              <Picker.Item label="High Score Quizz" value="HighScoreQuizz" />
               <Picker.Item label="High Score Hangman" value="highScoreHangman" />
+              <Picker.Item label="High Score Quizz" value="HighScoreQuizz" />
             </Picker>
           </View>
 

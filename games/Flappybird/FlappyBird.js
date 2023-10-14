@@ -55,9 +55,6 @@ function FlappyBird() {
       <Text style={{ textAlign: 'center', fontSize: 40, fontWeight: 'bold', margin: 20, color: '#000' }}>
         {currentPoints}
       </Text>
-      <Text style={{ textAlign: 'center', fontSize: 20, fontWeight: 'bold', margin: 10, color: '#000' }}>
-        High Score: {highScore}
-      </Text>
       <GameEngine
         ref={(ref) => {
           setGameEngine(ref);
