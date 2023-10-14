@@ -22,7 +22,7 @@ export default function HangmanGame() {
   ];
 
 
-  const maxAttempts = 7;
+  const maxAttempts = 5;
 
   const chooseRandomWord = () => {
     let randomIndex = Math.floor(Math.random() * words.length);

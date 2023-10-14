@@ -1,6 +1,6 @@
 import Matter from 'matter-js'
 import React from 'react'
-import { View, Image } from 'react-native'
+import { Image } from 'react-native'
 
 const birdImage = require('../../assets/flappybird.png'); // Assurez-vous que le chemin est correct
 

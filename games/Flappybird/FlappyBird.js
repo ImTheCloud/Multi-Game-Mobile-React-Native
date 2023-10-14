@@ -1,18 +1,16 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useState, useEffect } from 'react';
-import { Text, View, ImageBackground } from 'react-native';
+import { Text, View } from 'react-native';
 import { GameEngine } from 'react-native-game-engine';
 import entities from './entities';
 import Physics from './physics';
 import { TouchableOpacity } from 'react-native';
-import { Ionicons } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
-import { auth, firestore } from '../../firebase'; 
+import { auth, firestore } from '../../firebase';
 
 const birdImage = require('../../assets/flappybird.png');
 
 function FlappyBird() {
-  const navigation = useNavigation();
   const [running, setRunning] = useState(false);
   const [gameEngine, setGameEngine] = useState(null);
   const [currentPoints, setCurrentPoints] = useState(0);
@@ -54,6 +52,9 @@ function FlappyBird() {
       <View style={{ flex: 1, backgroundColor: 'rgba(136,212,236,0.76)' }}>
       <Text style={{ textAlign: 'center', fontSize: 40, fontWeight: 'bold', margin: 20, color: '#000' }}>
         {currentPoints}
+      </Text>
+      <Text style={{ textAlign: 'center', fontSize: 20, fontWeight: 'bold', margin: 10, color: '#000' }}>
+        High Score: {highScore}
       </Text>
       <GameEngine
         ref={(ref) => {
