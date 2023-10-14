@@ -122,7 +122,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     marginBottom: 10,
     textAlign: 'center',
-    color: '#16247d',
+    color: '#option',
   },
   modalText: {
     marginBottom: 20,

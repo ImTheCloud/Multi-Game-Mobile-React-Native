@@ -1,897 +1,796 @@
 {
   "quiz": {
-  "q1": {
-    "question": "What is React?",
-    "options": [
-      "A JavaScript library for building user interfaces",
-      "A server-side scripting language",
-      "A database management system"
-    ],
-    "answer": "A JavaScript library for building user interfaces"
-  },
-  "q2": {
-    "question": "What is JSX in React?",
-    "options": [
-      "JavaScript XML",
-      "Java Syntax Extension",
-      "JSON Exchange"
-    ],
-    "answer": "JavaScript XML"
-  },
-  "q3": {
-    "question": "What is the purpose of 'setState' in React?",
-    "options": [
-      "To fetch data from an API",
-      "To update the state of a component",
-      "To define a constant variable"
-    ],
-    "answer": "To update the state of a component"
-  },
-  "q4": {
-    "question": "What is the significance of 'props' in React?",
-    "options": [
-      "It stands for 'properties' and is used for styling",
-      "It is a built-in React component",
-      "It is used for passing data between components"
-    ],
-    "answer": "It is used for passing data between components"
-  },
-  "q5": {
-    "question": "What is a React component?",
-    "options": [
-      "A JavaScript function or class that defines a UI element",
-      "A built-in HTML tag",
-      "A predefined CSS style"
-    ],
-    "answer": "A JavaScript function or class that defines a UI element"
-  },
-  "q6": {
-    "question": "Explain the concept of 'Virtual DOM' in React.",
-    "options": [
-      "It is an alternative to the real DOM used for testing purposes",
-      "It is a lightweight copy of the real DOM, used for efficient updates",
-      "It is a virtual representation of the entire HTML document"
-    ],
-    "answer": "It is a lightweight copy of the real DOM, used for efficient updates"
-  },
-  "q7": {
-    "question": "What is the purpose of 'component lifecycle' in React?",
-    "options": [
-      "To define the structure of a component",
-      "To manage the creation, updating, and destruction of a component",
-      "To handle user interactions in a component"
-    ],
-    "answer": "To manage the creation, updating, and destruction of a component"
-  },
-  "q8": {
-    "question": "What is React Native?",
-    "options": [
-      "A web development framework",
-      "A mobile app development framework",
-      "A database management system"
-    ],
-    "answer": "A mobile app development framework"
-  },
-  "q9": {
-    "question": "Explain the difference between React and React Native.",
-    "options": [
-      "React is for web development, while React Native is for mobile app development",
-      "React is for mobile app development, while React Native is for web development",
-      "They are interchangeable and can be used for both web and mobile development"
-    ],
-    "answer": "React is for web development, while React Native is for mobile app development"
-  },
-  "q10": {
-    "question": "What is the purpose of the 'StyleSheet' in React Native?",
-    "options": [
-      "To define the layout structure of a React component",
-      "To style React Native components using CSS",
-      "To create reusable styles for React Native components"
-    ],
-    "answer": "To create reusable styles for React Native components"
-  },
-  "q11": {
-    "question": "How does data binding work in React?",
-    "options": [
-      "It is a one-way binding from data to view",
-      "It is a two-way binding between data and view",
-      "React does not support data binding"
-    ],
-    "answer": "It is a one-way binding from data to view"
-  },
-  "q12": {
-    "question": "What is the purpose of 'react-router' in React?",
-    "options": [
-      "To manage state in React components",
-      "To handle navigation and routing in a React application",
-      "To connect React to a Redux store"
-    ],
-    "answer": "To handle navigation and routing in a React application"
-  },
-  "q13": {
-    "question": "Explain the concept of 'Hooks' in React.",
-    "options": [
-      "They are used for styling in React components",
-      "They are functions that enable state and lifecycle features in functional components",
-      "They are a type of routing mechanism in React"
-    ],
-    "answer": "They are functions that enable state and lifecycle features in functional components"
-  },
-  "q14": {
-    "question": "What is the purpose of 'AsyncStorage' in React Native?",
-    "options": [
-      "To store asynchronous data in React components",
-      "To handle asynchronous tasks in React Native applications",
-      "To manage the asynchronous rendering of React components"
-    ],
-    "answer": "To store asynchronous data in React Native"
-  },
-  "q15": {
-    "question": "What is the role of the 'Redux' library in React?",
-    "options": [
-      "To handle asynchronous tasks in React applications",
-      "To manage state in a predictable way across the application",
-      "To provide a styling solution for React components"
-    ],
-    "answer": "To manage state in a predictable way across the application"
-  },
-  "q16": {
-    "question": "How can you optimize performance in a React application?",
-    "options": [
-      "By using inline styles for components",
-      "By using a large number of unnecessary components",
-      "By implementing code splitting, memoization, and optimizing renders"
-    ],
-    "answer": "By implementing code splitting, memoization, and optimizing renders"
-  },
-  "q17": {
-    "question": "What is the significance of 'key' prop in React lists?",
-    "options": [
-      "It is used for authentication purposes",
-      "It is a reserved keyword in React",
-      "It helps React identify which items have changed, are added, or are removed"
-    ],
-    "answer": "It helps React identify which items have changed, are added, or are removed"
-  },
-  "q18": {
-    "question": "What is the purpose of the 'ref' attribute in React?",
-    "options": [
-      "To reference an external JavaScript library",
-      "To create a reference to a React element or component",
-      "To refresh the React component tree"
-    ],
-    "answer": "To create a reference to a React element or component"
-  },
-  "q19": {
-    "question": "How does error handling work in React?",
-    "options": [
-      "React automatically handles errors without any additional configuration",
-      "By using try-catch blocks in React components",
-      "React does not support error handling"
-    ],
-    "answer": "By using try-catch blocks in React components"
-  },
-  "q21": {
-    "question": "What is the role of 'Redux Thunk' middleware in a React-Redux application?",
-    "options": [
-      "To handle asynchronous actions in Redux",
-      "To enhance the performance of Redux reducers",
-      "To manage routing in a React-Redux application"
-    ],
-    "answer": "To handle asynchronous actions in Redux"
-  },
-  "q22": {
-    "question": "Explain the concept of 'Higher Order Components (HOC)' in React.",
-    "options": [
-      "They are components located at the top of the component hierarchy",
-      "They are components that receive props and return a new component",
-      "They are components used for handling state in React applications"
-    ],
-    "answer": "They are components that receive props and return a new component"
-  },
-  "q23": {
-    "question": "What is the purpose of 'React Hooks' and name a few built-in hooks?",
-    "options": [
-      "To connect React to a Redux store; useState, useEffect, useContext",
-      "To handle authentication in React applications; useAuth, useSession",
-      "To manage CSS styles in React components; useStyle, useTheme"
-    ],
-    "answer": "To connect React to a Redux store; useState, useEffect, useContext"
-  },
-  "q24": {
-    "question": "How does React handle forms, and what is the significance of 'controlled' components?",
-    "options": [
-      "React uses external libraries for form handling; controlled components ensure data consistency",
-      "React uses a built-in 'Form' component; controlled components allow React to manage the form state",
-      "React relies on the native HTML form elements; controlled components keep the React state and the UI in sync"
-    ],
-    "answer": "React relies on the native HTML form elements; controlled components keep the React state and the UI in sync"
-  },
-  "q25": {
-    "question": "What is the role of 'React Navigation' in a React Native application?",
-    "options": [
-      "To navigate between different views and screens",
-      "To handle state management in React Native components",
-      "To integrate React components with native device features"
-    ],
-    "answer": "To navigate between different views and screens"
-  },
-  "q26": {
-    "question": "What are the key differences between functional components and class components in React?",
-    "options": [
-      "Functional components are stateful, while class components are stateless",
-      "Functional components use hooks, while class components use lifecycle methods",
-      "There are no differences; functional and class components are interchangeable"
-    ],
-    "answer": "Functional components use hooks, while class components use lifecycle methods"
-  },
-  "q27": {
-    "question": "How does React support code splitting, and why is it beneficial?",
-    "options": [
-      "React automatically splits code into smaller modules; it improves performance",
-      "React relies on external tools for code splitting; it simplifies the development process",
-      "React uses 'React.lazy' and 'Suspense'; it helps reduce initial bundle size and improves loading times"
-    ],
-    "answer": "React uses 'React.lazy' and 'Suspense'; it helps reduce initial bundle size and improves loading times"
-  },
-  "q28": {
-    "question": "What is the purpose of the 'shouldComponentUpdate' lifecycle method in React?",
-    "options": [
-      "To indicate that a component should never update",
-      "To customize the conditions under which a component should re-render",
-      "To forcefully re-render a component in every update cycle"
-    ],
-    "answer": "To customize the conditions under which a component should re-render"
-  },
-  "q29": {
-    "question": "How can you optimize images in a React Native application for better performance?",
-    "options": [
-      "By using high-resolution images for clarity",
-      "By compressing images and using the appropriate image formats",
-      "React Native does not support image optimization"
-    ],
-    "answer": "By compressing images and using the appropriate image formats"
-  },
-  "q30": {
-    "question": "What is the role of the 'FlatList' component in React Native?",
-    "options": [
-      "To create flat designs in React Native applications",
-      "To display a scrolling list of elements efficiently",
-      "To handle flat data structures in React components"
-    ],
-    "answer": "To display a scrolling list of elements efficiently"
-  },
-  "q31": {
-    "question": "Explain the concept of 'Redux-Saga' in a React-Redux application.",
-    "options": [
-      "It is a middleware for handling asynchronous actions in Redux",
-      "It is a state management library alternative to Redux",
-      "It is a built-in feature of React for handling side effects"
-    ],
-    "answer": "It is a middleware for handling asynchronous actions in Redux"
-  },
-  "q32": {
-    "question": "What is the purpose of the 'yarn' or 'npm' package managers in a React project?",
-    "options": [
-      "To install and manage JavaScript packages and dependencies",
-      "To handle authentication in React applications",
-      "To optimize the performance of React components"
-    ],
-    "answer": "To install and manage JavaScript packages and dependencies"
-  },
-  "q33": {
-    "question": "How does 'React.memo' enhance the performance of functional components?",
-    "options": [
-      "It memoizes the component, preventing unnecessary renders",
-      "It converts functional components into class components",
-      "It automatically optimizes CSS styles for functional components"
-    ],
-    "answer": "It memoizes the component, preventing unnecessary renders"
-  },
-  "q34": {
-    "question": "What is the purpose of 'context' in React and how is it used?",
-    "options": [
-      "To manage state in a centralized manner; it is accessed using 'this.context'",
-      "To define the layout structure of a component",
-      "To handle form validation in React applications"
-    ],
-    "answer": "To manage state in a centralized manner; it is accessed using 'this.context'"
-  },
-  "q35": {
-    "question": "How can you handle user authentication in a React application?",
-    "options": [
-      "By using a single 'Auth' component for all authentication tasks",
-      "By storing user credentials in local storage",
-      "By implementing authentication with 'JWT' tokens or OAuth providers"
-    ],
-    "answer": "By implementing authentication with 'JWT' tokens or OAuth providers"
-  },
-  "q36": {
-    "question": "What is the purpose of 'React.Fragment' in React?",
-    "options": [
-      "To create an entirely new React application",
-      "To group multiple elements without adding extra nodes to the DOM",
-      "To define the structure of a functional component"
-    ],
-    "answer": "To group multiple elements without adding extra nodes to the DOM"
-  },
-  "q37": {
-    "question": "What is the significance of 'Babel' in a React project?",
-    "options": [
-      "To optimize CSS styles in React components",
-      "To transpile modern JavaScript code into a compatible version",
-      "To handle routing and navigation in React applications"
-    ],
-    "answer": "To transpile modern JavaScript code into a compatible version"
-  },
-  "q38": {
-    "question": "How does 'React.StrictMode' help in debugging React applications?",
-    "options": [
-      "It enforces strict styling rules for React components",
-      "It enables additional checks and warnings in development mode",
-      "It restricts the usage of hooks in functional components"
-    ],
-    "answer": "It enables additional checks and warnings in development mode"
-  },
-  "q39": {
-    "question": "What is the purpose of the 'dangerouslySetInnerHTML' attribute in React?",
-    "options": [
-      "To set the HTML content of an element directly, posing a security risk",
-      "To enable inline styles in React components",
-      "To define a constant variable in React components"
-    ],
-    "answer": "To set the HTML content of an element directly, posing a security risk"
-  },
-    "q40": {
-      "question": "How does 'React.lazy' contribute to code splitting in React applications?",
+    "q1": {
+      "question": "What is React?",
       "options": [
-        "It enables lazy loading of React components, reducing the initial bundle size",
-        "It is used for creating dynamic routes in React applications",
-        "It facilitates the integration of external libraries in React projects"
+        "A programming language",
+        "A JavaScript library for building user interfaces",
+        "A backend framework",
+        "A database management system"
       ],
-      "answer": "It enables lazy loading of React components, reducing the initial bundle size"
+      "answer": "A JavaScript library for building user interfaces"
+    },
+    "q2": {
+      "question": "What does JSX stand for in React?",
+      "options": [
+        "JavaScript XML",
+        "Java XML",
+        "JSON XML",
+        "JavaScript Extension"
+      ],
+      "answer": "JavaScript XML"
+    },
+    "q3": {
+      "question": "In React, what is the purpose of 'state'?",
+      "options": [
+        "To store and manage component data",
+        "To define the structure of a component",
+        "To handle component styling",
+        "To manage routing in an application"
+      ],
+      "answer": "To store and manage component data"
+    },
+    "q4": {
+      "question": "What is a React component?",
+      "options": [
+        "A function that returns JSX",
+        "A data structure in React",
+        "A stylesheet in React",
+        "A built-in HTML element"
+      ],
+      "answer": "A function that returns JSX"
+    },
+    "q5": {
+      "question": "What is the purpose of 'props' in React?",
+      "options": [
+        "To define component structure",
+        "To handle component state",
+        "To pass data from a parent component to a child component",
+        "To style a component"
+      ],
+      "answer": "To pass data from a parent component to a child component"
+    },
+    "q6": {
+      "question": "What is the React Virtual DOM?",
+      "options": [
+        "A virtual reality system for React applications",
+        "A lightweight representation of the actual DOM in memory",
+        "A tool for managing database queries in React",
+        "A package manager for React"
+      ],
+      "answer": "A lightweight representation of the actual DOM in memory"
+    },
+    "q7": {
+      "question": "What is the purpose of the 'componentDidMount' lifecycle method in React?",
+      "options": [
+        "To update the component state",
+        "To perform cleanup before a component is unmounted",
+        "To fetch data from an external API",
+        "To initialize the component after it is rendered"
+      ],
+      "answer": "To initialize the component after it is rendered"
+    },
+    "q8": {
+      "question": "What is React Router used for?",
+      "options": [
+        "To manage state in a React application",
+        "To handle routing and navigation in a React application",
+        "To connect React with a database",
+        "To manage global application configuration"
+      ],
+      "answer": "To handle routing and navigation in a React application"
+    },
+    "q9": {
+      "question": "What is the purpose of the 'useState' hook in React?",
+      "options": [
+        "To fetch data from an API",
+        "To manage component state in functional components",
+        "To define component props",
+        "To create a new React component"
+      ],
+      "answer": "To manage component state in functional components"
+    },
+    "q10": {
+      "question": "What is the purpose of the 'map' function in React?",
+      "options": [
+        "To iterate over an array and transform its elements",
+        "To create a new array with a single element",
+        "To connect React with Redux",
+        "To define CSS styles for a component"
+      ],
+      "answer": "To iterate over an array and transform its elements"
+    },
+    "q11": {
+      "question": "What is Redux in the context of React?",
+      "options": [
+        "A testing library for React applications",
+        "A state management library for React applications",
+        "A styling framework for React components",
+        "A database system for React applications"
+      ],
+      "answer": "A state management library for React applications"
+    },
+    "q12": {
+      "question": "What is the purpose of the 'key' attribute in React lists?",
+      "options": [
+        "To define a unique identifier for a component",
+        "To specify the order of elements in a list",
+        "To handle component events",
+        "To define the color of list items"
+      ],
+      "answer": "To specify the order of elements in a list"
+    },
+    "q13": {
+      "question": "What is the purpose of the 'className' attribute in React?",
+      "options": [
+        "To define a unique identifier for a component",
+        "To specify the order of elements in a list",
+        "To handle component events",
+        "To apply CSS classes to a component"
+      ],
+      "answer": "To apply CSS classes to a component"
+    },
+    "q14": {
+      "question": "What is a React Hook?",
+      "options": [
+        "A function that performs side effects in a functional component",
+        "A tool for creating animations in React",
+        "A package manager for React",
+        "A component lifecycle method"
+      ],
+      "answer": "A function that performs side effects in a functional component"
+    },
+    "q15": {
+      "question": "What is the purpose of the 'useEffect' hook in React?",
+      "options": [
+        "To create a new component",
+        "To manage component state",
+        "To perform side effects in a functional component",
+        "To define component props"
+      ],
+      "answer": "To perform side effects in a functional component"
+    },
+    "q16": {
+      "question": "What is the role of 'Redux Thunk' middleware in a React-Redux application?",
+      "options": [
+        "To handle routing in a React application",
+        "To manage state in a React application",
+        "To enable asynchronous actions in Redux",
+        "To connect React with a database"
+      ],
+      "answer": "To enable asynchronous actions in Redux"
+    },
+    "q17": {
+      "question": "What is the purpose of the 'forwardRef' function in React?",
+      "options": [
+        "To forward a function to a child component",
+        "To create a reference to a DOM element",
+        "To define forward references in React",
+        "To forward a ref from a parent component to a child component"
+      ],
+      "answer": "To forward a ref from a parent component to a child component"
+    },
+    "q18": {
+      "question": "What is the significance of 'controlled' and 'uncontrolled' components in React forms?",
+      "options": [
+        "To manage state in functional components",
+        "To handle form validation",
+        "To enable or disable form submission",
+        "To manage the form data and its state"
+      ],
+      "answer": "To manage the form data and its state"
+    },
+    "q19": {
+      "question": "What is the purpose of the 'dangerouslySetInnerHTML' attribute in React?",
+      "options": [
+        "To set the color of a component",
+        "To handle component events",
+        "To inject HTML directly into a component",
+        "To define a unique identifier for a component"
+      ],
+      "answer": "To inject HTML directly into a component"
+    },
+    "q20": {
+      "question": "How can you optimize performance in React applications?",
+      "options": [
+        "By using a slower rendering engine",
+        "By minimizing the use of React components",
+        "By implementing shouldComponentUpdate lifecycle method",
+        "By avoiding the use of state and props"
+      ],
+      "answer": "By implementing shouldComponentUpdate lifecycle method"
+    },
+    "q21": {
+      "question": "What is the purpose of the 'render' method in a React component?",
+      "options": [
+        "To handle component events",
+        "To perform side effects",
+        "To define the component's structure and UI",
+        "To initialize the component state"
+      ],
+      "answer": "To define the component's structure and UI"
+    },
+    "q22": {
+      "question": "What is the significance of 'props.children' in React?",
+      "options": [
+        "To pass data from parent to child components",
+        "To access the child components directly",
+        "To handle asynchronous operations",
+        "To access and render the content between the opening and closing tags of a component"
+      ],
+      "answer": "To access and render the content between the opening and closing tags of a component"
+    },
+    "q23": {
+      "question": "What is the purpose of the 'onClick' event handler in React?",
+      "options": [
+        "To handle mouse clicks on a component",
+        "To trigger a form submission",
+        "To initialize the component state",
+        "To handle keyboard events"
+      ],
+      "answer": "To handle mouse clicks on a component"
+    },
+    "q24": {
+      "question": "What is the purpose of the 'className' attribute in JSX?",
+      "options": [
+        "To define a unique identifier for a component",
+        "To specify the order of elements in a list",
+        "To handle component events",
+        "To apply CSS classes to a component"
+      ],
+      "answer": "To apply CSS classes to a component"
+    },
+    "q25": {
+      "question": "What is the significance of the 'key' prop in React lists?",
+      "options": [
+        "To define a unique identifier for a component",
+        "To specify the order of elements in a list",
+        "To handle component events",
+        "To define the color of list items"
+      ],
+      "answer": "To define a unique identifier for a component"
+    },
+    "q26": {
+      "question": "How do you conditionally render content in React?",
+      "options": [
+        "By using the 'if' statement directly in JSX",
+        "By using the 'switch' statement",
+        "By using the 'conditional' attribute in JSX",
+        "By using JavaScript expressions in JSX"
+      ],
+      "answer": "By using JavaScript expressions in JSX"
+    },
+    "q27": {
+      "question": "What is the purpose of the 'useState' hook in functional components?",
+      "options": [
+        "To fetch data from an API",
+        "To manage component state",
+        "To define component props",
+        "To create a new React component"
+      ],
+      "answer": "To manage component state"
+    },
+    "q28": {
+      "question": "What is the purpose of the 'useEffect' hook in React?",
+      "options": [
+        "To create a new component",
+        "To manage component state",
+        "To perform side effects in a functional component",
+        "To define component props"
+      ],
+      "answer": "To perform side effects in a functional component"
+    },
+    "q29": {
+      "question": "How do you pass data from a parent component to a child component in React?",
+      "options": [
+        "By using the 'data' attribute",
+        "By using the 'passData' prop",
+        "By using the 'getChildData' method",
+        "By passing it as a prop"
+      ],
+      "answer": "By passing it as a prop"
+    },
+    "q30": {
+      "question": "What is the purpose of the 'map' function in React?",
+      "options": [
+        "To iterate over an array and transform its elements",
+        "To create a new array with a single element",
+        "To connect React with Redux",
+        "To define CSS styles for a component"
+      ],
+      "answer": "To iterate over an array and transform its elements"
+    },
+    "q31": {
+      "question": "What is the significance of the 'ref' attribute in React?",
+      "options": [
+        "To create a reference to a DOM element",
+        "To define the component's reference",
+        "To manage component state",
+        "To handle component events"
+      ],
+      "answer": "To create a reference to a DOM element"
+    },
+    "q32": {
+      "question": "What is the purpose of the 'defaultProps' property in a React component?",
+      "options": [
+        "To define default styling for a component",
+        "To specify the default state of a component",
+        "To set default values for props",
+        "To define the component's structure"
+      ],
+      "answer": "To set default values for props"
+    },
+    "q33": {
+      "question": "What is the significance of the 'dangerouslySetInnerHTML' attribute in React?",
+      "options": [
+        "To set the color of a component",
+        "To handle component events",
+        "To inject HTML directly into a component",
+        "To define a unique identifier for a component"
+      ],
+      "answer": "To inject HTML directly into a component"
+    },
+    "q34": {
+      "question": "What is the purpose of the 'className' attribute in React?",
+      "options": [
+        "To define a unique identifier for a component",
+        "To specify the order of elements in a list",
+        "To handle component events",
+        "To apply CSS classes to a component"
+      ],
+      "answer": "To apply CSS classes to a component"
+    },
+    "q35": {
+      "question": "What is the purpose of the 'useState' hook in functional components?",
+      "options": [
+        "To fetch data from an API",
+        "To manage component state",
+        "To define component props",
+        "To create a new React component"
+      ],
+      "answer": "To manage component state"
+    },
+    "q36": {
+      "question": "What is the purpose of the 'useEffect' hook in React?",
+      "options": [
+        "To create a new component",
+        "To manage component state",
+        "To perform side effects in a functional component",
+        "To define component props"
+      ],
+      "answer": "To perform side effects in a functional component"
+    },
+    "q37": {
+      "question": "What is a React Hook?",
+      "options": [
+        "A function that performs side effects in a functional component",
+        "A tool for creating animations in React",
+        "A package manager for React",
+        "A component lifecycle method"
+      ],
+      "answer": "A function that performs side effects in a functional component"
+    },
+    "q38": {
+      "question": "What is the purpose of the 'forwardRef' function in React?",
+      "options": [
+        "To forward a function to a child component",
+        "To create a reference to a DOM element",
+        "To define forward references in React",
+        "To forward a ref from a parent component to a child component"
+      ],
+      "answer": "To forward a ref from a parent component to a child component"
+    },
+    "q39": {
+      "question": "What is the significance of 'controlled' and 'uncontrolled' components in React forms?",
+      "options": [
+        "To manage state in functional components",
+        "To handle form validation",
+        "To enable or disable form submission",
+        "To manage the form data and its state"
+      ],
+      "answer": "To manage the form data and its state"
+    },
+    "q40": {
+      "question": "How can you optimize performance in React applications?",
+      "options": [
+        "By using a slower rendering engine",
+        "By minimizing the use of React components",
+        "By implementing shouldComponentUpdate lifecycle method",
+        "By avoiding the use of state and props"
+      ],
+      "answer": "By implementing shouldComponentUpdate lifecycle method"
+    },
+    "q41": {
+      "question": "What is JSX in React?",
+      "options": [
+        "JavaScript XML",
+        "Java XML",
+        "JSON XML",
+        "JavaScript Extension"
+      ],
+      "answer": "JavaScript XML"
+    },
+    "q42": {
+      "question": "How do you create a functional component in React?",
+      "options": [
+        "class MyComponent extends Component",
+        "function MyComponent()",
+        "const MyComponent = () => {}",
+        "create MyComponent() {}"
+      ],
+      "answer": "const MyComponent = () => {}"
+    },
+    "q43": {
+      "question": "What is the purpose of the 'setState' method in React?",
+      "options": [
+        "To initialize state in a component",
+        "To update the component's state",
+        "To define the component's structure",
+        "To handle component events"
+      ],
+      "answer": "To update the component's state"
+    },
+    "q44": {
+      "question": "What is the React developer tool used for?",
+      "options": [
+        "To fetch data from an API",
+        "To debug and inspect React components",
+        "To create a new React component",
+        "To manage component state"
+      ],
+      "answer": "To debug and inspect React components"
+    },
+    "q45": {
+      "question": "What is the purpose of the 'className' attribute in JSX?",
+      "options": [
+        "To define a unique identifier for a component",
+        "To specify the order of elements in a list",
+        "To handle component events",
+        "To apply CSS classes to a component"
+      ],
+      "answer": "To apply CSS classes to a component"
+    },
+    "q46": {
+      "question": "What is the purpose of the 'key' prop in React lists?",
+      "options": [
+        "To define a unique identifier for a component",
+        "To specify the order of elements in a list",
+        "To handle component events",
+        "To define the color of list items"
+      ],
+      "answer": "To define a unique identifier for a component"
+    },
+    "q47": {
+      "question": "What is the significance of the 'ref' attribute in React?",
+      "options": [
+        "To create a reference to a DOM element",
+        "To define the component's reference",
+        "To manage component state",
+        "To handle component events"
+      ],
+      "answer": "To create a reference to a DOM element"
+    },
+    "q48": {
+      "question": "How do you handle forms in React?",
+      "options": [
+        "By using the 'form' tag directly",
+        "By using the 'onFormSubmit' event",
+        "By using the 'form' attribute in JSX",
+        "By using state and event handlers"
+      ],
+      "answer": "By using state and event handlers"
+    },
+    "q49": {
+      "question": "What is the purpose of the 'map' function in React?",
+      "options": [
+        "To iterate over an array and transform its elements",
+        "To create a new array with a single element",
+        "To connect React with Redux",
+        "To define CSS styles for a component"
+      ],
+      "answer": "To iterate over an array and transform its elements"
+    },
+    "q50": {
+      "question": "What is the purpose of the 'componentWillUnmount' lifecycle method?",
+      "options": [
+        "To update the component state",
+        "To fetch data from an external API",
+        "To perform cleanup before a component is unmounted",
+        "To define the component's structure"
+      ],
+      "answer": "To perform cleanup before a component is unmounted"
+    },
+    "q51": {
+      "question": "What is the purpose of the 'dangerouslySetInnerHTML' attribute in React?",
+      "options": [
+        "To set the color of a component",
+        "To handle component events",
+        "To inject HTML directly into a component",
+        "To define a unique identifier for a component"
+      ],
+      "answer": "To inject HTML directly into a component"
+    },
+    "q52": {
+      "question": "How can you conditionally render components in React?",
+      "options": [
+        "By using the 'if' statement directly in JSX",
+        "By using the 'switch' statement",
+        "By using the 'conditional' attribute in JSX",
+        "By using JavaScript expressions in JSX"
+      ],
+      "answer": "By using JavaScript expressions in JSX"
+    },
+    "q53": {
+      "question": "What is the purpose of the 'propTypes' property in a React component?",
+      "options": [
+        "To define default values for props",
+        "To specify the types of props a component should receive",
+        "To manage component state",
+        "To create a reference to a DOM element"
+      ],
+      "answer": "To specify the types of props a component should receive"
+    },
+    "q54": {
+      "question": "What is the purpose of the 'useReducer' hook in React?",
+      "options": [
+        "To create a new component",
+        "To manage component state",
+        "To perform side effects in a functional component",
+        "To manage complex state logic"
+      ],
+      "answer": "To manage complex state logic"
+    },
+    "q55": {
+      "question": "What is the purpose of the 'memo' function in React?",
+      "options": [
+        "To memoize functions and prevent unnecessary re-renders",
+        "To create a new component",
+        "To manage component state",
+        "To perform side effects in a functional component"
+      ],
+      "answer": "To memoize functions and prevent unnecessary re-renders"
+    },
+    "q56": {
+      "question": "What is the purpose of the 'shouldComponentUpdate' lifecycle method?",
+      "options": [
+        "To update the component state",
+        "To fetch data from an external API",
+        "To control whether a component should re-render",
+        "To define the component's structure"
+      ],
+      "answer": "To control whether a component should re-render"
+    },
+    "q57": {
+      "question": "How do you include external CSS styles in a React component?",
+      "options": [
+        "By using the 'css' attribute in JSX",
+        "By linking an external CSS file in the component",
+        "By using the 'style' attribute in JSX",
+        "By importing the styles directly into the component"
+      ],
+      "answer": "By importing the styles directly into the component"
+    },
+    "q58": {
+      "question": "What is the purpose of the 'React.Fragment' component?",
+      "options": [
+        "To create a new component",
+        "To define the structure of a component",
+        "To group multiple elements without adding extra nodes to the DOM",
+        "To manage component state"
+      ],
+      "answer": "To group multiple elements without adding extra nodes to the DOM"
+    },
+    "q59": {
+      "question": "What is the purpose of the 'useCallback' hook in React?",
+      "options": [
+        "To memoize functions and prevent unnecessary re-renders",
+        "To create a new component",
+        "To manage component state",
+        "To handle asynchronous operations"
+      ],
+      "answer": "To memoize functions and prevent unnecessary re-renders"
+    },
+    "q60": {
+      "question": "What is the role of 'React.PureComponent' in React?",
+      "options": [
+        "To create a new component",
+        "To manage component state",
+        "To perform side effects in a functional component",
+        "To optimize performance by shallowly comparing props and state"
+      ],
+      "answer": "To optimize performance by shallowly comparing props and state"
+    },
+    "q62": {
+      "question": "What are the key advantages of using React Native for mobile app development?",
+      "options": [
+        "Native performance, cross-platform compatibility, and a single codebase",
+        "Limited performance, exclusive to iOS, and complex development process",
+        "Dependence on native code, high development cost, and a steep learning curve",
+        "Incompatibility with third-party libraries, slow updates, and lack of community support"
+      ],
+      "answer": "Native performance, cross-platform compatibility, and a single codebase"
+    },
+    "q63": {
+      "question": "How does React Native achieve cross-platform compatibility?",
+      "options": [
+        "By compiling JavaScript to native code for each platform",
+        "By using platform-specific languages for each platform",
+        "By running JavaScript code in a web view",
+        "By relying on native APIs without abstraction"
+      ],
+      "answer": "By compiling JavaScript to native code for each platform"
+    },
+    "q64": {
+      "question": "What is Expo in the context of React Native?",
+      "options": [
+        "A native module for handling animations",
+        "A development toolchain and library for simplifying React Native development",
+        "A UI component library for React Native",
+        "An alternative framework for building mobile apps"
+      ],
+      "answer": "A development toolchain and library for simplifying React Native development"
+    },
+    "q65": {
+      "question": "How does React Native handle navigation between screens?",
+      "options": [
+        "By using traditional web navigation with links",
+        "By relying on native navigation controllers",
+        "By rendering all screens in a single component",
+        "By using Redux for navigation"
+      ],
+      "answer": "By relying on native navigation controllers"
+    },
+    "q66": {
+      "question": "What is the purpose of 'StyleSheet' in React Native?",
+      "options": [
+        "To define the structure of a React Native component",
+        "To manage the layout of a React Native component",
+        "To apply styles to a React Native component",
+        "To import external stylesheets"
+      ],
+      "answer": "To apply styles to a React Native component"
+    },
+    "q67": {
+      "question": "What is the significance of 'AsyncStorage' in React Native?",
+      "options": [
+        "To handle asynchronous operations in React Native components",
+        "To store small amounts of data persistently on the device",
+        "To manage the state of a React Native component",
+        "To define asynchronous functions in React Native"
+      ],
+      "answer": "To store small amounts of data persistently on the device"
+    },
+    "q68": {
+      "question": "How can you integrate third-party native modules in a React Native project?",
+      "options": [
+        "By using the 'react-native install' command",
+        "By writing native code in Java and Swift",
+        "By including the module as a JavaScript library",
+        "By relying on the Expo framework"
+      ],
+      "answer": "By writing native code in Java and Swift"
+    },
+    "q69": {
+      "question": "What is the purpose of the 'FlatList' component in React Native?",
+      "options": [
+        "To create a flat list of elements with no styling",
+        "To render a list of data with custom styling and high performance",
+        "To manage the state of a React Native component",
+        "To define the structure of a React Native component"
+      ],
+      "answer": "To render a list of data with custom styling and high performance"
+    },
+    "q70": {
+      "question": "How does React Native handle touch gestures and user interactions?",
+      "options": [
+        "By relying on the browser's native event handling",
+        "By using a separate library for gestures",
+        "By integrating with native touch events on each platform",
+        "By avoiding touch gestures in favor of button clicks"
+      ],
+      "answer": "By integrating with native touch events on each platform"
+    },
+    "q71": {
+      "question": "What is the purpose of the 'react-native-cli'?",
+      "options": [
+        "To create a new React Native project",
+        "To handle asynchronous operations in React Native components",
+        "To manage the state of a React Native component",
+        "To define the structure of a React Native component"
+      ],
+      "answer": "To create a new React Native project"
+    },
+    "q72": {
+      "question": "How does React Native handle performance optimization for mobile devices?",
+      "options": [
+        "By relying on the performance of the device's browser",
+        "By using native APIs for animations and transitions",
+        "By avoiding complex UI components",
+        "By using a slower rendering engine"
+      ],
+      "answer": "By using native APIs for animations and transitions"
+    },
+    "q73": {
+      "question": "What is the purpose of the 'react-native-vector-icons' library in React Native?",
+      "options": [
+        "To handle vector graphics in React Native components",
+        "To integrate SVG images in React Native projects",
+        "To create custom icons using native code",
+        "To import third-party font-based icons into React Native projects"
+      ],
+      "answer": "To import third-party font-based icons into React Native projects"
+    },
+    "q74": {
+      "question": "How does React Native handle platform-specific code?",
+      "options": [
+        "By using the 'Platform' module to conditionally execute code",
+        "By creating separate codebases for each platform",
+        "By relying on the Expo framework",
+        "By using a third-party library for platform-specific code"
+      ],
+      "answer": "By using the 'Platform' module to conditionally execute code"
+    },
+    "q75": {
+      "question": "What is the purpose of the 'react-navigation' library in React Native?",
+      "options": [
+        "To handle asynchronous operations in React Native components",
+        "To manage the state of a React Native component",
+        "To define the structure of a React Native component",
+        "To handle navigation and routing in React Native applications"
+      ],
+      "answer": "To handle navigation and routing in React Native applications"
+    },
+    "q76": {
+      "question": "How can you integrate Firebase with a React Native project?",
+      "options": [
+        "By using the 'react-native-firebase' library",
+        "By relying on native Firebase SDKs",
+        "By including Firebase as a JavaScript library",
+        "By using the 'firebase install' command"
+      ],
+      "answer": "By using the 'react-native-firebase' library"
+    },
+    "q77": {
+      "question": "What is the purpose of the 'ActivityIndicator' component in React Native?",
+      "options": [
+        "To create an animated loading indicator",
+        "To define the structure of a React Native component",
+        "To handle asynchronous operations in React Native components",
+        "To manage the state of a React Native component"
+      ],
+      "answer": "To create an animated loading indicator"
+    },
+    "q78": {
+      "question": "How does React Native handle the device's camera?",
+      "options": [
+        "By using a separate camera module",
+        "By relying on native camera APIs",
+        "By avoiding camera integration in React Native",
+        "By using a third-party library for camera access"
+      ],
+      "answer": "By relying on native camera APIs"
+    },
+    "q79": {
+      "question": "What is the purpose of the 'Linking' module in React Native?",
+      "options": [
+        "To manage navigation between screens",
+        "To handle asynchronous operations in React Native components",
+        "To define the structure of a React Native component",
+        "To open external URLs and deep links"
+      ],
+      "answer": "To open external URLs and deep links"
+    },
+    "q80": {
+      "question": "How can you debug a React Native application?",
+      "options": [
+        "By using the browser's developer tools",
+        "By relying on native mobile debugging tools",
+        "By using the 'console.log' statement",
+        "By avoiding debugging due to cross-platform compatibility"
+      ],
+      "answer": "By relying on native mobile debugging tools"
+    }
 
-  },
-  "q41": {
-    "question": "What is the purpose of the 'useEffect' hook in React?",
-    "options": [
-      "To create custom hooks in functional components",
-      "To handle side effects in functional components",
-      "To manage state in class components"
-    ],
-    "answer": "To handle side effects in functional components"
-  },
-  "q42": {
-    "question": "Explain the concept of 'Higher Order Components (HOC)' in React.",
-    "options": [
-      "They are components located at the top of the component hierarchy",
-      "They are components that receive props and return a new component",
-      "They are components used for handling state in React applications"
-    ],
-    "answer": "They are components that receive props and return a new component"
-  },
-  "q43": {
-    "question": "How does 'React Router' help in navigation within a React application?",
-    "options": [
-      "It provides a way to handle HTTP requests in a React application",
-      "It facilitates the creation of routes and navigation between components",
-      "It is used for optimizing the performance of React components"
-    ],
-    "answer": "It facilitates the creation of routes and navigation between components"
-  },
-  "q44": {
-    "question": "What is the significance of the 'key' prop in React lists?",
-    "options": [
-      "It is used for authentication purposes",
-      "It is a reserved keyword in React",
-      "It helps React identify which items have changed, are added, or are removed"
-    ],
-    "answer": "It helps React identify which items have changed, are added, or are removed"
-  },
-  "q45": {
-    "question": "How can you handle forms in React, and what is the purpose of 'controlled' components?",
-    "options": [
-      "By relying on native HTML forms exclusively",
-      "By using uncontrolled components for simplicity",
-      "By using controlled components to manage form state in React"
-    ],
-    "answer": "By using controlled components to manage form state in React"
-  },
-  "q46": {
-    "question": "What is the purpose of 'React.memo' in functional components?",
-    "options": [
-      "To automatically memoize components without any configuration",
-      "To enhance the performance of functional components by preventing unnecessary renders",
-      "To optimize CSS styles in functional components"
-    ],
-    "answer": "To enhance the performance of functional components by preventing unnecessary renders"
-  },
-  "q47": {
-    "question": "How can you pass data between components in React?",
-    "options": [
-      "By using only props to pass data down the component tree",
-      "By using state to manage data within a component",
-      "By lifting state up or using context to pass data between components"
-    ],
-    "answer": "By lifting state up or using context to pass data between components"
-  },
-  "q48": {
-    "question": "What is the role of 'Redux-Saga' in a React-Redux application?",
-    "options": [
-      "To manage state in a React application",
-      "To handle asynchronous actions in a Redux application",
-      "To create animations and transitions in React components"
-    ],
-    "answer": "To handle asynchronous actions in a Redux application"
-  },
-  "q49": {
-    "question": "How does 'React Native' differ from 'React' in terms of development?",
-    "options": [
-      "React Native is used for web development, while React is for mobile app development",
-      "React Native is a framework for developing native mobile applications, while React is for web development",
-      "There is no difference; React and React Native are interchangeable"
-    ],
-    "answer": "React Native is a framework for developing native mobile applications, while React is for web development"
-  },
-  "q50": {
-    "question": "What is the purpose of the 'useReducer' hook in React?",
-    "options": [
-      "To create custom hooks in functional components",
-      "To manage complex state logic in functional components",
-      "To handle asynchronous actions in a React application"
-    ],
-    "answer": "To manage complex state logic in functional components"
-  },
-  "q51": {
-    "question": "How can you handle routing in a React application?",
-    "options": [
-      "By using only state management libraries like Redux",
-      "By relying on the built-in browser navigation",
-      "By using 'React Router' to manage routes and navigation"
-    ],
-    "answer": "By using 'React Router' to manage routes and navigation"
-  },
-  "q52": {
-    "question": "What is the purpose of the 'useContext' hook in React?",
-    "options": [
-      "To create reusable styles for components",
-      "To manage context data within a functional component",
-      "To handle asynchronous actions in a React application"
-    ],
-    "answer": "To manage context data within a functional component"
-  },
-  "q53": {
-    "question": "How can you optimize the performance of a React application?",
-    "options": [
-      "By using a large number of unnecessary components",
-      "By avoiding code splitting and lazy loading",
-      "By implementing memoization, code splitting, and optimizing renders"
-    ],
-    "answer": "By implementing memoization, code splitting, and optimizing renders"
-  },
-  "q54": {
-    "question": "What is the purpose of 'React.PureComponent' in React?",
-    "options": [
-      "To enhance the performance of functional components",
-      "To create components with pure HTML and no JavaScript logic",
-      "To create class components that automatically memoize based on props and state"
-    ],
-    "answer": "To create class components that automatically memoize based on props and state"
-  },
-  "q55": {
-    "question": "Explain the concept of 'styled-components' in React.",
-    "options": [
-      "It is a built-in styling solution for React components",
-      "It is a JavaScript library for handling forms in React",
-      "It is a library for writing CSS-in-JS in React applications"
-    ],
-    "answer": "It is a library for writing CSS-in-JS in React applications"
-  },
-  "q56": {
-    "question": "What is the purpose of 'React.Fragment' in React?",
-    "options": [
-      "To create an entirely new React application",
-      "To group multiple elements without adding extra nodes to the DOM",
-      "To define the structure of a functional component"
-    ],
-    "answer": "To group multiple elements without adding extra nodes to the DOM"
-  },
-  "q57": {
-    "question": "What is the role of 'React.StrictMode' in a React application?",
-    "options": [
-      "To enforce strict styling rules for React components",
-      "To enable additional checks and warnings in development mode",
-      "To restrict the usage of hooks in functional components"
-    ],
-    "answer": "To enable additional checks and warnings in development mode"
-  },
-  "q58": {
-    "question": "How can you handle user authentication in a React application?",
-    "options": [
-      "By using a single 'Auth' component for all authentication tasks",
-      "By storing user credentials in local storage",
-      "By implementing authentication with 'JWT' tokens or OAuth providers"
-    ],
-    "answer": "By implementing authentication with 'JWT' tokens or OAuth providers"
-  },
-  "q59": {
-    "question": "What is the purpose of 'PropTypes' in React?",
-    "options": [
-      "To manage state in a React application",
-      "To define the types of props that a component should receive",
-      "To create reusable styles for React components"
-    ],
-    "answer": "To define the types of props that a component should receive"
-  },
-  "q60": {
-    "question": "How does 'React.lazy' contribute to code splitting in React applications?",
-    "options": [
-      "It enables lazy loading of React components, reducing the initial bundle size",
-      "It is used for creating dynamic routes in React applications",
-      "It facilitates the integration of external libraries in React projects"
-    ],
-    "answer": "It enables lazy loading of React components, reducing the initial bundle size"
-  },
-  "q61": {
-    "question": "What is JSX in React?",
-    "options": [
-      "A JavaScript library",
-      "A syntax extension for JavaScript",
-      "A styling convention"
-    ],
-    "answer": "A syntax extension for JavaScript"
-  },
-  "q62": {
-    "question": "What does the term 'props' stand for in React?",
-    "options": [
-      "Properties",
-      "Procedures",
-      "Prototypes"
-    ],
-    "answer": "Properties"
-  },
-  "q63": {
-    "question": "How do you create a functional component in React?",
-    "options": [
-      "Using the 'function' keyword",
-      "Using the 'class' keyword",
-      "React components can only be class-based"
-    ],
-    "answer": "Using the 'function' keyword"
-  },
-  "q64": {
-    "question": "What is the purpose of the 'useState' hook in React?",
-    "options": [
-      "To fetch data from an API",
-      "To manage state in functional components",
-      "To create constant variables"
-    ],
-    "answer": "To manage state in functional components"
-  },
-  "q65": {
-    "question": "How do you render a list of items in React?",
-    "options": [
-      "Using the 'for' loop",
-      "Using the 'map' function",
-      "React does not support rendering lists"
-    ],
-    "answer": "Using the 'map' function"
-  },
-  "q66": {
-    "question": "What is the significance of 'key' in React list elements?",
-    "options": [
-      "It represents the index of the element",
-      "It helps React identify each element uniquely",
-      "It is used for styling list items"
-    ],
-    "answer": "It helps React identify each element uniquely"
-  },
-  "q67": {
-    "question": "What is the role of the 'className' attribute in JSX?",
-    "options": [
-      "To define a class component in React",
-      "To specify the style of a component",
-      "It is not used in JSX"
-    ],
-    "answer": "To specify the style of a component"
-  },
-  "q68": {
-    "question": "What does the 'React.Fragment' component do?",
-    "options": [
-      "It fragments the application for testing purposes",
-      "It groups multiple elements without adding extra nodes to the DOM",
-      "It is not a valid React component"
-    ],
-    "answer": "It groups multiple elements without adding extra nodes to the DOM"
-  },
-  "q69": {
-    "question": "How do you handle user input in React forms?",
-    "options": [
-      "By using inline styles",
-      "By using 'state' and 'onChange' event",
-      "React does not support forms"
-    ],
-    "answer": "By using 'state' and 'onChange' event"
-  },
-  "q70": {
-    "question": "What is the purpose of the 'useEffect' hook in React?",
-    "options": [
-      "To manage state in functional components",
-      "To handle side effects in functional components",
-      "To create custom hooks"
-    ],
-    "answer": "To handle side effects in functional components"
-  },
-  "q71": {
-    "question": "What is the difference between 'state' and 'props' in React?",
-    "options": [
-      "'state' is immutable, while 'props' are mutable",
-      "'props' are used for internal component data, while 'state' is for external data",
-      "'props' are external inputs to a component, while 'state' is internal to the component"
-    ],
-    "answer": "'props' are external inputs to a component, while 'state' is internal to the component"
-  },
-  "q72": {
-    "question": "What is the purpose of the 'onClick' event in React?",
-    "options": [
-      "To handle key presses",
-      "To handle mouse clicks",
-      "To define the structure of a component"
-    ],
-    "answer": "To handle mouse clicks"
-  },
-  "q73": {
-    "question": "How can you conditionally render content in React?",
-    "options": [
-      "By using 'if-else' statements directly in JSX",
-      "By using the 'ternary' operator or '&&' logical operator",
-      "React does not support conditional rendering"
-    ],
-    "answer": "By using the 'ternary' operator or '&&' logical operator"
-  },
-  "q74": {
-    "question": "What is the purpose of the 'useReducer' hook in React?",
-    "options": [
-      "To manage complex state logic in functional components",
-      "To handle asynchronous actions in a React application",
-      "To create custom hooks"
-    ],
-    "answer": "To manage complex state logic in functional components"
-  },
-  "q75": {
-    "question": "How can you pass data between parent and child components in React?",
-    "options": [
-      "By using only 'props'",
-      "By using only 'state'",
-      "By using 'props' and 'state' together"
-    ],
-    "answer": "By using 'props' and 'state' together"
-  },
-  "q76": {
-    "question": "What is the purpose of the 'import' statement in React?",
-    "options": [
-      "To export components from a module",
-      "To include external libraries or modules",
-      "React does not use 'import' statements"
-    ],
-    "answer": "To include external libraries or modules"
-  },
-  "q77": {
-    "question": "What is the role of 'React.memo' in React components?",
-    "options": [
-      "To memoize components automatically",
-      "To enhance the performance of functional components",
-      "To manage context data within a functional component"
-    ],
-    "answer": "To memoize components automatically"
-  },
-  "q78": {
-    "question": "What is the purpose of 'PropTypes' in React?",
-    "options": [
-      "To create reusable styles for React components",
-      "To define the types of props that a component should receive",
-      "To handle form validation in React applications"
-    ],
-    "answer": "To define the types of props that a component should receive"
-  },
-  "q79": {
-    "question": "How can you style a React component?",
-    "options": [
-      "By using inline styles",
-      "By linking an external CSS file",
-      "By using the 'style' attribute in JSX"
-    ],
-    "answer": "By using inline styles"
-  },
-  "q80": {
-    "question": "What is the purpose of the 'useState' hook in React?",
-    "options": [
-      "To fetch data from an API",
-      "To manage state in functional components",
-      "To create constant variables"
-    ],
-    "answer": "To manage state in functional components"
-  },
-  "q81": {
-    "question": "What does JSX stand for in React?",
-    "options": [
-      "JavaScript XML",
-      "Java Syntax Extension",
-      "JSON Exchange"
-    ],
-    "answer": "JavaScript XML"
-  },
-  "q82": {
-    "question": "How can you import a React component in another file?",
-    "options": [
-      "Using the 'import' statement",
-      "By copying and pasting the component code",
-      "React components cannot be imported"
-    ],
-    "answer": "Using the 'import' statement"
-  },
-  "q83": {
-    "question": "What is the purpose of the 'map' function in JavaScript when working with React?",
-    "options": [
-      "To create a new array with modified elements",
-      "To remove elements from an array",
-      "To create an HTML map element"
-    ],
-    "answer": "To create a new array with modified elements"
-  },
-  "q84": {
-    "question": "How do you handle events in React?",
-    "options": [
-      "By using only inline HTML event attributes",
-      "By using the 'onEvent' attribute in JSX",
-      "By using camelCase event handlers in JSX"
-    ],
-    "answer": "By using camelCase event handlers in JSX"
-  },
-  "q85": {
-    "question": "What is the purpose of the 'className' attribute in React?",
-    "options": [
-      "To define a class component in React",
-      "To specify the style of a component",
-      "It is not used in JSX"
-    ],
-    "answer": "To specify the style of a component"
-  },
-  "q86": {
-    "question": "How do you conditionally render components in React?",
-    "options": [
-      "By using 'if-else' statements directly in JSX",
-      "By using the 'ternary' operator",
-      "React does not support conditional rendering"
-    ],
-    "answer": "By using the 'ternary' operator"
-  },
-  "q87": {
-    "question": "What is the purpose of the 'alt' attribute in an image element in React?",
-    "options": [
-      "To provide alternative text for screen readers",
-      "To define the alignment of the image",
-      "It is not needed in React"
-    ],
-    "answer": "To provide alternative text for screen readers"
-  },
-  "q88": {
-    "question": "How can you update the state in a React component?",
-    "options": [
-      "By directly modifying the state variable",
-      "By using the 'setState' function",
-      "React components do not have state"
-    ],
-    "answer": "By using the 'setState' function"
-  },
-  "q89": {
-    "question": "What is the purpose of 'React.Fragment'?",
-    "options": [
-      "To create a completely new React application",
-      "To group multiple elements without adding extra nodes to the DOM",
-      "It is not a valid React component"
-    ],
-    "answer": "To group multiple elements without adding extra nodes to the DOM"
-  },
-  "q90": {
-    "question": "What is the purpose of 'aria-label' in React?",
-    "options": [
-      "To label an HTML element",
-      "To apply a specific style to an element",
-      "It is not a valid attribute in React"
-    ],
-    "answer": "To label an HTML element"
-  },
-  "q91": {
-    "question": "What is the significance of the 'dangerouslySetInnerHTML' attribute in React?",
-    "options": [
-      "To set the HTML content of an element directly",
-      "To create a constant variable",
-      "It is a security risk and should be avoided"
-    ],
-    "answer": "To set the HTML content of an element directly"
-  },
-  "q92": {
-    "question": "How do you pass data from a child component to a parent component in React?",
-    "options": [
-      "By using props",
-      "By using state",
-      "React does not support passing data from child to parent"
-    ],
-    "answer": "By using props"
-  },
-  "q93": {
-    "question": "What is the purpose of 'React.createRef()' in React?",
-    "options": [
-      "To create a new React application",
-      "To create a reference to a React element or component",
-      "To handle asynchronous actions in React"
-    ],
-    "answer": "To create a reference to a React element or component"
-  },
-  "q94": {
-    "question": "What is the purpose of the 'aria-hidden' attribute in React?",
-    "options": [
-      "To hide an HTML element from the screen",
-      "To indicate that an element is visible",
-      "It is not a valid attribute in React"
-    ],
-    "answer": "To hide an HTML element from the screen"
-  },
-  "q95": {
-    "question": "How can you prevent the default behavior of a form submission in React?",
-    "options": [
-      "By using 'event.preventDefault()'",
-      "By setting the 'defaultPrevented' property to 'true'",
-      "React automatically prevents form submissions"
-    ],
-    "answer": "By using 'event.preventDefault()'"
-  },
-  "q96": {
-    "question": "What is the purpose of 'React.Children.map()' in React?",
-    "options": [
-      "To map over an array of React elements",
-      "To create a new array with modified elements",
-      "React does not provide a 'map' function"
-    ],
-    "answer": "To map over an array of React elements"
-  },
-  "q97": {
-    "question": "How can you conditionally apply styles in React?",
-    "options": [
-      "By using external CSS files only",
-      "By using inline styles with JavaScript logic",
-      "React does not support styling"
-    ],
-    "answer": "By using inline styles with JavaScript logic"
-  },
-  "q98": {
-    "question": "What is the purpose of the 'dangerouslySetInnerHTML' attribute in React?",
-    "options": [
-      "To set the HTML content of an element directly",
-      "To create a constant variable",
-      "It is a security risk and should be avoided"
-    ],
-    "answer": "To set the HTML content of an element directly"
-  },
-  "q99": {
-    "question": "How can you conditionally render a component in React?",
-    "options": [
-      "By using 'if-else' statements directly in JSX",
-      "By using the 'ternary' operator",
-      "React does not support conditional rendering"
-    ],
-    "answer": "By using the 'ternary' operator"
-  },
-  "q100": {
-    "question": "What is the purpose of 'React.forwardRef()' in React?",
-    "options": [
-      "To forward references between sibling components",
-      "To create a new React application",
-      "To handle asynchronous actions in React"
-    ],
-    "answer": "To forward references between sibling components"
+
   }
 }
-}
-

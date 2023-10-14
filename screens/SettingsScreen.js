@@ -1,18 +1,28 @@
 import React, { useEffect, useState } from 'react';
-import { StyleSheet, Text, TouchableOpacity, View, Switch, ImageBackground } from 'react-native';
+import { StyleSheet, Text, TouchableOpacity, View, Switch, ImageBackground, Modal, TouchableHighlight } from 'react-native';
 import { Audio } from 'expo-av';
-import { useNavigation } from '@react-navigation/native';
-
-// Ajout des imports
-import { createStackNavigator } from '@react-navigation/stack';
-import { NavigationContainer } from '@react-navigation/native';
+import * as MailComposer from 'expo-mail-composer';
 
 export default function SettingsScreen() {
-    const navigation = useNavigation();
     const [sound, setSound] = useState();
     const [isPlaying, setIsPlaying] = useState(false);
-    const [notificationsEnabled, setNotificationsEnabled] = useState(true);
-    const [notificationsText, setNotificationsText] = useState('Enable Notifications');
+    const [modalVisible, setModalVisible] = useState(false);
+    const [appVersion, setAppVersion] = useState('1.0.0'); // Remplacez par la version réelle de votre application
+    const sendFeedback = async () => {
+        try {
+            const { status } = await MailComposer.isAvailableAsync();
+
+            if (status !== 'unavailable') {
+                await MailComposer.composeAsync({
+                    recipients: ['cpopadiuc@helb-prigogine.be'], // Remplacez par votre adresse e-mail
+                    subject: 'Feedback',
+                    body: 'Hi, your app is great!\n',
+                });
+            }
+        } catch (error) {
+            console.error('Error :', error);
+        }
+    };
 
     useEffect(() => {
         async function loadSound() {
@@ -42,6 +52,14 @@ export default function SettingsScreen() {
         }
     };
 
+    const openAboutModal = () => {
+        setModalVisible(true);
+    };
+
+    const closeAboutModal = () => {
+        setModalVisible(false);
+    };
+
     return (
         <ImageBackground source={require('../assets/blueBack.jpg')} style={styles.backgroundImage}>
             <View style={styles.container}>
@@ -53,9 +71,36 @@ export default function SettingsScreen() {
                         value={isPlaying}
                         onValueChange={toggleSound}
                         trackColor={{ false: '#767577', true: '#16247d' }}
-                        thumbColor={isPlaying ? '#767577' : '#16247d'}
+                        thumbColor={isPlaying ? '#16247d' : '#767577'}
                     />
                 </TouchableOpacity>
+
+                <TouchableOpacity style={styles.option} onPress={sendFeedback}>
+                    <Text style={styles.optionText}>Feedback</Text>
+                </TouchableOpacity>
+
+
+                <TouchableOpacity style={styles.option} onPress={openAboutModal}>
+                    <Text style={styles.optionText}>About</Text>
+                </TouchableOpacity>
+
+                {/* Fenêtre modale "About" */}
+                <Modal
+                    animationType="slide"
+                    transparent={true}
+                    visible={modalVisible}
+                    onRequestClose={closeAboutModal}
+                >
+                    <View style={styles.modalContainer}>
+                        <View style={styles.modalContent}>
+                            <Text style={styles.title}>Version</Text>
+                            <Text>App Version: {appVersion}</Text>
+                            <TouchableOpacity onPress={closeAboutModal}>
+                                <Text style={styles.modalCloseButton}>Close</Text>
+                            </TouchableOpacity>
+                        </View>
+                    </View>
+                </Modal>
             </View>
         </ImageBackground>
     );
@@ -70,8 +115,7 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        marginBottom: 480, // Espace en haut de la page
-
+        marginBottom: 330, // Espace en haut de la page
     },
     title: {
         fontSize: 36,
@@ -95,5 +139,22 @@ const styles = StyleSheet.create({
     },
     optionText: {
         fontSize: 18,
+    },
+
+    modalContainer: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    modalContent: {
+        backgroundColor: 'white',
+        padding: 20,
+        borderRadius: 10,
+        elevation: 5,
+    },
+    modalCloseButton: {
+        marginTop: 10,
+        color: '#16247d',
+        textAlign: 'center',
     },
 });

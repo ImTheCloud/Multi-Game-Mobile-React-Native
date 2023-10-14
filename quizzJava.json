@@ -1,904 +1,816 @@
 {
   "quiz": {
-    "q1": {
-      "question": "What is the main purpose of the 'final' keyword in Java?",
+    "q270": {
+      "question": "What is Java?",
       "options": [
-        "To declare a constant variable",
-        "To indicate the end of a program",
-        "To define a final class"
+        "A programming language",
+        "A type of coffee",
+        "An operating system",
+        "A brand of computer"
       ],
-      "answer": "To declare a constant variable"
+      "answer": "A programming language"
     },
-    "q2": {
-      "question": "What is the Java Virtual Machine (JVM) and its role in Java?",
+    "q271": {
+      "question": "Which keyword is used to define a class in Java?",
       "options": [
-        "It is a hardware component in Java systems",
-        "It is a compiler for Java programs",
-        "It provides a runtime environment for Java bytecode"
+        "class",
+        "type",
+        "struct",
+        "interface"
       ],
-      "answer": "It provides a runtime environment for Java bytecode"
+      "answer": "class"
     },
-    "q3": {
-      "question": "What is the purpose of the 'super' keyword in Java?",
+    "q272": {
+      "question": "What is the entry point of a Java program?",
       "options": [
-        "To refer to the superclass or parent class",
-        "To invoke a static method",
-        "To create an instance of a class"
+        "main",
+        "start",
+        "begin",
+        "init"
       ],
-      "answer": "To refer to the superclass or parent class"
+      "answer": "main"
     },
-    "q4": {
-      "question": "What is the difference between '== 'and '.equals()' in Java when comparing strings?",
+    "q273": {
+      "question": "How do you declare a variable in Java?",
       "options": [
-        "No difference, they are interchangeable",
-        "==' compares object references, '.equals()' compares content",
-        "'.equals()' compares object references, '==' compares content"
+        "v int = 5;",
+        "int v = 5;",
+        "variable v = 5;",
+        "v = 5; int;"
       ],
-      "answer": "==' compares object references, '.equals()' compares content"
+      "answer": "int v = 5;"
     },
-    "q5": {
-      "question": "What is the purpose of the 'static' keyword in Java?",
+    "q274": {
+      "question": "What is the output of the following code snippet: `System.out.println(5 + \"Java\")`?",
       "options": [
-        "To create an instance of a class",
-        "To declare a variable that belongs to the class, not the instance",
-        "To indicate that a class cannot be instantiated"
+        "5Java",
+        "56",
+        "Error",
+        "Java5"
       ],
-      "answer": "To declare a variable that belongs to the class, not the instance"
+      "answer": "5Java"
     },
-    "q6": {
-      "question": "Which design principle in Java promotes code reusability and flexibility?",
+    "q275": {
+      "question": "Which operator is used for equality testing in Java?",
       "options": [
-        "Inheritance",
-        "Polymorphism",
-        "Encapsulation"
+        "==",
+        "===",
+        "!=",
+        "<>"
       ],
-      "answer": "Inheritance"
+      "answer": "=="
     },
-    "q7": {
-      "question": "What is the purpose of the 'try', 'catch', and 'finally' blocks in Java exception handling?",
-      "options": [
-        "To declare variables",
-        "To handle exceptions and cleanup code",
-        "To define loops"
-      ],
-      "answer": "To handle exceptions and cleanup code"
-    },
-    "q8": {
-      "question": "What is the difference between 'ArrayList' and 'LinkedList' in Java?",
-      "options": [
-        "ArrayList is a linked list, and LinkedList is an array",
-        "ArrayList uses dynamic arrays, and LinkedList uses linked nodes",
-        "There is no difference, they are interchangeable"
-      ],
-      "answer": "ArrayList uses dynamic arrays, and LinkedList uses linked nodes"
-    },
-    "q9": {
-      "question": "What is the purpose of the 'interface' keyword in Java?",
-      "options": [
-        "To declare a class",
-        "To define a method",
-        "To declare a set of method signatures that a class must implement"
-      ],
-      "answer": "To declare a set of method signatures that a class must implement"
-    },
-    "q10": {
-      "question": "What is the 'NullPointerException' in Java and when does it occur?",
-      "options": [
-        "It occurs when a method is not found",
-        "It occurs when an object reference is null and an attempt is made to use it",
-        "It occurs when there is a syntax error in the code"
-      ],
-      "answer": "It occurs when an object reference is null and an attempt is made to use it"
-    },
-    "q11": {
-      "question": "What is the purpose of the 'synchronized' keyword in Java?",
-      "options": [
-        "To prevent a class from being extended",
-        "To coordinate multiple threads to access a shared resource",
-        "To create a singleton class"
-      ],
-      "answer": "To coordinate multiple threads to access a shared resource"
-    },
-    "q12": {
-      "question": "What is the role of the 'this' keyword in Java?",
-      "options": [
-        "To refer to the current instance of the class",
-        "To call a superclass method",
-        "To create a new instance of a class"
-      ],
-      "answer": "To refer to the current instance of the class"
-    },
-    "q13": {
+    "q276": {
       "question": "What is the purpose of the 'break' statement in Java?",
       "options": [
         "To exit a loop or switch statement",
-        "To skip the rest of the code in a method",
-        "To terminate the program"
+        "To skip the current iteration of a loop",
+        "To end the program",
+        "To break the execution flow"
       ],
       "answer": "To exit a loop or switch statement"
     },
-    "q14": {
-      "question": "What is the concept of method overloading in Java?",
+    "q277": {
+      "question": "How do you create a new instance of a class in Java?",
       "options": [
-        "It allows a method to be defined in multiple classes",
-        "It allows a class to have multiple methods with the same name but different parameters",
-        "It allows a method to be called from another method"
+        "Class.newInstance()",
+        "new Object()",
+        "createObject(Class)",
+        "Object.createInstance(Class)"
       ],
-      "answer": "It allows a class to have multiple methods with the same name but different parameters"
+      "answer": "new Object()"
     },
-    "q15": {
-      "question": "What is the purpose of the 'extends' keyword in Java?",
+    "q278": {
+      "question": "What is the default value of an integer variable in Java?",
       "options": [
-        "To implement an interface",
-        "To declare a variable",
-        "To create a subclass"
+        "0",
+        "null",
+        "1",
+        "undefined"
       ],
-      "answer": "To create a subclass"
+      "answer": "0"
     },
-    "q16": {
-      "question": "How is memory management handled in Java?",
+    "q279": {
+      "question": "Which data type is used to store floating-point numbers with double precision?",
       "options": [
-        "By the operating system",
-        "Manually by the programmer",
-        "Automatically by the Java Virtual Machine (JVM) through garbage collection"
+        "float",
+        "double",
+        "decimal",
+        "real"
       ],
-      "answer": "Automatically by the Java Virtual Machine (JVM) through garbage collection"
+      "answer": "double"
     },
-    "q17": {
-      "question": "What is the purpose of the 'package' keyword in Java?",
+    "q280": {
+      "question": "What is the purpose of the 'public' keyword in Java?",
       "options": [
-        "To import external libraries",
-        "To define a namespace for classes",
-        "To declare a class"
+        "To specify the access level of a class",
+        "To define a public method",
+        "To declare a public variable",
+        "To indicate the main method"
       ],
-      "answer": "To define a namespace for classes"
+      "answer": "To specify the access level of a class"
     },
-    "q18": {
-      "question": "What is the role of the 'super()' method in a constructor?",
+    "q281": {
+      "question": "What is the role of the 'else' statement in an 'if-else' construct?",
+      "options": [
+        "To handle errors",
+        "To specify the alternative block of code when the 'if' condition is false",
+        "To terminate the program",
+        "To indicate the end of the 'if' block"
+      ],
+      "answer": "To specify the alternative block of code when the 'if' condition is false"
+    },
+    "q282": {
+      "question": "Which loop is used when you don't know the number of iterations in advance?",
+      "options": [
+        "for",
+        "while",
+        "do-while",
+        "foreach"
+      ],
+      "answer": "while"
+    },
+    "q283": {
+      "question": "What is the purpose of the 'return' statement in Java?",
+      "options": [
+        "To print a value to the console",
+        "To exit a loop",
+        "To exit a method and optionally return a value",
+        "To return a boolean value"
+      ],
+      "answer": "To exit a method and optionally return a value"
+    },
+    "q284": {
+      "question": "Which Java keyword is used to define a constant?",
+      "options": [
+        "final",
+        "const",
+        "static",
+        "constant"
+      ],
+      "answer": "final"
+    },
+    "q285": {
+      "question": "What is the purpose of the 'super' keyword in Java?",
       "options": [
         "To call the superclass constructor",
-        "To create a new instance of the class",
-        "To initialize a variable"
+        "To refer to the current instance of a class",
+        "To indicate a superclass method",
+        "To access static members of a class"
       ],
       "answer": "To call the superclass constructor"
     },
-    "q19": {
-      "question": "What is the 'Garbage Collection' in Java?",
+    "q286": {
+      "question": "Which Java operator is used for concatenating strings?",
       "options": [
-        "A process of discarding unused objects to free up memory",
-        "A mechanism for sorting data",
-        "A method for cleaning the code"
+        "&",
+        "+",
+        "|",
+        "-"
       ],
-      "answer": "A process of discarding unused objects to free up memory"
+      "answer": "+"
     },
-    "q20": {
-      "question": "What is the purpose of the 'Thread' class in Java?",
+    "q287": {
+      "question": "What is the purpose of the 'NullPointerException' in Java?",
       "options": [
-        "To define a new data type",
-        "To create a graphical user interface",
-        "To implement multithreading"
+        "To indicate that a variable is not initialized",
+        "To handle arithmetic errors",
+        "To indicate a division by zero",
+        "To indicate an attempt to access an object that is null"
       ],
-      "answer": "To implement multithreading"
+      "answer": "To indicate an attempt to access an object that is null"
     },
-    "q21": {
-      "question": "What is the purpose of the 'finally' block in Java exception handling?",
+    "q288": {
+      "question": "Which Java keyword is used to implement multiple inheritance?",
       "options": [
-        "To declare variables",
-        "To handle exceptions and cleanup code",
-        "To define loops"
+        "extends",
+        "implements",
+        "interface",
+        "inherit"
       ],
-      "answer": "To handle exceptions and cleanup code"
+      "answer": "implements"
     },
-    "q22": {
-      "question": "What is the 'equals()' method used for in Java?",
+    "q289": {
+      "question": "What is the purpose of the 'static' keyword in Java?",
       "options": [
-        "To compare two objects for equality",
-        "To convert a string to lowercase",
-        "To define a new class"
+        "To specify that a variable is constant",
+        "To define a class method or variable",
+        "To indicate the start of the program",
+        "To allocate memory for an object"
       ],
-      "answer": "To compare two objects for equality"
+      "answer": "To define a class method or variable"
     },
-    "q23": {
-      "question": "What is the purpose of the 'interface' keyword in Java?",
+    "q290": {
+      "question": "Which method is called when an object is created in Java?",
       "options": [
-        "To declare a class",
-        "To define a method",
-        "To declare a set of method signatures that a class must implement"
+        "init()",
+        "start()",
+        "create()",
+        "constructor()"
       ],
-      "answer": "To declare a set of method signatures that a class must implement"
+      "answer": "constructor()"
     },
-    "q24": {
-      "question": "Explain the concept of polymorphism in Java.",
-      "options": [
-        "It allows a class to have multiple methods with the same name but different parameters",
-        "It allows a class to be instantiated",
-        "It allows a class to extend multiple classes"
-      ],
-      "answer": "It allows a class to have multiple methods with the same name but different parameters"
-    },
-    "q25": {
-      "question": "What is the purpose of the 'StringBuilder' class in Java?",
-      "options": [
-        "To create immutable strings",
-        "To manipulate strings without creating new objects",
-        "To define a new data type"
-      ],
-      "answer": "To manipulate strings without creating new objects"
-    },
-    "q26": {
-      "question": "What is the role of the 'break' statement in a switch statement?",
-      "options": [
-        "To exit the entire program",
-        "To skip the rest of the code in the current case and exit the switch",
-        "To continue to the next iteration of a loop"
-      ],
-      "answer": "To skip the rest of the code in the current case and exit the switch"
-    },
-    "q27": {
-      "question": "How is method overriding different from method overloading in Java?",
-      "options": [
-        "Method overriding allows a subclass to provide a specific implementation of a method defined in its superclass",
-        "Method overriding is not supported in Java",
-        "Method overriding and method overloading are interchangeable terms"
-      ],
-      "answer": "Method overriding allows a subclass to provide a specific implementation of a method defined in its superclass"
-    },
-    "q28": {
-      "question": "What is the purpose of the 'instanceof' operator in Java?",
-      "options": [
-        "To check if an object is an instance of a specific class or interface",
-        "To instantiate a new object",
-        "To compare two objects for equality"
-      ],
-      "answer": "To check if an object is an instance of a specific class or interface"
-    },
-    "q29": {
-      "question": "What is the 'super' keyword used for in a constructor?",
-      "options": [
-        "To call the superclass constructor",
-        "To create a new instance of the class",
-        "To refer to the current instance of the class"
-      ],
-      "answer": "To call the superclass constructor"
-    },
-    "q30": {
-      "question": "What is the purpose of the 'enum' keyword in Java?",
-      "options": [
-        "To declare a variable",
-        "To define a method",
-        "To create a set of named constants"
-      ],
-      "answer": "To create a set of named constants"
-    },
-    "q31": {
-      "question": "What is the role of the 'throws' keyword in Java?",
-      "options": [
-        "To declare variables",
-        "To specify exceptions that a method might throw",
-        "To define a loop"
-      ],
-      "answer": "To specify exceptions that a method might throw"
-    },
-    "q32": {
-      "question": "What is the purpose of the 'do-while' loop in Java?",
-      "options": [
-        "To execute a block of code repeatedly as long as a condition is true",
-        "To iterate over elements of a collection",
-        "To define a conditional statement"
-      ],
-      "answer": "To execute a block of code repeatedly as long as a condition is true"
-    },
-    "q33": {
-      "question": "What is the 'finalize()' method in Java?",
-      "options": [
-        "A method for cleaning up code",
-        "A method for converting a string to lowercase",
-        "A method for comparing two objects"
-      ],
-      "answer": "A method for cleaning up code"
-    },
-    "q34": {
-      "question": "What is the purpose of the 'transient' keyword in Java?",
-      "options": [
-        "To declare a variable",
-        "To define a method",
-        "To indicate that a variable should not be serialized"
-      ],
-      "answer": "To indicate that a variable should not be serialized"
-    },
-    "q35": {
-      "question": "How does exception handling work in Java?",
-      "options": [
-        "By using the 'try', 'catch', and 'finally' blocks",
-        "By using the 'switch' statement",
-        "By using the 'throw' statement"
-      ],
-      "answer": "By using the 'try', 'catch', and 'finally' blocks"
-    },
-    "q36": {
-      "question": "What is the purpose of the 'this()' constructor call in Java?",
-      "options": [
-        "To call the superclass constructor",
-        "To create a new instance of the class",
-        "To call another constructor in the same class"
-      ],
-      "answer": "To call another constructor in the same class"
-    },
-    "q37": {
-      "question": "What is the role of the 'Comparator' interface in Java?",
-      "options": [
-        "To compare two objects for equality",
-        "To define a set of method signatures",
-        "To provide a total ordering of objects"
-      ],
-      "answer": "To provide a total ordering of objects"
-    },
-    "q38": {
-      "question": "What is the purpose of the 'volatile' keyword in Java?",
-      "options": [
-        "To declare a variable",
-        "To define a method",
-        "To indicate that a variable may be modified by multiple threads"
-      ],
-      "answer": "To indicate that a variable may be modified by multiple threads"
-    },
-    "q39": {
-      "question": "What is the concept of garbage collection in Java?",
-      "options": [
-        "A process of discarding unused objects to free up memory",
-        "A mechanism for creating new objects",
-        "A method for cleaning up the code"
-      ],
-      "answer": "A process of discarding unused objects to free up memory"
-    },
-    "q40": {
-      "question": "What is the purpose of the 'Math' class in Java?",
-      "options": [
-        "To perform mathematical operations",
-        "To define a new data type",
-        "To create graphical user interfaces"
-      ],
-      "answer": "To perform mathematical operations"
-    },
-    "q41": {
-      "question": "What is the purpose of the 'classpath' in Java?",
-      "options": [
-        "To specify the location of source files",
-        "To define the search path for classes and resources",
-        "To create a new class"
-      ],
-      "answer": "To define the search path for classes and resources"
-    },
-    "q42": {
-      "question": "Explain the 'enhanced for loop' in Java and its usage.",
-      "options": [
-        "It is used to iterate over elements in an array or collection",
-        "It is used to define conditional statements",
-        "It is used to create a new thread"
-      ],
-      "answer": "It is used to iterate over elements in an array or collection"
-    },
-    "q43": {
-      "question": "What is the purpose of the 'Java Native Interface (JNI)'?",
-      "options": [
-        "To define a new data type",
-        "To interface Java code with applications and libraries written in other languages",
-        "To create graphical user interfaces"
-      ],
-      "answer": "To interface Java code with applications and libraries written in other languages"
-    },
-    "q44": {
-      "question": "Explain the concept of 'autoboxing' and 'unboxing' in Java.",
-      "options": [
-        "Autoboxing is the process of converting a primitive type to its corresponding wrapper class, and unboxing is the reverse",
-        "Autoboxing is the process of converting a wrapper class to its corresponding primitive type, and unboxing is the reverse",
-        "Autoboxing and unboxing are not supported in Java"
-      ],
-      "answer": "Autoboxing is the process of converting a primitive type to its corresponding wrapper class, and unboxing is the reverse"
-    },
-    "q45": {
-      "question": "What is the purpose of the 'File' class in Java?",
-      "options": [
-        "To create a new file",
-        "To read or write data to a file",
-        "To define a new method"
-      ],
-      "answer": "To read or write data to a file"
-    },
-    "q46": {
-      "question": "What is the role of the 'hashCode()' method in Java?",
-      "options": [
-        "To generate a unique identifier for an object",
-        "To compare two objects for equality",
-        "To convert a string to lowercase"
-      ],
-      "answer": "To generate a unique identifier for an object"
-    },
-    "q47": {
-      "question": "Explain the 'Observer' design pattern in Java.",
-      "options": [
-        "It is used to define a set of method signatures",
-        "It is used to create a singleton class",
-        "It is used to define a one-to-many dependency between objects"
-      ],
-      "answer": "It is used to define a one-to-many dependency between objects"
-    },
-    "q48": {
-      "question": "What is the purpose of the 'Collections' class in Java?",
-      "options": [
-        "To define a set of method signatures",
-        "To provide static methods for common operations on collections",
-        "To create a new collection"
-      ],
-      "answer": "To provide static methods for common operations on collections"
-    },
-    "q49": {
-      "question": "What is the purpose of the 'Bitwise AND' operator in Java?",
-      "options": [
-        "To perform a logical AND operation on two boolean values",
-        "To perform a bitwise AND operation on two integers",
-        "To concatenate two strings"
-      ],
-      "answer": "To perform a bitwise AND operation on two integers"
-    },
-    "q50": {
-      "question": "What is the 'Diamond Operator' in Java, and when is it used?",
-      "options": [
-        "It is used to create a new instance of a class",
-        "It is used in generics to infer the type parameters",
-        "It is used to compare two objects for equality"
-      ],
-      "answer": "It is used in generics to infer the type parameters"
-    },
-    "q51": {
-      "question": "Explain the concept of 'method references' in Java 8.",
-      "options": [
-        "It is a way to define a method within a class",
-        "It is a shorthand syntax for lambda expressions to refer to methods or constructors",
-        "It is a way to create an instance of a functional interface"
-      ],
-      "answer": "It is a shorthand syntax for lambda expressions to refer to methods or constructors"
-    },
-    "q52": {
-      "question": "What is the purpose of the 'strictfp' keyword in Java?",
-      "options": [
-        "To declare a variable",
-        "To define a method",
-        "To ensure consistent floating-point behavior across different platforms"
-      ],
-      "answer": "To ensure consistent floating-point behavior across different platforms"
-    },
-    "q53": {
-      "question": "What is the purpose of the 'Path' interface in Java?",
-      "options": [
-        "To define a set of method signatures",
-        "To represent a file or directory path in a file system",
-        "To create a new file"
-      ],
-      "answer": "To represent a file or directory path in a file system"
-    },
-    "q54": {
-      "question": "What is the purpose of the 'Random' class in Java?",
-      "options": [
-        "To generate random numbers",
-        "To create a new instance of a class",
-        "To define a new data type"
-      ],
-      "answer": "To generate random numbers"
-    },
-    "q55": {
-      "question": "Explain the concept of 'Lambda Expressions' in Java.",
-      "options": [
-        "It is used to define a set of method signatures",
-        "It is a shorthand syntax for defining anonymous methods (functions)",
-        "It is used to declare a variable"
-      ],
-      "answer": "It is a shorthand syntax for defining anonymous methods (functions)"
-    },
-    "q56": {
-      "question": "What is the purpose of the 'ThreadLocal' class in Java?",
-      "options": [
-        "To define a set of method signatures",
-        "To create a new thread",
-        "To provide thread-local variables"
-      ],
-      "answer": "To provide thread-local variables"
-    },
-    "q57": {
-      "question": "What is the purpose of the 'TimeZone' class in Java?",
-      "options": [
-        "To define a set of method signatures",
-        "To represent a time zone",
-        "To create a new time instance"
-      ],
-      "answer": "To represent a time zone"
-    },
-    "q58": {
-      "question": "Explain the 'Deadlock' in Java and how to prevent it.",
-      "options": [
-        "It is a situation where two or more threads are blocked forever, each waiting for the other",
-        "It is a way to define a set of method signatures",
-        "It is a mechanism for handling exceptions"
-      ],
-      "answer": "It is a situation where two or more threads are blocked forever, each waiting for the other"
-    },
-    "q59": {
-      "question": "What is the purpose of the 'Bitwise XOR' operator in Java?",
-      "options": [
-        "To perform a logical XOR operation on two boolean values",
-        "To perform a bitwise XOR operation on two integers",
-        "To concatenate two strings"
-      ],
-      "answer": "To perform a bitwise XOR operation on two integers"
-    },
-    "q60": {
-      "question": "Explain the concept of 'serialization' in Java.",
-      "options": [
-        "It is a way to define a set of method signatures",
-        "It is a process of converting an object into a byte stream",
-        "It is a way to create an instance of a class"
-      ],
-      "answer": "It is a process of converting an object into a byte stream"
-    },
-    "q61": {
-      "question": "Explain the concept of 'reflection' in Java.",
-      "options": [
-        "Reflection is a way to create objects dynamically.",
-        "Reflection is a way to inspect and modify class behavior at runtime.",
-        "Reflection is a way to define a set of method signatures."
-      ],
-      "answer": "Reflection is a way to inspect and modify class behavior at runtime."
-    },
-    "q62": {
-      "question": "What is the purpose of the 'Eclipse IDE' in Java development?",
-      "options": [
-        "Eclipse IDE is used for running Java applications.",
-        "Eclipse IDE is used for writing and debugging Java code.",
-        "Eclipse IDE is a version control system for Java."
-      ],
-      "answer": "Eclipse IDE is used for writing and debugging Java code."
-    },
-    "q63": {
-      "question": "Explain the concept of 'checked' and 'unchecked' exceptions in Java.",
-      "options": [
-        "Checked exceptions must be caught or declared, while unchecked exceptions do not need to be caught or declared.",
-        "Checked exceptions do not need to be caught or declared, while unchecked exceptions must be caught or declared.",
-        "Checked exceptions and unchecked exceptions are the same thing."
-      ],
-      "answer": "Checked exceptions must be caught or declared, while unchecked exceptions do not need to be caught or declared."
-    },
-    "q64": {
-      "question": "What is the purpose of the 'Thread.sleep()' method in Java?",
-      "options": [
-        "To create a new thread.",
-        "To make the current thread sleep for a specified amount of time.",
-        "To define a set of method signatures."
-      ],
-      "answer": "To make the current thread sleep for a specified amount of time."
-    },
-    "q65": {
-      "question": "Explain the concept of 'Java Naming and Directory Interface (JNDI)' in Java EE.",
-      "options": [
-        "JNDI is used for defining naming conventions in Java.",
-        "JNDI is a framework for connecting Java objects to naming and directory services.",
-        "JNDI is a way to define a set of method signatures."
-      ],
-      "answer": "JNDI is a framework for connecting Java objects to naming and directory services."
-    },
-    "q66": {
-      "question": "What is the purpose of the 'Proxy' design pattern in Java?",
-      "options": [
-        "Proxy pattern is used to create new objects.",
-        "Proxy pattern is used to provide a surrogate or placeholder for another object to control access to it.",
-        "Proxy pattern is used for defining a set of method signatures."
-      ],
-      "answer": "Proxy pattern is used to provide a surrogate or placeholder for another object to control access to it."
-    },
-    "q67": {
-      "question": "Explain the concept of 'garbage collection' in Java.",
-      "options": [
-        "Garbage collection is a process of creating new objects.",
-        "Garbage collection is a process of automatically reclaiming memory occupied by unreferenced objects.",
-        "Garbage collection is a way to define a set of method signatures."
-      ],
-      "answer": "Garbage collection is a process of automatically reclaiming memory occupied by unreferenced objects."
-    },
-    "q68": {
-      "question": "What is the purpose of the 'Java Authentication and Authorization Service (JAAS)'?",
-      "options": [
-        "JAAS is used for creating authentication tokens.",
-        "JAAS is used for defining a set of method signatures.",
-        "JAAS is a framework for user authentication and authorization in Java applications."
-      ],
-      "answer": "JAAS is a framework for user authentication and authorization in Java applications."
-    },
-    "q69": {
-      "question": "Explain the concept of 'method references' in Java 8.",
-      "options": [
-        "Method references are a way to define new methods in a class.",
-        "Method references are a way to refer to methods or constructors using a concise syntax.",
-        "Method references are a way to define a set of method signatures."
-      ],
-      "answer": "Method references are a way to refer to methods or constructors using a concise syntax."
-    },
-    "q70": {
-      "question": "What is the purpose of the 'ForkJoinPool' in Java?",
-      "options": [
-        "ForkJoinPool is used for creating new threads.",
-        "ForkJoinPool is used for parallelizing recursive tasks in Java.",
-        "ForkJoinPool is used for defining a set of method signatures."
-      ],
-      "answer": "ForkJoinPool is used for parallelizing recursive tasks in Java."
-    },
-    "q71": {
-      "question": "Explain the concept of 'Java Virtual Machine (JVM)' and its role in Java.",
-      "options": [
-        "JVM is a tool for creating virtual machines in Java.",
-        "JVM is a compiler for Java programs.",
-        "JVM is an abstract computing machine that enables Java programs to be executed on different platforms."
-      ],
-      "answer": "JVM is an abstract computing machine that enables Java programs to be executed on different platforms."
-    },
-    "q72": {
-      "question": "What is the purpose of the 'java.nio' package in Java?",
-      "options": [
-        "java.nio is used for defining a set of method signatures.",
-        "java.nio is a package for file input and output operations.",
-        "java.nio is used for creating graphical user interfaces."
-      ],
-      "answer": "java.nio is a package for file input and output operations."
-    },
-    "q73": {
-      "question": "Explain the concept of 'JDBC' (Java Database Connectivity) in Java.",
-      "options": [
-        "JDBC is a design pattern for creating graphical user interfaces.",
-        "JDBC is a package for file input and output operations.",
-        "JDBC is an API for connecting Java applications to relational databases and executing SQL queries."
-      ],
-      "answer": "JDBC is an API for connecting Java applications to relational databases and executing SQL queries."
-    },
-    "q74": {
-      "question": "What is the purpose of the 'finalize()' method in Java?",
-      "options": [
-        "To define a set of method signatures.",
-        "To provide a way for the garbage collector to release resources before an object is reclaimed.",
-        "To create a new instance of a class."
-      ],
-      "answer": "To provide a way for the garbage collector to release resources before an object is reclaimed."
-    },
-    "q75": {
-      "question": "Explain the concept of 'aspect-oriented programming (AOP)' in Java.",
-      "options": [
-        "AOP is a way to define a set of method signatures.",
-        "AOP is a programming paradigm that aims to increase modularity by allowing the separation of cross-cutting concerns.",
-        "AOP is a way to create new objects in Java."
-      ],
-      "answer": "AOP is a programming paradigm that aims to increase modularity by allowing the separation of cross-cutting concerns."
-    },
-    "q76": {
-      "question": "What is the purpose of the 'Reflection API' in Java?",
-      "options": [
-        "The Reflection API is used for defining naming conventions in Java.",
-        "The Reflection API is used for inspecting and modifying class behavior at runtime.",
-        "The Reflection API is a way to create a new thread."
-      ],
-      "answer": "The Reflection API is used for inspecting and modifying class behavior at runtime."
-    },
-    "q77": {
-      "question": "Explain the concept of 'EJB' (Enterprise JavaBeans) in Java EE.",
-      "options": [
-        "EJB is a way to define a set of method signatures.",
-        "EJB is a framework for building web applications in Java.",
-        "EJB is a server-side component architecture for the development and deployment of enterprise applications in Java."
-      ],
-      "answer": "EJB is a server-side component architecture for the development and deployment of enterprise applications in Java."
-    },
-    "q78": {
-      "question": "What is the purpose of the 'Dependency Inversion Principle' in Java?",
-      "options": [
-        "To create a new instance of a class.",
-        "To create a new design pattern.",
-        "To reduce the coupling between high-level and low-level modules by introducing an abstraction."
-      ],
-      "answer": "To reduce the coupling between high-level and low-level modules by introducing an abstraction."
-    },
-    "q79": {
-      "question": "Explain the concept of 'SSL/TLS' in the context of Java networking.",
-      "options": [
-        "SSL/TLS is a way to create a new thread.",
-        "SSL/TLS is a cryptographic protocol for secure communication over a computer network.",
-        "SSL/TLS is used for defining a set of method signatures."
-      ],
-      "answer": "SSL/TLS is a cryptographic protocol for secure communication over a computer network."
-    },
-    "q80": {
-      "question": "What is the purpose of the 'ServiceLoader' class in Java?",
-      "options": [
-        "ServiceLoader is used for creating services in Java.",
-        "ServiceLoader is used for defining a set of method signatures.",
-        "ServiceLoader is a simple, provider-based mechanism for service loading."
-      ],
-      "answer": "ServiceLoader is a simple, provider-based mechanism for service loading."
-    },
-      "q81": {
-        "question": "Explain the concept of 'method overloading' in Java.",
+    "quiz": {
+      "q291": {
+        "question": "What is a variable in Java?",
         "options": [
-          "It allows a class to have multiple methods with the same name but different parameters.",
-          "It allows a method to be called from another method.",
-          "It is a way to override a method in a superclass."
+          "A reserved keyword",
+          "A data type",
+          "A named storage location for holding data",
+          "A constant value"
         ],
-        "answer": "It allows a class to have multiple methods with the same name but different parameters."
+        "answer": "A named storage location for holding data"
       },
-      "q82": {
-        "question": "What is the difference between '== 'and '.equals()' when comparing objects in Java?",
+      "q292": {
+        "question": "How do you comment a single line in Java?",
         "options": [
-          "No difference, they are interchangeable.",
-          "'==' compares object references, '.equals()' compares content.",
-          "'.equals()' compares object references, '==' compares content."
+          "// This is a comment",
+          "# This is a comment",
+          "/** This is a comment */",
+          "/* This is a comment */"
         ],
-        "answer": "'==' compares object references, '.equals()' compares content."
+        "answer": "// This is a comment"
       },
-      "q83": {
-        "question": "Explain the concept of 'static' and 'final' modifiers in Java.",
+      "q293": {
+        "question": "What is the syntax for declaring a constant in Java?",
         "options": [
-          "'static' is used for creating class-level variables or methods, 'final' is used to make a variable or method unmodifiable.",
-          "'static' is used to create an instance of a class, 'final' is used for garbage collection.",
-          "'static' is used to create local variables, 'final' is used for loop counters."
+          "const int MY_CONSTANT = 10;",
+          "final int MY_CONSTANT = 10;",
+          "constant int MY_CONSTANT = 10;",
+          "let MY_CONSTANT = 10;"
         ],
-        "answer": "'static' is used for creating class-level variables or methods, 'final' is used to make a variable or method unmodifiable."
+        "answer": "final int MY_CONSTANT = 10;"
       },
-      "q84": {
-        "question": "What is the 'Model-View-Controller (MVC)' design pattern in Java?",
+      "q294": {
+        "question": "How do you declare a method in Java?",
         "options": [
-          "It is a pattern for designing graphical user interfaces.",
-          "It is a pattern for organizing code into three interconnected components: model, view, and controller.",
-          "It is a pattern for managing database connections."
+          "method void myMethod() {}",
+          "void myMethod() {}",
+          "function myMethod() {}",
+          "def myMethod() {}"
         ],
-        "answer": "It is a pattern for organizing code into three interconnected components: model, view, and controller."
+        "answer": "void myMethod() {}"
       },
-      "q85": {
-        "question": "Explain the concept of 'multithreading' in Java and why it is used.",
+      "q295": {
+        "question": "What is the purpose of the 'new' keyword in Java?",
         "options": [
-          "Multithreading is the process of executing multiple threads concurrently, and it is used to improve the performance of a program.",
-          "Multithreading is used for defining multiple methods in a single class.",
-          "Multithreading is the process of executing a single thread repeatedly."
+          "To create a new instance of a class",
+          "To declare a new variable",
+          "To define a new method",
+          "To allocate memory for a variable"
         ],
-        "answer": "Multithreading is the process of executing multiple threads concurrently, and it is used to improve the performance of a program."
+        "answer": "To create a new instance of a class"
       },
-      "q86": {
-        "question": "What is 'generics' in Java and why is it useful?",
+      "q296": {
+        "question": "What is the default value of a boolean variable in Java?",
         "options": [
-          "Generics allow methods to be called with arguments of different types, improving code flexibility.",
-          "Generics allow the creation of methods that can accept any number of arguments.",
-          "Generics allow classes and methods to operate on objects of any type, improving type safety."
+          "false",
+          "true",
+          "0",
+          "null"
         ],
-        "answer": "Generics allow classes and methods to operate on objects of any type, improving type safety."
+        "answer": "false"
       },
-      "q87": {
-        "question": "Explain the concept of 'inner classes' in Java.",
+      "q297": {
+        "question": "How do you convert a string to an integer in Java?",
         "options": [
-          "Inner classes are classes that can only be instantiated from outside the enclosing class.",
-          "Inner classes are classes defined within another class, and they can access the members of the enclosing class.",
-          "Inner classes are classes that have only private members."
+          "int x = parseInteger(myString);",
+          "int x = Integer.parse(myString);",
+          "int x = Integer.parseInt(myString);",
+          "int x = stringToInteger(myString);"
         ],
-        "answer": "Inner classes are classes defined within another class, and they can access the members of the enclosing class."
+        "answer": "int x = Integer.parseInt(myString);"
       },
-      "q88": {
-        "question": "What is the purpose of the 'try-with-resources' statement in Java?",
+      "q298": {
+        "question": "What is the purpose of the 'this' keyword in Java?",
         "options": [
-          "It is used for creating resources within a try block.",
-          "It is used to ensure that a resource is closed after the try block is executed.",
-          "It is used to catch exceptions thrown by resources."
+          "To create a new object",
+          "To refer to the current instance of a class",
+          "To call a static method",
+          "To define a new variable"
         ],
-        "answer": "It is used to ensure that a resource is closed after the try block is executed."
+        "answer": "To refer to the current instance of a class"
       },
-      "q89": {
-        "question": "Explain the concept of 'annotations' in Java.",
+      "q299": {
+        "question": "What is the difference between '== 'and '.equals()' in Java when comparing strings?",
         "options": [
-          "Annotations are comments that are ignored by the Java compiler.",
-          "Annotations provide metadata about a program, which can be used by the compiler or other tools.",
-          "Annotations are a way to define variables in Java."
+          "'==' compares object references, '.equals()' compares the content of the strings",
+          "'==' compares the content of the strings, '.equals()' compares object references",
+          "Both are identical in their functionality",
+          "Neither '==' nor '.equals()' can be used to compare strings"
         ],
-        "answer": "Annotations provide metadata about a program, which can be used by the compiler or other tools."
+        "answer": "'==' compares object references, '.equals()' compares the content of the strings"
       },
-      "q90": {
-        "question": "What is the 'Observer' design pattern in Java, and how is it implemented?",
+      "q300": {
+        "question": "Which keyword is used to implement exception handling in Java?",
         "options": [
-          "It is a pattern for creating graphical user interfaces.",
-          "It is a pattern for defining a set of method signatures.",
-          "It is a pattern for implementing a one-to-many dependency between objects, where if one object changes state, all its dependents are notified and updated automatically."
+          "throw",
+          "try",
+          "catch",
+          "exception"
         ],
-        "answer": "It is a pattern for implementing a one-to-many dependency between objects, where if one object changes state, all its dependents are notified and updated automatically."
+        "answer": "try"
       },
-      "q91": {
-        "question": "What is the purpose of the 'Comparator' interface in Java?",
+      "q301": {
+        "question": "What is the purpose of the 'instanceof' operator in Java?",
         "options": [
-          "To define a set of method signatures.",
-          "To provide a total ordering of objects that may not have a natural ordering.",
-          "To create a new data type."
+          "To check if an object is an instance of a specific class",
+          "To create a new instance of a class",
+          "To cast an object to another type",
+          "To compare two objects for equality"
         ],
-        "answer": "To provide a total ordering of objects that may not have a natural ordering."
+        "answer": "To check if an object is an instance of a specific class"
       },
-      "q92": {
-        "question": "Explain the concept of 'serialization' and 'deserialization' in Java.",
+      "q302": {
+        "question": "How do you declare an array in Java?",
         "options": [
-          "Serialization is the process of converting an object into a byte stream, and deserialization is the reverse process.",
-          "Serialization is the process of converting a byte stream into an object, and deserialization is the reverse process.",
-          "Serialization is the process of compressing data, and deserialization is the process of decompressing data."
+          "array int[] myArray;",
+          "int myArray[];",
+          "int[] myArray;",
+          "myArray[] int;"
         ],
-        "answer": "Serialization is the process of converting an object into a byte stream, and deserialization is the reverse process."
+        "answer": "int[] myArray;"
       },
-      "q93": {
+      "q303": {
+        "question": "What is the purpose of the 'for' loop in Java?",
+        "options": [
+          "To declare variables",
+          "To handle exceptions",
+          "To create an infinite loop",
+          "To iterate over a block of code a specific number of times"
+        ],
+        "answer": "To iterate over a block of code a specific number of times"
+      },
+      "q304": {
+        "question": "How do you exit a loop prematurely in Java?",
+        "options": [
+          "exit",
+          "break",
+          "stop",
+          "end"
+        ],
+        "answer": "break"
+      },
+      "q305": {
+        "question": "What is the purpose of the 'do-while' loop in Java?",
+        "options": [
+          "To iterate over a block of code a specific number of times",
+          "To create an infinite loop",
+          "To declare variables",
+          "To guarantee that the loop code is executed at least once"
+        ],
+        "answer": "To guarantee that the loop code is executed at least once"
+      },
+      "q306": {
+        "question": "Which access modifier is used for a method that should be accessible from any class?",
+        "options": [
+          "private",
+          "protected",
+          "public",
+          "default"
+        ],
+        "answer": "public"
+      },
+      "q307": {
+        "question": "What is the purpose of the 'continue' statement in Java?",
+        "options": [
+          "To end the program",
+          "To skip the rest of the code in a loop and start the next iteration",
+          "To exit a loop",
+          "To print a message to the console"
+        ],
+        "answer": "To skip the rest of the code in a loop and start the next iteration"
+      },
+      "q308": {
+        "question": "What is the role of the 'import' statement in Java?",
+        "options": [
+          "To include external libraries in the code",
+          "To declare variables",
+          "To define constants",
+          "To create instances of classes"
+        ],
+        "answer": "To include external libraries in the code"
+      },
+      "q309": {
+        "question": "How do you define a constructor in Java?",
+        "options": [
+          "method Constructor() {}",
+          "Constructor() {}",
+          "init Constructor() {}",
+          "create Constructor() {}"
+        ],
+        "answer": "Constructor() {}"
+      },
+      "q310": {
+        "question": "What is the purpose of the 'switch' statement in Java?",
+        "options": [
+          "To compare two strings",
+          "To handle exceptions",
+          "To create an alternative block of code based on the value of an expression",
+          "To declare variables"
+        ],
+        "answer": "To create an alternative block of code based on the value of an expression"
+      },
+      "q311": {
         "question": "What is the purpose of the 'volatile' keyword in Java?",
         "options": [
-          "To define a variable.",
-          "To indicate that a variable may be modified by multiple threads.",
-          "To create a new instance of a class."
+          "To indicate that a variable may be changed by multiple threads simultaneously",
+          "To make a variable immutable",
+          "To define a constant",
+          "To enforce encapsulation"
         ],
-        "answer": "To indicate that a variable may be modified by multiple threads."
+        "answer": "To indicate that a variable may be changed by multiple threads simultaneously"
       },
-      "q94": {
-        "question": "What is the concept of 'dependency injection' in Java?",
+      "q312": {
+        "question": "Explain the difference between 'ArrayList' and 'LinkedList' in Java.",
         "options": [
-          "It is a way to define a set of method signatures.",
-          "It is a way to create an instance of a class.",
-          "It is a design pattern that allows the removal of hard-coded dependencies and makes it possible to change them, whether at runtime or compile time."
+          "'ArrayList' is a resizable array, 'LinkedList' is a doubly linked list",
+          "'ArrayList' is a linked list, 'LinkedList' is a resizable array",
+          "'ArrayList' is faster for random access, 'LinkedList' is faster for insertions and deletions",
+          "'ArrayList' and 'LinkedList' are interchangeable and can be used in the same scenarios"
         ],
-        "answer": "It is a design pattern that allows the removal of hard-coded dependencies and makes it possible to change them, whether at runtime or compile time."
+        "answer": "'ArrayList' is faster for random access, 'LinkedList' is faster for insertions and deletions"
       },
-      "q95": {
-        "question": "Explain the concept of 'polymorphism' in Java.",
+      "q313": {
+        "question": "What is the purpose of the 'transient' keyword in Java?",
         "options": [
-          "Polymorphism is the process of executing multiple threads concurrently.",
-          "Polymorphism is a way to define multiple methods with the same name but different parameters.",
-          "Polymorphism allows a class to have multiple methods with the same name, but each method has a different implementation."
+          "To indicate that a variable is constant",
+          "To make a variable immutable",
+          "To specify that a variable should not be serialized",
+          "To define a variable with thread-safe access"
         ],
-        "answer": "Polymorphism allows a class to have multiple methods with the same name, but each method has a different implementation."
+        "answer": "To specify that a variable should not be serialized"
       },
-      "q96": {
-        "question": "What is the purpose of the 'StringBuilder' class in Java?",
+      "q314": {
+        "question": "Explain the concept of polymorphism in Java.",
         "options": [
-          "To create immutable strings.",
-          "To manipulate strings without creating new objects.",
-          "To define a new data type."
+          "Polymorphism allows a class to inherit from multiple classes",
+          "Polymorphism allows a method to have multiple implementations",
+          "Polymorphism allows a class to hide its implementation details",
+          "Polymorphism allows a method to accept multiple parameters"
         ],
-        "answer": "To manipulate strings without creating new objects."
+        "answer": "Polymorphism allows a method to have multiple implementations"
       },
-      "q97": {
-        "question": "Explain the concept of 'lambda expressions' in Java.",
+      "q315": {
+        "question": "What is the difference between 'HashSet' and 'TreeSet' in Java?",
         "options": [
-          "Lambda expressions are a way to define a set of method signatures.",
-          "Lambda expressions are a shorthand syntax for defining anonymous methods (functions).",
-          "Lambda expressions are a way to create an instance of a class."
+          "'HashSet' is unordered and 'TreeSet' is ordered",
+          "'HashSet' allows duplicate elements, 'TreeSet' does not",
+          "'HashSet' uses a hash table for storage, 'TreeSet' uses a binary search tree",
+          "'HashSet' is a subtype of 'TreeSet'"
         ],
-        "answer": "Lambda expressions are a shorthand syntax for defining anonymous methods (functions)."
+        "answer": "'HashSet' is unordered and 'TreeSet' is ordered"
       },
-      "q98": {
+      "q316": {
+        "question": "Explain the concept of encapsulation in Java.",
+        "options": [
+          "Encapsulation allows a class to inherit from multiple classes",
+          "Encapsulation allows a method to have multiple implementations",
+          "Encapsulation allows a class to hide its implementation details and restrict access to its internal state",
+          "Encapsulation allows a method to accept multiple parameters"
+        ],
+        "answer": "Encapsulation allows a class to hide its implementation details and restrict access to its internal state"
+      },
+      "q317": {
+        "question": "What is the purpose of the 'final' keyword in Java?",
+        "options": [
+          "To indicate that a class cannot be inherited",
+          "To specify that a variable is constant",
+          "To define a constant",
+          "To indicate that a method cannot be overridden"
+        ],
+        "answer": "To indicate that a class cannot be inherited"
+      },
+      "q318": {
+        "question": "Explain the concept of abstract classes in Java.",
+        "options": [
+          "Abstract classes cannot have any abstract methods",
+          "Abstract classes can be instantiated",
+          "Abstract classes can have both abstract and concrete methods",
+          "Abstract classes are always final"
+        ],
+        "answer": "Abstract classes can have both abstract and concrete methods"
+      },
+      "q319": {
         "question": "What is the purpose of the 'super' keyword in Java?",
         "options": [
-          "To create a new instance of a class.",
-          "To call another constructor in the same class.",
-          "To refer to the superclass or parent class."
+          "To call the superclass constructor",
+          "To refer to the current instance of a class",
+          "To indicate a superclass method",
+          "To access static members of a class"
         ],
-        "answer": "To refer to the superclass or parent class."
+        "answer": "To call the superclass constructor"
       },
-      "q99": {
-        "question": "Explain the concept of 'asynchronous programming' in Java.",
+      "q320": {
+        "question": "Explain the concept of the 'try-with-resources' statement in Java.",
         "options": [
-          "Asynchronous programming is a way to define multiple methods with the same name but different parameters.",
-          "Asynchronous programming is a way to execute code concurrently without blocking the main thread.",
-          "Asynchronous programming is a way to create a new thread."
+          "It is used to handle exceptions in a try-catch block",
+          "It is used to automatically close resources like files or sockets",
+          "It is used to create a new instance of a class",
+          "It is used to create a block of code that always executes"
         ],
-        "answer": "Asynchronous programming is a way to execute code concurrently without blocking the main thread."
+        "answer": "It is used to automatically close resources like files or sockets"
       },
-      "q100": {
-        "question": "What is the purpose of the 'ClassNotFoundException' in Java?",
+      "q321": {
+        "question": "What is the purpose of the 'StringBuilder' class in Java?",
         "options": [
-          "To handle exceptions and prevent program crashes.",
-          "To define a set of method signatures.",
-          "To indicate that a class could not be found during runtime."
+          "To create immutable strings",
+          "To manipulate strings without creating new objects",
+          "To perform mathematical operations",
+          "To convert strings to lowercase"
         ],
-        "answer": "To indicate that a class could not be found during runtime."
+        "answer": "To manipulate strings without creating new objects"
+      },
+      "q322": {
+        "question": "Explain the concept of interfaces in Java.",
+        "options": [
+          "Interfaces are used to define constants",
+          "Interfaces are used to declare variables",
+          "Interfaces are used to implement multiple inheritance",
+          "Interfaces are used to define a class"
+        ],
+        "answer": "Interfaces are used to implement multiple inheritance"
+      },
+      "q323": {
+        "question": "What is the difference between 'compareTo()' and 'equals()' methods in Java?",
+        "options": [
+          "'compareTo()' compares the content of strings, 'equals()' compares object references",
+          "'equals()' compares the content of strings, 'compareTo()' compares object references",
+          "Both 'compareTo()' and 'equals()' compare object references",
+          "Neither 'compareTo()' nor 'equals()' can be used to compare strings"
+        ],
+        "answer": "'compareTo()' compares the content of strings, 'equals()' compares object references"
+      },
+      "q324": {
+        "question": "Explain the concept of anonymous classes in Java.",
+        "options": [
+          "Anonymous classes are classes without a name",
+          "Anonymous classes are final and cannot be extended",
+          "Anonymous classes cannot implement interfaces",
+          "Anonymous classes cannot have constructors"
+        ],
+        "answer": "Anonymous classes are classes without a name"
+      },
+      "q325": {
+        "question": "What is the purpose of the 'ClassLoader' in Java?",
+        "options": [
+          "To load classes at runtime",
+          "To create instances of classes",
+          "To define class constants",
+          "To handle exceptions"
+        ],
+        "answer": "To load classes at runtime"
+      },
+      "q326": {
+        "question": "Explain the concept of the 'Decorator' design pattern in Java.",
+        "options": [
+          "Decorator pattern is used to create an object that behaves like another object",
+          "Decorator pattern is used to add new functionalities to an object by wrapping it",
+          "Decorator pattern is used to create an object without specifying its exact type",
+          "Decorator pattern is used to define a family of algorithms"
+        ],
+        "answer": "Decorator pattern is used to add new functionalities to an object by wrapping it"
+      },
+      "q327": {
+        "question": "What is the purpose of the 'Eclipse IDE' in Java development?",
+        "options": [
+          "To write and run Java code",
+          "To create UML diagrams",
+          "To manage databases",
+          "To design user interfaces"
+        ],
+        "answer": "To write and run Java code"
+      },
+      "q328": {
+        "question": "Explain the concept of the 'Observer' design pattern in Java.",
+        "options": [
+          "Observer pattern is used to create an object that behaves like another object",
+          "Observer pattern is used to add new functionalities to an object by wrapping it",
+          "Observer pattern is used to notify multiple objects about changes in the state of an object",
+          "Observer pattern is used to define a family of algorithms"
+        ],
+        "answer": "Observer pattern is used to notify multiple objects about changes in the state of an object"
+      },
+      "q329": {
+        "question": "What is the purpose of the 'Callable' interface in Java?",
+        "options": [
+          "To create threads",
+          "To define a task that can be executed asynchronously and returns a result",
+          "To handle exceptions",
+          "To define a callback function"
+        ],
+        "answer": "To define a task that can be executed asynchronously and returns a result"
+      },
+      "q330": {
+        "question": "Explain the concept of the 'Singleton' design pattern in Java.",
+        "options": [
+          "Singleton pattern is used to create an object that behaves like another object",
+          "Singleton pattern is used to add new functionalities to an object by wrapping it",
+          "Singleton pattern is used to ensure that a class has only one instance and provides a global point of access to it",
+          "Singleton pattern is used to define a family of algorithms"
+        ],
+        "answer": "Singleton pattern is used to ensure that a class has only one instance and provides a global point of access to it"
+      },
+      "q331": {
+        "question": "What is a design pattern in software development?",
+        "options": [
+          "A design template",
+          "A programming language feature",
+          "A solution to a common problem in a specific context",
+          "A mathematical algorithm"
+        ],
+        "answer": "A solution to a common problem in a specific context"
+      },
+      "q332": {
+        "question": "Explain the Singleton design pattern.",
+        "options": [
+          "Ensures a class has only one instance and provides a global point of access to it",
+          "Defines a family of algorithms, encapsulates each algorithm, and makes them interchangeable",
+          "Separates the construction of a complex object from its representation",
+          "Provides an interface for creating instances of a class, but leaves the choice of its type to the subclasses"
+        ],
+        "answer": "Ensures a class has only one instance and provides a global point of access to it"
+      },
+      "q333": {
+        "question": "What is the Observer design pattern?",
+        "options": [
+          "Ensures a class has only one instance and provides a global point of access to it",
+          "Defines a family of algorithms, encapsulates each algorithm, and makes them interchangeable",
+          "Allows a subject to notify its dependents of a change in state",
+          "Provides an interface for creating instances of a class, but leaves the choice of its type to the subclasses"
+        ],
+        "answer": "Allows a subject to notify its dependents of a change in state"
+      },
+      "q334": {
+        "question": "Explain the Factory Method design pattern.",
+        "options": [
+          "Ensures a class has only one instance and provides a global point of access to it",
+          "Defines a family of algorithms, encapsulates each algorithm, and makes them interchangeable",
+          "Allows a subject to notify its dependents of a change in state",
+          "Provides an interface for creating instances of a class, but leaves the choice of its type to the subclasses"
+        ],
+        "answer": "Provides an interface for creating instances of a class, but leaves the choice of its type to the subclasses"
+      },
+      "q335": {
+        "question": "What is the purpose of the Strategy design pattern?",
+        "options": [
+          "Ensures a class has only one instance and provides a global point of access to it",
+          "Defines a family of algorithms, encapsulates each algorithm, and makes them interchangeable",
+          "Allows a subject to notify its dependents of a change in state",
+          "Provides an interface for creating instances of a class, but leaves the choice of its type to the subclasses"
+        ],
+        "answer": "Defines a family of algorithms, encapsulates each algorithm, and makes them interchangeable"
+      },
+      "q336": {
+        "question": "Explain the Builder design pattern.",
+        "options": [
+          "Ensures a class has only one instance and provides a global point of access to it",
+          "Defines a family of algorithms, encapsulates each algorithm, and makes them interchangeable",
+          "Allows a subject to notify its dependents of a change in state",
+          "Separates the construction of a complex object from its representation"
+        ],
+        "answer": "Separates the construction of a complex object from its representation"
+      },
+      "q337": {
+        "question": "What is the Chain of Responsibility design pattern?",
+        "options": [
+          "Ensures a class has only one instance and provides a global point of access to it",
+          "Defines a family of algorithms, encapsulates each algorithm, and makes them interchangeable",
+          "Allows a subject to notify its dependents of a change in state",
+          "Passes the request along a chain of handlers"
+        ],
+        "answer": "Passes the request along a chain of handlers"
+      },
+      "q338": {
+        "question": "Explain the Adapter design pattern.",
+        "options": [
+          "Ensures a class has only one instance and provides a global point of access to it",
+          "Defines a family of algorithms, encapsulates each algorithm, and makes them interchangeable",
+          "Allows a subject to notify its dependents of a change in state",
+          "Allows the interface of an existing class to be used as another interface"
+        ],
+        "answer": "Allows the interface of an existing class to be used as another interface"
+      },
+      "q339": {
+        "question": "What is the Template Method design pattern?",
+        "options": [
+          "Ensures a class has only one instance and provides a global point of access to it",
+          "Defines a family of algorithms, encapsulates each algorithm, and makes them interchangeable",
+          "Allows a subject to notify its dependents of a change in state",
+          "Defines the skeleton of an algorithm in the superclass but lets subclasses override specific steps of the algorithm"
+        ],
+        "answer": "Defines the skeleton of an algorithm in the superclass but lets subclasses override specific steps of the algorithm"
+      },
+      "q340": {
+        "question": "Explain the Command design pattern.",
+        "options": [
+          "Ensures a class has only one instance and provides a global point of access to it",
+          "Defines a family of algorithms, encapsulates each algorithm, and makes them interchangeable",
+          "Allows a subject to notify its dependents of a change in state",
+          "Encapsulates a request as an object, thereby allowing for parameterization of clients with different requests"
+        ],
+        "answer": "Encapsulates a request as an object, thereby allowing for parameterization of clients with different requests"
+      },
+      "q341": {
+        "question": "What is the Purpose of the Visitor Design Pattern?",
+        "options": [
+          "To define a family of algorithms, encapsulate each algorithm, and make them interchangeable",
+          "To allow a subject to notify its dependents of a change in state",
+          "To separate the construction of a complex object from its representation",
+          "To represent an operation to be performed on elements of an object structure"
+        ],
+        "answer": "To represent an operation to be performed on elements of an object structure"
+      },
+      "q342": {
+        "question": "Explain the State design pattern.",
+        "options": [
+          "Ensures a class has only one instance and provides a global point of access to it",
+          "Defines a family of algorithms, encapsulates each algorithm, and makes them interchangeable",
+          "Allows a subject to notify its dependents of a change in state",
+          "Allows an object to alter its behavior when its internal state changes"
+        ],
+        "answer": "Allows an object to alter its behavior when its internal state changes"
+      },
+      "q343": {
+        "question": "What is the Memento design pattern?",
+        "options": [
+          "Ensures a class has only one instance and provides a global point of access to it",
+          "Defines a family of algorithms, encapsulates each algorithm, and makes them interchangeable",
+          "Allows a subject to notify its dependents of a change in state",
+          "Captures and externalizes an object's internal state, allowing the object to be restored to this state later"
+        ],
+        "answer": "Captures and externalizes an object's internal state, allowing the object to be restored to this state later"
+      },
+      "q344": {
+        "question": "Explain the Prototype design pattern.",
+        "options": [
+          "Ensures a class has only one instance and provides a global point of access to it",
+          "Defines a family of algorithms, encapsulates each algorithm, and makes them interchangeable",
+          "Allows a subject to notify its dependents of a change in state",
+          "Creates new objects by copying an existing object, known as the prototype"
+        ],
+        "answer": "Creates new objects by copying an existing object, known as the prototype"
+      },
+      "q345": {
+        "question": "What is the Proxy design pattern?",
+        "options": [
+          "Ensures a class has only one instance and provides a global point of access to it",
+          "Defines a family of algorithms, encapsulates each algorithm, and makes them interchangeable",
+          "Allows a subject to notify its dependents of a change in state",
+          "Controls access to an object by acting as an intermediary"
+        ],
+        "answer": "Controls access to an object by acting as an intermediary"
+      },
+      "q346": {
+        "question": "Explain the Composite design pattern.",
+        "options": [
+          "Ensures a class has only one instance and provides a global point of access to it",
+          "Defines a family of algorithms, encapsulates each algorithm, and makes them interchangeable",
+          "Allows a subject to notify its dependents of a change in state",
+          "Composes objects into tree structures to represent part-whole hierarchies"
+        ],
+        "answer": "Composes objects into tree structures to represent part-whole hierarchies"
+      },
+      "q347": {
+        "question": "What is the Bridge design pattern?",
+        "options": [
+          "Ensures a class has only one instance and provides a global point of access to it",
+          "Defines a family of algorithms, encapsulates each algorithm, and makes them interchangeable",
+          "Allows a subject to notify its dependents of a change in state",
+          "Separates an object’s abstraction from its implementation so that the two can vary independently"
+        ],
+        "answer": "Separates an object’s abstraction from its implementation so that the two can vary independently"
+      },
+      "q348": {
+        "question": "Explain the Flyweight design pattern.",
+        "options": [
+          "Ensures a class has only one instance and provides a global point of access to it",
+          "Defines a family of algorithms, encapsulates each algorithm, and makes them interchangeable",
+          "Allows a subject to notify its dependents of a change in state",
+          "Minimizes memory usage or computational expenses by sharing as much as possible with related objects"
+        ],
+        "answer": "Minimizes memory usage or computational expenses by sharing as much as possible with related objects"
+      },
+      "q349": {
+        "question": "What is the Mediator design pattern?",
+        "options": [
+          "Ensures a class has only one instance and provides a global point of access to it",
+          "Defines a family of algorithms, encapsulates each algorithm, and makes them interchangeable",
+          "Allows a subject to notify its dependents of a change in state",
+          "Defines an object that centralizes communication between other objects"
+        ],
+        "answer": "Defines an object that centralizes communication between other objects"
+      },
+      "q350": {
+        "question": "Explain the Interpreter design pattern.",
+        "options": [
+          "Ensures a class has only one instance and provides a global point of access to it",
+          "Defines a family of algorithms, encapsulates each algorithm, and makes them interchangeable",
+          "Allows a subject to notify its dependents of a change in state",
+          "Defines a grammar for interpreting the sentences in a language and provides an interpreter for the language"
+        ],
+        "answer": "Defines a grammar for interpreting the sentences in a language and provides an interpreter for the language"
       }
+    }
     }
 }

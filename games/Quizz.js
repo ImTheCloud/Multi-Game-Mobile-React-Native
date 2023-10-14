@@ -170,10 +170,13 @@ const Quizz = () => {
                 'Game Over',
                 `You've lost all your lives! Your final score is ${score}`,
                 [
-                    {text: 'Restart', onPress: () => resetGame()},
+                    {text: 'Close', onPress: () =>backToQuizSelection()
+                    },
+
                 ],
                 {cancelable: false}
             );
+
         }
     };
 
