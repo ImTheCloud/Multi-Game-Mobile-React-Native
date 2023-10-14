@@ -26,7 +26,7 @@ export default function InfoScreen() {
       image: require('../assets/guessNumber.png'),
     },
     {
-      title: 'Hangman Game',
+      title: 'Hangman',
       image: require('../assets/hangman.png'),
       infos: 'Unleash your linguistic prowess in the classic Hangman Game! Attempt to guess the hidden word and earn +5 points for every correct guess. But beware, each incorrect guess results in a penalty of -3 points! Expand your vocabulary, test your word knowledge, and experience the tension as you carefully select each letter. Can you outsmart the gallows?',
     },

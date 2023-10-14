@@ -26,8 +26,6 @@ export default function HangmanGame() {
 
   const chooseRandomWord = () => {
     let randomIndex = Math.floor(Math.random() * words.length);
-    randomIndex = Math.floor(Math.random() * words.length);
-    randomIndex = Math.floor(Math.random() * words.length);
     return words[randomIndex];
   };
   const ALPHABET = 'AZERTYUIOPQSDFGHJKLMWXCVBN';
@@ -242,7 +240,7 @@ const styles = StyleSheet.create({
   // Ajoutez du style pour le bouton d'indice
   indiceButton: {
     position: 'absolute',
-    top: 30, // Adjust the top position as needed
+    top: 80, // Adjust the top position as needed
     right: 20, // Adjust the right position as needed
   },
 
@@ -286,7 +284,7 @@ const styles = StyleSheet.create({
     textShadowColor: '#000',
     textShadowOffset: { width: 2, height: 2 },
     textShadowRadius: 5,
-    marginTop: 70,
+    marginTop: 150,
   },
   container: {
     alignItems: 'center',

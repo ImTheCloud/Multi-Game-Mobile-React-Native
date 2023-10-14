@@ -34,7 +34,7 @@ const GameScreen = () => {
       isSingleplayer: true,
     },
     {
-      title: 'Hangman Game',
+      title: 'Hangman',
       screenName: 'HangmanGame',
       image: require('../assets/hangman.png'),
       isMultiplayer: false,
