@@ -24,7 +24,8 @@ const RegisterScreen = () => {
   const [error, setError] = useState('');
   const navigation = useNavigation();
 
-  const handleSignUp = () => {
+  const handleSignUp = async () => {
+    // Check if the username is provided
     if (!nom.trim()) {
       setError('Please provide a username.');
       return;
@@ -32,40 +33,56 @@ const RegisterScreen = () => {
 
     setLoading(true);
 
-    auth.createUserWithEmailAndPassword(email, password)
-        .then(async (userCredentials) => {
-          const user = userCredentials.user;
+    try {
+      // Check if the email already exists
+      const emailExists = await auth.fetchSignInMethodsForEmail(email);
+      if (emailExists.length > 0) {
+        setError('The email address is already in use.');
+        setLoading(false);
+        return;
+      }
 
-          // Add user data to Firestore
-          await firestore.collection('profiles').doc(user.uid).set({
-            nom,
-            highScore: 0,
-            HighLevelNumberGuess: 0,
-            HighScoreQuizz:0,
-            highScoreHangman:0,
-          });
+      // Check if the username already exists
+      const usernameExists = await firestore.collection('profiles').where('nom', '==', nom).get();
+      if (!usernameExists.empty) {
+        setError('The username is already taken. Please choose another one.');
+        setLoading(false);
+        return;
+      }
 
-          console.log('Registered with:', user.email);
-          setLoading(false);
-          navigation.navigate('Login', { screen: 'Home' });
-        })
-        .catch((error) => {
-          let errorMessage = 'An error occurred. Please try again.';
+      // Create a new user
+      const userCredentials = await auth.createUserWithEmailAndPassword(email, password);
+      const user = userCredentials.user;
 
-          switch (error.code) {
-            case 'auth/invalid-email':
-              errorMessage = 'The email address is not correctly formatted.';
-              break;
-            case 'auth/weak-password':
-              errorMessage = 'The password must contain at least 6 characters.';
-              break;
-            default:
-              errorMessage = error.message || errorMessage;
-          }
+      // Add user data to Firestore
+      await firestore.collection('profiles').doc(user.uid).set({
+        nom,
+        highScore: 0,
+        HighLevelNumberGuess: 0,
+        HighScoreQuizz: 0,
+        highScoreHangman: 0,
+      });
 
-          setError(errorMessage);
-          setLoading(false);
-        });
+      console.log('Registered with:', user.email);
+      setLoading(false);
+      navigation.navigate('Login', { screen: 'Home' });
+    } catch (error) {
+      let errorMessage = 'An error occurred. Please try again.';
+
+      switch (error.code) {
+        case 'auth/invalid-email':
+          errorMessage = 'The email address is not correctly formatted.';
+          break;
+        case 'auth/weak-password':
+          errorMessage = 'The password must contain at least 6 characters.';
+          break;
+        default:
+          errorMessage = error.message || errorMessage;
+      }
+
+      setError(errorMessage);
+      setLoading(false);
+    }
   };
 
 

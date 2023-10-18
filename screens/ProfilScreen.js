@@ -59,27 +59,35 @@ export default function ProfileScreen() {
     const userRef = firestore.collection('profiles').doc(userId);
 
     try {
-      if (!userProfile) {
-        const updatedDoc = await userRef.get();
-        if (updatedDoc.exists) {
-          setUserProfile(updatedDoc.data());
-        } else {
+      // Check if the new name is different from the old one
+      if (newName && newName !== userProfile.nom) {
+        // Check if the new name already exists for another user
+        const existingUser = await firestore.collection('profiles').where('nom', '==', newName).get();
+
+        if (!existingUser.empty) {
+          // The name already exists for another user
+          alert('The name already exists for another user. Please choose another name.');
           return;
         }
+
+        // Update the current user's name
+        await userRef.update({
+          nom: newName,
+        });
+
+        setUserProfile((prevState) => ({
+          ...prevState,
+          nom: newName,
+        }));
+      } else {
+        // The new name is the same as the old one or empty, no update necessary
+        alert('The new name is the same as the old one or empty. No update necessary.');
       }
-
-      await userRef.update({
-        nom: newName || userProfile.nom,
-      });
-
-      setUserProfile((prevState) => ({
-        ...prevState,
-        nom: newName || userProfile.nom,
-      }));
     } catch (error) {
       alert(`Error updating profile: ${error.message}`);
     }
   };
+
 
   const pickImage = async () => {
     try {
