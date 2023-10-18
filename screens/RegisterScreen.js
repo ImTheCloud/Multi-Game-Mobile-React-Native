@@ -58,7 +58,7 @@ const RegisterScreen = () => {
       await firestore.collection('profiles').doc(user.uid).set({
         nom,
         highScore: 0,
-        HighLevelNumberGuess: 0,
+        // HighLevelNumberGuess: 0,
         HighScoreQuizz: 0,
         highScoreHangman: 0,
       });

@@ -1,64 +1,48 @@
 import React, { useState } from 'react';
-import { View, TextInput, StyleSheet, ImageBackground,   TouchableOpacity,Text } from 'react-native';
+import { View, TextInput, StyleSheet, ImageBackground, TouchableOpacity, Text } from 'react-native';
 import GameList from '../components/GameList';
 import { useNavigation } from '@react-navigation/core';
 import { Feather } from '@expo/vector-icons';
 import cielBackground from "../assets/blueBack.jpg";
-import { Picker } from '@react-native-picker/picker';
 
 const GameScreen = () => {
   const navigation = useNavigation();
   const [searchTerm, setSearchTerm] = useState('');
-  const [gameFilter, setGameFilter] = useState('all');
-
   const games = [
     {
       title: 'Flappy Bird',
       screenName: 'FlappyBird',
       image: require('../assets/flappybird.png'),
-      isMultiplayer: false,
-      isSingleplayer: true,
     },
     {
       title: 'Quizz',
       screenName: 'Quizz',
       image: require('../assets/quizz.png'),
-      isMultiplayer: false,
-      isSingleplayer: true,
     },
-    {
-      title: 'Number Guess',
-      screenName: 'NumberGuess',
-      image: require('../assets/guessNumber.png'),
-      isMultiplayer: false,
-      isSingleplayer: true,
-    },
+    // {
+    //   title: 'Number Guess',
+    //   screenName: 'NumberGuess',
+    //   image: require('../assets/guessNumber.png'),
+    // },
     {
       title: 'Hangman',
       screenName: 'HangmanGame',
       image: require('../assets/hangman.png'),
-      isMultiplayer: false,
-      isSingleplayer: true,
     },
     {
       title: 'Tic Tac Toe',
       screenName: 'TicTacToe',
       image: require('../assets/tic-tac-toe.png'),
-      isMultiplayer: true,
-      isSingleplayer: false,
     },
-    {
-      title: 'Connect Four',
-      screenName: 'ConnectFour',
-      image: require('../assets/connectFour.png'),
-      isMultiplayer: true,
-      isSingleplayer: false,
-    },
+    // {
+    //   title: 'Connect Four',
+    //   screenName: 'ConnectFour',
+    //   image: require('../assets/connectFour.png'),
+    // },
   ];
 
   const filteredGames = games.filter((game) =>
-      game.title.toLowerCase().includes(searchTerm.toLowerCase()) &&
-      (gameFilter === 'all' || (gameFilter === 'multiplayer' && game.isMultiplayer) || (gameFilter === 'singleplayer' && game.isSingleplayer))
+      game.title.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
   const clearSearch = () => {
@@ -82,17 +66,7 @@ const GameScreen = () => {
                 </TouchableOpacity>
             )}
           </View>
-          <View style={styles.filterSection}>
-            <Picker
-                style={styles.picker}
-                selectedValue={gameFilter}
-                onValueChange={(itemValue) => setGameFilter(itemValue)}
-            >
-              <Picker.Item label="All" value="all" />
-              <Picker.Item label="Multiplayer" value="multiplayer" />
-              <Picker.Item label="Single Player" value="singleplayer" />
-            </Picker>
-          </View>
+
           <GameList
               games={filteredGames}
               onSelectGame={(game) => {

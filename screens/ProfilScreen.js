@@ -25,8 +25,8 @@ export default function ProfileScreen() {
           await userRef.set({
             nom: '',
             highScore: 0,
-            pointsHangman: 0,
-            HighLevelNumberGuess:0,
+            highScoreHangman: 0,
+            //HighLevelNumberGuess:0,
           });
 
           const updatedDoc = await userRef.get();
@@ -79,6 +79,7 @@ export default function ProfileScreen() {
           ...prevState,
           nom: newName,
         }));
+
       } else {
         // The new name is the same as the old one or empty, no update necessary
         alert('The new name is the same as the old one or empty. No update necessary.');
@@ -211,12 +212,12 @@ export default function ProfileScreen() {
                     <Icon name="envelope" size={27} color="#000" />
                     <Text style={styles.label}>Email: {auth.currentUser.email}</Text>
                   </View>
-                  <View style={styles.divider}></View>
+                  {/*<View style={styles.divider}></View>*/}
 
-                  <View style={styles.infoRow}>
-                    <Ionicons name="podium" size={24} color="black" />
-                    <Text style={styles.label}> High Level Number Guess: {userProfile?.HighLevelNumberGuess || 0}</Text>
-                  </View>
+                  {/*<View style={styles.infoRow}>*/}
+                  {/*  <Ionicons name="podium" size={24} color="black" />*/}
+                  {/*  <Text style={styles.label}> High Level Number Guess: {userProfile?.HighLevelNumberGuess || 0}</Text>*/}
+                  {/*</View>*/}
 
                   <View style={styles.divider}></View>
                   <View style={styles.infoRow}>

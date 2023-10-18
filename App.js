@@ -25,11 +25,11 @@ const GameStack = createStackNavigator();
 const GameStackScreen = () => (
   <GameStack.Navigator screenOptions={{ headerShown: false  }}>
     <GameStack.Screen name="GameScreen" component={GameScreen}/>
-    <GameStack.Screen name="NumberGuess" component={NumberGuess}/>
+    {/*<GameStack.Screen name="NumberGuess" component={NumberGuess}/>*/}
       <GameStack.Screen name="FlappyBird" component={FlappyBird}/>
       <GameStack.Screen name="TicTacToe" component={TicTacToe}/>
     <GameStack.Screen name="HangmanGame" component={HangmanGame}/>
-    <GameStack.Screen name="ConnectFour" component={ConnectFour}/>
+    {/*<GameStack.Screen name="ConnectFour" component={ConnectFour}/>*/}
     <GameStack.Screen name="Quizz" component={Quizz}/>
 
   </GameStack.Navigator>

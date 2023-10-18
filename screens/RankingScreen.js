@@ -12,7 +12,7 @@ import { Picker } from '@react-native-picker/picker';
 
 export default function RankingScreen() {
   const [users, setUsers] = useState([]);
-  const [selectedGame, setSelectedGame] = useState('HighLevelNumberGuess');
+  const [selectedGame, setSelectedGame] = useState('HighScoreQuizz');
 
   const fetchUsers = async () => {
     try {
@@ -40,14 +40,14 @@ export default function RankingScreen() {
 
   const sortUsersByGame = (game) => {
     return users
-        .filter(user => game === 'HighLevelNumberGuess' || user[game] !== undefined)
+        .filter(user => game === 'HighScoreQuizz' || user[game] !== undefined)
         .sort((a, b) => (b[game] || 0) - (a[game] || 0));
   };
 
   const renderItem = ({ item, index }) => (
       <View style={styles.userContainer}>
         <Text style={styles.userName} numberOfLines={1}>
-          {`${index + 1}. ${item.nom || 'Non défini'} ${selectedGame === 'HighLevelNumberGuess' ? '' : ''} ${item[selectedGame] || 0}`}
+          {`${index + 1}. ${item.nom || 'Non défini'} ${selectedGame === 'HighScoreQuizz' ? '' : ''} ${item[selectedGame] || 0}`}
         </Text>
       </View>
   );
@@ -62,10 +62,10 @@ export default function RankingScreen() {
                 onValueChange={(itemValue) => setSelectedGame(itemValue)}
                 style={styles.picker}
             >
-              <Picker.Item label=" High Level Number Guess" value="HighLevelNumberGuess" />
-              <Picker.Item label="High Score Flappy Bird" value="highScore" />
-              <Picker.Item label="High Score Hangman" value="highScoreHangman" />
               <Picker.Item label="High Score Quizz" value="HighScoreQuizz" />
+              <Picker.Item label="High Score Hangman" value="highScoreHangman" />
+              <Picker.Item label="High Score Flappy Bird" value="highScore" />
+              {/*<Picker.Item label=" High Level Number Guess" value="HighLevelNumberGuess" />*/}
             </Picker>
           </View>
 
