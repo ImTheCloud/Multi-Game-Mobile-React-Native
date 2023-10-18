@@ -114,7 +114,7 @@ export default function NumberGuess() {
 
     return (
         <ImageBackground
-            source={require('../assets/background.jpg')}
+            source={require('../assets/Questions.jpg')}
             style={styles.background}
         >
         <View style={styles.container}>

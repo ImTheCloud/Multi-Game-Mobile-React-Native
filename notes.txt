@@ -1,7 +1,6 @@
 fleche pour quitter un jeux
 temps negatif
 user deja existant  OK
-Image register
 flappy bird + vite en fonction de niveau
 Ranking avec le premier couleur Or, le deuxième argent et le troisième bronze
 DESIGN DIFFERENT  DANS CHAQUE JEUX

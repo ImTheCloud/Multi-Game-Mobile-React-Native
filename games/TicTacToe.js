@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, Image,Alert  } from 'react-native';
+import {View, Text, TouchableOpacity, StyleSheet, Image, Alert, ImageBackground} from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
 export default function TicTacToe() {
@@ -84,6 +84,10 @@ export default function TicTacToe() {
   );
 
   return (
+      <ImageBackground
+      source={require('../assets/ticBack.jpg')}
+      style={styles.background}>
+
       <View style={styles.container}>
         <Text style={styles.title}>Tic-Tac-Toe</Text>
         <View style={styles.board}>
@@ -103,10 +107,17 @@ export default function TicTacToe() {
           </TouchableOpacity>
         </View>
       </View>
+      </ImageBackground>
+
   );
 }
 
 const styles = StyleSheet.create({
+  background: {
+    flex: 1,
+    resizeMode: 'cover',
+    justifyContent: 'center',
+  },
   container: {
     flex: 1,
     justifyContent: 'center',
@@ -136,17 +147,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     borderWidth: 1,
-    borderColor: '#000',
-  },
-  blueSquareText: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    color: 'blue',
-  },
-  redSquareText: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    color: 'red',
+    borderColor: '#ffffff',
   },
   buttonContainer: {
     flexDirection: 'row',

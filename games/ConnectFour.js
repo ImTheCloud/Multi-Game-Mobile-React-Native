@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import {View, Text, TouchableOpacity, StyleSheet, Alert} from 'react-native';
+import {View, Text, TouchableOpacity, StyleSheet, Alert, ImageBackground} from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
 const ROWS = 6;
@@ -138,6 +138,10 @@ export default function ConnectFour({ navigation }) {
     );
 
     return (
+        <ImageBackground
+            source={require('../assets/c4Back.png')}
+            style={styles.background}
+        >
         <View style={styles.container}>
             <Text style={styles.title}>Connect Four</Text>
             {renderBoard()}
@@ -145,10 +149,17 @@ export default function ConnectFour({ navigation }) {
                 {renderRestartButton()}
             </View>
         </View>
+        </ImageBackground>
+
     );
 }
 
 const styles = StyleSheet.create({
+    background: {
+        flex: 1,
+        resizeMode: 'cover',
+        justifyContent: 'center',
+    },
     container: {
         flex: 1,
         justifyContent: 'center',

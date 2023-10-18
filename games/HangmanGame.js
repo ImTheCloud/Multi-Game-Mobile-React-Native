@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity,Image, Alert } from 'react-native';
+import {View, Text, StyleSheet, TouchableOpacity, Image, Alert, ImageBackground} from 'react-native';
 import { auth, firestore } from '../firebase';
 import { MaterialCommunityIcons } from '@expo/vector-icons'; // Importez l'icône Expo
 
@@ -182,7 +182,7 @@ export default function HangmanGame() {
 
   // Add a style prop to change the background color based on whether the letter is clicked
   const getAlphabetButtonStyle = (letter) => ({
-    backgroundColor: clickedLetters.includes(letter) ? 'gray' : '#16247d',
+    backgroundColor: clickedLetters.includes(letter) ? 'gray' : '#181818',
     padding: 10,
     margin: 5,
     width: 33,
@@ -191,6 +191,10 @@ export default function HangmanGame() {
   });
 
   return (
+      <ImageBackground
+          source={require('../assets/hangmanBack.jpg')}
+          style={styles.background}
+      >
       <View style={styles.container}>
         <TouchableOpacity style={styles.indiceButton} onPress={handleIndiceButtonClick}>
           <MaterialCommunityIcons name="lightbulb-on" size={32} color="#EFC88B" />
@@ -204,7 +208,8 @@ export default function HangmanGame() {
                     key={index}
                     style={{
                       textDecorationLine: 'line-through',
-                      color: 'black',
+                      color: 'white',
+                      fontWeight:'bold'
                     }}
                 >
                   {letter}
@@ -230,9 +235,16 @@ export default function HangmanGame() {
         </View>
 
       </View>
-  );
+</ImageBackground>
+
+);
 }
 const styles = StyleSheet.create({
+  background: {
+    flex: 1,
+    resizeMode: 'cover',
+    justifyContent: 'center',
+  },
   hangmanContainer: {
     flexDirection: 'column',
     alignItems: 'center',
@@ -240,7 +252,7 @@ const styles = StyleSheet.create({
   // Ajoutez du style pour le bouton d'indice
   indiceButton: {
     position: 'absolute',
-    top: 80, // Adjust the top position as needed
+    top: 0, // Adjust the top position as needed
     right: 20, // Adjust the right position as needed
   },
 
@@ -250,17 +262,20 @@ const styles = StyleSheet.create({
     height: 50,
   },
   alphabetContainer: {
+    color: 'white',
+
     flexDirection: 'row',
     flexWrap: 'wrap',
   },
   alphabetButton: {
-    backgroundColor: '#16247d',
+    backgroundColor: '#ffffff',
     padding: 10,
     margin: 5,
     width: 33,
     alignItems: 'center',
     borderRadius: 5,
   },
+
 
   alphabetButtonText: {
     color: 'white',
@@ -284,15 +299,16 @@ const styles = StyleSheet.create({
     textShadowColor: '#000',
     textShadowOffset: { width: 2, height: 2 },
     textShadowRadius: 5,
-    marginTop: 150,
+    marginTop: 0,
   },
   container: {
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#f5f5f5',
 
   },
   displayWord: {
+    color: 'white',
+
     fontSize: 40,
     marginBottom: 20,
   },
@@ -301,6 +317,7 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   incorrectLetters: {
+    color: '#fff',
     fontSize: 24,
     marginBottom: 20,
   },
