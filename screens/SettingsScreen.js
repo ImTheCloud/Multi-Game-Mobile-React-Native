@@ -63,7 +63,6 @@ export default function SettingsScreen() {
     return (
         <ImageBackground source={require('../assets/blueBack.jpg')} style={styles.backgroundImage}>
             <View style={styles.container}>
-                <Text style={styles.title}>Settings</Text>
 
                 <TouchableOpacity style={styles.option} onPress={toggleSound}>
                     <Text style={styles.optionText}>{isPlaying ? 'Stop Music' : 'Play Music'}</Text>
@@ -112,6 +111,8 @@ const styles = StyleSheet.create({
         resizeMode: 'cover', // ou 'stretch' pour étirer l'image pour remplir tout l'écran
     },
     container: {
+        marginTop: 50,
+
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',

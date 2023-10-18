@@ -32,7 +32,7 @@ const Physics = (entities, { touches, time, dispatch }) => {
         Matter.Body.translate(entities[`ObstacleBottom${index}`].body, { x: speed, y: 0 });
 
         // Log the speed for debugging
-        console.log(`Obstacle ${index} Speed: ${speed}`);
+       // console.log(`Obstacle ${index} Speed: ${speed}`);
 
   }
   Matter.Events.on(engine, 'collisionStart', (event) => {

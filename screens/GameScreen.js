@@ -68,7 +68,6 @@ const GameScreen = () => {
   return (
       <ImageBackground source={cielBackground} style={styles.backgroundImage}>
         <View style={styles.container}>
-          <Text style={styles.title}>Games</Text>
           <View style={styles.searchInputContainer}>
             <Feather name="search" size={20} color="#16247d" style={styles.searchIcon} />
             <TextInput
@@ -123,6 +122,8 @@ const styles = StyleSheet.create({
     backgroundColor: 'red'
   },
   container: {
+    marginTop: 50,
+
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',

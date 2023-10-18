@@ -17,13 +17,26 @@ export default function RankingScreen() {
   const fetchUsers = async () => {
     try {
       const usersCollection = await firestore.collection('profiles');
-      const snapshot = await usersCollection.get();
-      const usersData = snapshot.docs.map((doc) => doc.data());
-      setUsers(usersData);
+
+      // Utilisation de onSnapshot pour surveiller les changements en temps réel
+      const unsubscribe = usersCollection.onSnapshot(snapshot => {
+        const usersData = snapshot.docs.map(doc => doc.data());
+        setUsers(usersData);
+      });
+
+      // Le retour de la fonction unsubscribe est une fonction pour annuler l'abonnement
+      return () => unsubscribe();
     } catch (error) {
       console.error('Error fetching users:', error.message);
     }
   };
+
+  useEffect(() => {
+    const unsubscribe = fetchUsers();
+
+    // Nettoyez l'abonnement lorsque le composant est démonté
+    return () => unsubscribe();
+  }, []);
 
   const sortUsersByGame = (game) => {
     return users
@@ -31,23 +44,17 @@ export default function RankingScreen() {
         .sort((a, b) => (b[game] || 0) - (a[game] || 0));
   };
 
-  useEffect(() => {
-    fetchUsers();
-  }, []);
-
   const renderItem = ({ item, index }) => (
-        <View style={styles.userContainer}>
-          <Text style={styles.userName} numberOfLines={1}>
-            {`${index + 1}. ${item.nom || 'Non défini'} ${selectedGame === 'HighLevelNumberGuess' ? '' : ''} ${item[selectedGame] || 0}`}
-          </Text>
-        </View>
+      <View style={styles.userContainer}>
+        <Text style={styles.userName} numberOfLines={1}>
+          {`${index + 1}. ${item.nom || 'Non défini'} ${selectedGame === 'HighLevelNumberGuess' ? '' : ''} ${item[selectedGame] || 0}`}
+        </Text>
+      </View>
   );
 
   return (
       <ImageBackground source={cielBackground} style={styles.backgroundImage}>
         <View style={styles.container}>
-          <Text style={styles.title}>Ranking</Text>
-
           {/* Picker pour sélectionner le jeu */}
           <View style={styles.pickerContainer}>
             <Picker
@@ -67,13 +74,18 @@ export default function RankingScreen() {
               data={sortUsersByGame(selectedGame)}
               keyExtractor={(item, index) => `${item.nom}-${index}`}
               renderItem={renderItem}
-              ListHeaderComponent={() => null}  // You can replace null with your custom header component
-              ListFooterComponent={() => null}  // You can replace null with your custom footer component
+              ListHeaderComponent={() => null}
+              ListFooterComponent={() => null}
           />
+          <Text style={styles.space}></Text>
+
         </View>
       </ImageBackground>
   );
 }
+
+
+
 
 const styles = StyleSheet.create({
   scrollView: {
@@ -133,6 +145,8 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   container: {
+    marginTop: 50,
+
     flex: 1,
     justifyContent: 'flex-start',
     padding: 20,
@@ -169,4 +183,211 @@ const styles = StyleSheet.create({
     fontSize: 18,
     color: '#000',
   },
+  space: {
+    marginBottom:40,
+  }
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

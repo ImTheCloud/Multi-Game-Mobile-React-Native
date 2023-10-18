@@ -53,9 +53,7 @@ export default function InfoScreen() {
   return (
       <ImageBackground source={cielBackground} style={styles.backgroundImage}>
         <View style={styles.container}>
-          <View style={styles.titleContainer}>
-            <Text style={styles.titleText}>Infos</Text>
-          </View>
+
 
           {/* Barre de recherche avec icône de loupe */}
           <View style={styles.searchInputContainer}>
@@ -117,9 +115,10 @@ const styles = StyleSheet.create({
     textShadowColor: '#000000',
     textShadowOffset: { width: 2, height: 2 },
     textShadowRadius: 5,
-    marginTop: 40,
+    marginTop: 50,
   },
   container: {
+    marginTop: 40,
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',

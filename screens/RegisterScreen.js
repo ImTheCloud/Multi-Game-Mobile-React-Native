@@ -13,7 +13,6 @@ import {
 import { useNavigation } from '@react-navigation/core';
 import Icon from 'react-native-vector-icons/FontAwesome'; // or any other icon library
 import { auth, firestore } from '../firebase';
-
 import cielBackground from '../assets/blueBack.jpg'; // Assuming you have a similar background image
 
 const RegisterScreen = () => {
