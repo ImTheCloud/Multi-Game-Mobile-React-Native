@@ -1,7 +1,9 @@
 fleche pour quitter un jeux
-temps negatif
+temps negatif ok
 user deja existant  OK
-flappy bird + vite en fonction de niveau
-Ranking avec le premier couleur Or, le deuxième argent et le troisième bronze
-DESIGN DIFFERENT  DANS CHAQUE JEUX
-PICKER IOS
+prblm java quizz ok
+flappy bird + vite en fonction de niveau ok
+Ranking avec le premier couleur Or, le deuxième argent et le troisième bronze ok
+DESIGN DIFFERENT  DANS CHAQUE JEUX ok
+PICKER IOS ok
+flappy jusque 30 prof ok

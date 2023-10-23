@@ -9,6 +9,7 @@ import {
 import { firestore } from '../firebase';
 import cielBackground from "../assets/blueBack.jpg";
 import { Picker } from '@react-native-picker/picker';
+import Icon from 'react-native-vector-icons/FontAwesome'; // Vous pouvez utiliser une autre bibliothèque d'icônes si vous le souhaitez
 
 export default function RankingScreen() {
   const [users, setUsers] = useState([]);
@@ -44,13 +45,35 @@ export default function RankingScreen() {
         .sort((a, b) => (b[game] || 0) - (a[game] || 0));
   };
 
-  const renderItem = ({ item, index }) => (
-      <View style={styles.userContainer}>
-        <Text style={styles.userName} numberOfLines={1}>
-          {`${index + 1}. ${item.nom || 'Non défini'} ${selectedGame === 'HighScoreQuizz' ? '' : ''} ${item[selectedGame] || 0}`}
-        </Text>
-      </View>
-  );
+  const renderItem = ({ item, index }) => {
+    let icon = null;
+    let textColor = 'black';
+
+    if (index === 0) {
+      icon = <Icon name="trophy" size={20} color="gold" />; // 1er place
+      textColor = 'gold';
+    } else if (index === 1) {
+      icon = <Icon name="trophy" size={20} color="silver" />; // 2e place
+      textColor = 'silver';
+    } else if (index === 2) {
+      icon = <Icon name="trophy" size={20} color="peru" />; // 3e place (couleur "peru" pour bronze)
+      textColor = 'peru';
+    }else{
+      icon = <Icon name="trophy" size={20} color="black" />; // 3e place (couleur "peru" pour bronze)
+      textColor = 'black';
+    }
+
+    return (
+        <View style={[styles.userContainer, { backgroundColor: 'white' }]}>
+          {icon}
+          <Text style={[styles.userName, { color: textColor }]} numberOfLines={1}>
+            {`${item.nom || 'Non défini'} ${selectedGame === 'HighScoreQuizz' ? '' : ''} ${item[selectedGame] || 0}`}
+          </Text>
+        </View>
+    );
+  };
+
+
 
   return (
       <ImageBackground source={cielBackground} style={styles.backgroundImage}>
@@ -187,207 +210,3 @@ const styles = StyleSheet.create({
     marginBottom:40,
   }
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

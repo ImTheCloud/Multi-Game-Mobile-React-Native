@@ -48,7 +48,7 @@ function FlappyBird() {
     }
   };
 
-  const backgroundColor = mix(1 - currentPoints / 50, '#a5dfec', '#16247d');
+  const backgroundColor = mix(1 - currentPoints / 30, '#a5dfec', '#16247d');
 
   return (
       <View style={{ flex: 1, backgroundColor: backgroundColor }}>

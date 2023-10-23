@@ -56,9 +56,6 @@ const Quizz = () => {
                     <TouchableOpacity style={styles.quizButton} onPress={() => startQuiz('quizzComputer')}>
                         <Text style={styles.quizButtonText}>Computer</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity style={styles.quizButton} onPress={() => startQuiz('quizzJava')}>
-                        <Text style={styles.quizButtonText}>Java</Text>
-                    </TouchableOpacity>
                     <TouchableOpacity style={styles.quizButton} onPress={() => startQuiz('quizzReact')}>
                         <Text style={styles.quizButtonText}>React</Text>
                     </TouchableOpacity>
@@ -78,9 +75,7 @@ const Quizz = () => {
             case 'quizzComputer':
                 quizData = require('../quizzComputer.json');
                 break;
-            case 'quizzJava':
-                quizData = require('../quizzJava.json');
-                break;
+
             case 'quizzReact':
                 quizData = require('../quizzReact.json');
                 break;
