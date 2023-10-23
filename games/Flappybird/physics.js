@@ -12,11 +12,14 @@ const Physics = (entities, { touches, time, dispatch, currentPoints, prevPoints 
 
     if (currentPoints >= 3) {
         if (currentPoints >= 6) {
-            // Increase speed when currentPoints is 6 or more
-            speed -= 2; // Decrease speed by 2
+            speed -= 1;
+            birdYVelocity = -4;
+        }if (currentPoints >= 9) {
+            speed -= 1.5;
+            birdYVelocity = -4;
         } else {
-            // Increase speed when currentPoints is 3, 4, or 5
-            speed -= 1; // Decrease speed by 1
+            speed -= 0.5;
+            birdYVelocity = -4;
         }
     }
 
