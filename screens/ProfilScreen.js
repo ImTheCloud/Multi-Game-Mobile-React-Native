@@ -165,8 +165,11 @@ export default function ProfileScreen() {
     }
   };
   const handleSignOut = async () => {
-    await auth.signOut();
-  };
+    try {
+      await auth.signOut();
+    } catch (error) {
+      console.error('Erreur lors de la déconnexion :', error);
+    }  };
 
   return (
       <ImageBackground source={cielBackground} style={styles.backgroundImage}>
