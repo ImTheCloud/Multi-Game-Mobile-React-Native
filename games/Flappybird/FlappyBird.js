@@ -37,18 +37,12 @@ function FlappyBird() {
     fetchHighScore();
   }, []);
 
-  // Function to update high score in Firebase Firestore
-  const updateHighScore = async (newHighScore) => {
-    try {
-      await userRef.update({
-        highScore: newHighScore,
-      });
-    } catch (error) {
-      console.error('Error updating high score:', error);
-    }
+  const backgroundColor = mix(1 - currentPoints / 30, '#a5dfec', '#202c80');
+
+  const physicsSystem = (entities, { touches, time, dispatch }) => {
+    return Physics(entities, { touches, time, dispatch, currentPoints });
   };
 
-  const backgroundColor = mix(1 - currentPoints / 30, '#a5dfec', '#16247d');
 
   return (
       <View style={{ flex: 1, backgroundColor: backgroundColor }}>
@@ -62,7 +56,7 @@ function FlappyBird() {
             ref={(ref) => {
               setGameEngine(ref);
             }}
-            systems={[Physics]}
+            systems={[physicsSystem]}
             entities={entities(birdImage, currentPoints)}
             running={running}
             onEvent={(e) => {
