@@ -1,36 +1,37 @@
 import React from 'react';
-import { ScrollView, TouchableOpacity, StyleSheet, Image, Text, View } from 'react-native';
+import { ScrollView, TouchableOpacity, StyleSheet, Image, Text, View, Dimensions } from 'react-native';
 
 export default function GameList({ games, onSelectGame }) {
+  const windowWidth = Dimensions.get('window').width;
+
   return (
-    <ScrollView
-      contentContainerStyle={styles.gameListContainer}
-    >
-      {games.map((game, index) => (
-        <TouchableOpacity
-          key={index}
-          style={styles.gameItem}
-          onPress={() => onSelectGame(game)}
-        >
-          <Image source={game.image} style={styles.gameImage} />
-          <Text style={styles.gameTitle}>{game.title}</Text>
-        </TouchableOpacity>
-      ))}
-    </ScrollView>
+      <ScrollView
+          contentContainerStyle={styles.gameListContainer}
+      >
+        {games.map((game, index) => (
+            <TouchableOpacity
+                key={index}
+                style={[styles.gameItem, { width: windowWidth * 0.45 }]}
+                onPress={() => onSelectGame(game)}
+            >
+              <Image source={game.image} style={styles.gameImage} />
+              <Text style={styles.gameTitle}>{game.title}</Text>
+            </TouchableOpacity>
+        ))}
+      </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
   gameListContainer: {
-    flexDirection: 'row', // Afficher les éléments en ligne
-    flexWrap: 'wrap', // Permettre le retour à la ligne
-    justifyContent: 'space-between', // Espace égal entre les éléments
-    alignItems: 'flex-start', // Aligner les éléments en haut
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'space-between',
+    alignItems: 'flex-start',
     paddingHorizontal: 16,
-    paddingBottom: 100, // Ajouter un espacement en bas
+    paddingBottom: 100,
   },
   gameItem: {
-    width: '48%',
     height: 170,
     marginVertical: 8,
     justifyContent: 'center',
